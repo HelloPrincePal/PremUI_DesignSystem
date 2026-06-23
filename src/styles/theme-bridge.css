@@ -1,0 +1,47 @@
+[data-theme-color="purple"] {
+  --primary-darkest: var(--primary-purple-darkest);
+  --primary-dark:    var(--primary-purple-dark);
+  --primary-base:    var(--primary-purple-base);
+  --primary-light:   var(--primary-purple-light);
+  --primary-lighter: var(--primary-purple-lighter);
+  --primary-alpha-24: var(--primary-purple-alpha-24);
+  --primary-alpha-16: var(--primary-purple-alpha-16);
+  --primary-alpha-10: var(--primary-purple-alpha-10);
+  --primary-shadow-8: var(--primary-purple-shadow-8);
+  --primary-shadow-6: var(--primary-purple-shadow-6);
+  --primary-shadow-4: var(--primary-purple-shadow-4);
+  --primary-shadow-2: var(--primary-purple-shadow-2);
+  --primary-shadow-0: var(--primary-purple-shadow-0);
+}
+
+[data-theme-color="orange"] {
+  --primary-darkest: var(--primary-orange-darkest);
+  --primary-dark:    var(--primary-orange-dark);
+  --primary-base:    var(--primary-orange-base);
+  --primary-light:   var(--primary-orange-light);
+  --primary-lighter: var(--primary-orange-lighter);
+  --primary-alpha-24: var(--primary-orange-alpha-24);
+  --primary-alpha-16: var(--primary-orange-alpha-16);
+  --primary-alpha-10: var(--primary-orange-alpha-10);
+  --primary-shadow-8: var(--primary-orange-shadow-8);
+  --primary-shadow-6: var(--primary-orange-shadow-6);
+  --primary-shadow-4: var(--primary-orange-shadow-4);
+  --primary-shadow-2: var(--primary-orange-shadow-2);
+  --primary-shadow-0: var(--primary-orange-shadow-0);
+}
+
+[data-theme-color="green"] {
+  --primary-darkest: var(--primary-green-darkest);
+  --primary-dark:    var(--primary-green-dark);
+  --primary-base:    var(--primary-green-base);
+  --primary-light:   var(--primary-green-light);
+  --primary-lighter: var(--primary-green-lighter);
+  --primary-alpha-24: var(--primary-green-alpha-24);
+  --primary-alpha-16: var(--primary-green-alpha-16);
+  --primary-alpha-10: var(--primary-green-alpha-10);
+  --primary-shadow-8: var(--primary-green-shadow-8);
+  --primary-shadow-6: var(--primary-green-shadow-6);
+  --primary-shadow-4: var(--primary-green-shadow-4);
+  --primary-shadow-2: var(--primary-green-shadow-2);
+  --primary-shadow-0: var(--primary-green-shadow-0);
+}

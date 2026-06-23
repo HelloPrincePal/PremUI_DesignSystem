@@ -1,0 +1,14 @@
+# PremUI Design System - AI Instructions
+
+This file serves as a strict directive for any AI agent, coding assistant, or language model operating within this codebase.
+
+### 🚫 STRICT ICON CONSTRAINT
+**DO NOT use Lucide Icons, HeroIcons, Feather, or any other default icon library.**
+The **EXCLUSIVE** icon library for this entire design system and any generated web components is **Remix Icon** (https://remixicon.com/).
+
+If you are tasked with creating a component (e.g., a Button with an icon, an alert banner, or a dashboard layout), you MUST import and utilize Remix Icon classes (e.g., `ri-arrow-right-line`). 
+
+### Rule Enforcement
+- The dependency `remixicon` is installed in package.json.
+- Assume font integration via CDN or npm imports in the CSS/HTML artifacts.
+- Never write `import { ChevronLeft } from 'lucide-react'`.

@@ -1,0 +1,86 @@
+{
+  "registryVersion": "1.0",
+  "components": [
+    {
+      "name": "Accordion",
+      "type": "ui:component",
+      "description": "High-fidelity accordion with smart indentation and expansion animations.",
+      "dependencies": [],
+      "files": [
+        "src/components/Accordion/Accordion.tsx",
+        "src/components/Accordion/accordion.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-subtle",
+        "--primary-base",
+        "--spacing-14",
+        "--spacing-20",
+        "--spacing-10"
+      ]
+    },
+    {
+      "name": "ActivityFeed",
+      "type": "ui:component",
+      "description": "Comprehensive activity feed component suite for tracking updates and comments.",
+      "dependencies": [
+        "Avatar",
+        "Button"
+      ],
+      "files": [
+        "src/components/ActivityFeed/ActivityFeed.tsx",
+        "src/components/ActivityFeed/ActivityFeedItem.tsx",
+        "src/components/ActivityFeed/ActivityFeedCommentItem.tsx",
+        "src/components/ActivityFeed/ActivityFeedFileItem.tsx",
+        "src/components/ActivityFeed/ActivityFeedTaskItem.tsx",
+        "src/components/ActivityFeed/ActivityFeedFilter.tsx"
+      ]
+    },
+    {
+      "name": "Alert",
+      "type": "ui:component",
+      "description": "Multi-status notification banners (Success, Error, Warning, Info).",
+      "dependencies": [],
+      "files": [
+        "src/components/Alert/Alert.tsx",
+        "src/components/Alert/alert.css"
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "ui:component",
+      "description": "Standard interactive button mapping to primary and semantic intent tokens.",
+      "dependencies": [],
+      "files": [
+        "src/components/Button/Button.tsx",
+        "src/components/Button/button.css"
+      ],
+      "cssVariablesUsed": [
+        "--primary-base",
+        "--color-bg-sub",
+        "--radius-6",
+        "--spacing-8",
+        "--spacing-16"
+      ]
+    },
+    {
+      "name": "LinkButton",
+      "type": "ui:component",
+      "description": "Button that renders as a semantic link with underline and icon support.",
+      "dependencies": [],
+      "files": [
+        "src/components/LinkButton/LinkButton.tsx",
+        "src/components/LinkButton/link-button.css"
+      ]
+    },
+    {
+      "name": "Avatar",
+      "type": "ui:component",
+      "description": "User profile images and status indicators.",
+      "dependencies": [],
+      "files": [
+        "src/components/Avatars/Avatar.tsx",
+        "src/components/Avatars/AvatarGroup.tsx"
+      ]
+    }
+  ]
+}

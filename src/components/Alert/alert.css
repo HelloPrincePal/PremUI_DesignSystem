@@ -1,0 +1,266 @@
+/* ============================================================
+   Alert / Notification / Toast
+   Figma: Alert & Notification & Toast [1.1]
+   Sizes: xs (32px) · sm (36px) · lg (stacked with description)
+   Styles: filled · light · lighter · stroke
+   Statuses: error · warning · success · information · feature
+   ============================================================ */
+
+/* ── Status color tokens (set per status, consumed by style rules) ── */
+
+.premui-alert[data-status="error"] {
+  --alert-base:    var(--color-state-error-base);
+  --alert-light:   var(--color-state-error-light);
+  --alert-lighter: var(--color-state-error-lighter);
+}
+.premui-alert[data-status="warning"] {
+  --alert-base:    var(--color-state-warning-base);
+  --alert-light:   var(--color-state-warning-light);
+  --alert-lighter: var(--color-state-warning-lighter);
+}
+.premui-alert[data-status="success"] {
+  --alert-base:    var(--color-state-success-base);
+  --alert-light:   var(--color-state-success-light);
+  --alert-lighter: var(--color-state-success-lighter);
+}
+.premui-alert[data-status="information"] {
+  --alert-base:    var(--color-state-information-base);
+  --alert-light:   var(--color-state-information-light);
+  --alert-lighter: var(--color-state-information-lighter);
+}
+.premui-alert[data-status="feature"] {
+  --alert-base:    var(--color-state-feature-base);
+  --alert-light:   var(--color-state-feature-light);
+  --alert-lighter: var(--color-state-feature-lighter);
+}
+
+/* ── Base layout ── */
+
+.premui-alert {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Sizes ── */
+
+.premui-alert-xs {
+  padding: var(--spacing-2, 8px);
+  gap: var(--spacing-2, 8px);
+  border-radius: var(--radius-8, 8px);
+}
+
+.premui-alert-sm {
+  padding: 8px 10px;
+  gap: var(--spacing-2, 8px);
+  border-radius: var(--radius-8, 8px);
+}
+
+.premui-alert-lg {
+  padding: 14px 14px 16px 14px;
+  gap: 12px;
+  border-radius: var(--radius-12, 12px);
+  align-items: flex-start;
+}
+
+/* ── Style: Filled ── */
+
+.premui-alert[data-style="filled"] {
+  background: var(--alert-base);
+  color: var(--color-static-white, #fff);
+}
+
+/* ── Style: Light ── */
+
+.premui-alert[data-style="light"] {
+  background: var(--alert-light);
+  color: var(--color-text-strong);
+}
+
+/* ── Style: Lighter ── */
+
+.premui-alert[data-style="lighter"] {
+  background: var(--alert-lighter);
+  color: var(--color-text-strong);
+}
+
+/* ── Style: Stroke ── */
+
+.premui-alert[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  outline: 1px solid var(--color-stroke-soft);
+  outline-offset: -1px;
+  box-shadow: var(--shadow-regular-medium);
+  color: var(--color-text-strong);
+}
+
+/* ── Icon ── */
+
+.premui-alert-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--alert-base);
+}
+
+/* In filled style, icon is white */
+.premui-alert[data-style="filled"] .premui-alert-icon {
+  color: var(--color-static-white, #fff);
+}
+
+/* xs: 16px icon */
+.premui-alert-xs .premui-alert-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+/* sm + lg: 20px icon */
+.premui-alert-sm .premui-alert-icon,
+.premui-alert-lg .premui-alert-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* ── Inline text (xs + sm) ── */
+
+.premui-alert-inline-text {
+  flex: 1 0 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.premui-alert-xs .premui-alert-inline-text {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.premui-alert-sm .premui-alert-inline-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.084px;
+}
+
+/* ── Content block (lg only) ── */
+
+.premui-alert-content {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.premui-alert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.premui-alert-title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+}
+
+.premui-alert-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.084px;
+}
+
+/* Filled: description inherits white */
+/* Light / Lighter: description is slightly dimmed */
+.premui-alert[data-style="light"] .premui-alert-description,
+.premui-alert[data-style="lighter"] .premui-alert-description {
+  opacity: 0.72;
+}
+
+/* Stroke: description uses sub color */
+.premui-alert[data-style="stroke"] .premui-alert-description {
+  color: var(--color-text-sub);
+  opacity: 1;
+}
+
+/* ── Actions (lg only) ── */
+
+.premui-alert-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Action links use <LinkButton style="modifiable"> — inherits Alert's text color */
+
+.premui-alert-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0.48;
+  width: 4px;
+  text-align: center;
+}
+
+/* ── Dismiss button ── */
+
+.premui-alert-dismiss {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  font-size: 20px;
+}
+
+/* xs: 16px dismiss */
+.premui-alert-xs .premui-alert-dismiss {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+/* sm + lg: 20px dismiss */
+.premui-alert-sm .premui-alert-dismiss,
+.premui-alert-lg .premui-alert-dismiss {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* Filled: dismiss is white at 72% */
+.premui-alert[data-style="filled"] .premui-alert-dismiss {
+  opacity: 0.72;
+  color: var(--color-static-white, #fff);
+}
+
+/* Light / Lighter / Stroke: dismiss is dark at 40% */
+.premui-alert[data-style="light"] .premui-alert-dismiss,
+.premui-alert[data-style="lighter"] .premui-alert-dismiss,
+.premui-alert[data-style="stroke"] .premui-alert-dismiss {
+  opacity: 0.40;
+  color: var(--color-text-strong);
+}
+
+.premui-alert-dismiss:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

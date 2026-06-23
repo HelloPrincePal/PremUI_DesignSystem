@@ -1,0 +1,19 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme-color="green"] {
+  --primary-green-darkest: #1a7544;
+  --primary-green-dark: #178c4e;
+  --primary-green-base: #1daf61;
+  --primary-green-light: #d6f5e8;
+  --primary-green-lighter: #e3f7ec;
+  --primary-green-alpha-24: rgba(31, 193, 107, 0.24);
+  --primary-green-alpha-16: rgba(31, 193, 107, 0.16);
+  --primary-green-alpha-10: rgba(31, 193, 107, 0.1);
+  --primary-green-shadow-8: rgba(11, 70, 39, 0.08);
+  --primary-green-shadow-6: rgba(11, 70, 39, 0.06);
+  --primary-green-shadow-4: rgba(11, 70, 39, 0.04);
+  --primary-green-shadow-2: rgba(11, 70, 39, 0.02);
+  --primary-green-shadow-0: rgba(11, 70, 39, 0);
+}

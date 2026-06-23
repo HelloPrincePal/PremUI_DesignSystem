@@ -1,0 +1,79 @@
+{
+  "name": "Alert",
+  "description": "Inline alert, notification, and toast component. Three sizes (xs/sm/lg), four styles (filled/light/lighter/stroke), five statuses (error/warning/success/information/feature).",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/gZdLT5n9Olq8jVVKVKiDhS/?node-id=169-2399",
+  "props": {
+    "status": {
+      "type": "string",
+      "options": ["error", "warning", "success", "information", "feature"],
+      "default": "information",
+      "description": "Semantic intent — drives background color and status icon"
+    },
+    "style": {
+      "type": "string",
+      "options": ["filled", "light", "lighter", "stroke"],
+      "default": "stroke",
+      "description": "Visual treatment of the alert surface"
+    },
+    "size": {
+      "type": "string",
+      "options": ["xs", "sm", "lg"],
+      "default": "lg",
+      "description": "xs = 32px inline, sm = 36px inline, lg = stacked with description and actions"
+    },
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Main message text (required)"
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "description": "Supporting description text — only rendered at size=lg"
+    },
+    "primaryAction": {
+      "type": "string",
+      "default": "",
+      "description": "Label for the primary action link"
+    },
+    "secondaryAction": {
+      "type": "string",
+      "default": "",
+      "description": "Label for the secondary action link — only rendered at size=lg alongside primaryAction"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the status icon on the left"
+    },
+    "showDismiss": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show the dismiss × button"
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-error-base", "--color-state-error-light", "--color-state-error-lighter",
+      "--color-state-warning-base", "--color-state-warning-light", "--color-state-warning-lighter",
+      "--color-state-success-base", "--color-state-success-light", "--color-state-success-lighter",
+      "--color-state-information-base", "--color-state-information-light", "--color-state-information-lighter",
+      "--color-state-feature-base", "--color-state-feature-light", "--color-state-feature-lighter",
+      "--color-static-white", "--color-text-strong", "--color-text-sub",
+      "--color-bg-white", "--color-stroke-soft"
+    ],
+    "spacing": ["--spacing-2"],
+    "radius": ["--radius-8", "--radius-12"],
+    "shadows": ["--shadow-regular-medium"],
+    "typography": ["Label/Small (14px/500/20px)", "Paragraph/Small (14px/400/20px)", "Paragraph/XSmall (12px/400/16px)"]
+  },
+  "accessibility": {
+    "role": "alert",
+    "keyboard": ["Tab to action links and dismiss button", "Enter/Space to activate buttons"],
+    "aria": ["role=alert on container", "aria-label='Dismiss alert' on dismiss button", "aria-hidden on decorative icons"]
+  },
+  "dependencies": []
+}

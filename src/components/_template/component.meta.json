@@ -1,0 +1,37 @@
+{
+  "name": "ComponentName",
+  "description": "Brief description of what this component does",
+  "category": "primitive | composed | pattern",
+  "status": "draft | review | stable | deprecated",
+  "version": "0.1.0",
+  "figmaSource": "",
+  "props": {
+    "variant": {
+      "type": "string",
+      "options": [],
+      "default": "",
+      "description": ""
+    },
+    "size": {
+      "type": "string",
+      "options": [],
+      "default": "",
+      "description": ""
+    }
+  },
+  "slots": [],
+  "tokens": {
+    "colors": [],
+    "spacing": [],
+    "radius": [],
+    "shadows": [],
+    "typography": []
+  },
+  "accessibility": {
+    "role": "",
+    "keyboard": [],
+    "aria": []
+  },
+  "dependencies": [],
+  "examples": []
+}

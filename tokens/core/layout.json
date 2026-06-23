@@ -1,0 +1,16 @@
+{
+  "layout": {
+    "sidebar": {
+      "expanded": { "$type": "dimension", "$value": "272px" },
+      "collapsed": { "$type": "dimension", "$value": "80px" }
+    },
+    "submenu": {
+      "width": { "$type": "dimension", "$value": "240px" }
+    },
+    "grid": {
+      "columns": { "$type": "number", "$value": 12 },
+      "gutter": { "$type": "dimension", "$value": "24px" },
+      "margin": { "$type": "dimension", "$value": "32px" }
+    }
+  }
+}

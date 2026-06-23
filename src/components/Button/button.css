@@ -1,0 +1,205 @@
+/* ============================================================
+   Button [1.1]
+   Figma: Buttons [1.1]
+   Types:  primary · neutral · error
+   Styles: filled · stroke · lighter · ghost
+   Sizes:  md (40px) · sm (36px) · xs (32px) · 2xs (28px) 
+   ============================================================ */
+
+.premui-btn {
+  --btn-bg: transparent;
+  --btn-border: none;
+  --btn-color: var(--color-text-strong);
+  --btn-focus: var(--shadow-component-button-important-focus);
+  --btn-bg-hover: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: var(--btn-border);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  outline: none;
+  transition: all var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+/* ── Focus Rings ── */
+
+.premui-btn[data-type="primary"] {
+  --btn-focus: var(--shadow-component-button-primary-focus);
+}
+
+.premui-btn[data-type="error"] {
+  --btn-focus: var(--shadow-component-button-error-focus);
+}
+
+/* ── Primary Styles ── */
+
+.premui-btn[data-type="primary"][data-style="filled"] {
+  --btn-bg: var(--primary-base);
+  --btn-color: var(--color-static-white);
+  --btn-bg-hover: var(--primary-dark);
+}
+
+.premui-btn[data-type="primary"][data-style="stroke"] {
+  --btn-border: 1.5px solid var(--primary-base);
+  --btn-color: var(--primary-base);
+  --btn-bg-hover: var(--primary-lighter);
+}
+
+.premui-btn[data-type="primary"][data-style="lighter"] {
+  --btn-bg: var(--primary-lighter);
+  --btn-color: var(--primary-base);
+  --btn-bg-hover: var(--primary-light);
+}
+
+.premui-btn[data-type="primary"][data-style="ghost"] {
+  --btn-color: var(--primary-base);
+  --btn-bg-hover: var(--primary-lighter);
+}
+
+/* ── Neutral Styles ── */
+
+.premui-btn[data-type="neutral"][data-style="filled"] {
+  --btn-bg: var(--color-bg-strong); /* light: #171717, dark: #ffffff */
+  --btn-color: var(--color-text-white); /* FIXED: Was static-white, which stayed white in dark mode. color-text-white swaps to #171717. */
+  --btn-bg-hover: var(--color-bg-surface);
+}
+
+.premui-btn[data-type="neutral"][data-style="stroke"] {
+  --btn-border: 1.5px solid var(--color-stroke-sub);
+  --btn-color: var(--color-text-strong);
+  --btn-bg-hover: var(--color-bg-weak);
+}
+
+.premui-btn[data-type="neutral"][data-style="lighter"] {
+  --btn-bg: var(--color-bg-weak);
+  --btn-color: var(--color-text-strong);
+  --btn-bg-hover: var(--color-bg-soft);
+}
+
+.premui-btn[data-type="neutral"][data-style="ghost"] {
+  --btn-color: var(--color-text-strong);
+  --btn-bg-hover: var(--color-bg-weak);
+}
+
+/* ── Error Styles ── */
+
+.premui-btn[data-type="error"][data-style="filled"] {
+  --btn-bg: var(--color-state-error-base);
+  --btn-color: var(--color-static-white);
+  --btn-bg-hover: var(--color-state-error-dark);
+}
+
+.premui-btn[data-type="error"][data-style="stroke"] {
+  --btn-border: 1.5px solid var(--color-state-error-base);
+  --btn-color: var(--color-state-error-base);
+  --btn-bg-hover: var(--color-state-error-lighter);
+}
+
+.premui-btn[data-type="error"][data-style="lighter"] {
+  --btn-bg: var(--color-state-error-lighter);
+  --btn-color: var(--color-state-error-base);
+  --btn-bg-hover: var(--color-state-error-light);
+}
+
+.premui-btn[data-type="error"][data-style="ghost"] {
+  --btn-color: var(--color-state-error-base);
+  --btn-bg-hover: var(--color-state-error-lighter);
+}
+
+/* ── States ── */
+
+.premui-btn:not(:disabled):hover {
+  background-color: var(--btn-bg-hover);
+}
+
+.premui-btn:focus-visible {
+  box-shadow: var(--btn-focus);
+}
+
+/* ── Sizes ── */
+
+.premui-btn[data-size="md"] {
+  height: 40px;
+  padding: 0 10px;
+  gap: 4px;
+  border-radius: var(--radius-10);
+}
+
+.premui-btn[data-size="sm"] {
+  height: 36px;
+  padding: 0 8px;
+  gap: 4px;
+  border-radius: var(--radius-8);
+}
+
+.premui-btn[data-size="xs"] {
+  height: 32px;
+  padding: 0 6px;
+  gap: 2px;
+  border-radius: var(--radius-8);
+}
+
+.premui-btn[data-size="2xs"] {
+  height: 28px;
+  padding: 4px 6px;
+  gap: 2px;
+  border-radius: var(--radius-8);
+}
+
+/* ── Only Icon ── */
+
+.premui-btn[data-only-icon] {
+  padding: 0;
+}
+
+.premui-btn[data-only-icon][data-size="md"] { width: 40px; }
+.premui-btn[data-only-icon][data-size="sm"] { width: 36px; }
+.premui-btn[data-only-icon][data-size="xs"] { width: 32px; }
+.premui-btn[data-only-icon][data-size="2xs"] { width: 28px; }
+
+/* ── Elements ── */
+
+.premui-btn-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-btn-label {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Disabled ── */
+
+.premui-btn:disabled,
+.premui-btn[data-disabled] {
+  background: var(--color-bg-weak) !important;
+  color: var(--color-text-disabled) !important;
+  border: none !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Accessibility: Improve disabled contrast in dark mode (2.26 -> 4.5+) */
+[data-theme="dark"] .premui-btn:disabled,
+[data-theme="dark"] .premui-btn[data-disabled] {
+  color: var(--color-text-sub) !important; /* In dark mode, text-sub is #a3a3a3, which gives 6.16 contrast on #262626 */
+}

@@ -1,0 +1,154 @@
+.premui-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3, 12px);
+}
+
+.premui-accordion.layout-flush {
+  gap: 0;
+}
+.premui-accordion.layout-flush .premui-accordion-item {
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 0;
+}
+.premui-accordion.layout-flush .premui-accordion-item:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.premui-accordion.layout-flush .premui-accordion-item:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-accordion-item {
+  background: var(--color-bg-white);
+  outline: 1px solid var(--color-stroke-soft);
+  outline-offset: -1px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(10, 13, 20, 0.03);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+/* Hover State */
+.premui-accordion-item:hover:not([data-state="open"]) {
+  background-color: var(--color-bg-weak);
+  outline-color: var(--color-stroke-sub);
+}
+
+/* Open State */
+.premui-accordion-item[data-state="open"] {
+  background-color: var(--color-bg-weak);
+  outline-color: transparent;
+  box-shadow: none;
+}
+
+/* Pressed State */
+.premui-accordion-item:active:not([data-state="open"]) {
+  background-color: var(--color-bg-weak);
+}
+
+.premui-accordion-header {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--color-text-strong);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  outline: none;
+  transition: padding-bottom 0.2s ease-out;
+}
+
+.premui-accordion-item[data-state="open"] .premui-accordion-header {
+  padding-bottom: 6px;
+}
+
+/* Premium Focus Ring */
+.premui-accordion-header:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--primary-base);
+}
+
+
+.premui-accordion-left-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-icon-sub);
+  flex-shrink: 0;
+  font-size: 18px; /* Based on 15px icon in 20px container */
+  width: 20px;
+  height: 20px;
+}
+
+.premui-accordion-title {
+  flex: 1 1 0;
+  word-wrap: break-word;
+}
+
+.premui-accordion-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-icon-soft);
+  flex-shrink: 0;
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
+}
+
+.premui-accordion-item[data-state="open"] .premui-accordion-indicator {
+  color: var(--color-icon-sub);
+}
+
+/* Smooth expansion using grid */
+.premui-accordion-content-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.2s ease-out;
+}
+
+.premui-accordion-item[data-state="open"] .premui-accordion-content-grid {
+  grid-template-rows: 1fr;
+}
+
+.premui-accordion-content {
+  overflow: hidden;
+}
+
+.premui-accordion-content-inner {
+  padding: 0 44px 14px 44px; /* Balanced 44px on both sides matches the icon+gap math */
+  color: var(--color-text-sub);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Adjustments based on icon presence */
+.premui-accordion-item:not(.has-left-icon):not(.has-flip-icon) .premui-accordion-content-inner {
+  padding-left: 14px;
+}
+
+.premui-accordion-item.has-left-icon.has-flip-icon .premui-accordion-content-inner {
+  padding-left: 74px; /* 14 + 20 + 10 + 20 + 10 */
+}
+
+/* If indicator is flipped to the left, the right side doesn't need 44px padding */
+.premui-accordion-item.has-flip-icon .premui-accordion-content-inner {
+  padding-right: 14px;
+}
+
+
+.premui-accordion-content-inner p {
+  margin: 0;
+}
+

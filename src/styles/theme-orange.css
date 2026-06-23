@@ -1,0 +1,19 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme-color="orange"] {
+  --primary-orange-darkest: #b75310;
+  --primary-orange-dark: #ce5e12;
+  --primary-orange-base: #fa7319;
+  --primary-orange-light: #ffe6d5;
+  --primary-orange-lighter: #fff3eb;
+  --primary-orange-alpha-24: rgba(250, 115, 25, 0.24);
+  --primary-orange-alpha-16: rgba(250, 115, 25, 0.16);
+  --primary-orange-alpha-10: rgba(250, 115, 25, 0.1);
+  --primary-orange-shadow-8: rgba(113, 51, 10, 0.08);
+  --primary-orange-shadow-6: rgba(113, 51, 10, 0.06);
+  --primary-orange-shadow-4: rgba(113, 51, 10, 0.04);
+  --primary-orange-shadow-2: rgba(113, 51, 10, 0.02);
+  --primary-orange-shadow-0: rgba(113, 51, 10, 0);
+}

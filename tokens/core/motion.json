@@ -1,0 +1,24 @@
+{
+  "motion": {
+    "duration": {
+      "extra-fast": { "$type": "duration", "$value": "100ms" },
+      "fast": { "$type": "duration", "$value": "200ms" },
+      "normal": { "$type": "duration", "$value": "300ms" },
+      "slow": { "$type": "duration", "$value": "400ms" },
+      "extra-slow": { "$type": "duration", "$value": "500ms" }
+    },
+    "easing": {
+      "default": { "$type": "cubicBezier", "$value": "ease-out" },
+      "in": { "$type": "cubicBezier", "$value": "ease-in" },
+      "in-out": { "$type": "cubicBezier", "$value": "ease-in-out" },
+      "linear": { "$type": "cubicBezier", "$value": "linear" }
+    },
+    "transition": {
+      "extra-fast": { "$type": "transition", "$value": "all 100ms ease-out" },
+      "fast": { "$type": "transition", "$value": "all 200ms ease-out" },
+      "normal": { "$type": "transition", "$value": "all 300ms ease-out" },
+      "slow": { "$type": "transition", "$value": "all 400ms ease-out" },
+      "extra-slow": { "$type": "transition", "$value": "all 500ms ease-out" }
+    }
+  }
+}

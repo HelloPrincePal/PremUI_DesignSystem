@@ -1,0 +1,77 @@
+{
+  "name": "Button",
+  "description": "Premium multi-axis button component supporting 3 color intents (primary, neutral, error), 4 visual treatments (filled, stroke, lighter, ghost), and 4 sizes. Fully theme-aware and dark-mode premium.",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.2.0",
+  "figmaSource": "https://www.figma.com/design/gZdLT5n9Olq8jVVKVKiDhS/?node-id=129-1422",
+  "props": {
+    "type": {
+      "type": "string",
+      "options": ["primary", "neutral", "error"],
+      "default": "primary",
+      "description": "Color intent — primary · neutral · error"
+    },
+    "style": {
+      "type": "string",
+      "options": ["filled", "stroke", "lighter", "ghost"],
+      "default": "filled",
+      "description": "Visual treatment"
+    },
+    "size": {
+      "type": "string",
+      "options": ["md", "sm", "xs", "2xs"],
+      "default": "md",
+      "description": "md (40px) · sm (36px) · xs (32px) · 2xs (28px). All sizes use 20px icons."
+    },
+    "leftIcon": {
+      "type": "string | null",
+      "default": null,
+      "description": "RemixIcon name without ri- prefix. e.g. 'add-line'."
+    },
+    "rightIcon": {
+      "type": "string | null",
+      "default": null,
+      "description": "RemixIcon name without ri- prefix. e.g. 'arrow-right-s-line'."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disabled state applying bg-weak and text-disabled tokens."
+    },
+    "children": {
+      "type": "ReactNode",
+      "default": null,
+      "description": "Button label text or elements. Omit to render icon-only button."
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--primary-base",
+      "--primary-dark",
+      "--primary-light",
+      "--primary-lighter",
+      "--color-bg-strong",
+      "--color-bg-surface",
+      "--color-bg-weak",
+      "--color-text-strong",
+      "--color-static-white",
+      "--color-state-error-base"
+    ],
+    "spacing": ["10px", "8px", "6px", "4px"],
+    "radius": ["--radius-10", "--radius-8"],
+    "shadows": [
+      "--shadow-component-button-primary-focus",
+      "--shadow-component-button-important-focus",
+      "--shadow-component-button-error-focus"
+    ],
+    "typography": ["Label/Small (14px/500)"]
+  },
+  "accessibility": {
+    "role": "button or link",
+    "keyboard": ["Tab to focus", "Enter/Space to activate"],
+    "aria": ["aria-disabled", "aria-hidden on icons"]
+  },
+  "dependencies": [],
+  "usedIn": []
+}

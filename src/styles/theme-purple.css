@@ -1,0 +1,19 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme-color="purple"] {
+  --primary-purple-darkest: #4c25a7;
+  --primary-purple-dark: #5b2cc9;
+  --primary-purple-base: #7d52f4;
+  --primary-purple-light: #dcd5ff;
+  --primary-purple-lighter: #efebff;
+  --primary-purple-alpha-24: rgba(125, 82, 244, 0.24);
+  --primary-purple-alpha-16: rgba(125, 82, 244, 0.16);
+  --primary-purple-alpha-10: rgba(125, 82, 244, 0.1);
+  --primary-purple-shadow-8: rgba(53, 26, 117, 0.08);
+  --primary-purple-shadow-6: rgba(53, 26, 117, 0.06);
+  --primary-purple-shadow-4: rgba(53, 26, 117, 0.04);
+  --primary-purple-shadow-2: rgba(53, 26, 117, 0.02);
+  --primary-purple-shadow-0: rgba(53, 26, 117, 0);
+}

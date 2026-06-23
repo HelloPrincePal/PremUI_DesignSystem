@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# PremUI Design System
+
+A code-first, AI-native design system component library migrated from Figma.
+
+## Architecture
+
+The system follows a strict **3-tier token hierarchy**:
+
+| Tier | Path | Purpose |
+|------|------|---------|
+| **Core** | `tokens/core/` | Raw primitive values (colors, spacing, radius) |
+| **Semantic** | `tokens/semantic/` | Themed, context-aware mappings (bg, text, stroke) |
+| **Component** | per-component CSS | Component-specific token consumption |
+
+> **Rule:** Components must never reference core tokens directly. Always go through semantic.
+
+## Theming
+
+Switch themes using data attributes:
+
+```html
+<!-- Light/Dark mode -->
+<div data-theme="light">...</div>
+<div data-theme="dark">...</div>
+
+<!-- Brand accent color -->
+<div data-theme-color="blue">...</div>
+<div data-theme-color="purple">...</div>
+<div data-theme-color="orange">...</div>
+<div data-theme-color="green">...</div>
+```
+
+Use the **toolbar controls** above ↑ to preview theme and accent changes live.
+
+## Icons
+
+Only **Remix Icon** is allowed:
+
+```html
+<i className="ri-home-line" />
+<i className="ri-settings-3-fill" />
+```
+
+Browse: [remixicon.com](https://remixicon.com)
+
+## Component Structure
+
+Each component follows this file pattern:
+
+```
+src/components/[component-name]/
+├── [component-name].tsx          # React component
+├── [component-name].css          # Styles using semantic tokens
+├── [component-name].stories.tsx  # Storybook stories
+├── [component-name].meta.json   # AI registry metadata
+└── index.ts                      # Barrel export
+```

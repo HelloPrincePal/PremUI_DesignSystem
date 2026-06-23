@@ -1,0 +1,110 @@
+{
+  "alpha": {
+    "_comment": "Transparent overlay colors for backgrounds, borders, and soft tints. Format: base-hex at opacity %.",
+    "slate": {
+      "alpha-24": { "$type": "color", "$value": "rgba(153,160,174,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(153,160,174,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(153,160,174,0.10)" }
+    },
+    "gray": {
+      "alpha-24": { "$type": "color", "$value": "rgba(163,163,163,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(163,163,163,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(163,163,163,0.10)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(163,163,163,0)" }
+    },
+    "blue": {
+      "alpha-24": { "$type": "color", "$value": "rgba(71,108,255,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(71,108,255,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(71,108,255,0.10)" }
+    },
+    "orange": {
+      "alpha-24": { "$type": "color", "$value": "rgba(250,115,25,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(250,115,25,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(250,115,25,0.10)" }
+    },
+    "red": {
+      "alpha-24": { "$type": "color", "$value": "rgba(251,55,72,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(251,55,72,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(251,55,72,0.10)" }
+    },
+    "green": {
+      "alpha-24": { "$type": "color", "$value": "rgba(31,193,107,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(31,193,107,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(31,193,107,0.10)" }
+    },
+    "yellow": {
+      "alpha-24": { "$type": "color", "$value": "rgba(251,198,75,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(251,198,75,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(251,198,75,0.10)" }
+    },
+    "purple": {
+      "alpha-24": { "$type": "color", "$value": "rgba(120,77,239,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(120,77,239,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(120,77,239,0.10)" }
+    },
+    "sky": {
+      "alpha-24": { "$type": "color", "$value": "rgba(71,194,255,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(71,194,255,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(71,194,255,0.10)" }
+    },
+    "pink": {
+      "alpha-24": { "$type": "color", "$value": "rgba(251,75,163,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(251,75,163,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(251,75,163,0.10)" }
+    },
+    "teal": {
+      "alpha-24": { "$type": "color", "$value": "rgba(34,211,187,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(34,211,187,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(34,211,187,0.10)" }
+    },
+    "white": {
+      "alpha-24": { "$type": "color", "$value": "rgba(255,255,255,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(255,255,255,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(255,255,255,0.10)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(255,255,255,0)" }
+    },
+    "black": {
+      "alpha-24": { "$type": "color", "$value": "rgba(23,23,23,0.24)" },
+      "alpha-16": { "$type": "color", "$value": "rgba(23,23,23,0.16)" },
+      "alpha-10": { "$type": "color", "$value": "rgba(23,23,23,0.10)" }
+    }
+  },
+  "alpha-shadow": {
+    "_comment": "Shadow-specific alpha tints, used as the color component in box-shadow values.",
+    "gray": {
+      "alpha-8": { "$type": "color", "$value": "rgba(23,23,23,0.08)" },
+      "alpha-6": { "$type": "color", "$value": "rgba(23,23,23,0.06)" },
+      "alpha-4": { "$type": "color", "$value": "rgba(23,23,23,0.04)" },
+      "alpha-2": { "$type": "color", "$value": "rgba(23,23,23,0.02)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(23,23,23,0)" }
+    },
+    "blue": {
+      "alpha-8": { "$type": "color", "$value": "rgba(18,35,104,0.08)" },
+      "alpha-6": { "$type": "color", "$value": "rgba(18,35,104,0.06)" },
+      "alpha-4": { "$type": "color", "$value": "rgba(18,35,104,0.04)" },
+      "alpha-2": { "$type": "color", "$value": "rgba(18,35,104,0.02)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(18,35,104,0)" }
+    },
+    "purple": {
+      "alpha-8": { "$type": "color", "$value": "rgba(53,26,117,0.08)" },
+      "alpha-6": { "$type": "color", "$value": "rgba(53,26,117,0.06)" },
+      "alpha-4": { "$type": "color", "$value": "rgba(53,26,117,0.04)" },
+      "alpha-2": { "$type": "color", "$value": "rgba(53,26,117,0.02)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(53,26,117,0)" }
+    },
+    "orange": {
+      "alpha-8": { "$type": "color", "$value": "rgba(113,51,10,0.08)" },
+      "alpha-6": { "$type": "color", "$value": "rgba(113,51,10,0.06)" },
+      "alpha-4": { "$type": "color", "$value": "rgba(113,51,10,0.04)" },
+      "alpha-2": { "$type": "color", "$value": "rgba(113,51,10,0.02)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(113,51,10,0)" }
+    },
+    "green": {
+      "alpha-8": { "$type": "color", "$value": "rgba(11,70,39,0.08)" },
+      "alpha-6": { "$type": "color", "$value": "rgba(11,70,39,0.06)" },
+      "alpha-4": { "$type": "color", "$value": "rgba(11,70,39,0.04)" },
+      "alpha-2": { "$type": "color", "$value": "rgba(11,70,39,0.02)" },
+      "alpha-0": { "$type": "color", "$value": "rgba(11,70,39,0)" }
+    }
+  }
+}

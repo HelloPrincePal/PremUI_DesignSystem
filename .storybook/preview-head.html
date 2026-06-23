@@ -1,0 +1,37 @@
+<style>
+  /* Documentation Surface (Green) - Internal Storybook Docs Styles */
+  .sbdocs-wrapper {
+    background-color: #0e121b !important; /* Forces Green area to stay dark */
+  }
+
+  .sbdocs-content {
+    background-color: transparent !important;
+  }
+
+  .sbdocs-title, .sbdocs-subtitle, .sbdocs-h1, .sbdocs-h2, .sbdocs-h3, .sbdocs-p, .sbdocs-li {
+    color: #eaecf0 !important;
+  }
+
+  /* Preview Card Wrapper (Pink) */
+  .docs-story {
+    background-color: #ffffff !important; /* Forces Pink area to stay white */
+    border-radius: 12px !important;
+    border: 1px solid #2b303b !important;
+    overflow: hidden;
+  }
+
+  /* Component Canvas (Yellow) - This is where our reactive padding is */
+  .docs-story > div:first-child {
+    background-color: transparent !important; /* Let our decorator handle Yellow area */
+  }
+
+  /* Ensure the documentation blocks (ArgTypes, etc) remain dark */
+  .docblock-argstable, .docblock-source, .docblock-code-toggle {
+    background-color: #222530 !important;
+    color: #eaecf0 !important;
+  }
+
+  .docblock-argstable-head {
+    color: #eaecf0 !important;
+  }
+</style>

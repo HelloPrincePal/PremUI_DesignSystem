@@ -1,0 +1,9 @@
+/* 
+  Major Brand Logo Component Styles
+  Individual SVGs are handled directly in the components 
+*/
+
+.premui-major-brand {
+  display: inline-block;
+  vertical-align: middle;
+}

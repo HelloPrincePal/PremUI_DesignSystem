@@ -1,0 +1,123 @@
+/* ============================================================
+   Link Button [1.1]
+   Figma: Link Buttons [1.1] node-id=168:4889
+   Styles: gray · black · primary · error · modifiable
+   Sizes:  md (20px icons, 14px text) · sm (16px icons, 12px text)
+   States: default · hover (underline) · focus · disabled
+   ============================================================ */
+
+/* ── Style color tokens ── */
+
+.premui-link-btn[data-style="gray"] {
+  --link-btn-color: var(--color-text-sub);
+}
+.premui-link-btn[data-style="black"] {
+  --link-btn-color: var(--color-text-strong);
+}
+.premui-link-btn[data-style="primary"] {
+  --link-btn-color: var(--primary-base);
+}
+.premui-link-btn[data-style="error"] {
+  --link-btn-color: var(--color-state-error-base);
+}
+/* Modifiable: inherits from the parent (e.g. Alert filled = white, Alert stroke = text-strong) */
+.premui-link-btn[data-style="modifiable"] {
+  --link-btn-color: currentColor;
+}
+
+/* ── Base ── */
+
+.premui-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--link-btn-color);
+  font-family: inherit;
+  text-decoration: none;
+  /* Reset button outline — handled via :focus-visible */
+  outline: none;
+}
+
+/* ── Sizes ── */
+
+.premui-link-btn-md .premui-link-btn-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  white-space: nowrap;
+}
+
+.premui-link-btn-md .premui-link-btn-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-link-btn-sm .premui-link-btn-label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.premui-link-btn-sm .premui-link-btn-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Underline (always on) ── */
+
+.premui-link-btn-underline .premui-link-btn-label {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+}
+
+/* ── Hover: underline + color shift for primary/error ── */
+
+.premui-link-btn:not(.premui-link-btn-disabled):hover .premui-link-btn-label {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+}
+
+.premui-link-btn[data-style="primary"]:not(.premui-link-btn-disabled):hover {
+  --link-btn-color: var(--primary-dark);
+}
+
+.premui-link-btn[data-style="error"]:not(.premui-link-btn-disabled):hover {
+  --link-btn-color: var(--color-red-700);
+}
+
+/* ── Focus ── */
+
+.premui-link-btn:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Disabled ── */
+
+.premui-link-btn-disabled,
+.premui-link-btn:disabled,
+.premui-link-btn[data-disabled] {
+  --link-btn-color: var(--color-text-disabled) !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
