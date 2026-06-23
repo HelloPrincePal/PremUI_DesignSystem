@@ -11,6 +11,7 @@ PremUI_DesignSystem/
 │   └── theme.ts                        #   Storybook UI theme (dark, branded)
 │
 ├── README.md                           # Project overview
+├── ARCHITECTURE.md                     # 🏗 Architecture blueprint & token design rules
 ├── FILESTRUCTURE.md                    # ← You are here
 ├── CHANGELOG.md                        # Version history
 ├── package.json                        # Dependencies (React 19, Storybook 8, TypeScript 6)

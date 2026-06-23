@@ -2,6 +2,8 @@
 
 A code-first design system migrated from Figma, built on a 3-tier token architecture.
 
+📖 **Live Storybook**: [https://helloprincepal.github.io/PremUI_DesignSystem](https://helloprincepal.github.io/PremUI_DesignSystem)
+
 > [!TIP]
 > **AI Reference**: If you are an AI assistant working on this repo, please refer to [AI_PREMUI_REFERENCE.md](./AI_PREMUI_REFERENCE.md) for design system rules and architecture details.
 
@@ -16,6 +18,8 @@ A code-first design system migrated from Figma, built on a 3-tier token architec
     - [x] **Alert**: 3 sizes × 4 styles × 5 statuses, dismiss + action links.
     - [x] **LinkButton**: 2 sizes × 5 color styles, icons, underline, disabled.
     - [x] **Button**: 3 styles × 4 sizes, icon slots, icon-only, href support.
+    - [x] **Avatars**: Modular layout for user avatars, initials, and size scaling.
+    - [x] **ActivityFeed**: Dynamic status feeds, custom dates, action controls.
 - [ ] **Next Steps**: Input, Modal, etc.
 
 ---

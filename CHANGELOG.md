@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.3.0] — 2026-06-23
+
+### Added
+- **Avatars Component** — Added modular layout for user avatars, initials, and size scaling.
+- **ActivityFeed Component** — Added dynamic status feeds, custom dates, and action controls.
+- **Storybook Deployment** — Configured automated build and deploy pipeline using GitHub Actions to host Storybook live on GitHub Pages.
+- **Architecture Specification** — Created `ARCHITECTURE.md` detailing the design system's architecture, 3-tier token hierarchy, build setup, and custom accent themes.
+
+### Fixed
+- **Testing Addon Compatibility** — Resolved dependencies in `package.json` by updating `@storybook/addon-vitest` to `@storybook/experimental-addon-test` at version `^8.6.18` to fix incompatibilities with Storybook v8.
+- **Node.js Environment** — Upgraded Node.js runner in GitHub Actions to v22 to support dependencies requiring newer engine features.
+- **Lockfile Synchronization** — Changed deployment script to run `npm install` on the runner to resolve out-of-sync local package-lock definitions.
+
+---
+
 ## [0.1.0] — 2026-04-09
 
 ### 🎉 Initial Release — Figma to Code Migration
