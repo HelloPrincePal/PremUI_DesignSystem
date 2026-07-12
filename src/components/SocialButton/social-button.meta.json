@@ -1,0 +1,38 @@
+{
+  "name": "SocialButton",
+  "description": "OAuth-style login button for 7 brands, 2 styles (filled/stroke), icon-only mode. Brand logos use RemixIcon's brand glyphs rather than the original multi-color Figma assets, per the project's Remix-Icon-only rule.",
+  "category": "button",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/xVyf2cnQTitDFjRs8a6H1i/Align-UI-%E2%9C%A6-Design-System--1.1---Copy-?node-id=180-4264",
+  "props": {
+    "brand": {
+      "type": "string",
+      "options": ["apple", "x", "google", "facebook", "linkedin", "github", "dropbox"],
+      "default": "apple",
+      "description": "Drives brand color and RemixIcon glyph"
+    },
+    "style": {
+      "type": "string",
+      "options": ["filled", "stroke"],
+      "default": "filled",
+      "description": "filled = solid brand-colored surface; stroke = white bordered surface with brand-colored icon"
+    },
+    "onlyIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Renders as a square icon-only button"
+    }
+  },
+  "tokens": {
+    "colors": ["--color-static-white", "--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-stroke-strong", "--color-text-strong"],
+    "spacing": ["--spacing-8", "--spacing-10", "--spacing-16"],
+    "radius": ["--radius-10"],
+    "shadows": ["--shadow-regular-x-small", "--shadow-component-button-important-focus"]
+  },
+  "accessibility": {
+    "keyboard": ["Enter/Space to activate"],
+    "aria": ["aria-label set to the login text when onlyIcon is true"]
+  },
+  "dependencies": []
+}

@@ -1,0 +1,36 @@
+{
+  "name": "ButtonGroup",
+  "description": "Segmented control composed of ButtonGroupItem segments with collapsed shared borders. 3 sizes, optional left/right/icon-only per segment, one active (selected) segment.",
+  "category": "button",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=493-8644",
+  "props": {
+    "items": {
+      "type": "Array<{ label?: ReactNode; icon?: string; leftIcon?: string; rightIcon?: string; disabled?: boolean; onClick?: () => void }>",
+      "default": "[]",
+      "description": "Ordered list of segments"
+    },
+    "size": {
+      "type": "string",
+      "options": ["sm", "xs", "2xs"],
+      "default": "sm",
+      "description": "sm (36px, radius-8) · xs (32px, radius-8) · 2xs (24px, radius-6)"
+    },
+    "value": {
+      "type": "number",
+      "default": "undefined",
+      "description": "Index of the currently selected segment (renders as the Active state)"
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-sub", "--color-text-strong", "--color-text-disabled"],
+    "spacing": ["--spacing-4", "--spacing-6", "--spacing-8", "--spacing-10", "--spacing-12", "--spacing-14", "--spacing-16"],
+    "radius": ["--radius-6", "--radius-8"]
+  },
+  "accessibility": {
+    "role": "group, with each segment as a real <button aria-pressed>",
+    "keyboard": ["Tab between segments", "Enter/Space to activate"]
+  },
+  "dependencies": ["ButtonGroupItem"]
+}

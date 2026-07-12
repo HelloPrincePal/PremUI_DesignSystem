@@ -1,0 +1,33 @@
+{
+  "name": "ProgressBar",
+  "description": "ProgressBar (linear bar, real continuous 0-100% fill, 4 colors), ProgressBarLabel (title+percentage+bar+description with an optional Upgrade link, On Top/On Right layouts), and CircularProgressBar (SVG ring computed via stroke-dashoffset, 5 sizes, center percentage label at size >= 56).",
+  "category": "feedback",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=450-17821",
+  "sourceNote": "Originally built inline inside FileUpload/ (for FileUploadCard's upload progress), then moved into its own shared folder and generalized with a `color` prop when the standalone Progress Bar family was requested. Both the linear and circular bars are genuinely computed from a continuous `percentage` number (CSS width / SVG stroke-dashoffset via circumference math) rather than snapped to Figma's discrete 10%-step / 25%-step raster demo variants. CircularProgressBar's center label only renders at size >= 56 (never at 48), matching the source design exactly.",
+  "props": {
+    "ProgressBar": {
+      "percentage": { "type": "number", "default": 10 },
+      "color": { "type": "string", "options": ["blue", "red", "orange", "green"], "default": "blue" }
+    },
+    "ProgressBarLabel": {
+      "type": { "type": "string", "options": ["on-top", "on-right"], "default": "on-top" },
+      "percentage": { "type": "number", "default": 80 },
+      "showBottom": { "type": "boolean", "default": true, "description": "Only applies at type=\"on-top\"" }
+    },
+    "CircularProgressBar": {
+      "percentage": { "type": "number", "default": 0 },
+      "size": { "type": "number", "options": [48, 56, 64, 72, 80], "default": 80 },
+      "showLabel": { "type": "boolean", "default": true, "description": "Never renders at size=48 regardless of this prop" }
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-bg-soft", "--color-state-information-base", "--color-state-error-base",
+      "--color-state-warning-base", "--color-state-success-base", "--color-text-strong", "--color-text-sub"
+    ],
+    "radius": ["--radius-full"]
+  },
+  "dependencies": ["LinkButton"]
+}

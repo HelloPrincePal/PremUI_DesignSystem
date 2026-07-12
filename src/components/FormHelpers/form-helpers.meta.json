@@ -1,0 +1,33 @@
+{
+  "name": "FormHelpers",
+  "description": "Label (field label with required/sublabel/info/help), HintText (helper text below a field, default/error/disabled), and PasswordStrength (genuinely functional strength meter — evaluates a real `password` string for uppercase/number/length rather than displaying a static demo state).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=266-2814",
+  "sourceNote": "PasswordStrength takes a real `password` prop and computes hasUppercase/hasNumber/hasMinLength itself, rather than an enum matching Figma's 4 static demo states — the Weak/Moderate example screenshots showed some conditions marked unmet even mid-typing in ways that don't generalize as real logic, so a functional evaluation was built instead, matching the project's precedent (DatePicker, ColorPicker) of favoring genuine behavior over literal mockup replication. Label's required-field asterisk uses --primary-base (not error-red), matching the source design exactly.",
+  "props": {
+    "Label": {
+      "sublabel": { "type": "ReactNode" },
+      "required": { "type": "boolean", "default": false },
+      "showInfo": { "type": "boolean", "default": false },
+      "helpLabel": { "type": "string" },
+      "disabled": { "type": "boolean", "default": false }
+    },
+    "HintText": {
+      "state": { "type": "string", "options": ["default", "error", "disabled"], "default": "default" },
+      "showIcon": { "type": "boolean", "default": true }
+    },
+    "PasswordStrength": {
+      "password": { "type": "string", "default": "", "description": "Real password value — bars and checklist are computed from it" }
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--primary-base", "--color-text-strong", "--color-text-sub", "--color-text-disabled",
+      "--color-icon-soft", "--color-state-error-base", "--color-state-warning-base", "--color-state-success-base",
+      "--color-bg-soft"
+    ]
+  },
+  "dependencies": []
+}

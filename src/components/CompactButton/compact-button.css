@@ -1,0 +1,127 @@
+/* ============================================================
+   Compact Button [1.1]
+   Figma: Compact Button [1.1] (node 189:3646, Align UI Design System 2.0)
+   Styles: stroke · ghost · modifiable · white
+   Sizes:  lg (24px, 20px icon) · md (20px, 18px icon)
+   Radius: rounded-square (radius-6) · full circle (radius-full)
+   States: default · hover · active · disabled
+   ============================================================ */
+
+.premui-compact-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-icon-sub);
+  border-radius: var(--radius-6);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default),
+              color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-compact-btn[data-full-radius="true"] {
+  border-radius: var(--radius-full);
+}
+
+/* ── Sizes ── */
+
+.premui-compact-btn[data-size="lg"] {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  font-size: 20px;
+}
+
+.premui-compact-btn[data-size="md"] {
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  font-size: 18px;
+}
+
+/* ── Styles: Default ── */
+
+.premui-compact-btn[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  outline: 1px solid var(--color-stroke-soft);
+  outline-offset: -1px;
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-compact-btn[data-style="white"] {
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-compact-btn[data-style="ghost"] {
+  background: none;
+}
+
+.premui-compact-btn[data-style="modifiable"] {
+  background: none;
+  border: 1px solid transparent;
+  color: currentColor;
+}
+
+/* ── Hover (real :hover OR forced via the `state` prop) ── */
+
+.premui-compact-btn[data-style="stroke"]:not(:disabled):hover,
+.premui-compact-btn[data-style="stroke"][data-state="hover"],
+.premui-compact-btn[data-style="ghost"]:not(:disabled):hover,
+.premui-compact-btn[data-style="ghost"][data-state="hover"],
+.premui-compact-btn[data-style="white"]:not(:disabled):hover,
+.premui-compact-btn[data-style="white"][data-state="hover"] {
+  background: var(--color-bg-weak);
+  color: var(--color-icon-strong);
+  box-shadow: none;
+  outline: none;
+}
+
+.premui-compact-btn[data-style="modifiable"]:not(:disabled):hover,
+.premui-compact-btn[data-style="modifiable"][data-state="hover"] {
+  background: var(--alpha-white-alpha-16);
+}
+
+/* ── Active (real :active OR forced via the `state` prop) ── */
+
+.premui-compact-btn[data-style="stroke"]:not(:disabled):active,
+.premui-compact-btn[data-style="stroke"][data-state="active"],
+.premui-compact-btn[data-style="ghost"]:not(:disabled):active,
+.premui-compact-btn[data-style="ghost"][data-state="active"],
+.premui-compact-btn[data-style="white"]:not(:disabled):active,
+.premui-compact-btn[data-style="white"][data-state="active"] {
+  background: var(--color-bg-surface, #262626);
+  color: var(--color-static-white, #fff);
+  box-shadow: none;
+  outline: none;
+  border-color: transparent;
+}
+
+.premui-compact-btn[data-style="modifiable"]:not(:disabled):active,
+.premui-compact-btn[data-style="modifiable"][data-state="active"] {
+  background: var(--alpha-white-alpha-16);
+  border-color: var(--color-static-white, #fff);
+}
+
+/* ── Focus ── */
+
+.premui-compact-btn:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ── Disabled (real :disabled OR forced via the `state` prop) — same for every style ── */
+
+.premui-compact-btn:disabled,
+.premui-compact-btn[data-state="disabled"] {
+  background: none;
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+  color: var(--color-icon-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}

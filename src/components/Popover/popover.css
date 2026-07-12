@@ -1,0 +1,173 @@
+/* ============================================================
+   Popover [1.1] + Popover Footer [1.1] — Figma: nodes 4431:81573
+   (popover card, 12 placements x optional icon/dismiss/footer)
+   and 4456:83048 (footer, Stretch/Stepper/Text Stepper), Align
+   UI Design System 2.0. The tail uses the classic CSS
+   rotated-square technique (border on two exposed edges forms
+   the visible triangle tip) instead of importing Figma's raster
+   "Tail" asset.
+   ============================================================ */
+
+.premui-popover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: visible;
+}
+
+.premui-popover-tail {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+/* Top placements: card sits below the anchor, tail on the top edge */
+.premui-popover[data-placement^="top"] .premui-popover-tail {
+  top: -6px;
+  border-bottom: none;
+  border-right: none;
+}
+.premui-popover[data-placement="top-start"] .premui-popover-tail { left: 32px; }
+.premui-popover[data-placement="top"] .premui-popover-tail { left: 50%; margin-left: -5px; }
+.premui-popover[data-placement="top-end"] .premui-popover-tail { right: 32px; }
+
+/* Bottom placements: card sits above the anchor, tail on the bottom edge */
+.premui-popover[data-placement^="bottom"] .premui-popover-tail {
+  bottom: -6px;
+  border-top: none;
+  border-left: none;
+}
+.premui-popover[data-placement="bottom-start"] .premui-popover-tail { left: 32px; }
+.premui-popover[data-placement="bottom"] .premui-popover-tail { left: 50%; margin-left: -5px; }
+.premui-popover[data-placement="bottom-end"] .premui-popover-tail { right: 32px; }
+
+/* Left placements: card sits to the right of the anchor, tail on the left edge */
+.premui-popover[data-placement^="left"] .premui-popover-tail {
+  left: -6px;
+  border-top: none;
+  border-right: none;
+}
+.premui-popover[data-placement="left-start"] .premui-popover-tail { top: 32px; }
+.premui-popover[data-placement="left"] .premui-popover-tail { top: 50%; margin-top: -5px; }
+.premui-popover[data-placement="left-end"] .premui-popover-tail { bottom: 32px; }
+
+/* Right placements: card sits to the left of the anchor, tail on the right edge */
+.premui-popover[data-placement^="right"] .premui-popover-tail {
+  right: -6px;
+  border-bottom: none;
+  border-left: none;
+}
+.premui-popover[data-placement="right-start"] .premui-popover-tail { top: 32px; }
+.premui-popover[data-placement="right"] .premui-popover-tail { top: 50%; margin-top: -5px; }
+.premui-popover[data-placement="right-end"] .premui-popover-tail { bottom: 32px; }
+
+/* ── Popover content ── */
+
+.premui-popover-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: var(--radius-16) var(--radius-16) 0 0;
+  background: var(--color-bg-white, #fff);
+  z-index: 2;
+}
+
+.premui-popover-content[data-has-footer] {
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-popover-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-popover-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-popover-title {
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: var(--color-text-strong);
+}
+
+.premui-popover-description {
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-popover-dismiss {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* ── Popover Footer ── */
+
+.premui-popover-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  background: var(--color-bg-white, #fff);
+  border-radius: 0 0 var(--radius-16) var(--radius-16);
+  z-index: 2;
+}
+
+.premui-popover-footer-step-text {
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-popover-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-popover-footer-actions[data-justify="stretch"] > * {
+  flex: 1 0 0;
+}
+
+.premui-popover-footer-actions[data-justify="end"] {
+  justify-content: flex-end;
+}
+
+.premui-popover-footer-btn {
+  width: 80px;
+}

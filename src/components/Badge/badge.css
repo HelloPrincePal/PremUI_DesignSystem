@@ -1,0 +1,199 @@
+/* ============================================================
+   Badge [1.1]
+   Figma: Badge [1.1]
+   Types:  basic · dot · left-icon · right-icon · count
+   Styles: filled · light · lighter · stroke
+   Colors: gray · blue · red · orange · yellow · green ·
+           purple · sky · pink · teal
+   Sizes:  sm (16px) · md (20px)
+   ============================================================ */
+
+.premui-badge {
+  --badge-dark:    var(--color-state-faded-dark);
+  --badge-base:    var(--color-state-faded-base);
+  --badge-light:   var(--color-state-faded-light);
+  --badge-lighter: var(--color-state-faded-lighter);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border-radius: var(--radius-full);
+  border: none;
+  white-space: nowrap;
+  font-family: var(--typography-subheading-2xs-font-family);
+}
+
+/* ── Color intent tokens ── */
+
+.premui-badge[data-color="gray"] {
+  --badge-dark: var(--color-state-faded-dark);
+  --badge-base: var(--color-state-faded-base);
+  --badge-light: var(--color-state-faded-light);
+  --badge-lighter: var(--color-state-faded-lighter);
+}
+.premui-badge[data-color="blue"] {
+  --badge-dark: var(--color-state-information-dark);
+  --badge-base: var(--color-state-information-base);
+  --badge-light: var(--color-state-information-light);
+  --badge-lighter: var(--color-state-information-lighter);
+}
+.premui-badge[data-color="orange"] {
+  --badge-dark: var(--color-state-warning-dark);
+  --badge-base: var(--color-state-warning-base);
+  --badge-light: var(--color-state-warning-light);
+  --badge-lighter: var(--color-state-warning-lighter);
+}
+.premui-badge[data-color="red"] {
+  --badge-dark: var(--color-state-error-dark);
+  --badge-base: var(--color-state-error-base);
+  --badge-light: var(--color-state-error-light);
+  --badge-lighter: var(--color-state-error-lighter);
+}
+.premui-badge[data-color="green"] {
+  --badge-dark: var(--color-state-success-dark);
+  --badge-base: var(--color-state-success-base);
+  --badge-light: var(--color-state-success-light);
+  --badge-lighter: var(--color-state-success-lighter);
+}
+.premui-badge[data-color="yellow"] {
+  --badge-dark: var(--color-state-away-dark);
+  --badge-base: var(--color-state-away-base);
+  --badge-light: var(--color-state-away-light);
+  --badge-lighter: var(--color-state-away-lighter);
+}
+.premui-badge[data-color="purple"] {
+  --badge-dark: var(--color-state-feature-dark);
+  --badge-base: var(--color-state-feature-base);
+  --badge-light: var(--color-state-feature-light);
+  --badge-lighter: var(--color-state-feature-lighter);
+}
+.premui-badge[data-color="sky"] {
+  --badge-dark: var(--color-state-verified-dark);
+  --badge-base: var(--color-state-verified-base);
+  --badge-light: var(--color-state-verified-light);
+  --badge-lighter: var(--color-state-verified-lighter);
+}
+.premui-badge[data-color="pink"] {
+  --badge-dark: var(--color-state-highlighted-dark);
+  --badge-base: var(--color-state-highlighted-base);
+  --badge-light: var(--color-state-highlighted-light);
+  --badge-lighter: var(--color-state-highlighted-lighter);
+}
+.premui-badge[data-color="teal"] {
+  --badge-dark: var(--color-state-stable-dark);
+  --badge-base: var(--color-state-stable-base);
+  --badge-light: var(--color-state-stable-light);
+  --badge-lighter: var(--color-state-stable-lighter);
+}
+
+/* ── Styles ── */
+
+.premui-badge[data-style="filled"] {
+  background: var(--badge-base);
+  color: var(--color-static-white, #fff);
+}
+.premui-badge[data-style="light"] {
+  background: var(--badge-light);
+  color: var(--badge-dark);
+}
+.premui-badge[data-style="lighter"] {
+  background: var(--badge-lighter);
+  color: var(--badge-base);
+}
+.premui-badge[data-style="stroke"] {
+  background: transparent;
+  border: 1px solid var(--badge-base);
+  color: var(--badge-base);
+}
+
+/* ── Sizes (typography) ── */
+
+.premui-badge[data-size="sm"] {
+  --badge-icon-size: 12px;
+  --badge-count-size: 16px;
+  font-size: var(--typography-subheading-2xs-font-size);
+  line-height: var(--typography-subheading-2xs-line-height);
+  font-weight: var(--typography-subheading-2xs-font-weight);
+  letter-spacing: var(--typography-subheading-2xs-letter-spacing);
+  text-transform: var(--typography-subheading-2xs-text-transform);
+}
+.premui-badge[data-size="md"] {
+  --badge-icon-size: 16px;
+  --badge-count-size: 20px;
+  font-family: var(--typography-label-xs-font-family);
+  font-size: var(--typography-label-xs-font-size);
+  line-height: var(--typography-label-xs-line-height);
+  font-weight: var(--typography-label-xs-font-weight);
+  letter-spacing: var(--typography-label-xs-letter-spacing);
+}
+
+/* ── Type layouts ── */
+
+.premui-badge[data-type="basic"] {
+  padding: var(--spacing-2) var(--spacing-8);
+}
+.premui-badge[data-type="dot"] {
+  padding: 0 var(--spacing-8) 0 0;
+}
+.premui-badge[data-size="md"][data-type="dot"] {
+  padding: var(--spacing-2) var(--spacing-8) var(--spacing-2) var(--spacing-2);
+}
+.premui-badge[data-type="left-icon"] {
+  padding: var(--spacing-2) var(--spacing-8) var(--spacing-2) var(--spacing-4);
+  gap: var(--spacing-2);
+}
+.premui-badge[data-type="right-icon"] {
+  padding: var(--spacing-2) var(--spacing-4) var(--spacing-2) var(--spacing-8);
+  gap: var(--spacing-2);
+}
+.premui-badge[data-type="count"] {
+  padding: var(--spacing-2);
+}
+
+/* ── Elements ── */
+
+.premui-badge-label {
+  display: inline-block;
+}
+
+.premui-badge-icon {
+  width: var(--badge-icon-size);
+  height: var(--badge-icon-size);
+  font-size: var(--badge-icon-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-badge-dot {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.premui-badge-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.premui-badge-count {
+  width: var(--badge-count-size);
+  text-align: center;
+  text-transform: none;
+  flex-shrink: 0;
+}
+
+/* ── Disabled (overrides style + color) ── */
+
+.premui-badge[data-disabled="true"] {
+  background: transparent;
+  border: 1px solid var(--color-stroke-soft);
+  color: var(--color-text-disabled);
+}

@@ -1,0 +1,161 @@
+/* ============================================================
+   Table Row Cell [1.1] (553:22175) + Table Header Cell [1.1]
+   (587:5793) + Sorting Icons [1.1] (581:2327) — Align UI Design
+   System 2.0. Figma's 6 leading-visual options (checkbox/radio/
+   icon/avatar/brand/company/file-format) collapsed into one
+   generic `leading` slot on TableCellContent, and the "misc"
+   rich-content cell types (Button/ButtonGroup/Toggle/Rating/
+   ProgressBar/StatusBadge/BadgeGroup/AvatarGroup) are just a
+   column's `render` function returning any existing component —
+   no dedicated wrapper needed. Rendered as a real semantic
+   <table> with genuine sortable columns and row selection
+   instead of a static grid of divs.
+   ============================================================ */
+
+.premui-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-16);
+}
+
+.premui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+}
+
+.premui-table-th {
+  box-sizing: border-box;
+  padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-bg-weak);
+  border-bottom: 1px solid var(--color-stroke-soft);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.premui-table-th[data-align="center"] { text-align: center; }
+.premui-table-th[data-align="right"] { text-align: right; }
+
+.premui-table-th-checkbox {
+  width: 52px;
+}
+
+.premui-table-th-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.premui-sorting-icon {
+  font-size: 20px;
+  color: var(--color-text-soft);
+}
+
+.premui-sorting-icon[data-active] {
+  color: var(--color-text-strong);
+}
+
+.premui-table-td {
+  box-sizing: border-box;
+  padding: var(--spacing-12);
+  border-bottom: 1px solid var(--color-stroke-soft);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-table-td[data-align="center"] { text-align: center; }
+.premui-table-td[data-align="right"] { text-align: right; }
+
+.premui-table-td-checkbox {
+  width: 52px;
+}
+
+.premui-table-row {
+  cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-table-row:hover {
+  background: var(--color-bg-weak);
+}
+
+.premui-table-row[data-selected] {
+  background: var(--primary-alpha-10);
+}
+
+.premui-table-row:last-child .premui-table-td {
+  border-bottom: none;
+}
+
+/* ── TableCellContent ── */
+
+.premui-table-cell-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  min-width: 0;
+}
+
+.premui-table-cell-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-table-cell-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.premui-table-cell-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.premui-table-cell-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.premui-table-cell-content[data-priority="regular"] .premui-table-cell-title {
+  font-weight: 400;
+}
+
+.premui-table-cell-content[data-priority="passive"] .premui-table-cell-title {
+  font-weight: 400;
+  color: var(--color-text-sub);
+}
+
+.premui-table-cell-content[data-priority="passive"] .premui-table-cell-description {
+  color: var(--color-text-sub);
+}

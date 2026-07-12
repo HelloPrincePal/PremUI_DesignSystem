@@ -1,0 +1,55 @@
+{
+  "name": "SidebarComponents",
+  "description": "SidebarItem (nav row — leading icon/indicator, badge/notification/shortcut, collapsed rail mode, active accent bar), HeaderCard + SidebarHeader (workspace/brand switcher card with a divider wrapper), UserProfileCard + SidebarFooter (signed-in user card with a divider wrapper), and SidebarFeatureCard (6 promo/widget types x 4 styles — Daily Meeting/Progress Bar/Icon & Link/Left Icon/Support/Cloud Storage x Stroke/Gray/Primary/Neutral).",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3741-45019",
+  "sourceNote": "Ported from Figma nodes 3741:45019 (Sidebar Item), 3802:10204 (Header Card), 3789:3886 (Sidebar Header), 3802:11038 (User Profile Card), 3789:5341 (Sidebar Footer), 3789:3551 (Feature Cards). SidebarFeatureCard's 24 Figma variants (6 types x 4 styles) collapsed into one component with a `type` + `style` prop pair, reusing existing Avatar/ProgressBar/LinkButton/CompactButton rather than re-implementing each combination — matching the project's established leading-slot-collapsing pattern. ProgressBar/Cloud-Storage percentages are real, driven by a `percentage` prop, not Figma's static 80%/90% demo. First component family filed under the new 'Product Components > Navigation > Sidebar Components' Storybook category.",
+  "props": {
+    "SidebarItem": {
+      "label": { "type": "string", "default": "Dashboard" },
+      "icon": { "type": "string", "default": "layout-grid-line" },
+      "indicator": { "type": "boolean", "default": false },
+      "badge": { "type": "string" },
+      "notificationCount": { "type": "number | string" },
+      "shortcut": { "type": "string" },
+      "collapsed": { "type": "boolean", "default": false },
+      "active": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active"] }
+    },
+    "HeaderCard": {
+      "brand": { "type": "string", "default": "Apex" },
+      "description": { "type": "string", "default": "Finance & Banking" },
+      "onlyIcon": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover"] }
+    },
+    "SidebarHeader": {
+      "collapsed": { "type": "boolean", "default": false },
+      "showDivider": { "type": "boolean", "default": false }
+    },
+    "UserProfileCard": {
+      "name": { "type": "string", "default": "Sophia Williams" },
+      "email": { "type": "string", "default": "sophia@alignui.com" },
+      "verified": { "type": "boolean", "default": true },
+      "collapsed": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover"] }
+    },
+    "SidebarFooter": {
+      "collapsed": { "type": "boolean", "default": false },
+      "showDivider": { "type": "boolean", "default": false }
+    },
+    "SidebarFeatureCard": {
+      "type": { "type": "string", "options": ["daily-meeting", "progress-bar", "icon-link", "left-icon", "support", "cloud-storage"], "default": "daily-meeting" },
+      "style": { "type": "string", "options": ["stroke", "gray", "primary", "neutral"], "default": "stroke" },
+      "percentage": { "type": "number", "default": 80 },
+      "dismissible": { "type": "boolean" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-bg-surface", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-icon-strong", "--color-icon-sub", "--color-icon-soft", "--primary-base", "--primary-alpha-10", "--color-state-error-base", "--color-state-information-lighter"],
+    "radius": ["--radius-4", "--radius-8", "--radius-10", "--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["Badge", "ChartLegendDot", "KeyIcon", "CompactButton", "Avatar", "ProgressBar", "LinkButton"]
+}

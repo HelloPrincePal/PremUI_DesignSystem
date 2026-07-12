@@ -1,0 +1,24 @@
+{
+  "name": "CheckboxLabel",
+  "description": "Checkbox composed with a label, optional sublabel/'NEW' badge, and an optional description + link (which switches to a stacked layout). Can flip the checkbox to the right.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=231-4897",
+  "props": {
+    "checked": { "type": "boolean", "default": false },
+    "label": { "type": "ReactNode" },
+    "sublabel": { "type": "ReactNode" },
+    "badge": { "type": "string", "description": "Renders a light-blue Badge with this text" },
+    "description": { "type": "string", "description": "Switches to the stacked title+description layout" },
+    "linkLabel": { "type": "string" },
+    "onLinkClick": { "type": "() => void" },
+    "flip": { "type": "boolean", "default": false, "description": "Puts the checkbox after the text" },
+    "disabled": { "type": "boolean", "default": false }
+  },
+  "tokens": {
+    "colors": ["--color-text-strong", "--color-text-sub"],
+    "spacing": ["--spacing-4", "--spacing-8"]
+  },
+  "dependencies": ["Checkbox", "Badge", "LinkButton"]
+}

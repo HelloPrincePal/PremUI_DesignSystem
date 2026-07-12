@@ -1,0 +1,26 @@
+{
+  "name": "ContentDivider",
+  "description": "Section-separator with 9 variants: a plain line, a spaced line, a labeled line ('OR'), a standalone label, a solid-background label bar, and 4 button/button-group + line combinations.",
+  "category": "layout",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=414-4401",
+  "sourceNote": "The icon-button/text-button/icon-button-group/text-button-group variants compose this project's existing FancyButton (type=\"basic\" size=\"xs\") and ButtonGroup components, which already match Figma's nested 'Buttons [1.1]' / 'Button Group [1.1]' instances.",
+  "props": {
+    "type": {
+      "type": "string",
+      "options": ["line", "line-spacing", "text-line", "text", "solid-text", "icon-button", "icon-button-group", "text-button", "text-button-group"],
+      "default": "line"
+    },
+    "text": { "type": "string", "default": "OR", "description": "Used by text-line / text / solid-text" },
+    "icon": { "type": "string", "default": "add-line", "description": "RemixIcon name, used by icon-button" },
+    "buttonLabel": { "type": "string", "default": "Add", "description": "Used by text-button" },
+    "groupItems": { "type": "ButtonGroupItemData[]", "description": "Used by icon-button-group / text-button-group" }
+  },
+  "tokens": {
+    "colors": ["--color-stroke-soft", "--color-bg-weak", "--color-text-soft"],
+    "spacing": ["--spacing-4", "--spacing-6", "--spacing-8", "--spacing-10"],
+    "typography": ["Subheading/XSmall (12px/500/16px, uppercase)", "Subheading/2XSmall (11px/500/12px, uppercase)"]
+  },
+  "dependencies": ["FancyButton", "ButtonGroup"]
+}

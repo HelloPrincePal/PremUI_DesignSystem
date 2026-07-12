@@ -1,0 +1,27 @@
+{
+  "name": "Scroll",
+  "description": "Scroll (parameterized track+thumb visual, 3 sizes x 2 styles) and ScrollArea (a genuinely working custom scrollbar wrapper that computes thumb size/position from real scrollTop/scrollHeight/clientHeight and hides the native scrollbar).",
+  "category": "layout",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=166941-61889",
+  "sourceNote": "The Figma component was a static track+thumb visual with the thumb fixed at the vertical center; here `Scroll` genuinely parameterizes thumb size/position via `thumbRatio`/`thumbOffset` props, and `ScrollArea` derives those from a real scroll container's metrics via a scroll listener + ResizeObserver — a working custom scrollbar, not a decorative fixed thumb, matching this project's precedent (DatePicker, Pagination, RatingBar) of favoring genuine behavior over literal mockup replication.",
+  "props": {
+    "Scroll": {
+      "size": { "type": "string", "options": ["md", "sm", "xs"], "default": "md" },
+      "style": { "type": "string", "options": ["default", "lighter"], "default": "default" },
+      "thumbRatio": { "type": "number", "default": 0.2, "description": "0-1, thumb height as a fraction of the track" },
+      "thumbOffset": { "type": "number", "default": 0, "description": "0-1, thumb position along the available track space" }
+    },
+    "ScrollArea": {
+      "size": { "type": "string", "options": ["md", "sm", "xs"], "default": "md" },
+      "style": { "type": "string", "options": ["default", "lighter"], "default": "default" },
+      "height": { "type": "number | string", "default": 400 }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-stroke-sub"],
+    "radius": ["--radius-full"]
+  },
+  "dependencies": []
+}

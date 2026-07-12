@@ -1,0 +1,251 @@
+/* ============================================================
+   Checkbox [1.1]
+   Figma: node 227:2002, Align UI Design System 2.0
+   Sizes: md (20px) · sm (16px)
+   Unchecked is drawn as a colored "ring" layer behind a smaller white
+   inset layer with a shadow; checked/indeterminate is a solid filled
+   square with a white check/dash. Figma's own "Focused" variant swaps
+   the ring color to primary-base — we use the system's standard
+   :focus-visible ring instead for consistency with every other component.
+   ============================================================ */
+
+.premui-checkbox {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.premui-checkbox[data-size="md"] { width: 20px; height: 20px; }
+.premui-checkbox[data-size="sm"] { width: 16px; height: 16px; }
+
+.premui-checkbox-ring {
+  position: absolute;
+  inset: 10%;
+  border-radius: 4px;
+  background: var(--color-bg-soft);
+}
+
+.premui-checkbox-inner {
+  position: absolute;
+  inset: 17.5%;
+  border-radius: 2.6px;
+  background: var(--color-bg-white, #fff);
+  box-shadow: 0 2px 2px rgba(27, 28, 29, 0.12);
+}
+
+.premui-checkbox:not(:disabled):not([data-state="disabled"]):hover .premui-checkbox-ring,
+.premui-checkbox[data-state="hover"] .premui-checkbox-ring {
+  background: var(--color-bg-sub);
+}
+
+.premui-checkbox-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: var(--primary-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-static-white, #fff);
+}
+
+.premui-checkbox-check {
+  font-size: 14px;
+}
+
+.premui-checkbox[data-size="sm"] .premui-checkbox-check {
+  font-size: 12px;
+}
+
+.premui-checkbox-dash {
+  width: 50%;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.premui-checkbox:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Disabled ── */
+
+.premui-checkbox:disabled,
+.premui-checkbox[data-state="disabled"] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premui-checkbox:disabled .premui-checkbox-fill,
+.premui-checkbox[data-state="disabled"] .premui-checkbox-fill {
+  background: var(--color-bg-soft);
+  color: var(--color-text-disabled);
+}
+
+/* ============================================================
+   CheckboxLabel
+   ============================================================ */
+
+.premui-checkbox-label {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: flex-start;
+}
+
+.premui-checkbox-label[data-flip="true"] {
+  justify-content: space-between;
+}
+
+.premui-checkbox-label[data-disabled="true"] {
+  opacity: 0.6;
+}
+
+.premui-checkbox-label-row,
+.premui-checkbox-label-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.premui-checkbox-label[data-disabled="true"] .premui-checkbox-label-row,
+.premui-checkbox-label[data-disabled="true"] .premui-checkbox-label-title {
+  cursor: not-allowed;
+}
+
+.premui-checkbox-label-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-checkbox-label-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-checkbox-label-content .premui-checkbox-label-text {
+  font-weight: 500;
+}
+
+.premui-checkbox-label-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-checkbox-label-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+/* ============================================================
+   CheckboxCard
+   ============================================================ */
+
+.premui-checkbox-card {
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--spacing-14);
+  align-items: flex-start;
+  width: 100%;
+  max-width: 360px;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-checkbox-card:not(:disabled):hover {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-checkbox-card[data-checked="true"] {
+  border-color: var(--primary-base);
+}
+
+.premui-checkbox-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.premui-checkbox-card:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+.premui-checkbox-card-leading {
+  flex-shrink: 0;
+}
+
+.premui-checkbox-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.premui-checkbox-card-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.premui-checkbox-card-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-checkbox-card-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-checkbox-card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+.premui-checkbox-card-checkbox {
+  flex-shrink: 0;
+  pointer-events: none;
+}

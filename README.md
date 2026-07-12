@@ -16,11 +16,53 @@ A code-first design system migrated from Figma, built on a 3-tier token architec
 - [x] **Components**:
     - [x] **Accordion**: Full interactive states, Figma-aligned padding, dynamic alignment logic.
     - [x] **Alert**: 3 sizes × 4 styles × 5 statuses, dismiss + action links.
+    - [x] **Badge**: 2 sizes × 4 styles × 10 colors, basic/dot/icon/count layouts.
+    - [x] **Banner**: Full-width announcement bar, 4 styles × 5 statuses, action link + dismiss.
+    - [x] **Breadcrumb**: Navigation trail with arrow/slash/dot dividers, current-page state.
     - [x] **LinkButton**: 2 sizes × 5 color styles, icons, underline, disabled.
     - [x] **Button**: 3 styles × 4 sizes, icon slots, icon-only, href support.
     - [x] **Avatars**: Modular layout for user avatars, initials, and size scaling.
     - [x] **ActivityFeed**: Dynamic status feeds, custom dates, action controls.
-- [ ] **Next Steps**: Input, Modal, etc.
+    - [x] **StatusBadge**: 2 styles × 5 statuses, icon or dot mode, for table/list rows — grouped with Badge under `Components/Badges/`.
+    - [x] **SocialButton**: 7 brands × 2 styles, icon-only mode, all under `Components/Buttons/`.
+    - [x] **CompactButton**: Small icon-only button, 4 styles × 2 sizes × 4 states, rounded-square or full-circle. First built from an AI Handoff visual pack, then verified against Figma MCP.
+    - [x] **FancyButton**: High-emphasis button, 4 types (neutral/primary/destructive/basic) × 3 sizes × 3 states, all under `Components/Buttons/`.
+    - [x] **ButtonGroup + ButtonGroupItem**: Segmented control, 3 sizes, collapsed shared borders, one active segment. `Components/ButtonGroup/`.
+    - [x] **Checkbox + CheckboxLabel + CheckboxCard**: Base control, labeled composition, selectable card. `Components/Checkbox/`.
+    - [x] **ColorPicker + ColorSpectrum + ColorSliders + ColorDots**: Fully functional draggable color picker with HSV<->hex conversion. `Components/ColorPicker/`.
+    - [x] **ContentDivider**: 9 variants (line/labeled-line/solid-label/button+line combos), composes FancyButton + ButtonGroup. `Components/ContentDivider/`.
+    - [x] **CommandMenu + CommandMenuSearchInput + CommandMenuItem + CommandMenuFooter**: Command palette shell, controlled search, item rows, keyboard-hint footer. `Components/CommandMenu/`.
+    - [x] **DatePicker + DateRangePicker + DayCell + DayLabel + DateSelector + PeriodRangeItem**: Fully functional calendar with month navigation and single/range date selection. `Components/DatePicker/`.
+    - [x] **Switch + SwitchLabel + SwitchCard + IntegrationSwitch**: Base toggle (used inside DrawerFooter/DropdownItem), a labeled composition, a selectable bordered card, and a brand/integration row with an optional Manage button. `Components/Switch/`.
+    - [x] **DrawerHeader + DrawerFooter + StepperDots**: Drawer chrome — Basic/Left-Icon headers (2 sizes) and 6 footer layouts (Stretch/Basic/Checkbox/Toggle/Stepper/Link Button). `Components/Drawer/`.
+    - [x] **DropdownItem + DropdownMiscItem**: Dropdown menu rows with a generic leading slot and optional checkbox/badge/shortcut/toggle/button slots, plus search/button/caption misc rows. `Components/Dropdown/`.
+    - [x] **FileFormatIcon + FileUploadArea + FileUploadCard + ImageUpload**: File-type icons (9 colors), a real drag-and-drop zone, upload progress cards (uploading/success/error, reuses ProgressBar), and an Avatar/Company image upload widget (reuses Avatar + Button). `Components/FileUpload/`.
+    - [x] **FilterBar + VerticalFilterItem + VerticalFilterHeader + VerticalFilterFooter**: Toolbar filter row (Calendar/Table variants) plus a sidebar filter panel's item/header/footer. `Components/Filter/`.
+    - [x] **KeyIcon**: Reusable circular icon container, 9 colors x 5 sizes x 2 styles (stroke/lighter). `Components/KeyIcon/`.
+    - [x] **PaymentIcon**: 8 fixed payment/bill-category icons (water/gas/electricity/donate/internet/phone/rent/tax). `Components/PaymentIcon/`.
+    - [x] **ChartLegend + ChartLegendDot**: Colored dot + label for chart legends, 11 colors + disabled state. `Components/ChartLegend/`.
+    - [x] **Label + HintText + PasswordStrength**: Form-field label (required/sublabel/info/help), helper text (default/error/disabled), and a genuinely functional password strength meter. `Components/FormHelpers/`.
+    - [x] **ContentLabel + ContentCard**: Generic leading-slot list row and bordered card variants, reusing Badge/Switch/CompactButton/KeyIcon/Avatar. `Components/ContentItem/`.
+    - [x] **Modal + ModalOverlay + ModalHeader + ModalFooter + StatusModal**: Fully functional modal (Escape/overlay-click to close, body-scroll lock), header (6 types x 2 sizes), footer (7 types), and a composed alert-dialog variant. `Components/Modal/`.
+    - [x] **NotificationHeader + NotificationTabMenu + NotificationItem + NotificationFooter**: Notification panel chrome — header, a data-driven tab bar, item rows (Basic/File/Button/Message), and a keyboard-nav footer. `Components/NotificationFeed/`.
+    - [x] **Pagination + PaginationCell**: Fully functional pagination bar (Basic/Group/Full-Radius variants) with real computed page-range/ellipsis logic, optional Page-X-of-Y and per-page select. `Components/Pagination/`.
+    - [x] **ProgressBar + ProgressBarLabel + CircularProgressBar**: Linear bar (real continuous fill, 4 colors), labeled variant with an Upgrade link, and an SVG circular ring (5 sizes). Originally built inside FileUpload/, moved here and generalized. `Components/ProgressBar/`.
+    - [x] **Popover + PopoverFooter**: Floating card with a CSS-triangle tail across 12 placements, plus a Stretch/Stepper/Text-Stepper footer. `Components/Popover/`.
+    - [x] **Radio + RadioLabel + RadioCard**: Base control, labeled composition, and a selectable bordered card — mirrors the Checkbox family's architecture. `Components/Radio/`.
+    - [x] **RatingIcon + Rating + RatingCell + RatingBar + RatingBarArea**: Star/heart glyphs, an aggregate rating display, a big selectable icon cell, and a fully functional 1-5 segmented rating selector (Emoji/Number/Star/Heart) with an optional feedback textarea. `Components/Rating/`.
+    - [x] **RichEditorToolbar + RichEditorItem + RichEditorDivider + RichEditorColorDot**: Composable rich-text-editor toolbar (Text/Dropdown/Icon/Color buttons), assembled freely instead of 4 fixed Figma presets. `Components/RichEditor/`.
+    - [x] **Scroll + ScrollArea**: Parameterized scrollbar track+thumb visual, plus a genuinely working custom scrollbar wrapper computed from real scroll metrics. `Components/Scroll/`.
+    - [x] **SegmentedControl**: Pill tab switcher — label-only, icon+label, and icon-only segments, plus a per-item disabled state. Promoted out of Filter/ into its own folder. `Components/SegmentedControl/`.
+    - [x] **Tooltip**: Floating hint card, 3 sizes (2X-Small/X-Small plain text, Large adds icon + title/description + dismiss), 8 placements, optional dark mode. `Components/Tooltip/`.
+    - [x] **TimePickerItem + TimePickerDuration + TimePickerStatus**: Selectable time-slot row (optional second time group), a duration pill ("30 min"), and a colored-dot status pill (Available/Busy/In-meeting/Offline). `Components/TimePicker/`.
+    - [x] **TextArea**: Genuinely functional multi-line text field — real live character counter, native vertical resize, Default/Hover/Focus/Filled/Disabled/Error states. Composes Label + HintText. `Components/TextArea/`.
+    - [x] **Tag**: Small removable label chip, 2 styles (stroke/gray), persistent active state, optional dismiss icon + sublabel, generic leading-visual slot. `Components/Tag/`.
+    - [x] **Table + TableCellContent + SortingIcon**: Genuinely functional data table — real column sorting and real row/select-all checkbox selection, semantic `<table>` markup, generic leading-visual cell content. `Components/Table/`.
+    - [x] **Input + TagInput + CounterInput + PinInput + InlineInput**: The full Text Input family — core field with generic leading/trailing slots (collapsing Figma's 12 rigid types), a real tag list, a real +/- counter, a real multi-box PIN/OTP entry, and a borderless-until-editing inline field. `Components/TextInput/`.
+- [x] **All planned components ported.**
+- [ ] **Product Components**: Higher-level, composed product UI — assembled from the primitives above rather than 1:1 Figma atoms.
+    - [x] **Navigation > Sidebar Components**: SidebarItem (nav row, collapsed rail mode, active accent bar), HeaderCard + SidebarHeader (workspace switcher card + divider wrapper), UserProfileCard + SidebarFooter (signed-in user card + divider wrapper), and SidebarFeatureCard (6 promo/widget types x 4 styles — Daily Meeting/Progress Bar/Icon & Link/Left Icon/Support/Cloud Storage). `Product Components/Navigation/Sidebar Components/`.
+    - [x] **Navigation > SidebarNavigation**: The full sidebar shell — composes SidebarHeader + a real search input + labeled main-nav item list + supporting item list + optional SidebarFeatureCard + SidebarFooter, with genuine active-item state and a `collapsed` prop. `Product Components/Navigation/SidebarNavigation/`.
 
 ---
 

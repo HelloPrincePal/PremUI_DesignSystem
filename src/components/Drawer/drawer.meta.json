@@ -1,0 +1,34 @@
+{
+  "name": "Drawer",
+  "description": "DrawerHeader (Basic/Left-Icon x Small/Large, title+description, dismiss, optional Link Button, count badge, bottom divider) and DrawerFooter (Stretch/Basic/Checkbox/Toggle/Stepper/Link Button, each pairing Cancel+Continue actions).",
+  "category": "overlay",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3187-2897",
+  "sourceNote": "DrawerFooter's Checkbox type reuses CheckboxLabel; its Toggle type introduced a new Switch primitive (not previously in the codebase — no standalone Figma frame existed for it, only an inline raster reference). Footer Cancel/Continue buttons use Button(neutral/stroke) and Button(primary/filled) at size='sm', matching the precedent set by DatePicker's footer rather than the slightly larger padding shown in the raw Figma trace.",
+  "props": {
+    "DrawerHeader": {
+      "type": { "type": "string", "options": ["basic", "left-icon"], "default": "basic" },
+      "size": { "type": "string", "options": ["sm", "lg"], "default": "sm" },
+      "title": { "type": "string" },
+      "description": { "type": "string", "description": "Only rendered at size=\"lg\"" },
+      "badgeCount": { "type": "number | string" },
+      "linkLabel": { "type": "string", "description": "Only rendered at size=\"sm\"" },
+      "dismissible": { "type": "boolean", "default": true },
+      "divider": { "type": "boolean", "default": false },
+      "leading": { "type": "ReactNode", "description": "Icon slot for the left-icon type — defaults to a history icon" }
+    },
+    "DrawerFooter": {
+      "type": { "type": "string", "options": ["stretch", "basic", "checkbox", "toggle", "stepper", "link-button"], "default": "stretch" },
+      "doubleButton": { "type": "boolean", "default": true },
+      "checked": { "type": "boolean", "description": "Controls the checkbox (checkbox type) or switch (toggle type)" },
+      "activeStep": { "type": "number", "default": 1, "description": "1-indexed active dot out of 3, stepper type" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-icon-sub", "--primary-base"],
+    "radius": ["--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["CompactButton", "LinkButton", "Badge", "Button", "CheckboxLabel", "Switch"]
+}

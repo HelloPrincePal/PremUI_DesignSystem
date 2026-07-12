@@ -1,0 +1,294 @@
+/* ============================================================
+   Notifications Header [1.1] + Notifications Tab Menu [1.1] +
+   Notifications Items [1.1] + Notifications Footer [1.1] —
+   Figma: nodes 4308:1004 (header), 4349:46656 (tab menu),
+   4308:731 (items, Basic/File/Button/Message x Default/Hover),
+   4308:5526 (footer), Align UI Design System 2.0.
+   ============================================================ */
+
+/* ── Notification Header ── */
+
+.premui-notification-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-notification-header-title {
+  margin: 0;
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: var(--color-text-strong);
+}
+
+/* ── Notification Tab Menu ── */
+
+.premui-notification-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-notification-tabs-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-notification-tabs-item[data-active="true"] {
+  color: var(--color-text-strong);
+}
+
+.premui-notification-tabs-item[data-active="true"]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14px;
+  height: 2px;
+  background: var(--primary-base);
+}
+
+.premui-notification-tabs-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--color-stroke-soft);
+  flex-shrink: 0;
+}
+
+.premui-notification-tabs-filter {
+  margin-left: auto;
+}
+
+/* ── Notification Item ── */
+
+.premui-notification-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-12);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-notification-item:hover,
+.premui-notification-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-notification-item-avatar {
+  flex-shrink: 0;
+}
+
+.premui-notification-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-notification-item[data-type="file"] .premui-notification-item-content,
+.premui-notification-item[data-type="message"] .premui-notification-item-content,
+.premui-notification-item[data-type="button"] .premui-notification-item-content {
+  gap: var(--spacing-12);
+}
+
+.premui-notification-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-notification-item-title {
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-notification-item-description {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-notification-item-timestamp {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.premui-notification-item-company-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.premui-notification-item-description-text {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-notification-item-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-10, 10px);
+  width: 100%;
+}
+
+.premui-notification-item-file {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: fit-content;
+  box-sizing: border-box;
+  padding: var(--spacing-8);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  white-space: nowrap;
+}
+
+.premui-notification-item-file i {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-notification-item-file-name {
+  color: var(--color-text-sub);
+}
+
+.premui-notification-item-file-size {
+  color: var(--color-text-soft);
+}
+
+.premui-notification-item-message {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: 4px var(--radius-8) var(--radius-10) var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-notification-item-more {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-notification-item:hover .premui-notification-item-more,
+.premui-notification-item:focus-within .premui-notification-item-more,
+.premui-notification-item[data-state="hover"] .premui-notification-item-more {
+  opacity: 1;
+}
+
+/* ── Notification Footer ── */
+
+.premui-notification-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-notification-footer-navigate {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-notification-footer-shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 2px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  background: var(--color-bg-weak);
+  font-size: 16px;
+}
+
+.premui-notification-footer-manage {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-notification-footer-manage i {
+  font-size: 16px;
+}

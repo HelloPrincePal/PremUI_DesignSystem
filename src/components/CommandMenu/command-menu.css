@@ -1,0 +1,254 @@
+/* ============================================================
+   Command Menu Search Input [1.1] + Command Menu Items [1.1] +
+   Command Menu Footer [1.1]
+   Figma: nodes 4187:559 / 4171:15653 / 4172:16590, Align UI Design System 2.0
+   ============================================================ */
+
+.premui-command-menu {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  max-width: 100%;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+.premui-command-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--spacing-8);
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.premui-command-menu-empty {
+  margin: 0;
+  padding: var(--spacing-16);
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ── Search Input ── */
+
+.premui-command-search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-14) 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-command-search-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-text-soft);
+}
+
+.premui-command-search-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-command-search-input:focus {
+  outline: none;
+}
+
+.premui-command-search-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-command-search-info {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 20px;
+  color: var(--color-text-soft);
+  cursor: pointer;
+}
+
+/* ── Shared shortcut chip (search input + command item) ── */
+
+.premui-command-shortcut-text {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-6);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  background: var(--color-bg-white, #fff);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  white-space: nowrap;
+}
+
+/* ── Command Item ── */
+
+.premui-command-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  border-radius: var(--radius-10);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-command-item:hover,
+.premui-command-item:focus-visible {
+  background: var(--color-bg-weak);
+}
+
+.premui-command-item:focus-visible {
+  outline: none;
+}
+
+.premui-command-item[data-size="sm"] {
+  padding: var(--spacing-10) var(--spacing-12);
+}
+
+.premui-command-item[data-size="md"] {
+  padding: var(--spacing-12);
+}
+
+.premui-command-item-leading {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premui-command-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-command-item-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  white-space: nowrap;
+}
+
+.premui-command-item-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-command-item[data-size="sm"] .premui-command-item-label {
+  font-weight: 400;
+}
+
+.premui-command-item-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-command-item-description {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  text-align: left;
+}
+
+.premui-command-item-trailing {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-6);
+  font-size: 18px;
+  color: var(--color-text-sub);
+  opacity: 0;
+}
+
+.premui-command-item:hover .premui-command-item-trailing,
+.premui-command-item:focus-visible .premui-command-item-trailing {
+  opacity: 1;
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+/* ── Footer ── */
+
+.premui-command-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-14) 20px;
+  border-top: 1px solid var(--color-stroke-soft);
+}
+
+.premui-command-footer-hint {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-shrink: 0;
+}
+
+.premui-command-shortcut-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  background: var(--color-bg-weak);
+  font-size: 16px;
+  color: var(--color-text-sub);
+  box-sizing: border-box;
+}
+
+.premui-command-footer-label {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-command-footer-help {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+  justify-content: flex-end;
+}

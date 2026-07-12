@@ -1,0 +1,37 @@
+{
+  "name": "FileUpload",
+  "description": "FileFormatIcon (colored file-type icon+tag, 9 colors x 2 sizes), FileUploadArea (drag-drop dashed zone with a Browse File button, real drag/drop + file-input wiring), and FileUploadCard (progress card with uploading/success/error states, progress bar, dismiss and retry actions).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=450-17234",
+  "sourceNote": "FileFormatIcon's page shape uses RemixIcon's file-2-line glyph (already resembles the folded-corner page in the Figma raster) with a separately drawn colored format tag, keeping the project's RemixIcon-only icon policy instead of importing the raw Figma page/corner vectors. Color mapping (gray/blue/red/orange/yellow/green/purple/teal/pink) maps to the same state tokens as Badge/ColorDots (faded/information/error/warning/away/success/feature/verified/highlighted).",
+  "props": {
+    "FileFormatIcon": {
+      "color": { "type": "string", "options": ["gray", "blue", "red", "orange", "yellow", "green", "purple", "teal", "pink"], "default": "red" },
+      "format": { "type": "string", "default": "PDF" },
+      "size": { "type": "string", "options": ["md", "xs"], "default": "md" }
+    },
+    "FileUploadArea": {
+      "title": { "type": "string" },
+      "description": { "type": "string" },
+      "browseLabel": { "type": "string" },
+      "leading": { "type": "ReactNode" },
+      "onFilesSelected": { "type": "(files: FileList) => void" }
+    },
+    "FileUploadCard": {
+      "state": { "type": "string", "options": ["uploading", "success", "error"], "default": "uploading" },
+      "progress": { "type": "number", "description": "0-100, only used when state=\"uploading\"" },
+      "showStatus": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-faded-base", "--color-state-information-base", "--color-state-error-base",
+      "--color-state-warning-base", "--color-state-away-base", "--color-state-success-base",
+      "--color-state-feature-base", "--color-state-verified-base", "--color-state-highlighted-base"
+    ],
+    "radius": ["--radius-full", "--radius-12"]
+  },
+  "dependencies": ["Button", "CompactButton", "LinkButton", "ProgressBar"]
+}

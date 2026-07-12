@@ -1,0 +1,68 @@
+/* ============================================================
+   Key Icons [1.1] — Figma: node 263:1850, Align UI Design
+   System 2.0. Circular icon container, 9 colors x 5 sizes x 2
+   styles (Stroke = white bordered surface, Lighter = tinted
+   surface). The Figma component generated ~90 near-identical
+   hardcoded variants (9 colors x 5 sizes x 2 styles); implemented
+   generically here via data attributes instead.
+   ============================================================ */
+
+.premui-key-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.premui-key-icon i {
+  display: block;
+  line-height: 1;
+}
+
+/* ── Sizes: explicit width/height (padding*2 + icon-font-size) — an icon font's natural
+   line-height rarely equals its em-width, so sizing the box from content alone (inline-flex
+   auto-size) can render an oval instead of a perfect circle. ── */
+
+.premui-key-icon[data-size="2xl"] { width: 64px; height: 64px; font-size: 32px; }
+.premui-key-icon[data-size="xl"]  { width: 56px; height: 56px; font-size: 28px; }
+.premui-key-icon[data-size="lg"]  { width: 48px; height: 48px; font-size: 24px; }
+.premui-key-icon[data-size="md"]  { width: 40px; height: 40px; font-size: 20px; }
+.premui-key-icon[data-size="sm"]  { width: 32px; height: 32px; font-size: 20px; }
+
+/* ── Stroke style: white bg + border + shadow, colored icon ── */
+
+.premui-key-icon[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+/* ── Lighter style: tinted bg, no border, colored icon ── */
+
+.premui-key-icon[data-style="lighter"] {
+  border: none;
+  box-shadow: none;
+}
+
+.premui-key-icon[data-color="gray"]   { color: var(--color-state-faded-base); }
+.premui-key-icon[data-color="blue"]   { color: var(--color-state-information-base); }
+.premui-key-icon[data-color="red"]    { color: var(--color-state-error-base); }
+.premui-key-icon[data-color="orange"] { color: var(--color-state-warning-base); }
+.premui-key-icon[data-color="yellow"] { color: var(--color-state-away-base); }
+.premui-key-icon[data-color="green"]  { color: var(--color-state-success-base); }
+.premui-key-icon[data-color="purple"] { color: var(--color-state-feature-base); }
+.premui-key-icon[data-color="pink"]   { color: var(--color-state-highlighted-base); }
+.premui-key-icon[data-color="teal"]   { color: var(--color-state-verified-base); }
+
+.premui-key-icon[data-style="lighter"][data-color="gray"]   { background: var(--color-state-faded-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="blue"]   { background: var(--color-state-information-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="red"]    { background: var(--color-state-error-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="orange"] { background: var(--color-state-warning-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="yellow"] { background: var(--color-state-away-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="green"]  { background: var(--color-state-success-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="purple"] { background: var(--color-state-feature-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="pink"]   { background: var(--color-state-highlighted-lighter); }
+.premui-key-icon[data-style="lighter"][data-color="teal"]   { background: var(--color-state-verified-lighter); }

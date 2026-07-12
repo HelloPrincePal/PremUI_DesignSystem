@@ -1,0 +1,101 @@
+/* ============================================================
+   Rich Editor [1.1] + Rich Editor Items [1.1] + Rich Editor
+   Colors [1.1] — Figma: nodes 166926:17605 (toolbar, 4 rigid
+   variants), 166251:2701 (item, Text/Dropdown/Icon/Color x
+   Default/Hover/Active), 166331:4100 (color dot, 10 colors),
+   Align UI Design System 2.0. Figma's 4 rigid toolbar variants
+   (each a different fixed subset of items) were generalized into
+   a composable RichEditorToolbar that accepts any combination of
+   RichEditorItem/RichEditorDivider children, since real editors
+   need arbitrary toolbar configurations, not 4 fixed presets.
+   Color mapping matches Badge/ColorDots' 10-color set exactly.
+   ============================================================ */
+
+.premui-rich-editor-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  box-sizing: border-box;
+  padding: 2px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: 8px;
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-rich-editor-divider {
+  width: 1px;
+  height: 16px;
+  flex-shrink: 0;
+  background: var(--color-stroke-soft);
+}
+
+.premui-rich-editor-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 4px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-rich-editor-item[data-type="text"],
+.premui-rich-editor-item[data-type="color"] {
+  padding: 4px 4px 4px 8px;
+}
+
+.premui-rich-editor-item i {
+  font-size: 20px;
+}
+
+.premui-rich-editor-item:hover,
+.premui-rich-editor-item[data-state="hover"],
+.premui-rich-editor-item[data-state="active"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-rich-editor-item[data-state="active"] {
+  color: var(--color-text-strong);
+}
+
+.premui-rich-editor-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.premui-rich-editor-item:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: -2px;
+}
+
+.premui-rich-editor-item-label {
+  white-space: nowrap;
+}
+
+/* ── Color Dot ── */
+
+.premui-rich-editor-color-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+}
+
+.premui-rich-editor-color-dot[data-color="gray"]   { background: var(--color-state-faded-base); }
+.premui-rich-editor-color-dot[data-color="blue"]   { background: var(--color-state-information-base); }
+.premui-rich-editor-color-dot[data-color="red"]    { background: var(--color-state-error-base); }
+.premui-rich-editor-color-dot[data-color="orange"] { background: var(--color-state-warning-base); }
+.premui-rich-editor-color-dot[data-color="yellow"] { background: var(--color-state-away-base); }
+.premui-rich-editor-color-dot[data-color="green"]  { background: var(--color-state-success-base); }
+.premui-rich-editor-color-dot[data-color="purple"] { background: var(--color-state-feature-base); }
+.premui-rich-editor-color-dot[data-color="sky"]    { background: var(--color-state-verified-base); }
+.premui-rich-editor-color-dot[data-color="pink"]   { background: var(--color-state-highlighted-base); }
+.premui-rich-editor-color-dot[data-color="teal"]   { background: var(--color-state-stable-base); }

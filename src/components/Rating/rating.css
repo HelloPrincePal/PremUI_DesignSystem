@@ -1,0 +1,236 @@
+/* ============================================================
+   Rating Items [1.1] + Rating Review [1.1] + Rating Cell [1.1] +
+   Rating Bar Area [1.1] + Rating Bar [1.1] + Rating Bar Items
+   [1.1] — Figma: nodes 532:4340 (aggregate review display),
+   532:4137 (single icon, 4 states), 532:4160 (big selectable
+   cell), 535:4994 (bar + textarea card, 4 types), 535:4658 (bar,
+   selected demo), 535:4535 (bar item, Default/Hover/Selected),
+   Align UI Design System 2.0. Star uses RemixIcon's star-fill/
+   star-line/star-half-fill directly; Heart's "half" state (no
+   half-heart glyph in RemixIcon) uses a clipped fill-over-line
+   overlay technique instead. The "Emoji" type uses RemixIcon's
+   emotion-sad/unhappy/normal/happy/laugh-line progression in
+   place of Figma's raster emoji assets, per the RemixIcon-only
+   policy.
+   ============================================================ */
+
+/* ── Rating Icon ── */
+
+.premui-rating-icon {
+  display: inline-block;
+  line-height: 1;
+}
+
+.premui-rating-icon-half {
+  position: relative;
+  display: inline-flex;
+}
+
+.premui-rating-icon-half i {
+  position: absolute;
+  inset: 0;
+  line-height: 1;
+}
+
+.premui-rating-icon-half-fill {
+  clip-path: inset(0 50% 0 0);
+}
+
+/* ── Rating (aggregate display) ── */
+
+.premui-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.premui-rating[data-alignment="vertical"] {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+}
+
+.premui-rating[data-alignment="horizontal"] {
+  align-items: flex-start;
+  gap: var(--spacing-8);
+}
+
+.premui-rating-icons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.premui-rating[data-alignment="vertical"] .premui-rating-icons,
+.premui-rating[data-alignment="horizontal"] .premui-rating-icons {
+  gap: 2px;
+}
+
+.premui-rating-description {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.premui-rating-text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+/* ── Rating Cell ── */
+
+.premui-rating-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+}
+
+.premui-rating-cell:hover,
+.premui-rating-cell[data-state="hover"] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-rating-cell[data-state="selected"] {
+  background: var(--color-bg-white, #fff);
+  border-color: var(--color-stroke-soft);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-rating-cell:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ── Rating Bar ── */
+
+.premui-rating-bar {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12) var(--radius-12) 0 0;
+  overflow: hidden;
+}
+
+.premui-rating-bar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 8px 4px;
+  border: none;
+  border-right: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  position: relative;
+}
+
+.premui-rating-bar-item:last-child {
+  border-right: none;
+}
+
+.premui-rating-bar-number {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-rating-bar-item[data-type="number"]:hover .premui-rating-bar-number,
+.premui-rating-bar-item[data-type="number"][data-selected="true"] .premui-rating-bar-number {
+  color: var(--color-text-strong);
+}
+
+.premui-rating-bar-item[data-type="emoji"] i,
+.premui-rating-bar-item[data-type="number"] i {
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-rating-bar-item[data-type="emoji"][data-selected="true"],
+.premui-rating-bar-item[data-type="number"][data-selected="true"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-rating-bar-icon-line,
+.premui-rating-bar-icon-fill {
+  font-size: 20px;
+}
+
+.premui-rating-bar-icon-line {
+  color: var(--color-icon-soft);
+}
+
+.premui-rating-bar-icon-fill {
+  display: none;
+  color: var(--color-icon-soft);
+}
+
+.premui-rating-bar-item:hover:not([data-selected="true"]) .premui-rating-bar-icon-line {
+  display: none;
+}
+
+.premui-rating-bar-item:hover:not([data-selected="true"]) .premui-rating-bar-icon-fill {
+  display: inline-block;
+}
+
+.premui-rating-bar-item[data-selected="true"] .premui-rating-bar-icon-line {
+  display: none;
+}
+
+.premui-rating-bar-item[data-selected="true"] .premui-rating-bar-icon-fill {
+  display: inline-block;
+}
+
+.premui-rating-bar-item[data-type="star"][data-selected="true"] .premui-rating-bar-icon-fill {
+  color: var(--color-state-away-base);
+}
+
+.premui-rating-bar-item[data-type="heart"][data-selected="true"] .premui-rating-bar-icon-fill {
+  color: var(--color-state-error-base);
+}
+
+/* ── Rating Bar Area ── */
+
+.premui-rating-bar-area {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  max-width: 100%;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  overflow: hidden;
+}
+
+.premui-rating-bar-area-input {
+  width: 100%;
+  min-height: 76px;
+  box-sizing: border-box;
+  padding: var(--spacing-12);
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-rating-bar-area-input::placeholder {
+  color: var(--color-text-soft);
+}

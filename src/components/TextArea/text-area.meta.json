@@ -1,0 +1,34 @@
+{
+  "name": "TextArea",
+  "description": "Genuinely functional multi-line text field: real controlled/uncontrolled value, live character counter computed from the actual value length (not a static '0/200'), and a native vertically-resizable textarea. Composes the existing Label and HintText components. 6 states: default/hover/focus/filled/disabled/error.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=435-5725",
+  "sourceNote": "Reuses the existing Label (badge/sublabel/info-icon) and HintText (default/error/disabled) components directly rather than reimplementing them, following the pattern already established by ColorPicker/DatePicker's form-field composition. The character counter is real — computed from `value.length`/`maxLength` — instead of Figma's static '0/200' demo text, matching this project's precedent (Pagination, ProgressBar, PasswordStrength) of favoring functional behavior. Figma's 'Filled' state is visually identical to 'Default' in the source trace (same border/shadow, just with text present) so no separate CSS was needed. The counter's 'Resize' icon is decorative — the textarea has real `resize: vertical` for native dragging — substituted with RemixIcon's `expand-diagonal-2-line` in place of Figma's raster asset.",
+  "props": {
+    "TextArea": {
+      "label": { "type": "string", "default": "Label" },
+      "sublabel": { "type": "ReactNode", "default": "(Optional)" },
+      "required": { "type": "boolean", "default": true },
+      "showInfo": { "type": "boolean", "default": true },
+      "placeholder": { "type": "string", "default": "Placeholder text..." },
+      "value": { "type": "string" },
+      "maxLength": { "type": "number", "default": 200 },
+      "showCounter": { "type": "boolean", "default": true },
+      "showResizeIcon": { "type": "boolean", "default": true },
+      "hintText": { "type": "ReactNode" },
+      "showHint": { "type": "boolean", "default": true },
+      "disabled": { "type": "boolean", "default": false },
+      "error": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "focus", "disabled", "error"] },
+      "rows": { "type": "number", "default": 4 }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-stroke-strong", "--color-text-strong", "--color-text-soft", "--color-text-disabled", "--color-state-error-base"],
+    "radius": ["--radius-12"],
+    "shadows": ["--shadow-regular-x-small", "--shadow-component-button-important-focus"]
+  },
+  "dependencies": ["Label", "HintText"]
+}

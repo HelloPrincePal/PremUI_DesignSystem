@@ -1,0 +1,33 @@
+{
+  "name": "RichEditor",
+  "description": "RichEditorToolbar (composable container), RichEditorItem (Text/Dropdown/Icon/Color button, Default/Hover/Active states, chevron flips direction when active), RichEditorDivider, and RichEditorColorDot (10 colors).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=166926-17605",
+  "sourceNote": "Figma defined 4 rigid toolbar variants (each a fixed subset/ordering of items — full, Header+size-only, formatting-only, comment/link/mention-only). Generalized into a composable RichEditorToolbar that accepts any combination of RichEditorItem/RichEditorDivider children, since real rich-text editors need arbitrary toolbar configurations, not 4 fixed presets — the Gallery story recreates all 4 Figma variants purely via composition. Color mapping matches Badge/ColorDots' 10-color set exactly.",
+  "props": {
+    "RichEditorItem": {
+      "type": { "type": "string", "options": ["text", "dropdown", "icon", "color"], "default": "text" },
+      "state": { "type": "string", "options": ["default", "hover", "active"] },
+      "active": { "type": "boolean", "default": false, "description": "Persistent pressed/toggled state, e.g. Bold currently applied" },
+      "icon": { "type": "string" },
+      "label": { "type": "string" },
+      "color": { "type": "string", "options": ["gray", "blue", "red", "orange", "yellow", "green", "purple", "sky", "pink", "teal"] }
+    },
+    "RichEditorColorDot": {
+      "color": { "type": "string", "options": ["gray", "blue", "red", "orange", "yellow", "green", "purple", "sky", "pink", "teal"], "default": "gray" }
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub",
+      "--color-state-faded-base", "--color-state-information-base", "--color-state-error-base", "--color-state-warning-base",
+      "--color-state-away-base", "--color-state-success-base", "--color-state-feature-base", "--color-state-verified-base",
+      "--color-state-highlighted-base", "--color-state-stable-base"
+    ],
+    "radius": ["--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": []
+}

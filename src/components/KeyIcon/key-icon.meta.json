@@ -1,0 +1,28 @@
+{
+  "name": "KeyIcon",
+  "description": "Reusable circular icon container. 9 colors x 5 sizes (64/56/48/40/32) x 2 styles (stroke = white bordered surface, lighter = tinted surface).",
+  "category": "media",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=263-1850",
+  "sourceNote": "The Figma component set generated ~90 near-identical hardcoded variants (9 colors x 5 sizes x 2 styles, one branch per combination); implemented generically here via CSS data attributes instead. This same visual pattern already appeared inline (uncomponentized) as DrawerHeader's Left-Icon Large leading slot and ContentLabel/ContentCard's Left-Icon type — new usages should reach for this shared component instead of re-inlining the pattern.",
+  "props": {
+    "icon": { "type": "string", "default": "user-6-line", "description": "RemixIcon name (no `ri-` prefix)" },
+    "color": { "type": "string", "options": ["gray", "blue", "red", "orange", "yellow", "green", "purple", "pink", "teal"], "default": "gray" },
+    "size": { "type": "string", "options": ["2xl", "xl", "lg", "md", "sm"], "default": "2xl" },
+    "style": { "type": "string", "options": ["stroke", "lighter"], "default": "stroke" }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-faded-base", "--color-state-information-base", "--color-state-error-base",
+      "--color-state-warning-base", "--color-state-away-base", "--color-state-success-base",
+      "--color-state-feature-base", "--color-state-highlighted-base", "--color-state-verified-base",
+      "--color-state-faded-lighter", "--color-state-information-lighter", "--color-state-error-lighter",
+      "--color-state-warning-lighter", "--color-state-away-lighter", "--color-state-success-lighter",
+      "--color-state-feature-lighter", "--color-state-highlighted-lighter", "--color-state-verified-lighter"
+    ],
+    "radius": ["--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": []
+}

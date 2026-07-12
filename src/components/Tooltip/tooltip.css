@@ -1,0 +1,184 @@
+/* ============================================================
+   Tooltip [1.1] — Figma node 2604:269. 8 placements (top/bottom x
+   left/center/right, plus side left/right) x 3 sizes (2X-Small/
+   X-Small/Large) x optional dark mode. The tail is the exact SVG
+   from the Figma source: a rounded-tip triangle stroked in the
+   border color, plus an unstroked rect that masks the card's own
+   border line at the seam. Figma stacks the tail and card as plain
+   flex siblings with no gap/overlap — no absolute positioning or
+   z-index needed, the mask rect does the seam-blending locally.
+   ============================================================ */
+
+.premui-tooltip {
+  display: inline-flex;
+  max-width: 100%;
+  /* The soft outer shadow layers from --shadow-component-tooltip, applied here (not on the
+     card) via drop-shadow so they follow the tail+card union's actual silhouette. A box-shadow
+     on the card alone is a rectangle with up to 48px of blur — it bleeds upward past the card's
+     own edge and shows as a stray halo around the tail instead of hugging the real outline. */
+  filter: drop-shadow(0px 48px 48px rgba(23, 23, 23, 0.04)) drop-shadow(0px 24px 24px rgba(23, 23, 23, 0.04))
+    drop-shadow(0px 12px 12px rgba(23, 23, 23, 0.04)) drop-shadow(0px 6px 6px rgba(23, 23, 23, 0.04))
+    drop-shadow(0px 3px 3px rgba(23, 23, 23, 0.02)) drop-shadow(0px 1px 1px rgba(23, 23, 23, 0.04));
+}
+
+.premui-tooltip[data-placement^="top"],
+.premui-tooltip[data-placement^="bottom"] {
+  flex-direction: column;
+}
+
+.premui-tooltip[data-placement$="-left"] { align-items: flex-start; }
+.premui-tooltip[data-placement$="-center"] { align-items: center; }
+.premui-tooltip[data-placement$="-right"] { align-items: flex-end; }
+
+.premui-tooltip[data-placement="left"],
+.premui-tooltip[data-placement="right"] {
+  flex-direction: row;
+  align-items: center;
+}
+
+.premui-tooltip-tail {
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.premui-tooltip-tail-outline {
+  fill: var(--color-bg-white, #fff);
+  stroke: var(--color-stroke-soft);
+}
+
+.premui-tooltip-tail-mask {
+  fill: var(--color-bg-white, #fff);
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-tail-outline {
+  fill: var(--color-bg-strong);
+  stroke: none;
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-tail-mask {
+  fill: var(--color-bg-strong);
+}
+
+/* Corner offset — how far the tail sits from the card's edge (matches the source's
+   pl-8/pl-12/pl-16 values for sm/md/lg) */
+.premui-tooltip[data-placement="top-left"] .premui-tooltip-tail,
+.premui-tooltip[data-placement="bottom-left"] .premui-tooltip-tail { margin-left: 16px; }
+.premui-tooltip[data-placement="top-right"] .premui-tooltip-tail,
+.premui-tooltip[data-placement="bottom-right"] .premui-tooltip-tail { margin-right: 16px; }
+.premui-tooltip[data-size="sm"][data-placement="top-left"] .premui-tooltip-tail,
+.premui-tooltip[data-size="sm"][data-placement="bottom-left"] .premui-tooltip-tail { margin-left: 8px; }
+.premui-tooltip[data-size="sm"][data-placement="top-right"] .premui-tooltip-tail,
+.premui-tooltip[data-size="sm"][data-placement="bottom-right"] .premui-tooltip-tail { margin-right: 8px; }
+.premui-tooltip[data-size="md"][data-placement="top-left"] .premui-tooltip-tail,
+.premui-tooltip[data-size="md"][data-placement="bottom-left"] .premui-tooltip-tail { margin-left: 12px; }
+.premui-tooltip[data-size="md"][data-placement="top-right"] .premui-tooltip-tail,
+.premui-tooltip[data-size="md"][data-placement="bottom-right"] .premui-tooltip-tail { margin-right: 12px; }
+
+/* ── Card ── */
+
+.premui-tooltip-card {
+  box-sizing: border-box;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  /* Just the inset highlight — the soft outer blur layers live on .premui-tooltip's
+     drop-shadow instead, so they trace the tail+card union, not just this rectangle. */
+  box-shadow: 0px -1px 1px -0.5px rgba(23, 23, 23, 0.06) inset;
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-card {
+  background: var(--color-bg-strong);
+  border: none;
+}
+
+.premui-tooltip-card[data-size="sm"] {
+  padding: var(--spacing-2) var(--spacing-6);
+  border-radius: var(--radius-4);
+}
+
+.premui-tooltip-card[data-size="md"] {
+  padding: var(--spacing-4) var(--spacing-10);
+  border-radius: var(--radius-6);
+}
+
+.premui-tooltip-plain-text {
+  margin: 0;
+  white-space: nowrap;
+  color: var(--color-text-strong);
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-plain-text {
+  color: var(--color-text-white, #fff);
+}
+
+.premui-tooltip-card[data-size="sm"] .premui-tooltip-plain-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.premui-tooltip-card[data-size="md"] .premui-tooltip-plain-text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+}
+
+/* ── Large (icon + title/description + dismiss) ── */
+
+.premui-tooltip-lg {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  width: 280px;
+  padding: var(--spacing-12);
+  border-radius: var(--radius-12);
+}
+
+.premui-tooltip-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-icon {
+  color: var(--color-icon-white, #fff);
+}
+
+.premui-tooltip-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-tooltip-title {
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-tooltip-description {
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-title {
+  color: var(--color-text-white, #fff);
+}
+
+.premui-tooltip[data-dark] .premui-tooltip-description {
+  color: var(--color-text-soft);
+}
+
+.premui-tooltip-dismiss {
+  flex-shrink: 0;
+}

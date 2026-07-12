@@ -1,0 +1,138 @@
+/* ============================================================
+   Fancy Buttons [1.1]
+   Figma: Fancy Buttons [1.1] (node 181:5291, Align UI Design System 2.0)
+   Types: neutral · primary · destructive · basic
+   Sizes: md (40px) · sm (36px) · xs (32px)
+   States: default · hover · disabled
+   ============================================================ */
+
+.premui-fancy-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+/* ── Sizes ── */
+
+.premui-fancy-btn[data-size="xs"] {
+  padding: var(--spacing-6);
+  border-radius: var(--radius-8);
+}
+
+.premui-fancy-btn[data-size="sm"] {
+  padding: var(--spacing-8);
+  border-radius: var(--radius-8);
+}
+
+.premui-fancy-btn[data-size="md"] {
+  padding: var(--spacing-10);
+  border-radius: var(--radius-10);
+}
+
+/* ── Neutral / Primary / Destructive: gradient-filled surface + ring shadow ── */
+
+.premui-fancy-btn[data-type="neutral"],
+.premui-fancy-btn[data-type="primary"],
+.premui-fancy-btn[data-type="destructive"] {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(0deg, var(--fancy-btn-bg), var(--fancy-btn-bg));
+}
+
+.premui-fancy-btn[data-type="neutral"] {
+  --fancy-btn-bg: var(--color-bg-strong);
+  color: var(--color-text-white);
+  box-shadow: 0 0 0 1px #242628, 0 1px 2px rgba(27, 28, 29, 0.48);
+}
+
+.premui-fancy-btn[data-type="primary"] {
+  --fancy-btn-bg: var(--primary-base);
+  color: var(--color-static-white, #fff);
+  box-shadow: 0 0 0 1px var(--primary-base), 0 1px 2px rgba(14, 18, 27, 0.24);
+}
+
+.premui-fancy-btn[data-type="destructive"] {
+  --fancy-btn-bg: var(--color-state-error-base);
+  color: var(--color-static-white, #fff);
+  box-shadow: 0 0 0 1px var(--color-state-error-base), 0 1px 2px rgba(14, 18, 27, 0.24);
+}
+
+/* Hover: stronger top highlight (real :hover OR forced via the `state` prop) */
+
+.premui-fancy-btn[data-type="neutral"]:not(:disabled):hover,
+.premui-fancy-btn[data-type="neutral"][data-state="hover"],
+.premui-fancy-btn[data-type="primary"]:not(:disabled):hover,
+.premui-fancy-btn[data-type="primary"][data-state="hover"],
+.premui-fancy-btn[data-type="destructive"]:not(:disabled):hover,
+.premui-fancy-btn[data-type="destructive"][data-state="hover"] {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(0deg, var(--fancy-btn-bg), var(--fancy-btn-bg));
+}
+
+/* ── Basic: plain white surface, border simulated via ring shadow ── */
+
+.premui-fancy-btn[data-type="basic"] {
+  background: var(--color-bg-white, #fff);
+  color: var(--color-text-sub);
+  box-shadow: 0 0 0 1px var(--color-stroke-soft), 0 1px 3px rgba(14, 18, 27, 0.12);
+}
+
+.premui-fancy-btn[data-type="basic"]:not(:disabled):hover,
+.premui-fancy-btn[data-type="basic"][data-state="hover"] {
+  background: var(--color-bg-weak);
+  color: var(--color-text-strong);
+  box-shadow: none;
+}
+
+/* ── Disabled (real :disabled OR forced via the `state` prop) — same for every type ── */
+
+.premui-fancy-btn:disabled,
+.premui-fancy-btn[data-state="disabled"] {
+  background: var(--color-bg-weak-25) !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--color-text-disabled) !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Focus ── */
+
+.premui-fancy-btn:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ── Elements ── */
+
+.premui-fancy-btn-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-fancy-btn-label {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

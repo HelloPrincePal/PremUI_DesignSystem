@@ -1,0 +1,139 @@
+/* ============================================================
+   Sidebar Navigation [1.1] — Figma node 3802:11759, Align UI
+   Design System 2.0. Product Components > Navigation. Composes
+   SidebarHeader + SidebarItem list + SidebarFeatureCard +
+   SidebarFooter into a real navigation shell with a genuine
+   controlled/uncontrolled active-item state and a real search
+   input, not a static demo.
+   ============================================================ */
+
+.premui-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 272px;
+  height: 100%;
+  background: var(--color-bg-white, #fff);
+  border-right: 1px solid var(--color-stroke-soft);
+  overflow: hidden;
+}
+
+.premui-sidebar-nav[data-collapsed] {
+  width: 80px;
+}
+
+.premui-sidebar-nav-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-height: 0;
+  gap: var(--spacing-20, 20px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-20, 20px) var(--spacing-20, 20px) 0;
+  overflow-y: auto;
+}
+
+.premui-sidebar-nav[data-collapsed] .premui-sidebar-nav-content {
+  align-items: center;
+  padding: var(--spacing-20, 20px) var(--spacing-8) 0;
+}
+
+.premui-sidebar-nav-search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-10, 10px);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  flex-shrink: 0;
+}
+
+.premui-sidebar-nav-search-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-sidebar-nav-search-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-sidebar-nav-search-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-sidebar-nav-search-shortcut {
+  flex-shrink: 0;
+  padding: var(--spacing-2) var(--spacing-6);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.premui-sidebar-nav-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.premui-sidebar-nav-section-label {
+  margin: 0;
+  width: 100%;
+  padding: var(--spacing-4);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.premui-sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-sidebar-nav[data-collapsed] .premui-sidebar-nav-list {
+  align-items: center;
+}
+
+.premui-sidebar-nav-supporting {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+  flex: 1 0 0;
+  justify-content: flex-end;
+  padding-bottom: var(--spacing-16);
+}
+
+.premui-sidebar-nav[data-collapsed] .premui-sidebar-nav-supporting {
+  align-items: center;
+}
+
+.premui-sidebar-nav-content > .premui-feature-card {
+  flex-shrink: 0;
+  margin-bottom: var(--spacing-20, 20px);
+}

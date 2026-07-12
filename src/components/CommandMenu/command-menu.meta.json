@@ -1,0 +1,38 @@
+{
+  "name": "CommandMenu",
+  "description": "Command palette: CommandMenuSearchInput (real controlled search field), a list of CommandMenuItem rows, and CommandMenuFooter (keyboard-hint + help link). CommandMenu composes all three into a bordered card.",
+  "category": "overlay",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=4187-559",
+  "sourceNote": "CommandMenuItem simplifies Figma's 6 rigid 'type' variants (Basic/Avatar/LeftIcon/Brand/Company/Country — the last three baking in Spotify/Apex/US-flag images) into one generic `leading` ReactNode slot, matching the same pattern used in CheckboxCard.",
+  "props": {
+    "CommandMenuSearchInput": {
+      "value": { "type": "string", "default": "" },
+      "onChange": { "type": "(value: string) => void" },
+      "placeholder": { "type": "string", "default": "Search or jump to" },
+      "showShortcut": { "type": "boolean", "default": true },
+      "showInfoButton": { "type": "boolean", "default": true }
+    },
+    "CommandMenuItem": {
+      "leading": { "type": "ReactNode" },
+      "label": { "type": "ReactNode" },
+      "sublabel": { "type": "ReactNode" },
+      "description": { "type": "string", "description": "Only shown at size=\"md\"" },
+      "badge": { "type": "string" },
+      "shortcut": { "type": "string", "description": "e.g. \"⌘K\"" },
+      "size": { "type": "string", "options": ["sm", "md"], "default": "sm" }
+    },
+    "CommandMenuFooter": {
+      "helpText": { "type": "string" },
+      "linkLabel": { "type": "string", "default": "Help Center" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-text-soft"],
+    "spacing": ["--spacing-4", "--spacing-8", "--spacing-10", "--spacing-12", "--spacing-14"],
+    "radius": ["--radius-4", "--radius-6", "--radius-10", "--radius-16"],
+    "shadows": ["--shadow-regular-medium", "--shadow-regular-x-small"]
+  },
+  "dependencies": ["CompactButton", "Badge", "LinkButton"]
+}

@@ -1,0 +1,344 @@
+/* ============================================================
+   Switch [1.1] — Figma: node 385:4085 (base states: Default/
+   Hover/Disabled x Active on/off, referenced across
+   DrawerFooter/DropdownItem/IntegrationSwitch/SwitchCard/
+   SwitchLabel), Align UI Design System 2.0.
+   ============================================================ */
+
+.premui-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-soft);
+  cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-switch[data-checked="true"] {
+  background: var(--primary-base);
+}
+
+.premui-switch:not(:disabled):not([data-state="disabled"]):hover,
+.premui-switch[data-state="hover"] {
+  background: var(--color-bg-sub);
+}
+
+.premui-switch:not(:disabled):not([data-state="disabled"]):hover[data-checked="true"],
+.premui-switch[data-state="hover"][data-checked="true"] {
+  background: var(--primary-dark);
+}
+
+.premui-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-component-toggle-switch);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-switch[data-checked="true"] .premui-switch-thumb {
+  transform: translateX(12px);
+}
+
+.premui-switch:disabled,
+.premui-switch[data-state="disabled"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.premui-switch:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   SwitchLabel
+   ============================================================ */
+
+.premui-switch-label {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: flex-start;
+}
+
+.premui-switch-label[data-flip="true"] {
+  justify-content: space-between;
+}
+
+.premui-switch-label[data-disabled="true"] {
+  opacity: 0.6;
+}
+
+.premui-switch-label-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.premui-switch-label[data-disabled="true"] .premui-switch-label-title {
+  cursor: not-allowed;
+}
+
+.premui-switch-label-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-switch-label-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-switch-label-content .premui-switch-label-text {
+  font-weight: 500;
+}
+
+.premui-switch-label-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-switch-label-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+/* ============================================================
+   SwitchCard
+   ============================================================ */
+
+.premui-switch-card {
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--spacing-14, 14px);
+  align-items: flex-start;
+  width: 100%;
+  max-width: 360px;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-switch-card:not(:disabled):hover {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-switch-card[data-checked="true"] {
+  border-color: var(--primary-base);
+}
+
+.premui-switch-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.premui-switch-card:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+.premui-switch-card-leading {
+  flex-shrink: 0;
+}
+
+.premui-switch-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.premui-switch-card-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.premui-switch-card-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-switch-card-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-switch-card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+.premui-switch-card-switch {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* ============================================================
+   IntegrationSwitch
+   ============================================================ */
+
+.premui-integration-switch {
+  position: relative;
+  display: flex;
+  gap: var(--spacing-14, 14px);
+  width: 100%;
+}
+
+.premui-integration-switch[data-alignment="horizontal"] {
+  align-items: center;
+}
+
+.premui-integration-switch[data-alignment="vertical"] {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.premui-integration-switch[data-style="card"] {
+  box-sizing: border-box;
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-integration-switch-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 8px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-integration-switch[data-alignment="horizontal"] .premui-integration-switch-brand {
+  width: 40px;
+  height: 40px;
+}
+
+.premui-integration-switch[data-alignment="vertical"] .premui-integration-switch-brand {
+  width: 48px;
+  height: 48px;
+}
+
+.premui-integration-switch-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-integration-switch[data-alignment="vertical"] .premui-integration-switch-content {
+  width: 100%;
+}
+
+.premui-integration-switch-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.premui-integration-switch-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-integration-switch[data-alignment="vertical"] .premui-integration-switch-label {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+}
+
+.premui-integration-switch-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+.premui-integration-switch[data-alignment="vertical"] .premui-integration-switch-description {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+}
+
+.premui-integration-switch-manage {
+  flex-shrink: 0;
+}
+
+.premui-integration-switch[data-alignment="vertical"] .premui-integration-switch-manage {
+  width: 100%;
+}
+
+.premui-integration-switch-toggle {
+  flex-shrink: 0;
+}
+
+.premui-integration-switch[data-style="card"][data-alignment="vertical"] .premui-integration-switch-toggle {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+}
+
+.premui-integration-switch[data-style="list"][data-alignment="vertical"] .premui-integration-switch-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}

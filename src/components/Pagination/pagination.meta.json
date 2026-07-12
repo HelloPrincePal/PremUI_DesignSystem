@@ -1,0 +1,33 @@
+{
+  "name": "Pagination",
+  "description": "PaginationCell (page-number button, default/hover/selected/disabled x square/full radius) and Pagination (composed bar: Basic/Group/Full-Radius variants, optional first/last + prev/next nav, optional 'Page X of Y' + per-page select).",
+  "category": "navigation",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=513-3681",
+  "sourceNote": "Page-range logic (paginationUtils.ts, getPageRange) is genuinely computed — always shows the first/last page plus a sibling window around the current page, collapsing gaps into a single '...' token — rather than reproducing Figma's fixed 1,2,3,4,5,...,16 demo example, matching this project's precedent (DatePicker, ColorPicker). The per-page select renders a real native <select> beneath the visual chip for genuine functionality/accessibility.",
+  "props": {
+    "PaginationCell": {
+      "selected": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "selected", "disabled"] },
+      "fullRadius": { "type": "boolean", "default": false }
+    },
+    "Pagination": {
+      "currentPage": { "type": "number" },
+      "totalPages": { "type": "number" },
+      "variant": { "type": "string", "options": ["basic", "group", "full-radius"], "default": "basic" },
+      "siblingCount": { "type": "number", "default": 1 },
+      "showFirstLast": { "type": "boolean", "default": true },
+      "showPrevNext": { "type": "boolean", "default": true },
+      "advanced": { "type": "boolean", "default": true, "description": "Shows 'Page X of Y' and a per-page select" },
+      "pageSize": { "type": "number", "default": 7 },
+      "pageSizeOptions": { "type": "number[]", "default": "[7, 10, 20, 50]" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-text-disabled", "--primary-base"],
+    "radius": ["--radius-8", "--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": []
+}

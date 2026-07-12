@@ -1,0 +1,31 @@
+{
+  "name": "Checkbox",
+  "description": "Standalone checkbox control. 2 sizes, checked/indeterminate, disabled. Unchecked renders as a colored ring behind a smaller white inset box; checked/indeterminate is a solid filled square with a white check/dash.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=227-2002",
+  "sourceNote": "Figma's 'Focused' variant recolors the ring to primary-base; this component instead uses the standard system :focus-visible ring for consistency with every other interactive component.",
+  "props": {
+    "checked": { "type": "boolean", "default": false },
+    "indeterminate": { "type": "boolean", "default": false },
+    "size": { "type": "string", "options": ["md", "sm"], "default": "md", "description": "md = 20px, sm = 16px" },
+    "disabled": { "type": "boolean", "default": false },
+    "state": {
+      "type": "string",
+      "options": ["default", "hover", "disabled"],
+      "default": "undefined",
+      "description": "Forces a visual state for design QA. Leave unset in real usage."
+    },
+    "onChange": { "type": "(checked: boolean) => void" }
+  },
+  "tokens": {
+    "colors": ["--color-bg-soft", "--color-bg-sub", "--primary-base", "--color-bg-white", "--color-text-disabled"],
+    "radius": ["4px (fixed, not a scale token)"]
+  },
+  "accessibility": {
+    "role": "checkbox",
+    "aria": ["aria-checked (true/false/mixed for indeterminate)"]
+  },
+  "dependencies": []
+}

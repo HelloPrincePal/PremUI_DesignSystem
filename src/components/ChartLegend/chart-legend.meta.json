@@ -1,0 +1,29 @@
+{
+  "name": "ChartLegend",
+  "description": "ChartLegend (colored dot + label text) and ChartLegendDot (the dot alone, 2 sizes). 11 colors (the 10 Badge/ColorDots state-token colors plus a neutral 'lightGray') plus a disabled state.",
+  "category": "data-display",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=2942-9934",
+  "sourceNote": "Color mapping matches Badge/ColorDots' 10 state-token colors (gray/blue/orange/red/green/yellow/purple/sky/pink/teal -> faded/information/warning/error/success/away/feature/verified/highlighted/stable), plus an 11th 'lightGray' (--color-icon-soft) that Figma includes for a paler neutral dot.",
+  "props": {
+    "ChartLegend": {
+      "label": { "type": "ReactNode" },
+      "color": { "type": "string", "options": ["gray", "lightGray", "blue", "red", "orange", "yellow", "green", "purple", "sky", "teal", "pink"], "default": "gray" },
+      "disabled": { "type": "boolean", "default": false }
+    },
+    "ChartLegendDot": {
+      "size": { "type": "string", "options": ["sm", "md"], "default": "sm" }
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-faded-base", "--color-icon-soft", "--color-state-information-base",
+      "--color-state-error-base", "--color-state-warning-base", "--color-state-away-base",
+      "--color-state-success-base", "--color-state-feature-base", "--color-state-verified-base",
+      "--color-state-stable-base", "--color-state-highlighted-base"
+    ],
+    "radius": ["--radius-full"]
+  },
+  "dependencies": []
+}

@@ -1,0 +1,589 @@
+/* ============================================================
+   Sidebar Components — Align UI Design System 2.0 (Figma nodes
+   3741:45019 Sidebar Item, 3802:10204 Header Card, 3789:3886
+   Sidebar Header, 3802:11038 User Profile Card, 3789:5341 Sidebar
+   Footer, 3789:3551 Feature Cards). Product Components > Navigation
+   > Sidebar Components.
+   ============================================================ */
+
+/* ── SidebarItem ── */
+
+.premui-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  position: relative;
+  box-sizing: border-box;
+  width: 232px;
+  padding: var(--spacing-8) var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-sidebar-item[data-collapsed] {
+  width: auto;
+  padding: var(--spacing-8);
+  justify-content: center;
+}
+
+.premui-sidebar-item:hover:not([data-active="true"]) {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-item[data-active="true"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-item-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-sidebar-item[data-active="true"] .premui-sidebar-item-leading {
+  color: var(--color-icon-strong);
+}
+
+.premui-sidebar-item-text {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-sidebar-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-sidebar-item[data-active="true"] .premui-sidebar-item-label {
+  color: var(--color-text-strong);
+}
+
+.premui-sidebar-item-notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 var(--spacing-2);
+  border-radius: var(--radius-full);
+  background: var(--color-state-error-base);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.22px;
+  color: var(--color-static-white, #fff);
+}
+
+.premui-sidebar-item-shortcut {
+  flex-shrink: 0;
+  padding: var(--spacing-2) var(--spacing-6);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.premui-sidebar-item-right-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-sidebar-item[data-active="true"] .premui-sidebar-item-right-icon,
+.premui-sidebar-item:hover .premui-sidebar-item-right-icon {
+  color: var(--color-icon-sub);
+}
+
+.premui-sidebar-item-accent {
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  width: 4px;
+  height: 20px;
+  border-radius: 0 var(--radius-4) var(--radius-4) 0;
+  background: var(--primary-base);
+}
+
+.premui-sidebar-item[data-collapsed] .premui-sidebar-item-accent {
+  left: -22px;
+}
+
+/* ── HeaderCard + SidebarHeader ── */
+
+.premui-sidebar-header {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.premui-sidebar-header[data-collapsed] {
+  width: 80px;
+  justify-content: center;
+  padding: var(--spacing-12);
+}
+
+.premui-sidebar-header:not([data-collapsed]) {
+  width: 272px;
+  padding: var(--spacing-12);
+}
+
+.premui-sidebar-header-divider {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--color-stroke-soft);
+}
+
+.premui-sidebar-header-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  box-sizing: border-box;
+  width: 248px;
+  padding: var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  cursor: default;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-sidebar-header-card[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-header-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+}
+
+.premui-sidebar-header-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+  height: 40px;
+}
+
+.premui-sidebar-header-card-brand {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-sidebar-header-card-description {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+/* ── UserProfileCard + SidebarFooter ── */
+
+.premui-sidebar-user-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  box-sizing: border-box;
+  width: 248px;
+  padding: var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-sidebar-user-card[data-collapsed] {
+  width: auto;
+  justify-content: center;
+}
+
+.premui-sidebar-user-card:hover {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-user-card[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-sidebar-user-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+  height: 40px;
+}
+
+.premui-sidebar-user-card-name {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.premui-sidebar-user-card-name-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-sidebar-user-card-verified {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--primary-base);
+}
+
+.premui-sidebar-user-card-email {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-sidebar-user-card-chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-sidebar-footer {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.premui-sidebar-footer[data-collapsed] {
+  width: 80px;
+  justify-content: center;
+  padding: var(--spacing-12);
+}
+
+.premui-sidebar-footer:not([data-collapsed]) {
+  width: 272px;
+  padding: var(--spacing-12);
+}
+
+.premui-sidebar-footer-divider {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--color-stroke-soft);
+}
+
+/* ── SidebarFeatureCard ── */
+
+.premui-feature-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 232px;
+  border-radius: var(--radius-10);
+}
+
+.premui-feature-card[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  color: var(--color-text-strong);
+}
+
+.premui-feature-card[data-style="gray"] {
+  background: var(--color-bg-weak);
+  color: var(--color-text-strong);
+}
+
+.premui-feature-card[data-style="primary"] {
+  background: var(--primary-base);
+  color: var(--color-static-white, #fff);
+}
+
+.premui-feature-card[data-style="neutral"] {
+  background: var(--color-bg-surface, #262626);
+  color: var(--color-text-white, #fff);
+}
+
+.premui-feature-card-dismiss {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: inherit;
+}
+
+/* Layout per type */
+.premui-feature-card-type-daily-meeting,
+.premui-feature-card-type-progress-bar {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+}
+
+.premui-feature-card-type-icon-link {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  text-align: center;
+}
+
+.premui-feature-card-type-left-icon {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-12);
+}
+
+.premui-feature-card-type-support {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+}
+
+.premui-feature-card-type-cloud-storage {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-8) var(--spacing-8);
+}
+
+.premui-feature-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-feature-card-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: inherit;
+}
+
+.premui-feature-card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+.premui-feature-card[data-style="primary"] .premui-feature-card-description,
+.premui-feature-card[data-style="neutral"] .premui-feature-card-description {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.premui-feature-card-description-center {
+  text-align: center;
+}
+
+.premui-feature-card-avatar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  padding: 2px 8px 2px 2px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-feature-card[data-style="stroke"] .premui-feature-card-avatar-group {
+  border: 1px solid var(--color-stroke-soft);
+}
+
+.premui-feature-card-avatar-group-stack {
+  display: flex;
+}
+
+.premui-feature-card-avatar-group-stack > span {
+  margin-left: -2px;
+}
+
+.premui-feature-card-avatar-group-stack > span:first-child {
+  margin-left: 0;
+}
+
+.premui-feature-card-avatar-group-count {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.premui-feature-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--primary-alpha-10);
+  font-size: 20px;
+  color: var(--primary-base);
+  line-height: 1;
+}
+
+.premui-feature-card[data-style="primary"] .premui-feature-card-icon {
+  background: var(--color-state-information-lighter);
+}
+
+.premui-feature-card-support-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10, 10px);
+  width: 100%;
+}
+
+.premui-feature-card-support-icon {
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+.premui-feature-card-support-title {
+  margin: 0;
+  flex: 1 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: inherit;
+}
+
+.premui-feature-card-cloud-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-6);
+  width: 100%;
+  padding: 0 var(--spacing-8);
+}
+
+.premui-feature-card-cloud-label .premui-feature-card-title {
+  flex: 1 0 0;
+}
+
+.premui-feature-card-percentage {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-feature-card-type-cloud-storage .premui-feature-card-description {
+  padding: 0 var(--spacing-8);
+}
+
+.premui-feature-card-sync-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-6) var(--spacing-10, 10px);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.premui-feature-card[data-style="gray"] .premui-feature-card-sync-row,
+.premui-feature-card[data-style="stroke"] .premui-feature-card-sync-row,
+.premui-feature-card[data-style="neutral"] .premui-feature-card-sync-row {
+  background: var(--color-bg-weak);
+  box-shadow: none;
+}
+
+.premui-feature-card-sync-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-strong);
+}
+
+.premui-feature-card-sync-status {
+  flex: 1 0 0;
+  text-align: left;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.premui-feature-card-sync-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--primary-base);
+}
+
+/* On primary/neutral (dark) cards, ProgressBar's default blue fill is indistinguishable
+   from the primary-blue card background — swap to a white fill + translucent track,
+   matching the source's primary-darkest-track + white-fill treatment. */
+.premui-feature-card[data-style="primary"] .premui-progress-bar,
+.premui-feature-card[data-style="neutral"] .premui-progress-bar {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.premui-feature-card[data-style="primary"] .premui-progress-bar-fill,
+.premui-feature-card[data-style="neutral"] .premui-progress-bar-fill {
+  background: var(--color-static-white, #fff);
+}

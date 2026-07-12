@@ -1,0 +1,62 @@
+{
+  "name": "FancyButton",
+  "description": "High-emphasis button with a gradient-filled surface and ring shadow (Neutral/Primary/Destructive), or a plain bordered surface (Basic). 3 sizes, 3 states (default/hover/disabled).",
+  "category": "button",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=181-5291",
+  "props": {
+    "type": {
+      "type": "string",
+      "options": ["neutral", "primary", "destructive", "basic"],
+      "default": "neutral",
+      "description": "neutral = dark surface; primary = accent-colored surface (theme-switchable via --primary-base); destructive = error-red surface; basic = plain white bordered surface"
+    },
+    "size": {
+      "type": "string",
+      "options": ["md", "sm", "xs"],
+      "default": "md",
+      "description": "md (40px, radius-10) · sm (36px, radius-8) · xs (32px, radius-8)"
+    },
+    "leftIcon": {
+      "type": "string | null",
+      "default": null,
+      "description": "RemixIcon name without ri- prefix. e.g. 'arrow-left-s-line'."
+    },
+    "rightIcon": {
+      "type": "string | null",
+      "default": null,
+      "description": "RemixIcon name without ri- prefix. e.g. 'arrow-right-s-line'."
+    },
+    "state": {
+      "type": "string",
+      "options": ["default", "hover", "disabled"],
+      "default": "undefined",
+      "description": "Forces a visual state for design QA. Leave unset in real usage — native :hover/:focus-visible drive Default/Hover, and the `disabled` prop drives Disabled."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "children": {
+      "type": "ReactNode",
+      "default": null,
+      "description": "Button label text or elements."
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-bg-strong", "--color-text-white", "--primary-base", "--color-static-white",
+      "--color-state-error-base", "--color-bg-white", "--color-text-sub", "--color-stroke-soft",
+      "--color-bg-weak", "--color-bg-weak-25", "--color-text-strong", "--color-text-disabled"
+    ],
+    "spacing": ["--spacing-4", "--spacing-6", "--spacing-8", "--spacing-10"],
+    "radius": ["--radius-8", "--radius-10"]
+  },
+  "accessibility": {
+    "role": "button or link",
+    "keyboard": ["Tab to focus", "Enter/Space to activate"],
+    "aria": ["aria-disabled on <a>, real disabled attribute on <button>", "aria-hidden on icons"]
+  },
+  "dependencies": []
+}

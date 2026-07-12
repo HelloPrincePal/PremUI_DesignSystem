@@ -1,0 +1,35 @@
+{
+  "name": "Dropdown",
+  "description": "DropdownItem (generic leading slot, 4 states default/hover/selected/disabled, 2 sizes sm-36/lg-56, optional checkbox/badge/shortcut/toggle/button/rightIcon slots) and DropdownMiscItem (search input, 'Add Workspace' button row, and a caption footer row).",
+  "category": "overlay",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=379-6629",
+  "sourceNote": "Figma defined 6 rigid leading-visual types (Basic/Country/Avatar/Provider/Brand/Company) baking in specific flag/logo images; simplified to a single generic `leading` ReactNode slot, matching the pattern used for CheckboxCard/CommandMenuItem. Per the fetched state matrix (nodes 379:6626/398:5815/401:3360/401:3474), the 'Selected' state keeps the same white background as 'Default' — selection is communicated only by the checkbox's checked fill, not a row highlight.",
+  "props": {
+    "DropdownItem": {
+      "leading": { "type": "ReactNode" },
+      "label": { "type": "ReactNode" },
+      "sublabel": { "type": "ReactNode" },
+      "badge": { "type": "string" },
+      "shortcut": { "type": "string" },
+      "showCheckbox": { "type": "boolean", "default": false },
+      "checked": { "type": "boolean", "default": false },
+      "showToggle": { "type": "boolean", "default": false },
+      "toggled": { "type": "boolean", "default": false },
+      "buttonLabel": { "type": "string" },
+      "rightIcon": { "type": "string" },
+      "size": { "type": "string", "options": ["sm", "lg"], "default": "sm" },
+      "state": { "type": "string", "options": ["default", "hover", "selected", "disabled"] },
+      "disabled": { "type": "boolean", "default": false }
+    },
+    "DropdownMiscItem": {
+      "type": { "type": "string", "options": ["search", "button", "caption"], "default": "search" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled", "--color-icon-sub", "--color-icon-soft"],
+    "radius": ["--radius-8"]
+  },
+  "dependencies": ["Badge", "Checkbox", "Switch", "Button", "CompactButton"]
+}

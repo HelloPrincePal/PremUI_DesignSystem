@@ -1,0 +1,35 @@
+{
+  "name": "Table",
+  "description": "Genuinely functional data table — real column-based sorting (asc/desc/none, toggled by clicking a sortable header) and real row/select-all checkbox selection (reuses Checkbox), rendered as semantic <table>/<thead>/<tbody> markup. TableCellContent provides the leading-visual + title/description cell layout (3 priority levels controlling text emphasis). SortingIcon is the small header sort-direction indicator.",
+  "category": "data-display",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=553-22175",
+  "sourceNote": "Figma's Table Row Cell defined 6 rigid leading-visual options (checkbox/radio/icon/avatar/brand/company/file-format) — collapsed into one generic `leading` slot on TableCellContent, following the CheckboxCard/DropdownItem/CommandMenuItem pattern. Figma's 'misc' rich-content cell types (Button/ButtonGroup/Toggle/Rating/ProgressBar/StatusBadge/BadgeGroup/AvatarGroup) needed no dedicated wrapper at all — a column's `render` function can return any existing component directly. Rather than reproduce Figma's static demo grid, `Table` is a real functional data table: sortable columns actually re-sort `data` (asc/desc/none cycling), and row/select-all checkboxes maintain real controlled/uncontrolled selection state — following this project's precedent (Pagination, DatePicker, ColorPicker) of favoring functional behavior over literal mockup replication. Figma's header 'Disabled'/'Empty' states were not carried over since a real table's columns don't sensibly disable.",
+  "props": {
+    "Table": {
+      "columns": { "type": "{ key: string, header: ReactNode, render?: (row, index) => ReactNode, sortable?: boolean, width?: number|string, align?: 'left'|'center'|'right' }[]" },
+      "data": { "type": "T[]" },
+      "selectable": { "type": "boolean", "default": false },
+      "selectedKeys": { "type": "string[]" },
+      "sortKey": { "type": "string" },
+      "sortDirection": { "type": "string", "options": ["none", "asc", "desc"] },
+      "onRowClick": { "type": "(row, index) => void" }
+    },
+    "TableCellContent": {
+      "leading": { "type": "ReactNode" },
+      "title": { "type": "ReactNode" },
+      "description": { "type": "ReactNode" },
+      "priority": { "type": "string", "options": ["leading", "regular", "passive"], "default": "regular" }
+    },
+    "SortingIcon": {
+      "direction": { "type": "string", "options": ["none", "asc", "desc"], "default": "none" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--primary-alpha-10"],
+    "radius": ["--radius-16"],
+    "shadows": []
+  },
+  "dependencies": ["Checkbox"]
+}

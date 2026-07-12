@@ -1,0 +1,22 @@
+{
+  "name": "SegmentedControl",
+  "description": "Pill tab switcher — a group of equal-width segments in a weak-bg track, with one active segment raised via white background + shadow. Supports label-only, icon+label, and icon-only segments.",
+  "category": "navigation",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=2603-2062",
+  "sourceNote": "Promoted out of Filter into its own folder now that it supports icon variants (Left-Icon/Only-Icon types from Figma) and a per-item disabled state — a standalone reusable primitive beyond FilterBar's original use. Hover is a real :hover rule (text color only, no background change, matching Figma's Hover trace which does not add the active white-bg+shadow treatment).",
+  "props": {
+    "SegmentedControl": {
+      "items": { "type": "{ label?: ReactNode, value: string, icon?: string, disabled?: boolean, ariaLabel?: string }[]" },
+      "value": { "type": "string" },
+      "onChange": { "type": "(value: string) => void" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-weak", "--color-bg-white", "--color-text-soft", "--color-text-sub", "--color-text-strong", "--color-text-disabled"],
+    "radius": ["--radius-10", "--radius-6"],
+    "shadows": ["--shadow-component-toggle-switch"]
+  },
+  "dependencies": []
+}

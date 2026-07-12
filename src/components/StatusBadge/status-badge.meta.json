@@ -1,0 +1,44 @@
+{
+  "name": "StatusBadge",
+  "description": "Compact status indicator for table rows and lists. Two styles (stroke/light), five statuses (completed/pending/failed/information/disabled), optional dot mode.",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/xVyf2cnQTitDFjRs8a6H1i/Align-UI-%E2%9C%A6-Design-System--1.1---Copy-?node-id=171-5100",
+  "props": {
+    "status": {
+      "type": "string",
+      "options": ["completed", "pending", "failed", "information", "disabled"],
+      "default": "completed",
+      "description": "Semantic intent — drives icon/dot color and (in light style) text color"
+    },
+    "style": {
+      "type": "string",
+      "options": ["stroke", "light"],
+      "default": "stroke",
+      "description": "stroke = white bordered surface with neutral text; light = tinted surface with state-colored text"
+    },
+    "withDot": {
+      "type": "boolean",
+      "default": false,
+      "description": "Replace the status icon with a small colored dot"
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-success-base", "--color-state-success-lighter",
+      "--color-state-warning-base", "--color-state-warning-lighter",
+      "--color-state-error-base", "--color-state-error-lighter",
+      "--color-state-information-base", "--color-state-information-lighter",
+      "--color-state-faded-lighter", "--color-text-sub", "--color-bg-white", "--color-stroke-soft"
+    ],
+    "spacing": ["--spacing-2", "--spacing-4", "--spacing-8"],
+    "radius": ["--radius-6"],
+    "typography": ["Label/XSmall (12px/500/16px)"]
+  },
+  "accessibility": {
+    "role": "none (decorative label — wrap with aria-label where it conveys meaning not present in surrounding text)",
+    "aria": ["aria-hidden on decorative icon/dot"]
+  },
+  "dependencies": []
+}

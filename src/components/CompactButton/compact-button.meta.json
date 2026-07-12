@@ -1,0 +1,57 @@
+{
+  "name": "CompactButton",
+  "description": "Small square icon-only button (e.g. dismiss/close). 4 styles (stroke/ghost/modifiable/white), 2 sizes (24px/20px), rounded-square or full-circle radius, 4 states (default/hover/active/disabled).",
+  "category": "button",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=189-3646",
+  "sourceNote": "First built from an AI Handoff visual pack while the Figma MCP tool-call limit was hit (only Default/Hover were captured there); then verified and corrected directly against the Figma MCP (Align UI Design System 2.0) once the user upgraded their plan. The MCP trace corrected several guesses: radius-off is radius-6 (not radius-8), Active uses a solid --color-bg-surface (#262626) background with a white icon (not a dark-gray one), and Modifiable's hover/active use a translucent white overlay (--alpha-white-alpha-16, plus a white border on active) rather than opacity dimming.",
+  "props": {
+    "icon": {
+      "type": "string",
+      "default": "close-line",
+      "description": "RemixIcon name (no `ri-` prefix)"
+    },
+    "style": {
+      "type": "string",
+      "options": ["stroke", "ghost", "modifiable", "white"],
+      "default": "stroke",
+      "description": "stroke = white bordered + shadow; ghost = transparent; modifiable = inherits currentColor (for colored parents like Alert/Banner); white = white surface + shadow, no border"
+    },
+    "size": {
+      "type": "string",
+      "options": ["lg", "md"],
+      "default": "lg",
+      "description": "lg = 24px (20px icon) · md = 20px (18px icon)"
+    },
+    "fullRadius": {
+      "type": "boolean",
+      "default": false,
+      "description": "false = rounded-square (radius-6) · true = perfect circle (radius-full)"
+    },
+    "state": {
+      "type": "string",
+      "options": ["default", "hover", "active", "disabled"],
+      "default": "undefined",
+      "description": "Forces a visual state for design QA (e.g. side-by-side galleries). Leave unset in real usage — native :hover/:active/:focus-visible drive Default/Hover/Active, and the `disabled` prop drives Disabled. `state=\"disabled\"` also sets the real disabled attribute so the visual and the semantics never diverge."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-bg-white", "--color-bg-weak", "--color-bg-surface", "--color-stroke-soft",
+      "--color-icon-sub", "--color-icon-strong", "--color-icon-disabled",
+      "--color-static-white", "--alpha-white-alpha-16"
+    ],
+    "radius": ["--radius-6", "--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "accessibility": {
+    "keyboard": ["Tab to focus", "Enter/Space to activate"],
+    "aria": ["ariaLabel prop sets aria-label (default 'Close')"]
+  },
+  "dependencies": []
+}

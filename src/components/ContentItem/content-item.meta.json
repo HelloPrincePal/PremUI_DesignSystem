@@ -1,0 +1,28 @@
+{
+  "name": "ContentItem",
+  "description": "ContentLabel (unbordered list row, md/lg sizes, optional NEW badge and Switch toggle) and ContentCard (bordered card variant with a dismiss button). Both use a generic leading-visual slot.",
+  "category": "data-display",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=2945-5539",
+  "sourceNote": "Figma defined 6 rigid leading-visual types (Basic/Left-Icon/Avatar/Provider/Brand/Company for ContentLabel; the same set plus Card-Provider for ContentCard) baking in specific logo/brand images; simplified to one generic `leading` ReactNode slot, matching the pattern used for CheckboxCard/CommandMenuItem/DropdownItem. Pair with the new KeyIcon component for the Left-Icon type, or Avatar for the Avatar type.",
+  "props": {
+    "ContentLabel": {
+      "leading": { "type": "ReactNode" },
+      "size": { "type": "string", "options": ["md", "lg"], "default": "md" },
+      "badge": { "type": "boolean", "default": false },
+      "showToggle": { "type": "boolean", "default": false }
+    },
+    "ContentCard": {
+      "leading": { "type": "ReactNode" },
+      "badge": { "type": "boolean", "default": true },
+      "dismissible": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-sub"],
+    "radius": ["--radius-12"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["Badge", "Switch", "CompactButton", "KeyIcon", "Avatar"]
+}

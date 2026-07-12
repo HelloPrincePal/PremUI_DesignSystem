@@ -1,0 +1,193 @@
+/* ============================================================
+   Time Picker Items [1.1] + Time Picker Select Duration [1.1] +
+   Time Picker Select Status [1.1] — Figma nodes 165483:5687,
+   165483:6046, 165596:41348, Align UI Design System 2.0.
+   ============================================================ */
+
+/* ── TimePickerItem ── */
+
+.premui-time-picker-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10, 10px);
+  width: 100%;
+  min-height: 36px;
+  box-sizing: border-box;
+  padding: var(--spacing-8) var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-time-picker-item:hover:not(:disabled) {
+  background: var(--color-bg-weak);
+}
+
+.premui-time-picker-item[data-active="true"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-time-picker-item:disabled {
+  cursor: not-allowed;
+}
+
+.premui-time-picker-item-group {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-time-picker-item-group-end {
+  justify-content: flex-end;
+}
+
+.premui-time-picker-item-time {
+  color: var(--color-text-sub);
+}
+
+.premui-time-picker-item-period {
+  color: var(--color-text-soft);
+}
+
+.premui-time-picker-item[data-active="true"] .premui-time-picker-item-time {
+  color: var(--color-text-strong);
+}
+
+.premui-time-picker-item:disabled .premui-time-picker-item-time,
+.premui-time-picker-item:disabled .premui-time-picker-item-period {
+  color: var(--color-text-disabled);
+}
+
+.premui-time-picker-item-check {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--primary-base);
+}
+
+/* ── TimePickerDuration ── */
+
+.premui-time-picker-duration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+  box-sizing: border-box;
+  padding: var(--spacing-4) var(--spacing-10, 10px);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-time-picker-duration:hover:not(:disabled):not([data-active="true"]) {
+  background: var(--color-bg-weak);
+  box-shadow: none;
+}
+
+.premui-time-picker-duration[data-active="true"] {
+  border-color: transparent;
+  background: var(--primary-alpha-10);
+  box-shadow: none;
+  color: var(--primary-base);
+}
+
+.premui-time-picker-duration:disabled {
+  border-color: transparent;
+  background: var(--color-bg-weak);
+  box-shadow: none;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.premui-time-picker-duration-check {
+  font-size: 12px;
+}
+
+/* ── TimePickerStatus ── */
+
+.premui-time-picker-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  box-sizing: border-box;
+  padding: var(--spacing-4) var(--spacing-10, 10px) var(--spacing-4) var(--spacing-6);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-time-picker-status:hover:not(:disabled):not([data-selected="true"]) {
+  background: var(--color-bg-weak);
+  box-shadow: none;
+}
+
+.premui-time-picker-status-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.premui-time-picker-status-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--dot-color, var(--color-state-faded-base));
+  transform: translate(-50%, -50%);
+}
+
+.premui-time-picker-status[data-status="available"] { --dot-color: var(--color-state-success-base); }
+.premui-time-picker-status[data-status="busy"] { --dot-color: var(--color-state-error-base); }
+.premui-time-picker-status[data-status="in-meeting"] { --dot-color: var(--color-state-warning-base); }
+.premui-time-picker-status[data-status="offline"] { --dot-color: var(--color-state-faded-base); }
+
+.premui-time-picker-status[data-selected="true"] {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-time-picker-status[data-status="available"][data-selected="true"] { background: var(--color-state-success-lighter); color: var(--color-state-success-dark); }
+.premui-time-picker-status[data-status="busy"][data-selected="true"] { background: var(--color-state-error-lighter); color: var(--color-state-error-dark); }
+.premui-time-picker-status[data-status="in-meeting"][data-selected="true"] { background: var(--color-state-warning-lighter); color: var(--color-state-warning-dark); }
+.premui-time-picker-status[data-status="offline"][data-selected="true"] { background: var(--color-state-faded-lighter); color: var(--color-state-faded-dark); }
+
+.premui-time-picker-status:disabled {
+  border-color: transparent;
+  background: var(--color-bg-weak);
+  box-shadow: none;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  --dot-color: var(--color-text-disabled);
+}

@@ -46,6 +46,56 @@
       ]
     },
     {
+      "name": "Badge",
+      "type": "ui:component",
+      "description": "Compact pill-shaped label for status, categorization, and counts. 4 styles x 10 colors x 2 sizes, basic/dot/icon/count layouts.",
+      "dependencies": [],
+      "files": [
+        "src/components/Badge/Badge.tsx",
+        "src/components/Badge/badge.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-faded-base",
+        "--color-state-information-base",
+        "--radius-full",
+        "--spacing-2",
+        "--spacing-8"
+      ]
+    },
+    {
+      "name": "Banner",
+      "type": "ui:component",
+      "description": "Full-width top-of-page announcement bar. 4 styles x 5 statuses, action link and dismiss.",
+      "dependencies": ["LinkButton"],
+      "files": [
+        "src/components/Banner/Banner.tsx",
+        "src/components/Banner/banner.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-information-base",
+        "--color-static-white",
+        "--spacing-12",
+        "--spacing-48"
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "type": "ui:component",
+      "description": "Navigation trail of BreadcrumbItem links joined by a divider (arrow/slash/dot); last item is the current page.",
+      "dependencies": ["BreadcrumbItem"],
+      "files": [
+        "src/components/Breadcrumb/Breadcrumb.tsx",
+        "src/components/Breadcrumb/BreadcrumbItem.tsx",
+        "src/components/Breadcrumb/breadcrumb.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-text-sub",
+        "--color-text-strong",
+        "--color-text-disabled",
+        "--spacing-6"
+      ]
+    },
+    {
       "name": "Button",
       "type": "ui:component",
       "description": "Standard interactive button mapping to primary and semantic intent tokens.",
@@ -80,6 +130,833 @@
       "files": [
         "src/components/Avatars/Avatar.tsx",
         "src/components/Avatars/AvatarGroup.tsx"
+      ]
+    },
+    {
+      "name": "StatusBadge",
+      "type": "ui:component",
+      "description": "Compact status indicator for table rows and lists. 2 styles x 5 statuses, optional dot mode.",
+      "dependencies": [],
+      "files": [
+        "src/components/StatusBadge/StatusBadge.tsx",
+        "src/components/StatusBadge/status-badge.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-success-base",
+        "--color-text-sub",
+        "--radius-6",
+        "--spacing-4"
+      ]
+    },
+    {
+      "name": "SocialButton",
+      "type": "ui:component",
+      "description": "OAuth-style login button for 7 brands (Apple/X/Google/Facebook/LinkedIn/GitHub/Dropbox), 2 styles, icon-only mode.",
+      "dependencies": [],
+      "files": [
+        "src/components/SocialButton/SocialButton.tsx",
+        "src/components/SocialButton/social-button.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--radius-10",
+        "--shadow-component-button-important-focus"
+      ]
+    },
+    {
+      "name": "CompactButton",
+      "type": "ui:component",
+      "description": "Small square icon-only button (e.g. dismiss/close). 4 styles x 2 sizes x 4 states, rounded-square or full-circle radius.",
+      "dependencies": [],
+      "files": [
+        "src/components/CompactButton/CompactButton.tsx",
+        "src/components/CompactButton/compact-button.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-bg-surface",
+        "--color-stroke-soft",
+        "--radius-6",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "FancyButton",
+      "type": "ui:component",
+      "description": "High-emphasis button with gradient-filled surface + ring shadow (neutral/primary/destructive), or plain bordered surface (basic). 3 sizes x 3 states.",
+      "dependencies": [],
+      "files": [
+        "src/components/FancyButton/FancyButton.tsx",
+        "src/components/FancyButton/fancy-button.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-strong",
+        "--primary-base",
+        "--color-state-error-base",
+        "--color-bg-white",
+        "--color-bg-weak-25",
+        "--radius-8",
+        "--radius-10"
+      ]
+    },
+    {
+      "name": "ButtonGroup",
+      "type": "ui:component",
+      "description": "Segmented control composed of ButtonGroupItem segments with collapsed shared borders. 3 sizes, one active (selected) segment.",
+      "dependencies": ["ButtonGroupItem"],
+      "files": [
+        "src/components/ButtonGroup/ButtonGroup.tsx",
+        "src/components/ButtonGroup/ButtonGroupItem.tsx",
+        "src/components/ButtonGroup/button-group.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-sub",
+        "--color-text-strong",
+        "--radius-6",
+        "--radius-8"
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "type": "ui:component",
+      "description": "Checkbox, CheckboxLabel, and CheckboxCard. Base control (2 sizes), a labeled composition with optional badge/description/link, and a selectable bordered card with a leading-visual slot.",
+      "dependencies": ["Badge", "LinkButton"],
+      "files": [
+        "src/components/Checkbox/Checkbox.tsx",
+        "src/components/Checkbox/CheckboxLabel.tsx",
+        "src/components/Checkbox/CheckboxCard.tsx",
+        "src/components/Checkbox/checkbox.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-soft",
+        "--color-bg-sub",
+        "--primary-base",
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--radius-12"
+      ]
+    },
+    {
+      "name": "ColorPicker",
+      "type": "ui:component",
+      "description": "Fully functional color picker: ColorSpectrum (2D drag), ColorSliders (hue/opacity drag), ColorDots (10 preset swatches), and hex input. HSV<->hex math in colorUtils.ts.",
+      "dependencies": ["ColorSpectrum", "ColorSliders", "ColorDots"],
+      "files": [
+        "src/components/ColorPicker/ColorPicker.tsx",
+        "src/components/ColorPicker/ColorSpectrum.tsx",
+        "src/components/ColorPicker/ColorSliders.tsx",
+        "src/components/ColorPicker/ColorDots.tsx",
+        "src/components/ColorPicker/colorUtils.ts",
+        "src/components/ColorPicker/color-picker.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--radius-8",
+        "--radius-16",
+        "--radius-full",
+        "--shadow-regular-medium",
+        "--shadow-component-toggle-switch"
+      ]
+    },
+    {
+      "name": "ContentDivider",
+      "type": "ui:component",
+      "description": "Section-separator with 9 variants (line, spaced line, labeled line, standalone label, solid label bar, and 4 button/button-group + line combos). Composes FancyButton and ButtonGroup.",
+      "dependencies": ["FancyButton", "ButtonGroup"],
+      "files": [
+        "src/components/ContentDivider/ContentDivider.tsx",
+        "src/components/ContentDivider/content-divider.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-stroke-soft",
+        "--color-bg-weak",
+        "--color-text-soft",
+        "--spacing-10"
+      ]
+    },
+    {
+      "name": "CommandMenu",
+      "type": "ui:component",
+      "description": "Command palette: CommandMenuSearchInput, CommandMenuItem rows, CommandMenuFooter. CommandMenu composes all three into a bordered card.",
+      "dependencies": ["CompactButton", "Badge", "LinkButton"],
+      "files": [
+        "src/components/CommandMenu/CommandMenu.tsx",
+        "src/components/CommandMenu/CommandMenuSearchInput.tsx",
+        "src/components/CommandMenu/CommandMenuItem.tsx",
+        "src/components/CommandMenu/CommandMenuFooter.tsx",
+        "src/components/CommandMenu/command-menu.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-sub",
+        "--radius-16",
+        "--shadow-regular-medium"
+      ]
+    },
+    {
+      "name": "DatePicker",
+      "type": "ui:component",
+      "description": "Fully functional date/range pickers: DatePicker (single month + footer), DateRangePicker (two months + preset sidebar + range selection). Built on DayLabel, DayCell, DateSelector, PeriodRangeItem, and dateUtils.ts.",
+      "dependencies": ["CompactButton", "Button"],
+      "files": [
+        "src/components/DatePicker/DatePicker.tsx",
+        "src/components/DatePicker/DateRangePicker.tsx",
+        "src/components/DatePicker/DayCell.tsx",
+        "src/components/DatePicker/DayLabel.tsx",
+        "src/components/DatePicker/DateSelector.tsx",
+        "src/components/DatePicker/PeriodRangeItem.tsx",
+        "src/components/DatePicker/dateUtils.ts",
+        "src/components/DatePicker/date-picker.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--primary-base",
+        "--radius-8",
+        "--radius-20",
+        "--shadow-regular-medium"
+      ]
+    },
+    {
+      "name": "Switch",
+      "type": "ui:component",
+      "description": "Switch (base toggle, 32x20 track, state prop for Default/Hover/Disabled), SwitchLabel (labeled composition), SwitchCard (selectable bordered card), and IntegrationSwitch (brand/integration row with title/badge/description, optional Manage button, Horizontal/Vertical x Card/List layouts).",
+      "dependencies": ["Badge", "LinkButton", "Button"],
+      "files": [
+        "src/components/Switch/Switch.tsx",
+        "src/components/Switch/SwitchLabel.tsx",
+        "src/components/Switch/SwitchCard.tsx",
+        "src/components/Switch/IntegrationSwitch.tsx",
+        "src/components/Switch/switch.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-soft",
+        "--color-bg-sub",
+        "--primary-base",
+        "--primary-dark",
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--radius-full",
+        "--radius-12",
+        "--shadow-component-toggle-switch",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "Drawer",
+      "type": "ui:component",
+      "description": "DrawerHeader (Basic/Left-Icon x Small/Large, title+description, dismiss, count badge, bottom divider) and DrawerFooter (Stretch/Basic/Checkbox/Toggle/Stepper/Link Button, each pairing Cancel+Continue actions). Includes StepperDots.",
+      "dependencies": ["CompactButton", "LinkButton", "Badge", "Button", "CheckboxLabel", "Switch"],
+      "files": [
+        "src/components/Drawer/DrawerHeader.tsx",
+        "src/components/Drawer/DrawerFooter.tsx",
+        "src/components/Drawer/StepperDots.tsx",
+        "src/components/Drawer/drawer.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-icon-sub",
+        "--primary-base",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "Dropdown",
+      "type": "ui:component",
+      "description": "DropdownItem (generic leading slot, 4 states default/hover/selected/disabled, 2 sizes sm-36/lg-56, optional checkbox/badge/shortcut/toggle/button/rightIcon slots) and DropdownMiscItem (search input, 'Add Workspace' button row, caption footer row).",
+      "dependencies": ["Badge", "Checkbox", "Switch", "Button", "CompactButton"],
+      "files": [
+        "src/components/Dropdown/DropdownItem.tsx",
+        "src/components/Dropdown/DropdownMiscItem.tsx",
+        "src/components/Dropdown/dropdown.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--radius-8"
+      ]
+    },
+    {
+      "name": "FileUpload",
+      "type": "ui:component",
+      "description": "FileFormatIcon (colored file-type icon+tag, 9 colors x 2 sizes), FileUploadArea (drag-drop dashed zone with real drag/drop + file-input wiring), FileUploadCard (progress card with uploading/success/error states, dismiss/retry, reuses ProgressBar), and ImageUpload (Avatar/Company upload widget, Vertical/Horizontal alignment, Empty/Uploaded states).",
+      "dependencies": ["Button", "CompactButton", "LinkButton", "Avatar", "ProgressBar"],
+      "files": [
+        "src/components/FileUpload/FileFormatIcon.tsx",
+        "src/components/FileUpload/FileUploadArea.tsx",
+        "src/components/FileUpload/FileUploadCard.tsx",
+        "src/components/FileUpload/ImageUpload.tsx",
+        "src/components/FileUpload/file-upload.css",
+        "src/components/FileUpload/image-upload.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-faded-base",
+        "--color-state-information-base",
+        "--color-state-error-base",
+        "--color-bg-soft",
+        "--primary-base",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-full",
+        "--radius-12"
+      ]
+    },
+    {
+      "name": "Filter",
+      "type": "ui:component",
+      "description": "FilterBar (horizontal toolbar, consumer-composed left slot + search/filter/settings/sort-by), VerticalFilterItem (sidebar filter row, default/hover/active/disabled), VerticalFilterHeader (panel header + Clear link), VerticalFilterFooter (Clear/Apply, reuses DrawerFooter's stretch layout).",
+      "dependencies": ["Button", "ButtonGroup", "LinkButton", "DrawerFooter", "SegmentedControl"],
+      "files": [
+        "src/components/Filter/FilterBar.tsx",
+        "src/components/Filter/VerticalFilterItem.tsx",
+        "src/components/Filter/VerticalFilterHeader.tsx",
+        "src/components/Filter/VerticalFilterFooter.tsx",
+        "src/components/Filter/filter.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-icon-sub",
+        "--primary-base",
+        "--radius-8",
+        "--radius-10",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "SegmentedControl",
+      "type": "ui:component",
+      "description": "Pill tab switcher — equal-width segments in a weak-bg track, active segment raised via white background + shadow. Supports label-only, icon+label, and icon-only segments, plus a per-item disabled state.",
+      "dependencies": [],
+      "files": [
+        "src/components/SegmentedControl/SegmentedControl.tsx",
+        "src/components/SegmentedControl/segmented-control.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-weak",
+        "--color-bg-white",
+        "--color-text-soft",
+        "--color-text-sub",
+        "--color-text-strong",
+        "--color-text-disabled",
+        "--radius-6",
+        "--radius-10",
+        "--shadow-component-toggle-switch"
+      ]
+    },
+    {
+      "name": "KeyIcon",
+      "type": "ui:component",
+      "description": "Reusable circular icon container. 9 colors x 5 sizes x 2 styles (stroke = white bordered surface, lighter = tinted surface).",
+      "dependencies": [],
+      "files": [
+        "src/components/KeyIcon/KeyIcon.tsx",
+        "src/components/KeyIcon/key-icon.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-information-base",
+        "--color-state-information-lighter",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "PaymentIcon",
+      "type": "ui:component",
+      "description": "8 fixed payment/bill-category icons (water/gas/electricity/donate/internet/phone/rent/tax), each with a pinned icon+color pairing.",
+      "dependencies": [],
+      "files": [
+        "src/components/PaymentIcon/PaymentIcon.tsx",
+        "src/components/PaymentIcon/payment-icon.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-verified-lighter",
+        "--color-state-error-lighter",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "ChartLegend",
+      "type": "ui:component",
+      "description": "ChartLegend (colored dot + label) and ChartLegendDot (dot alone, 2 sizes). 11 colors matching Badge/ColorDots' state-token mapping plus a neutral lightGray, and a disabled state.",
+      "dependencies": [],
+      "files": [
+        "src/components/ChartLegend/ChartLegend.tsx",
+        "src/components/ChartLegend/ChartLegendDot.tsx",
+        "src/components/ChartLegend/chart-legend.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-information-base",
+        "--color-text-sub",
+        "--color-text-disabled",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "FormHelpers",
+      "type": "ui:component",
+      "description": "Label (field label with required/sublabel/info/help), HintText (default/error/disabled helper text), and PasswordStrength (genuinely functional strength meter evaluating a real password string).",
+      "dependencies": [],
+      "files": [
+        "src/components/FormHelpers/Label.tsx",
+        "src/components/FormHelpers/HintText.tsx",
+        "src/components/FormHelpers/PasswordStrength.tsx",
+        "src/components/FormHelpers/form-helpers.css"
+      ],
+      "cssVariablesUsed": [
+        "--primary-base",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-disabled",
+        "--color-state-error-base",
+        "--color-state-warning-base",
+        "--color-state-success-base"
+      ]
+    },
+    {
+      "name": "ContentItem",
+      "type": "ui:component",
+      "description": "ContentLabel (unbordered list row, md/lg sizes, optional NEW badge and Switch toggle) and ContentCard (bordered card variant with a dismiss button). Both use a generic leading-visual slot.",
+      "dependencies": ["Badge", "Switch", "CompactButton", "KeyIcon", "Avatar"],
+      "files": [
+        "src/components/ContentItem/ContentLabel.tsx",
+        "src/components/ContentItem/ContentCard.tsx",
+        "src/components/ContentItem/content-item.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-12",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "Modal",
+      "type": "ui:component",
+      "description": "Modal (functional open/onClose root with Escape/overlay-click-to-close and body-scroll lock), ModalOverlay, ModalHeader (6 types x 2 sizes), ModalFooter (7 types), and StatusModal (composed alert dialog).",
+      "dependencies": ["KeyIcon", "CompactButton", "Button", "CheckboxLabel", "Switch", "LinkButton", "StepperDots"],
+      "files": [
+        "src/components/Modal/Modal.tsx",
+        "src/components/Modal/ModalOverlay.tsx",
+        "src/components/Modal/ModalHeader.tsx",
+        "src/components/Modal/ModalFooter.tsx",
+        "src/components/Modal/StatusModal.tsx",
+        "src/components/Modal/modal.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-overlay-gray",
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-10",
+        "--radius-20",
+        "--shadow-regular-medium"
+      ]
+    },
+    {
+      "name": "NotificationFeed",
+      "type": "ui:component",
+      "description": "NotificationHeader (title + Mark all as read), NotificationTabMenu (data-driven underline tab bar with count badges), NotificationItem (avatar row, Basic/File/Button/Message types, hover-reveal 'more' button), and NotificationFooter (keyboard-nav hint + Manage Notification link).",
+      "dependencies": ["LinkButton", "CompactButton", "Badge", "Avatar", "Button"],
+      "files": [
+        "src/components/NotificationFeed/NotificationHeader.tsx",
+        "src/components/NotificationFeed/NotificationTabMenu.tsx",
+        "src/components/NotificationFeed/NotificationItem.tsx",
+        "src/components/NotificationFeed/NotificationFooter.tsx",
+        "src/components/NotificationFeed/notification-feed.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--primary-base",
+        "--radius-12"
+      ]
+    },
+    {
+      "name": "Pagination",
+      "type": "ui:component",
+      "description": "PaginationCell (page-number button, 4 states x square/full radius) and Pagination (composed bar: Basic/Group/Full-Radius variants, real computed page-range logic with ellipsis collapsing, optional Page-X-of-Y and per-page select).",
+      "dependencies": [],
+      "files": [
+        "src/components/Pagination/Pagination.tsx",
+        "src/components/Pagination/PaginationCell.tsx",
+        "src/components/Pagination/paginationUtils.ts",
+        "src/components/Pagination/pagination.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-8",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "ProgressBar",
+      "type": "ui:component",
+      "description": "ProgressBar (linear bar, real continuous 0-100% fill, 4 colors), ProgressBarLabel (title+percentage+bar+description with an optional Upgrade link, On Top/On Right layouts), and CircularProgressBar (SVG ring computed via stroke-dashoffset, 5 sizes, center label at size >= 56). Originally built inside FileUpload/, moved to its own folder and generalized when requested standalone.",
+      "dependencies": ["LinkButton"],
+      "files": [
+        "src/components/ProgressBar/ProgressBar.tsx",
+        "src/components/ProgressBar/ProgressBarLabel.tsx",
+        "src/components/ProgressBar/CircularProgressBar.tsx",
+        "src/components/ProgressBar/progress-bar.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-soft",
+        "--color-state-information-base",
+        "--color-state-error-base",
+        "--color-state-warning-base",
+        "--color-state-success-base",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "Popover",
+      "type": "ui:component",
+      "description": "Popover (floating card with icon/title/description/dismiss header, CSS-triangle tail, 12 placement variants) and PopoverFooter (Stretch/Stepper/Text Stepper action rows).",
+      "dependencies": ["KeyIcon", "CompactButton", "Button", "StepperDots"],
+      "files": [
+        "src/components/Popover/Popover.tsx",
+        "src/components/Popover/PopoverFooter.tsx",
+        "src/components/Popover/popover.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-16",
+        "--shadow-regular-medium"
+      ]
+    },
+    {
+      "name": "Radio",
+      "type": "ui:component",
+      "description": "Radio (base control), RadioLabel (labeled composition with optional badge/sublabel/description/link), and RadioCard (selectable bordered card with a generic leading-visual slot). Mirrors the Checkbox/CheckboxLabel/CheckboxCard architecture.",
+      "dependencies": ["Badge", "LinkButton"],
+      "files": [
+        "src/components/Radio/Radio.tsx",
+        "src/components/Radio/RadioLabel.tsx",
+        "src/components/Radio/RadioCard.tsx",
+        "src/components/Radio/radio.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-soft",
+        "--color-bg-sub",
+        "--primary-base",
+        "--primary-dark",
+        "--primary-darkest",
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--radius-full",
+        "--radius-12"
+      ]
+    },
+    {
+      "name": "Rating",
+      "type": "ui:component",
+      "description": "RatingIcon (star/heart glyph, empty/half/full), Rating (aggregate read-only display), RatingCell (big selectable icon button), RatingBar (interactive 1-5 segmented selector: Emoji/Number/Star/Heart), and RatingBarArea (RatingBar + feedback textarea).",
+      "dependencies": ["LinkButton"],
+      "files": [
+        "src/components/Rating/RatingIcon.tsx",
+        "src/components/Rating/Rating.tsx",
+        "src/components/Rating/RatingCell.tsx",
+        "src/components/Rating/RatingBar.tsx",
+        "src/components/Rating/RatingBarArea.tsx",
+        "src/components/Rating/rating.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-state-away-base",
+        "--color-state-error-base",
+        "--color-icon-soft",
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--radius-10",
+        "--radius-12"
+      ]
+    },
+    {
+      "name": "RichEditor",
+      "type": "ui:component",
+      "description": "RichEditorToolbar (composable container), RichEditorItem (Text/Dropdown/Icon/Color button), RichEditorDivider, and RichEditorColorDot (10 colors). Figma's 4 rigid toolbar variants generalized into free composition of items.",
+      "dependencies": [],
+      "files": [
+        "src/components/RichEditor/RichEditorToolbar.tsx",
+        "src/components/RichEditor/RichEditorItem.tsx",
+        "src/components/RichEditor/RichEditorDivider.tsx",
+        "src/components/RichEditor/RichEditorColorDot.tsx",
+        "src/components/RichEditor/rich-editor.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "Scroll",
+      "type": "ui:component",
+      "description": "Scroll (parameterized track+thumb visual, 3 sizes x 2 styles) and ScrollArea (a real working custom scrollbar computed from actual scroll metrics).",
+      "dependencies": [],
+      "files": [
+        "src/components/Scroll/Scroll.tsx",
+        "src/components/Scroll/ScrollArea.tsx",
+        "src/components/Scroll/scroll.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-stroke-sub",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "type": "ui:component",
+      "description": "Floating hint card. 3 sizes (2X-Small/X-Small text-only, Large adds icon + title/description + dismiss), 8 placements, optional dark mode.",
+      "dependencies": ["CompactButton"],
+      "files": [
+        "src/components/Tooltip/Tooltip.tsx",
+        "src/components/Tooltip/tooltip.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-strong",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-white",
+        "--color-text-soft",
+        "--color-icon-sub",
+        "--color-icon-white",
+        "--color-stroke-soft",
+        "--radius-4",
+        "--radius-6",
+        "--radius-12",
+        "--shadow-component-tooltip"
+      ]
+    },
+    {
+      "name": "TimePicker",
+      "type": "ui:component",
+      "description": "TimePickerItem (selectable time-slot list row, optional second time group + directional check-mark), TimePickerDuration (small duration pill), and TimePickerStatus (status pill with a colored dot — Available/Busy/In-meeting/Offline).",
+      "dependencies": [],
+      "files": [
+        "src/components/TimePicker/TimePickerItem.tsx",
+        "src/components/TimePicker/TimePickerDuration.tsx",
+        "src/components/TimePicker/TimePickerStatus.tsx",
+        "src/components/TimePicker/time-picker.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--color-stroke-soft",
+        "--primary-base",
+        "--primary-alpha-10",
+        "--color-state-success-base",
+        "--color-state-error-base",
+        "--color-state-warning-base",
+        "--color-state-faded-base",
+        "--radius-8",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "TextArea",
+      "type": "ui:component",
+      "description": "Genuinely functional multi-line text field with a real live character counter, native vertical resize, and Default/Hover/Focus/Filled/Disabled/Error states. Composes the existing Label and HintText components.",
+      "dependencies": ["Label", "HintText"],
+      "files": [
+        "src/components/TextArea/TextArea.tsx",
+        "src/components/TextArea/text-area.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-stroke-strong",
+        "--color-text-strong",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--color-state-error-base",
+        "--radius-12",
+        "--shadow-regular-x-small",
+        "--shadow-component-button-important-focus"
+      ]
+    },
+    {
+      "name": "Tag",
+      "type": "ui:component",
+      "description": "Small removable label chip. 2 background styles (stroke/gray), a persistent active/selected state, an optional dismiss icon, and an optional sublabel. Figma's 6 leading-visual types collapsed into one generic `leading` slot.",
+      "dependencies": [],
+      "files": [
+        "src/components/Tag/Tag.tsx",
+        "src/components/Tag/tag.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-stroke-strong",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--color-icon-sub",
+        "--color-icon-soft",
+        "--radius-6",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "Table",
+      "type": "ui:component",
+      "description": "Genuinely functional data table — real column sorting (asc/desc/none) and real row/select-all checkbox selection, rendered as semantic table markup. TableCellContent provides the leading-visual + title/description cell layout; SortingIcon is the header sort-direction indicator.",
+      "dependencies": ["Checkbox"],
+      "files": [
+        "src/components/Table/Table.tsx",
+        "src/components/Table/TableCellContent.tsx",
+        "src/components/Table/SortingIcon.tsx",
+        "src/components/Table/table.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--primary-alpha-10",
+        "--radius-16"
+      ]
+    },
+    {
+      "name": "TextInput",
+      "type": "ui:component",
+      "description": "Input (core single-line field with generic leading/trailing slots, real password show/hide, real clear button, separated action button), TagInput (real tag list), CounterInput (real +/- stepper), PinInput (real multi-box OTP entry), InlineInput (borderless-until-editing field). Figma's 12 rigid Input 'types' collapsed into Input's generic slots.",
+      "dependencies": ["Label", "HintText", "CompactButton", "Tag"],
+      "files": [
+        "src/components/TextInput/Input.tsx",
+        "src/components/TextInput/TagInput.tsx",
+        "src/components/TextInput/CounterInput.tsx",
+        "src/components/TextInput/PinInput.tsx",
+        "src/components/TextInput/InlineInput.tsx",
+        "src/components/TextInput/text-input.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-stroke-strong",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--color-icon-sub",
+        "--color-state-error-base",
+        "--primary-base",
+        "--radius-8",
+        "--radius-10",
+        "--shadow-regular-x-small",
+        "--shadow-component-button-important-focus"
+      ]
+    },
+    {
+      "name": "SidebarComponents",
+      "type": "ui:component",
+      "description": "Product Components > Navigation > Sidebar Components. SidebarItem (nav row with collapsed rail mode + active accent bar), HeaderCard + SidebarHeader (workspace switcher card), UserProfileCard + SidebarFooter (signed-in user card), and SidebarFeatureCard (6 promo/widget types x 4 styles).",
+      "dependencies": ["Badge", "ChartLegendDot", "KeyIcon", "CompactButton", "Avatar", "ProgressBar", "LinkButton"],
+      "files": [
+        "src/components/SidebarComponents/SidebarItem.tsx",
+        "src/components/SidebarComponents/HeaderCard.tsx",
+        "src/components/SidebarComponents/SidebarHeader.tsx",
+        "src/components/SidebarComponents/UserProfileCard.tsx",
+        "src/components/SidebarComponents/SidebarFooter.tsx",
+        "src/components/SidebarComponents/SidebarFeatureCard.tsx",
+        "src/components/SidebarComponents/sidebar-components.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-bg-surface",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-icon-strong",
+        "--color-icon-sub",
+        "--color-icon-soft",
+        "--primary-base",
+        "--primary-alpha-10",
+        "--color-state-error-base",
+        "--color-state-information-lighter",
+        "--radius-4",
+        "--radius-8",
+        "--radius-10",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "SidebarNavigation",
+      "type": "ui:component",
+      "description": "Product Components > Navigation. The full sidebar navigation shell — composes SidebarHeader + a real search input + a labeled main-nav item list + a supporting item list + an optional SidebarFeatureCard + SidebarFooter. Genuine controlled/uncontrolled active-item state, real search, and a `collapsed` prop switching every child to its icon-only rail mode.",
+      "dependencies": ["SidebarHeader", "SidebarItem", "SidebarFeatureCard", "SidebarFooter"],
+      "files": [
+        "src/components/SidebarNavigation/SidebarNavigation.tsx",
+        "src/components/SidebarNavigation/sidebar-navigation.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-soft",
+        "--color-icon-soft",
+        "--radius-4",
+        "--radius-8",
+        "--shadow-regular-x-small"
       ]
     }
   ]

@@ -1,0 +1,38 @@
+{
+  "name": "Filter",
+  "description": "FilterBar (horizontal toolbar with a consumer-composed left slot, search input, Filter/Settings/Sort-by buttons), VerticalFilterItem (sidebar filter-category row, default/hover/active/disabled), VerticalFilterHeader (panel header with a Clear link), and VerticalFilterFooter (Clear/Apply footer).",
+  "category": "navigation",
+  "status": "stable",
+  "version": "2.1.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=4370-6018",
+  "sourceNote": "FilterBar's Calendar-type left content (Today button + date-range ButtonGroup) and Table-type left content (SegmentedControl tabs, now its own component) are both fully assembled from existing/new primitives rather than hardcoded — passed in via the `left` slot, since the two variants differ too much to force into one rigid prop shape. VerticalFilterFooter reuses DrawerFooter's 'stretch' layout directly (identical Cancel/Continue-style button pairing, just relabeled Clear/Apply) rather than re-implementing an equivalent footer from scratch.",
+  "props": {
+    "FilterBar": {
+      "left": { "type": "ReactNode" },
+      "showSearch": { "type": "boolean", "default": true },
+      "showFilterButton": { "type": "boolean", "default": true },
+      "showSettingsButton": { "type": "boolean", "default": true },
+      "showSortBy": { "type": "boolean", "default": false }
+    },
+    "VerticalFilterItem": {
+      "label": { "type": "ReactNode" },
+      "leading": { "type": "ReactNode" },
+      "active": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active", "disabled"] }
+    },
+    "VerticalFilterHeader": {
+      "label": { "type": "ReactNode" },
+      "showClear": { "type": "boolean", "default": true }
+    },
+    "VerticalFilterFooter": {
+      "clearLabel": { "type": "string", "default": "Clear" },
+      "applyLabel": { "type": "string", "default": "Apply" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-icon-sub", "--color-icon-soft", "--primary-base"],
+    "radius": ["--radius-4", "--radius-6", "--radius-8", "--radius-10"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["Button", "ButtonGroup", "LinkButton", "DrawerFooter", "SegmentedControl"]
+}

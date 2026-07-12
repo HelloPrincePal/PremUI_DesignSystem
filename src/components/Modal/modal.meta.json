@@ -1,0 +1,38 @@
+{
+  "name": "Modal",
+  "description": "Modal (functional root: open/onClose, Escape-to-close, overlay-click-to-close, body-scroll lock), ModalOverlay (backdrop), ModalHeader (Basic/Left-Icon/Error/Warning/Success/Information x Medium/Small), ModalFooter (Basic/Stretch/Checkbox/Information/Toggle/Stepper/Link Button), and StatusModal (composed alert dialog: icon+title+description, Horizontal/Vertical alignment, 4 status types).",
+  "category": "overlay",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=466-4778",
+  "sourceNote": "Modal/ModalOverlay were built as genuinely functional (Escape key, overlay click, body-scroll lock while open) rather than static markup, matching this project's precedent (DatePicker, ColorPicker). ModalFooter shares DrawerFooter's exact structure/button sizing plus an added 'information' type (Figma's custom info-custom-fill icon was substituted with RemixIcon's information-fill, per the RemixIcon-only policy). ModalHeader's Medium-size icon circle reuses the KeyIcon component directly (identical 40px/padding-10/icon-20 proportions); StatusModal's icon box uses its own radius-10 square (not KeyIcon's radius-full circle), matching the source design exactly.",
+  "props": {
+    "Modal": {
+      "open": { "type": "boolean" },
+      "onClose": { "type": "() => void" },
+      "width": { "type": "number", "default": 440 },
+      "closeOnOverlayClick": { "type": "boolean", "default": true },
+      "closeOnEscape": { "type": "boolean", "default": true }
+    },
+    "ModalHeader": {
+      "type": { "type": "string", "options": ["basic", "left-icon", "error", "warning", "success", "information"], "default": "basic" },
+      "size": { "type": "string", "options": ["md", "sm"], "default": "md" },
+      "description": { "type": "string", "description": "Only rendered at size=\"md\"" }
+    },
+    "ModalFooter": {
+      "type": { "type": "string", "options": ["basic", "stretch", "checkbox", "information", "toggle", "stepper", "link-button"], "default": "basic" },
+      "doubleButton": { "type": "boolean", "default": true }
+    },
+    "StatusModal": {
+      "type": { "type": "string", "options": ["error", "warning", "success", "information"], "default": "error" },
+      "alignment": { "type": "string", "options": ["horizontal", "vertical"], "default": "horizontal" },
+      "footerType": { "type": "string", "default": "checkbox" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-overlay-gray", "--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-sub"],
+    "radius": ["--radius-10", "--radius-20"],
+    "shadows": ["--shadow-regular-medium"]
+  },
+  "dependencies": ["KeyIcon", "CompactButton", "Button", "CheckboxLabel", "Switch", "LinkButton", "StepperDots"]
+}

@@ -1,0 +1,127 @@
+/* ============================================================
+   Tag [1.1] — Figma node 431:16147. 6 types (Basic/Left-Icon/
+   Avatar/Country/Brand/Company) collapsed into one generic
+   `leading` slot x 2 styles (Stroke/Gray) x 4 states x optional
+   dismiss icon.
+   ============================================================ */
+
+.premui-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  box-sizing: border-box;
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-6);
+  cursor: default;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), border-color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-tag[data-has-leading] {
+  padding-left: var(--spacing-4);
+}
+
+.premui-tag[data-dismissible] {
+  padding-right: var(--spacing-4);
+}
+
+.premui-tag[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+}
+
+.premui-tag[data-style="gray"] {
+  background: var(--color-bg-weak);
+  border: 1px solid transparent;
+}
+
+.premui-tag:hover:not([data-active="true"]):not([data-disabled]) {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+}
+
+.premui-tag[data-state="hover"] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+}
+
+.premui-tag[data-active="true"] {
+  background: var(--color-bg-white, #fff);
+  border-color: var(--color-stroke-strong);
+}
+
+.premui-tag[data-disabled] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+.premui-tag-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.premui-tag-text {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.premui-tag-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-tag-sublabel {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-text-soft);
+  white-space: nowrap;
+}
+
+.premui-tag[data-active="true"] .premui-tag-label {
+  color: var(--color-text-strong);
+}
+
+.premui-tag[data-active="true"] .premui-tag-sublabel {
+  color: var(--color-text-sub);
+}
+
+.premui-tag[data-disabled] .premui-tag-label,
+.premui-tag[data-disabled] .premui-tag-sublabel {
+  color: var(--color-text-disabled);
+}
+
+.premui-tag-dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--color-icon-soft);
+}
+
+.premui-tag-dismiss:hover:not(:disabled) {
+  color: var(--color-icon-sub);
+}
+
+.premui-tag-dismiss:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}

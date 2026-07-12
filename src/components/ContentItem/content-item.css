@@ -1,0 +1,131 @@
+/* ============================================================
+   Content Label [1.1] + Content Card [1.1] — Figma: nodes
+   2945:5539 (label, no border) and 2942:9503 (card, bordered),
+   Align UI Design System 2.0. Figma's 6 rigid leading-visual
+   "types" (Basic/Left-Icon/Avatar/Provider/Brand/Company) were
+   simplified to one generic `leading` ReactNode slot, matching
+   the pattern used for CheckboxCard/CommandMenuItem/DropdownItem.
+   ============================================================ */
+
+/* ── Content Label ── */
+
+.premui-content-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-14, 14px);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.premui-content-label-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-content-label-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-content-label-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.premui-content-label-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-content-label[data-size="lg"] .premui-content-label-label {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+}
+
+.premui-content-label-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-content-label-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-content-label[data-size="lg"] .premui-content-label-description {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+}
+
+/* ── Content Card ── */
+
+.premui-content-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-14, 14px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  overflow: hidden;
+}
+
+.premui-content-card-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-content-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-content-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.premui-content-card-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-content-card-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-content-card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}

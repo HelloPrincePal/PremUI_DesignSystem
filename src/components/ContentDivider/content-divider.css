@@ -1,0 +1,75 @@
+/* ============================================================
+   Content Divider [1.1]
+   Figma: node 414:4401, Align UI Design System 2.0
+   Types: line · line-spacing · text-line · text · solid-text ·
+          icon-button · icon-button-group · text-button · text-button-group
+   The button/button-group variants compose FancyButton (basic/xs) and
+   ButtonGroup, which already match Figma's nested "Buttons [1.1]" /
+   "Button Group [1.1]" instances pixel-for-pixel.
+   ============================================================ */
+
+.premui-content-divider-bare {
+  width: 100%;
+  height: 1px;
+  background: var(--color-stroke-soft);
+}
+
+.premui-content-divider-spacing {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.5px 0;
+}
+
+.premui-content-divider-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10);
+  width: 100%;
+}
+
+.premui-content-divider-line {
+  flex: 1 0 0;
+  min-width: 1px;
+  height: 1px;
+  background: var(--color-stroke-soft);
+}
+
+.premui-content-divider-text-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-8);
+}
+
+.premui-content-divider-solid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-6) 20px;
+  background: var(--color-bg-weak);
+}
+
+.premui-content-divider-label {
+  font-family: var(--typography-subheading-xs-font-family);
+  font-size: var(--typography-subheading-xs-font-size);
+  line-height: var(--typography-subheading-xs-line-height);
+  font-weight: var(--typography-subheading-xs-font-weight);
+  letter-spacing: var(--typography-subheading-xs-letter-spacing);
+  text-transform: var(--typography-subheading-xs-text-transform);
+  color: var(--color-text-soft);
+}
+
+.premui-content-divider-label-sm {
+  flex-shrink: 0;
+  font-family: var(--typography-subheading-2xs-font-family);
+  font-size: var(--typography-subheading-2xs-font-size);
+  line-height: var(--typography-subheading-2xs-line-height);
+  font-weight: var(--typography-subheading-2xs-font-weight);
+  letter-spacing: var(--typography-subheading-2xs-letter-spacing);
+  text-transform: var(--typography-subheading-2xs-text-transform);
+  color: var(--color-text-soft);
+  white-space: nowrap;
+}

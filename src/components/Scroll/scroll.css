@@ -1,0 +1,63 @@
+/* ============================================================
+   Scroll [1.1] — Figma: node 166941:61889, Align UI Design
+   System 2.0. 3 sizes (Medium-20/Small-16/X-Small-12) x 2 styles
+   (Default = white track, Lighter = weak-50 track). The Figma
+   component was a static track+thumb visual at a fixed center
+   position; `Scroll` genuinely parameterizes thumb size/position
+   via `thumbRatio`/`thumbOffset`, and `ScrollArea` computes those
+   from real scrollTop/scrollHeight/clientHeight — a working
+   custom scrollbar, not a decorative fixed thumb.
+   ============================================================ */
+
+.premui-scroll {
+  position: relative;
+  height: 100%;
+  border-left: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-scroll[data-size="md"] { width: 20px; }
+.premui-scroll[data-size="sm"] { width: 16px; }
+.premui-scroll[data-size="xs"] { width: 12px; }
+
+.premui-scroll[data-style="lighter"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-scroll-thumb {
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  min-height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-stroke-soft);
+  transform: translateX(-50%);
+  /* No transition on top — the thumb must track scroll position 1:1, not animate behind it. */
+}
+
+.premui-scroll[data-style="lighter"] .premui-scroll-thumb {
+  background: var(--color-stroke-sub, #d1d1d1);
+}
+
+/* ── Scroll Area ── */
+
+.premui-scroll-area {
+  position: relative;
+  width: 100%;
+}
+
+.premui-scroll-area-content {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.premui-scroll-area-content::-webkit-scrollbar {
+  display: none;
+}
+
+.premui-scroll-area-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

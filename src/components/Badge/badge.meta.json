@@ -1,0 +1,72 @@
+{
+  "name": "Badge",
+  "description": "Compact pill-shaped label for status, categorization, and counts. Four styles, ten colors, two sizes, and basic/dot/icon/count layouts.",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/xVyf2cnQTitDFjRs8a6H1i/Align-UI-%E2%9C%A6-Design-System--1.1---Copy-?node-id=118-2324",
+  "props": {
+    "color": {
+      "type": "string",
+      "options": ["gray", "blue", "red", "orange", "yellow", "green", "purple", "sky", "pink", "teal"],
+      "default": "gray",
+      "description": "Semantic color intent — maps to a state token (e.g. gray → faded, blue → information, yellow → away)"
+    },
+    "style": {
+      "type": "string",
+      "options": ["filled", "light", "lighter", "stroke"],
+      "default": "filled",
+      "description": "Visual treatment of the badge surface"
+    },
+    "size": {
+      "type": "string",
+      "options": ["sm", "md"],
+      "default": "sm",
+      "description": "sm = 16px height (uppercase subheading text), md = 20px height (label text)"
+    },
+    "type": {
+      "type": "string",
+      "options": ["basic", "dot", "left-icon", "right-icon"],
+      "default": "basic",
+      "description": "Layout variant — ignored when `count` is set"
+    },
+    "icon": {
+      "type": "string",
+      "default": "",
+      "description": "RemixIcon name (no `ri-` prefix), used when type is left-icon or right-icon"
+    },
+    "count": {
+      "type": "string | number",
+      "default": "",
+      "description": "Renders a fixed-width square counter badge (e.g. '2', '9+') instead of the label/type layout"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Overrides style/color to a neutral bordered, disabled-text treatment"
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-faded-dark", "--color-state-faded-base", "--color-state-faded-light", "--color-state-faded-lighter",
+      "--color-state-information-dark", "--color-state-information-base", "--color-state-information-light", "--color-state-information-lighter",
+      "--color-state-warning-dark", "--color-state-warning-base", "--color-state-warning-light", "--color-state-warning-lighter",
+      "--color-state-error-dark", "--color-state-error-base", "--color-state-error-light", "--color-state-error-lighter",
+      "--color-state-success-dark", "--color-state-success-base", "--color-state-success-light", "--color-state-success-lighter",
+      "--color-state-away-dark", "--color-state-away-base", "--color-state-away-light", "--color-state-away-lighter",
+      "--color-state-feature-dark", "--color-state-feature-base", "--color-state-feature-light", "--color-state-feature-lighter",
+      "--color-state-verified-dark", "--color-state-verified-base", "--color-state-verified-light", "--color-state-verified-lighter",
+      "--color-state-highlighted-dark", "--color-state-highlighted-base", "--color-state-highlighted-light", "--color-state-highlighted-lighter",
+      "--color-state-stable-dark", "--color-state-stable-base", "--color-state-stable-light", "--color-state-stable-lighter",
+      "--color-static-white", "--color-text-disabled", "--color-stroke-soft"
+    ],
+    "spacing": ["--spacing-2", "--spacing-4", "--spacing-8"],
+    "radius": ["--radius-full"],
+    "typography": ["Subheading/2XSmall (11px/500/12px, uppercase)", "Label/XSmall (12px/500/16px)"]
+  },
+  "accessibility": {
+    "role": "none (decorative label — wrap with aria-label where the badge conveys meaning not present in surrounding text)",
+    "aria": ["aria-hidden on decorative dot and icon elements"]
+  },
+  "dependencies": []
+}

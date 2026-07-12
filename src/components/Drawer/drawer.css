@@ -1,0 +1,155 @@
+/* ============================================================
+   Drawer Header [1.1] + Drawer Footer [1.1] — Figma: nodes
+   3187:2897 (header, Basic/Left-Icon x Small/Large) and
+   4096:21416 (footer, Stretch/Basic/Checkbox/Toggle/Stepper/
+   Link Button), Align UI Design System 2.0.
+   ============================================================ */
+
+/* ── Drawer Header ── */
+
+.premui-drawer-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  gap: var(--spacing-12);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-drawer-header[data-size="lg"] {
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.premui-drawer-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-icon-sub);
+  font-size: 24px;
+}
+
+.premui-drawer-header[data-size="lg"] .premui-drawer-header-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-regular-x-small);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-drawer-header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-drawer-header-title[data-large] {
+  gap: var(--spacing-4);
+}
+
+.premui-drawer-header-text-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+.premui-drawer-header-heading {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.27px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-drawer-header-description {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-drawer-header-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-stroke-soft);
+}
+
+/* ── Drawer Footer ── */
+
+.premui-drawer-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-top: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-drawer-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-drawer-footer-actions[data-justify="stretch"] > * {
+  flex: 1 0 0;
+}
+
+.premui-drawer-footer-actions[data-justify="end"] {
+  justify-content: flex-end;
+}
+
+.premui-drawer-footer-switch-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+/* ── Stepper Dots ── */
+
+.premui-stepper-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.premui-stepper-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-soft);
+}
+
+.premui-stepper-dot[data-active] {
+  background: var(--primary-base);
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ColorPicker",
+  "description": "Fully functional color picker: draggable 2D saturation/brightness spectrum, hue slider, opacity slider, hex input, and a row of recommended preset swatches (ColorDots). Composes ColorSpectrum, ColorSliders, and ColorDots.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=4456-115795",
+  "sourceNote": "Figma shows a Hex/RGB/HSB format-switcher dropdown above the input; this is simplified to a static hex input (no format switching) to keep scope reasonable. All color math (HSV<->RGB<->hex) is implemented in colorUtils.ts.",
+  "props": {
+    "value": { "type": "string", "default": "#335CFF", "description": "Hex color" },
+    "onChange": { "type": "(hex: string) => void" },
+    "opacity": { "type": "number", "default": 100, "description": "0-100" },
+    "onOpacityChange": { "type": "(opacity: number) => void" },
+    "presets": { "type": "ColorDotColor[]", "default": "['gray','blue','orange','red','green','yellow','purple','sky']" }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-sub"],
+    "spacing": ["--spacing-4", "--spacing-6", "--spacing-8", "--spacing-10", "--spacing-12", "--spacing-16"],
+    "radius": ["--radius-8", "--radius-16", "--radius-full"],
+    "shadows": ["--shadow-regular-medium", "--shadow-component-toggle-switch"]
+  },
+  "accessibility": {
+    "role": "each draggable control (ColorSpectrum, ColorSliders) has role=\"slider\" with aria-value*; keyboard arrow keys adjust ColorSliders"
+  },
+  "dependencies": ["ColorSpectrum", "ColorSliders", "ColorDots"]
+}

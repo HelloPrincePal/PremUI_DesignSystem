@@ -1,0 +1,140 @@
+/* ============================================================
+   Progress Bar [1.1] + Progress Bar Label [1.1] + Circular
+   Progress Bar [1.1] — Figma: nodes 450:17821 (linear bar, 0-100%
+   in blue), 515:3758 (label: On Top/On Right, title+percentage+
+   description+Upgrade link), 466:4652 (circular ring, 5 sizes x
+   5 percentages), 450:17810 (linear bar color variants: blue/
+   red/orange/green), Align UI Design System 2.0. Both bars are
+   genuinely computed from a continuous 0-100 `percentage` prop
+   (CSS width / SVG stroke-dashoffset), not snapped to Figma's
+   discrete 10%-step / 25%-step raster demo variants.
+   Originally lived inside FileUpload/ (built for FileUploadCard);
+   moved here and generalized with a `color` prop when the
+   standalone Progress Bar family was requested.
+   ============================================================ */
+
+/* ── Progress Bar (linear) ── */
+
+.premui-progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-soft);
+  overflow: hidden;
+}
+
+.premui-progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--motion-duration-normal) var(--motion-easing-default);
+}
+
+.premui-progress-bar-fill[data-color="blue"]   { background: var(--color-state-information-base); }
+.premui-progress-bar-fill[data-color="red"]    { background: var(--color-state-error-base); }
+.premui-progress-bar-fill[data-color="orange"] { background: var(--color-state-warning-base); }
+.premui-progress-bar-fill[data-color="green"]  { background: var(--color-state-success-base); }
+
+/* ── Progress Bar Label ── */
+
+.premui-progress-bar-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-6);
+  width: 320px;
+  max-width: 100%;
+}
+
+.premui-progress-bar-label[data-type="on-right"] {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.premui-progress-bar-label-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-6);
+  width: 100%;
+}
+
+.premui-progress-bar-label-title {
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-progress-bar-label-percentage {
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-progress-bar-label-bar {
+  width: 100%;
+}
+
+.premui-progress-bar-label[data-type="on-right"] .premui-progress-bar-label-bar {
+  flex: 1 0 0;
+  min-width: 0;
+  width: auto;
+}
+
+.premui-progress-bar-label-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-progress-bar-label-description {
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+/* ── Circular Progress Bar ── */
+
+.premui-circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-circular-progress-svg {
+  display: block;
+}
+
+.premui-circular-progress-track {
+  stroke: var(--color-bg-soft);
+}
+
+.premui-circular-progress-fill {
+  stroke: var(--color-state-information-base);
+  transition: stroke-dashoffset var(--motion-duration-normal) var(--motion-easing-default);
+}
+
+.premui-circular-progress-label {
+  position: absolute;
+  font-weight: 500;
+  color: var(--color-text-strong);
+}
+
+.premui-circular-progress-label[data-size="lg"] {
+  font-size: 14px;
+  letter-spacing: -0.084px;
+}
+
+.premui-circular-progress-label[data-size="sm"] {
+  font-size: 12px;
+}

@@ -1,0 +1,45 @@
+/* ============================================================
+   Chart Legends [1.1] + Chart Legend Dots [1.1] — Figma: nodes
+   2942:9934 (legend: dot + label) and 2942:9880 (dot only),
+   Align UI Design System 2.0. 11 colors (the 10 Badge/ColorDots
+   state-token colors plus an extra neutral "lightGray") + a
+   disabled state.
+   ============================================================ */
+
+.premui-chart-legend-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+}
+
+.premui-chart-legend-dot[data-size="sm"] { width: 16px; height: 16px; }
+.premui-chart-legend-dot[data-size="md"] { width: 20px; height: 20px; }
+
+.premui-chart-legend-dot[data-color="gray"]      { background: var(--color-state-faded-base); }
+.premui-chart-legend-dot[data-color="lightGray"] { background: var(--color-icon-soft); }
+.premui-chart-legend-dot[data-color="blue"]      { background: var(--color-state-information-base); }
+.premui-chart-legend-dot[data-color="red"]       { background: var(--color-state-error-base); }
+.premui-chart-legend-dot[data-color="orange"]    { background: var(--color-state-warning-base); }
+.premui-chart-legend-dot[data-color="yellow"]    { background: var(--color-state-away-base); }
+.premui-chart-legend-dot[data-color="green"]     { background: var(--color-state-success-base); }
+.premui-chart-legend-dot[data-color="purple"]    { background: var(--color-state-feature-base); }
+.premui-chart-legend-dot[data-color="sky"]       { background: var(--color-state-verified-base); }
+.premui-chart-legend-dot[data-color="teal"]      { background: var(--color-state-stable-base); }
+.premui-chart-legend-dot[data-color="pink"]      { background: var(--color-state-highlighted-base); }
+
+.premui-chart-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.premui-chart-legend-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-chart-legend[data-disabled] .premui-chart-legend-label {
+  color: var(--color-text-disabled);
+}

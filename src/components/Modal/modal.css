@@ -1,0 +1,236 @@
+/* ============================================================
+   Modal Header [1.1] + Modal Footer [1.1] + Status Modals [1.1]
+   + Modal Overlay [1.1] — Figma: nodes 466:4778 (header,
+   Basic/Left-Icon/Error/Warning/Success/Information x
+   Medium-80/Small-56), 472:566 (footer, 7 types), 480:1372
+   (status modals, 4 types x Horizontal/Vertical), 480:2474
+   (overlay), Align UI Design System 2.0. Modal/ModalOverlay are
+   genuinely functional (Escape to close, overlay-click to
+   close, body-scroll lock while open) rather than static markup.
+   ============================================================ */
+
+/* ── Modal (functional root + overlay + card) ── */
+
+.premui-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premui-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay-gray);
+}
+
+.premui-modal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+/* ── Modal Header ── */
+
+.premui-modal-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 44px 16px 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-modal-header[data-size="sm"] {
+  gap: var(--spacing-12);
+}
+
+.premui-modal-header-icon-plain {
+  flex-shrink: 0;
+  font-size: 24px;
+  color: var(--color-icon-sub);
+}
+
+.premui-modal-header-icon-plain[data-color="red"]    { color: var(--color-state-error-base); }
+.premui-modal-header-icon-plain[data-color="orange"] { color: var(--color-state-warning-base); }
+.premui-modal-header-icon-plain[data-color="green"]  { color: var(--color-state-success-base); }
+.premui-modal-header-icon-plain[data-color="blue"]   { color: var(--color-state-information-base); }
+
+.premui-modal-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-modal-header-title {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-modal-header-description {
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-modal-header-dismiss {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* ── Modal Footer ── */
+
+.premui-modal-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-top: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-modal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-modal-footer-actions[data-justify="stretch"] > * {
+  flex: 1 0 0;
+}
+
+.premui-modal-footer-actions[data-justify="end"] {
+  justify-content: flex-end;
+}
+
+.premui-modal-footer-switch-label,
+.premui-modal-footer-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-modal-footer-info i {
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+/* ── Status Modal ── */
+
+.premui-status-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 440px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+.premui-status-modal-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.premui-status-modal-content[data-alignment="vertical"] {
+  flex-direction: column;
+  align-items: center;
+}
+
+.premui-status-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.premui-status-modal-icon i {
+  display: block;
+  line-height: 1;
+}
+
+.premui-status-modal-icon[data-color="red"]    { background: var(--color-state-error-lighter); color: var(--color-state-error-base); }
+.premui-status-modal-icon[data-color="orange"] { background: var(--color-state-warning-lighter); color: var(--color-state-warning-base); }
+.premui-status-modal-icon[data-color="green"]  { background: var(--color-state-success-lighter); color: var(--color-state-success-base); }
+.premui-status-modal-icon[data-color="blue"]   { background: var(--color-state-information-lighter); color: var(--color-state-information-base); }
+
+.premui-status-modal-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-status-modal-content[data-alignment="vertical"] .premui-status-modal-text {
+  align-items: center;
+  text-align: center;
+  flex: none;
+  width: 100%;
+}
+
+.premui-status-modal-title {
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: var(--color-text-strong);
+}
+
+.premui-status-modal-description {
+  margin: 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}

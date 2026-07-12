@@ -1,0 +1,181 @@
+/* ============================================================
+   Dropdown Items [1.1] + Dropdown Misc Items [1.1] — Figma:
+   nodes 379:6629 (item state matrix: 379:6626 default,
+   398:5815 hover, 401:3360 selected, 401:3474 disabled) and
+   414:8031 (misc: search/button/caption), Align UI Design
+   System 2.0. The 6 rigid leading-visual "types" (Basic/
+   Country/Avatar/Provider/Brand/Company) were simplified to a
+   single generic `leading` ReactNode slot, matching the pattern
+   used for CheckboxCard/CommandMenuItem.
+   ============================================================ */
+
+/* ── Dropdown Item ── */
+
+.premui-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-8);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-dropdown-item[data-size="sm"] {
+  min-height: 36px;
+}
+
+.premui-dropdown-item[data-size="lg"] {
+  min-height: 56px;
+}
+
+.premui-dropdown-item:hover,
+.premui-dropdown-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-dropdown-item[data-state="selected"] {
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-dropdown-item:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: -2px;
+}
+
+.premui-dropdown-item-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-icon-sub);
+}
+
+.premui-dropdown-item-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-dropdown-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-dropdown-item-sublabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-dropdown-item-shortcut {
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-soft);
+}
+
+.premui-dropdown-item-button {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-dropdown-item-right-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-dropdown-item[data-state="disabled"] {
+  cursor: not-allowed;
+}
+
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-label,
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-sublabel,
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-shortcut,
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-button,
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-leading,
+.premui-dropdown-item[data-state="disabled"] .premui-dropdown-item-right-icon {
+  color: var(--color-text-disabled);
+}
+
+/* ── Dropdown Misc Items ── */
+
+.premui-dropdown-misc {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-8);
+}
+
+.premui-dropdown-misc-button {
+  width: 100%;
+}
+
+.premui-dropdown-misc-caption {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-soft);
+}
+
+.premui-dropdown-misc-search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  border-radius: var(--radius-8);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-dropdown-misc-search:hover {
+  background: var(--color-bg-weak);
+}
+
+.premui-dropdown-misc-search[data-active] {
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-dropdown-misc-search-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-dropdown-misc-search[data-active] .premui-dropdown-misc-search-icon {
+  color: var(--color-icon-strong);
+}
+
+.premui-dropdown-misc-search-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-dropdown-misc-search-input::placeholder {
+  color: var(--color-text-soft);
+}

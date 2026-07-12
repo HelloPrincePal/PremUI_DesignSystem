@@ -1,7 +1,7 @@
 {
   "name": "LinkButton",
   "description": "Inline text link with optional left/right icons, underline, and 4 color styles. Used as action links inside Alert and standalone as text-based navigation.",
-  "category": "primitive",
+  "category": "button",
   "status": "stable",
   "version": "1.1.0",
   "figmaSource": "https://www.figma.com/design/gZdLT5n9Olq8jVVKVKiDhS/?node-id=168-4889",

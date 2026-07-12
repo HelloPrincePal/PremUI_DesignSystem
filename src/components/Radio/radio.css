@@ -1,0 +1,248 @@
+/* ============================================================
+   Radio [1.1] — Figma: node 515:4242, Align UI Design System 2.0.
+   20px only (no size variants shown). Unchecked is a colored
+   "ring" layer behind a smaller white inset layer with a shadow;
+   checked is the same ring filled with the accent color behind a
+   smaller white dot. Figma's "Focused" variant recolors the ring
+   to primary-base/primary-darkest — mapped here to the system's
+   standard :focus-visible state instead of a separate outline,
+   for consistency with Checkbox.
+   ============================================================ */
+
+.premui-radio {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.premui-radio-ring {
+  position: absolute;
+  inset: 10%;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-soft);
+}
+
+.premui-radio[data-checked="true"] .premui-radio-ring {
+  background: var(--primary-base);
+}
+
+.premui-radio-inner {
+  position: absolute;
+  inset: 17.5%;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff);
+  box-shadow: 0px 2px 4px -2px rgba(27, 28, 29, 0.12);
+}
+
+.premui-radio-dot {
+  position: absolute;
+  inset: 30%;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-radio:not(:disabled):not([data-state="disabled"]):hover .premui-radio-ring,
+.premui-radio[data-state="hover"] .premui-radio-ring {
+  background: var(--color-bg-sub);
+}
+
+.premui-radio:not(:disabled):not([data-state="disabled"]):hover[data-checked="true"] .premui-radio-ring,
+.premui-radio[data-state="hover"][data-checked="true"] .premui-radio-ring {
+  background: var(--primary-dark);
+}
+
+.premui-radio:focus-visible .premui-radio-ring {
+  background: var(--primary-base);
+}
+
+.premui-radio:focus-visible[data-checked="true"] .premui-radio-ring {
+  background: var(--primary-darkest);
+}
+
+.premui-radio:focus-visible {
+  outline: none;
+}
+
+/* ── Disabled ── */
+
+.premui-radio:disabled,
+.premui-radio[data-state="disabled"] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premui-radio:disabled .premui-radio-ring,
+.premui-radio[data-state="disabled"] .premui-radio-ring {
+  background: var(--color-bg-soft);
+}
+
+.premui-radio:disabled .premui-radio-inner,
+.premui-radio[data-state="disabled"] .premui-radio-inner {
+  display: none;
+}
+
+/* ============================================================
+   RadioLabel
+   ============================================================ */
+
+.premui-radio-label {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: flex-start;
+}
+
+.premui-radio-label[data-flip="true"] {
+  justify-content: space-between;
+}
+
+.premui-radio-label[data-disabled="true"] {
+  opacity: 0.6;
+}
+
+.premui-radio-label-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.premui-radio-label[data-disabled="true"] .premui-radio-label-title {
+  cursor: not-allowed;
+}
+
+.premui-radio-label-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-radio-label-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-radio-label-content .premui-radio-label-text {
+  font-weight: 500;
+}
+
+.premui-radio-label-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-radio-label-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+/* ============================================================
+   RadioCard
+   ============================================================ */
+
+.premui-radio-card {
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--spacing-14, 14px);
+  align-items: flex-start;
+  width: 100%;
+  max-width: 360px;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-radio-card:not(:disabled):hover {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-radio-card[data-checked="true"] {
+  border-color: var(--primary-base);
+}
+
+.premui-radio-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.premui-radio-card:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+.premui-radio-card-leading {
+  flex-shrink: 0;
+}
+
+.premui-radio-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.premui-radio-card-title {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.premui-radio-card-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  white-space: nowrap;
+}
+
+.premui-radio-card-sublabel {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-radio-card-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+  width: 100%;
+}
+
+.premui-radio-card-radio {
+  flex-shrink: 0;
+  pointer-events: none;
+}

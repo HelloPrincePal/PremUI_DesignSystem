@@ -1,0 +1,42 @@
+{
+  "name": "Switch",
+  "description": "Switch (base toggle, 32x20 track, now with a state prop for Default/Hover/Disabled QA), SwitchLabel (labeled composition mirroring CheckboxLabel/RadioLabel), SwitchCard (selectable bordered card mirroring CheckboxCard/RadioCard), and IntegrationSwitch (brand/integration row with title/badge/description, optional Manage button, Horizontal/Vertical x Card/List layouts).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=385-4085",
+  "sourceNote": "Switch was first built from an inline raster reference inside DrawerFooter's Toggle type (no standalone Figma frame). When SwitchLabel (385:4580), SwitchCard (385:4733), and IntegrationSwitch (3678:14609) were fetched, Switch was expanded with a `state` prop (default/hover/disabled) and real hover-darkening (matching Radio/Checkbox's hover convention) since Figma showed those states explicitly. SwitchLabel/SwitchCard mirror the CheckboxLabel/CheckboxCard and RadioLabel/RadioCard architecture exactly (same generic `leading` slot simplifying Figma's 6 rigid SwitchCard types). IntegrationSwitch's brand logo is a generic `leading` slot (default: a plug icon) in place of Figma's brand-specific Microsoft Office asset.",
+  "props": {
+    "Switch": {
+      "checked": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "disabled"] },
+      "decorative": { "type": "boolean", "default": false }
+    },
+    "SwitchLabel": {
+      "badge": { "type": "string" },
+      "description": { "type": "string" },
+      "flip": { "type": "boolean", "default": false }
+    },
+    "SwitchCard": {
+      "leading": { "type": "ReactNode" },
+      "badge": { "type": "string" }
+    },
+    "IntegrationSwitch": {
+      "leading": { "type": "ReactNode" },
+      "alignment": { "type": "string", "options": ["horizontal", "vertical"], "default": "horizontal" },
+      "style": { "type": "string", "options": ["card", "list"], "default": "card" },
+      "showManageButton": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-soft", "--color-bg-sub", "--primary-base", "--primary-dark", "--color-bg-white", "--color-stroke-soft"],
+    "radius": ["--radius-full", "--radius-12"],
+    "shadows": ["--shadow-component-toggle-switch", "--shadow-regular-x-small"]
+  },
+  "accessibility": {
+    "keyboard": ["Tab to focus", "Enter/Space to toggle"],
+    "aria": ["role=switch", "aria-checked reflects state"]
+  },
+  "dependencies": ["Badge", "LinkButton", "Button"]
+}

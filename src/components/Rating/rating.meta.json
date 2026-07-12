@@ -1,0 +1,37 @@
+{
+  "name": "Rating",
+  "description": "RatingIcon (single glyph, star/heart x empty/half/full), Rating (aggregate read-only display, Only/Vertical/Horizontal alignments), RatingCell (single big selectable icon button), RatingBar (interactive 1-5 segmented selector, Emoji/Number/Star/Heart types), and RatingBarArea (RatingBar + feedback textarea).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=532-4340",
+  "sourceNote": "Star uses RemixIcon's star-fill/star-line/star-half-fill directly. Heart has no half-heart glyph in RemixIcon, so its 'half' state uses a clipped fill-over-line overlay (clip-path: inset(0 50% 0 0)) instead. The 'Emoji' RatingBar type substitutes RemixIcon's emotion-sad/unhappy/normal/happy/laugh-line progression for Figma's raster emoji assets, per the RemixIcon-only policy. Rating's aggregate display genuinely computes full/half/empty counts from a continuous 0-5 `value`, not a fixed demo.",
+  "props": {
+    "RatingIcon": {
+      "type": { "type": "string", "options": ["star", "heart"], "default": "star" },
+      "state": { "type": "string", "options": ["empty", "empty-filled", "half", "full"], "default": "empty" }
+    },
+    "Rating": {
+      "value": { "type": "number", "default": 4.5, "description": "0-5, supports halves" },
+      "alignment": { "type": "string", "options": ["only", "vertical", "horizontal"], "default": "only" }
+    },
+    "RatingCell": {
+      "selected": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "selected"] }
+    },
+    "RatingBar": {
+      "type": { "type": "string", "options": ["emoji", "number", "star", "heart"], "default": "emoji" },
+      "value": { "type": "number", "default": 0, "description": "1-5, 0 = none selected" }
+    },
+    "RatingBarArea": {
+      "text": { "type": "string" },
+      "placeholder": { "type": "string", "default": "Tell us why!" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-state-away-base", "--color-state-error-base", "--color-icon-soft", "--color-icon-sub", "--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub"],
+    "radius": ["--radius-10", "--radius-12"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["LinkButton"]
+}

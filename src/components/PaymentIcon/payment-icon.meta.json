@@ -1,0 +1,25 @@
+{
+  "name": "PaymentIcon",
+  "description": "8 fixed payment/bill-category icons, each with a pinned icon+color pairing: water (teal), gas (red), electricity (yellow), donate (pink), internet (blue), phone (orange), rent (green), tax (purple).",
+  "category": "media",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=2942-9995",
+  "sourceNote": "Ported 1:1 from Figma's 8-type variant set; each type's icon+color pairing is semantically fixed (not independently configurable), matching the source component's design intent.",
+  "props": {
+    "type": {
+      "type": "string",
+      "options": ["water", "gas", "electricity", "donate", "internet", "phone", "rent", "tax"],
+      "default": "water"
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-verified-lighter", "--color-state-error-lighter", "--color-state-away-lighter",
+      "--color-state-highlighted-lighter", "--color-state-information-lighter", "--color-state-warning-lighter",
+      "--color-state-success-lighter", "--color-state-feature-lighter"
+    ],
+    "radius": ["--radius-full"]
+  },
+  "dependencies": []
+}

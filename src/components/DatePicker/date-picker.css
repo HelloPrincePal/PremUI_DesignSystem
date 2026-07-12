@@ -1,0 +1,257 @@
+/* ============================================================
+   Date & Range Pickers — DayLabels [1.1], DayCells [1.1],
+   Date Selector [1.1], Period Range [1.1], Date/Range Picker [1.1]
+   Figma: nodes 437:175 (labels), 443:336 (cells), 442:192 (selector),
+   446:7414 (period range item + composite), Align UI Design System 2.0.
+   Fully functional: real month-grid generation, month navigation,
+   single-date and range selection (dateUtils.ts).
+   ============================================================ */
+
+/* ── Day Label ── */
+
+.premui-day-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  padding: var(--spacing-10) 0;
+  border-radius: var(--radius-10);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-soft);
+}
+
+/* ── Day Cell ── */
+
+.premui-day-cell {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 0;
+  min-width: 0;
+  width: 40px;
+  padding: var(--spacing-10) 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius-8);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-day-cell-empty {
+  flex: 1 0 0;
+}
+
+/* Plain :hover (not :not(:disabled):hover) — matches [data-selected]/[data-in-range]'s
+   specificity so source order decides the winner; disabled cells already get
+   pointer-events:none below, so they never actually receive :hover regardless. */
+.premui-day-cell:hover,
+.premui-day-cell[data-state="hover"] {
+  background: var(--color-bg-weak);
+  color: var(--color-text-strong);
+}
+
+.premui-day-cell[data-in-range="true"] {
+  color: var(--primary-base);
+}
+
+.premui-day-cell[data-selected="true"] {
+  background: var(--primary-base);
+  color: var(--color-static-white, #fff);
+}
+
+.premui-day-cell:disabled,
+.premui-day-cell[data-state="disabled"] {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premui-day-cell:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+.premui-day-cell-dot {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ── Date Selector ── */
+
+.premui-date-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-6);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-weak);
+}
+
+.premui-date-selector-label {
+  flex: 1 0 0;
+  min-width: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+/* ── Period Range Item ── */
+
+.premui-period-range-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-period-range-item:hover,
+.premui-period-range-item[data-active="true"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-period-range-item[data-active="true"] {
+  color: var(--color-text-strong);
+}
+
+.premui-period-range-item:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: -2px;
+}
+
+/* ── Date Picker (single month + footer) ── */
+
+.premui-date-picker {
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  max-width: 100%;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+.premui-date-picker-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-date-picker-grid-header,
+.premui-date-picker-grid {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+.premui-date-picker-grid {
+  flex-wrap: wrap;
+  row-gap: var(--spacing-8);
+}
+
+.premui-date-picker-grid > * {
+  flex-basis: calc((100% - 6 * var(--spacing-8)) / 7);
+}
+
+.premui-date-picker-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+}
+
+.premui-date-picker-footer-btn {
+  flex: 1 0 0;
+}
+
+/* ── Date Range Picker (two months + sidebar) ── */
+
+.premui-date-range-picker {
+  display: flex;
+  align-items: stretch;
+  width: 936px;
+  max-width: 100%;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-20);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+.premui-date-range-picker-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 200px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 20px 16px 2px;
+  border-right: 1px solid var(--color-stroke-soft);
+}
+
+.premui-date-range-picker-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-date-range-picker-months {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-date-range-picker-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  flex: 1 0 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.premui-date-range-picker-panel:first-child {
+  border-right: 1px solid var(--color-stroke-soft);
+}

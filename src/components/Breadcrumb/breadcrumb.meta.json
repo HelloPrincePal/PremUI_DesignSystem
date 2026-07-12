@@ -1,0 +1,30 @@
+{
+  "name": "Breadcrumb",
+  "description": "Navigation trail composed of BreadcrumbItem links, joined by a divider (arrow/slash/dot). The last item renders as the non-interactive current page.",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/xVyf2cnQTitDFjRs8a6H1i/Align-UI-%E2%9C%A6-Design-System--1.1---Copy-?node-id=447-8832",
+  "props": {
+    "items": {
+      "type": "Array<{ label: string; icon?: string; href?: string; onClick?: () => void }>",
+      "default": "[]",
+      "description": "Ordered list of crumbs — the last item is automatically rendered as the current page (no link)"
+    },
+    "divider": {
+      "type": "string",
+      "options": ["arrow", "slash", "dot"],
+      "default": "arrow",
+      "description": "Glyph rendered between items"
+    }
+  },
+  "tokens": {
+    "colors": ["--color-text-sub", "--color-text-strong", "--color-text-disabled"],
+    "spacing": ["--spacing-6"]
+  },
+  "accessibility": {
+    "role": "nav (aria-label=\"Breadcrumb\") with an ordered list",
+    "aria": ["aria-current=\"page\" on the active (last) item", "aria-hidden on divider glyphs"]
+  },
+  "dependencies": ["BreadcrumbItem"]
+}

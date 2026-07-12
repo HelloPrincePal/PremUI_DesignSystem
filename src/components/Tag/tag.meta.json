@@ -1,0 +1,27 @@
+{
+  "name": "Tag",
+  "description": "Small removable label chip. 2 background styles (stroke/gray), a persistent active/selected state, an optional dismiss icon, and an optional sublabel (e.g. a count in parentheses).",
+  "category": "data-display",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=431-16147",
+  "sourceNote": "Figma defined 6 rigid leading-visual 'types' (Basic/Left-Icon/Avatar/Country/Brand/Company) x 2 styles x 4 states x optional dismiss — 96 variants total, several baking in specific placeholder assets (a flag, a person avatar, a brand logo). Collapsed into one generic `leading` ReactNode slot, following the same pattern as CheckboxCard/DropdownItem/CommandMenuItem. `active` is a persistent 'selected tag' prop (not a `:active` press), matching ButtonGroup's precedent — Figma's Active variant keeps a solid border + bold text rather than a transient press effect. Figma's Hover state drops the border entirely (converges Stroke and Gray styles to the same weak-bg look) regardless of starting style, which the CSS reproduces via a plain `:hover` rule.",
+  "props": {
+    "Tag": {
+      "children": { "type": "ReactNode", "default": "Tag" },
+      "sublabel": { "type": "ReactNode" },
+      "leading": { "type": "ReactNode" },
+      "style": { "type": "string", "options": ["stroke", "gray"], "default": "stroke" },
+      "active": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active", "disabled"] },
+      "dismissible": { "type": "boolean", "default": false }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-stroke-strong", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled", "--color-icon-sub", "--color-icon-soft"],
+    "radius": ["--radius-6", "--radius-full"],
+    "shadows": []
+  },
+  "dependencies": []
+}

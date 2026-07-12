@@ -1,0 +1,31 @@
+/* ============================================================
+   Payment Icons [1.1] — Figma: node 2942:9995, Align UI Design
+   System 2.0. 8 fixed types, each with a pinned icon+color
+   pairing (water/gas/electricity/donate/internet/phone/rent/tax).
+   ============================================================ */
+
+.premui-payment-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.premui-payment-icon i {
+  display: block;
+  line-height: 1;
+}
+
+.premui-payment-icon[data-color="teal"]   { background: var(--color-state-verified-lighter); color: var(--color-state-verified-base); }
+.premui-payment-icon[data-color="red"]    { background: var(--color-state-error-lighter); color: var(--color-state-error-base); }
+.premui-payment-icon[data-color="yellow"] { background: var(--color-state-away-lighter); color: var(--color-state-away-base); }
+.premui-payment-icon[data-color="pink"]   { background: var(--color-state-highlighted-lighter); color: var(--color-state-highlighted-base); }
+.premui-payment-icon[data-color="blue"]   { background: var(--color-state-information-lighter); color: var(--color-state-information-base); }
+.premui-payment-icon[data-color="orange"] { background: var(--color-state-warning-lighter); color: var(--color-state-warning-base); }
+.premui-payment-icon[data-color="green"]  { background: var(--color-state-success-lighter); color: var(--color-state-success-base); }
+.premui-payment-icon[data-color="purple"] { background: var(--color-state-feature-lighter); color: var(--color-state-feature-base); }

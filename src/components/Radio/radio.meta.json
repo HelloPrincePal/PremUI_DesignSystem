@@ -1,0 +1,32 @@
+{
+  "name": "Radio",
+  "description": "Radio (base control, ring+inset-box unchecked / ring+dot checked), RadioLabel (labeled composition with optional badge/sublabel/description/link), and RadioCard (selectable bordered card with a generic leading-visual slot).",
+  "category": "form",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=515-4242",
+  "sourceNote": "Mirrors the Checkbox/CheckboxLabel/CheckboxCard architecture exactly (same decorative-render-mode fix for nesting inside RadioCard's own button, same generic leading slot simplifying Figma's 6 rigid RadioCard types). Figma's 'Focused' variant recolors the ring to primary-base/primary-darkest depending on checked state — mapped to the standard :focus-visible pseudo-class instead of a separate outline, for consistency with Checkbox.",
+  "props": {
+    "Radio": {
+      "checked": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "disabled"] },
+      "decorative": { "type": "boolean", "default": false }
+    },
+    "RadioLabel": {
+      "badge": { "type": "string" },
+      "description": { "type": "string" },
+      "flip": { "type": "boolean", "default": false }
+    },
+    "RadioCard": {
+      "leading": { "type": "ReactNode" },
+      "badge": { "type": "string" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-soft", "--color-bg-sub", "--primary-base", "--primary-dark", "--primary-darkest", "--color-bg-white", "--color-stroke-soft"],
+    "radius": ["--radius-full", "--radius-12"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["Badge", "LinkButton"]
+}

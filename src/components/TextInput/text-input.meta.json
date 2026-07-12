@@ -1,0 +1,48 @@
+{
+  "name": "TextInput",
+  "description": "Input (the core single-line text field with generic leading/trailing slots, a real show/hide password toggle, a real clear button, and a separated trailing action button), TagInput (real controlled tag list — type + Enter/comma to add, click × or Backspace to remove), CounterInput (real +/- stepper with min/max/step clamping), PinInput (real multi-box OTP/PIN entry with auto-advance, backspace-back, arrow-key navigation, and paste-to-fill), and InlineInput (borderless-until-editing field with pencil → Cancel/Confirm affordance).",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=266-5251",
+  "sourceNote": "Figma's core Text Input defined 12 rigid 'types' (Basic/Email/Phone/Card/Website/Amount/Date/Search/Password/Button/Dropdown/Emoji) x 3 sizes x 6 states — 216+ variants total, each type only really differing by its leading icon and an optional trailing affordance (a shortcut badge, a password eye-toggle, a copy-link button, an inline select). Collapsed into one `Input` with generic `leading`/`trailing` slots plus a couple of named real behaviors (`showPasswordToggle`, `clearable`, `action`) — following the same promotion pattern as CheckboxCard/DropdownItem/Tag/TableCellContent. TagInput/CounterInput/PinInput/InlineInput were each their own separate Figma component (Tag Input, Counter Input, Digit Input, Inline Input) sharing the same Label/HintText composition and 3-size/6-state scheme, so all five live together under `Components/TextInput/`. Every one is genuinely functional rather than a static demo, following this project's precedent (Pagination, DatePicker, ColorPicker, Table): TagInput actually adds/removes tags, CounterInput actually increments/clamps, PinInput actually manages per-box focus and paste, InlineInput actually toggles into/out of edit mode.",
+  "props": {
+    "Input": {
+      "leading": { "type": "ReactNode" },
+      "trailing": { "type": "ReactNode" },
+      "clearable": { "type": "boolean", "default": false },
+      "showPasswordToggle": { "type": "boolean", "default": false },
+      "action": { "type": "{ icon: string, onClick: () => void, ariaLabel?: string }" },
+      "size": { "type": "string", "options": ["md", "sm", "xs"], "default": "md" },
+      "state": { "type": "string", "options": ["default", "hover", "focus", "disabled", "error"] }
+    },
+    "TagInput": {
+      "tags": { "type": "string[]" },
+      "onTagsChange": { "type": "(tags: string[]) => void" },
+      "size": { "type": "string", "options": ["md", "sm", "xs"], "default": "md" }
+    },
+    "CounterInput": {
+      "value": { "type": "number" },
+      "min": { "type": "number" },
+      "max": { "type": "number" },
+      "step": { "type": "number", "default": 1 }
+    },
+    "PinInput": {
+      "length": { "type": "number", "default": 6 },
+      "value": { "type": "string" },
+      "onComplete": { "type": "(value: string) => void" }
+    },
+    "InlineInput": {
+      "value": { "type": "string" },
+      "onConfirm": { "type": "(value: string) => void" },
+      "onCancel": { "type": "() => void" },
+      "leading": { "type": "ReactNode" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-stroke-strong", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled", "--color-icon-sub", "--color-state-error-base", "--primary-base"],
+    "radius": ["--radius-8", "--radius-10"],
+    "shadows": ["--shadow-regular-x-small", "--shadow-component-button-important-focus"]
+  },
+  "dependencies": ["Label", "HintText", "CompactButton", "Tag"]
+}

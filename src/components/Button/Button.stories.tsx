@@ -3,10 +3,11 @@ import { ICON_CONTROL } from '../../../.storybook/remixIcons';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
-  title: 'Primitive/Button',
+  title: 'Components/Buttons/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
+    children: { control: 'text' },
     type: {
       control: 'select',
       options: ['primary', 'neutral', 'error'],

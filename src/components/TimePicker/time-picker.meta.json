@@ -1,0 +1,40 @@
+{
+  "name": "TimePicker",
+  "description": "TimePickerItem (selectable time-slot list row, optional second time group + directional check-mark placement), TimePickerDuration (small duration pill, e.g. '30 min'), and TimePickerStatus (status pill with a colored dot — Available/Busy/In-meeting/Offline).",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=165483-5687",
+  "sourceNote": "Figma's Default/Disabled variants of TimePickerItem/TimePickerDuration/TimePickerStatus render as plain non-interactive divs while Hover/Active/Selected render as buttons — a static-demo artifact, not real behavior. All three are implemented as genuine interactive <button>s with real :hover, disabled attribute, and a controlled active/selected prop, following this project's precedent (Checkbox, Radio, Switch) of favoring functional behavior with an optional `state` override for design-QA galleries. The Figma 'Check' asset (a small blue circle-checkmark) is substituted with RemixIcon's `checkbox-circle-fill`, per the RemixIcon-only policy. TimePickerStatus's 4 color mappings (success/error/warning/faded) reuse the exact same state tokens as Badge/StatusBadge.",
+  "props": {
+    "TimePickerItem": {
+      "time": { "type": "string", "default": "09:30" },
+      "period": { "type": "string", "default": "AM" },
+      "secondaryTime": { "type": "string" },
+      "secondaryPeriod": { "type": "string" },
+      "direction": { "type": "string", "options": ["right", "center"], "default": "right" },
+      "active": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active", "disabled"] }
+    },
+    "TimePickerDuration": {
+      "label": { "type": "string", "default": "30 min" },
+      "active": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active", "disabled"] }
+    },
+    "TimePickerStatus": {
+      "status": { "type": "string", "options": ["available", "busy", "in-meeting", "offline"], "default": "available" },
+      "label": { "type": "string" },
+      "selected": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "selected", "disabled"] }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled", "--color-stroke-soft", "--primary-base", "--primary-alpha-10", "--color-state-success-base", "--color-state-success-lighter", "--color-state-success-dark", "--color-state-error-base", "--color-state-error-lighter", "--color-state-error-dark", "--color-state-warning-base", "--color-state-warning-lighter", "--color-state-warning-dark", "--color-state-faded-base", "--color-state-faded-lighter", "--color-state-faded-dark"],
+    "radius": ["--radius-8", "--radius-full"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": []
+}

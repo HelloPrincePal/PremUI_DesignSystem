@@ -1,0 +1,33 @@
+{
+  "name": "Popover",
+  "description": "Popover (floating card with an icon/title/description/dismiss header, a CSS-triangle tail, and 12 placement variants) and PopoverFooter (Stretch/Stepper/Text Stepper action rows).",
+  "category": "overlay",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=4431-81573",
+  "sourceNote": "The tail uses the classic CSS rotated-square technique (a 1px-bordered square rotated 45deg, with the two hidden edges' borders removed so only the two visible edges form the triangle tip) instead of importing Figma's raster 'Tail' asset. The Medium icon circle reuses the KeyIcon component directly (size='lg' matches the 48px/padding-12/icon-24 proportions exactly). PopoverFooter's 'Stepper' type reuses Drawer's StepperDots component.",
+  "props": {
+    "Popover": {
+      "placement": {
+        "type": "string",
+        "options": ["top-start", "top", "top-end", "bottom-start", "bottom", "bottom-end", "left-start", "left", "left-end", "right-start", "right", "right-end"],
+        "default": "top-start"
+      },
+      "leading": { "type": "ReactNode" },
+      "footer": { "type": "ReactNode", "description": "Typically a <PopoverFooter />" },
+      "showTail": { "type": "boolean", "default": true },
+      "dismissible": { "type": "boolean", "default": true }
+    },
+    "PopoverFooter": {
+      "type": { "type": "string", "options": ["stretch", "stepper", "text-stepper"], "default": "stretch" },
+      "currentStep": { "type": "number", "default": 1 },
+      "totalSteps": { "type": "number", "default": 4 }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--primary-base"],
+    "radius": ["--radius-16"],
+    "shadows": ["--shadow-regular-medium"]
+  },
+  "dependencies": ["KeyIcon", "CompactButton", "Button", "StepperDots"]
+}

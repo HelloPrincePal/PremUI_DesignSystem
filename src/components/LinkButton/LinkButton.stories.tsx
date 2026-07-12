@@ -5,7 +5,7 @@ import { LinkButton } from './LinkButton';
 import type { LinkButtonStyle, LinkButtonSize } from './LinkButton';
 
 const meta: Meta<typeof LinkButton> = {
-  title: 'Components/LinkButton',
+  title: 'Components/Buttons/LinkButton',
   component: LinkButton,
   tags: ['autodocs'],
   parameters: {
@@ -21,6 +21,7 @@ const meta: Meta<typeof LinkButton> = {
     disabled: false,
   },
   argTypes: {
+    children: { control: 'text' },
     style: {
       control: 'select',
       options: ['gray', 'black', 'primary', 'error', 'modifiable'] satisfies LinkButtonStyle[],

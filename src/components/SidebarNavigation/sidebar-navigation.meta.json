@@ -1,0 +1,26 @@
+{
+  "name": "SidebarNavigation",
+  "description": "The full sidebar navigation shell — composes SidebarHeader (workspace switcher), an optional search field, a labeled main-nav item list, a supporting (Settings/Support) item list pinned to the bottom, an optional SidebarFeatureCard promo, and SidebarFooter (signed-in user). Genuinely functional: real controlled/uncontrolled active-item selection and a real search input, plus a `collapsed` prop that switches every child to its icon-only rail mode.",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3802-11759",
+  "sourceNote": "Ported from Figma node 3802:11759 (Sidebar [Navigation]). Assembled entirely from the Sidebar Components family (SidebarHeader, SidebarItem, SidebarFeatureCard, SidebarFooter) rather than re-implementing their internals — this component is purely composition + real navigation state. Second component filed under 'Product Components > Navigation', alongside the Sidebar Components primitives it's built from.",
+  "props": {
+    "SidebarNavigation": {
+      "collapsed": { "type": "boolean", "default": false },
+      "showSearch": { "type": "boolean", "default": false },
+      "mainItems": { "type": "{ key: string, label: string, icon: string }[]" },
+      "supportingItems": { "type": "{ key: string, label: string, icon: string }[]" },
+      "activeKey": { "type": "string" },
+      "onActiveChange": { "type": "(key: string) => void" },
+      "featureCard": { "type": "SidebarFeatureCardProps | null" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-soft", "--color-icon-soft"],
+    "radius": ["--radius-4", "--radius-8"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["SidebarHeader", "SidebarItem", "SidebarFeatureCard", "SidebarFooter"]
+}

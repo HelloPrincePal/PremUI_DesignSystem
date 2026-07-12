@@ -1,0 +1,38 @@
+{
+  "name": "DatePicker",
+  "description": "Fully functional date/range pickers built from DayLabel, DayCell, DateSelector, and PeriodRangeItem. DatePicker is a single-month calendar with Cancel/Apply footer; DateRangePicker adds a preset sidebar and two side-by-side months with click-to-select range logic.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=446-7414",
+  "sourceNote": "Real month-grid generation (Monday-first weeks, leap-year-correct) lives in dateUtils.ts. DatePicker/DateRangePicker reuse this project's existing CompactButton (month-nav arrows) and Button (footer actions) components rather than re-implementing them.",
+  "props": {
+    "DatePicker": {
+      "value": { "type": "Date | null" },
+      "onChange": { "type": "(date: Date) => void" },
+      "initialMonth": { "type": "Date" },
+      "showFooter": { "type": "boolean", "default": true }
+    },
+    "DateRangePicker": {
+      "startDate": { "type": "Date | null" },
+      "endDate": { "type": "Date | null" },
+      "onChange": { "type": "(start: Date | null, end: Date | null) => void" },
+      "presets": { "type": "{ label: string }[]", "default": "['Today','Last 7 days','Last 30 days','Last 3 months','Last 12 months','Month to date','Year to date','All time']" },
+      "activePreset": { "type": "number" },
+      "onPresetSelect": { "type": "(index: number) => void" }
+    },
+    "DayCell": {
+      "selected": { "type": "boolean", "default": false },
+      "inRange": { "type": "boolean", "default": false },
+      "marked": { "type": "boolean", "default": false },
+      "disabled": { "type": "boolean", "default": false }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--primary-base", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled"],
+    "spacing": ["--spacing-6", "--spacing-8", "--spacing-10", "--spacing-12", "--spacing-16"],
+    "radius": ["--radius-8", "--radius-10", "--radius-20"],
+    "shadows": ["--shadow-regular-medium"]
+  },
+  "dependencies": ["CompactButton", "Button"]
+}

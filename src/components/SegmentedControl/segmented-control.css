@@ -1,0 +1,57 @@
+.premui-segmented-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-10);
+  background: var(--color-bg-weak);
+}
+
+.premui-segmented-control-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1 0 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: var(--spacing-4);
+  border: none;
+  border-radius: var(--radius-6);
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-soft);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-segmented-control-item[data-icon-only="true"] {
+  flex: 0 0 auto;
+  padding: var(--spacing-4) var(--spacing-6);
+}
+
+.premui-segmented-control-item i {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.premui-segmented-control-item:hover:not(:disabled):not([data-active="true"]) {
+  color: var(--color-text-sub);
+}
+
+.premui-segmented-control-item[data-active="true"] {
+  background: var(--color-bg-white, #fff);
+  color: var(--color-text-strong);
+  box-shadow: var(--shadow-component-toggle-switch);
+}
+
+.premui-segmented-control-item:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}

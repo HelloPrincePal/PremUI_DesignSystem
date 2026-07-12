@@ -1,0 +1,325 @@
+/* ============================================================
+   Text Input family — Figma nodes 266:5251 (Text Input),
+   428:4860 (Tag Input), 428:5656 (Counter Input), 429:5172
+   (Digit Input) + 429:5195 (Inline Input), Align UI Design
+   System 2.0. Shares Label/HintText composition and the 3-size
+   (Medium 40/Small 36/X-Small 32) x 6-state (Default/Hover/
+   Focus/Filled/Disabled/Error) scheme across the whole family.
+   ============================================================ */
+
+.premui-text-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-text-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  box-shadow: var(--shadow-regular-x-small);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), border-color var(--motion-duration-fast) var(--motion-easing-default), box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-text-input-wrapper[data-size="md"] { gap: var(--spacing-8); padding: var(--spacing-10, 10px) var(--spacing-10, 10px) var(--spacing-10, 10px) var(--spacing-12); border-radius: var(--radius-10); }
+.premui-text-input-wrapper[data-size="sm"] { gap: var(--spacing-8); padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-10, 10px); border-radius: var(--radius-8); }
+.premui-text-input-wrapper[data-size="xs"] { gap: var(--spacing-6); padding: var(--spacing-6) var(--spacing-6) var(--spacing-6) var(--spacing-10, 10px); border-radius: var(--radius-8); }
+
+.premui-text-input-wrapper:hover:not(:focus-within):not([data-disabled]):not([data-error]) {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-text-input-wrapper:focus-within:not([data-disabled]) {
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-text-input-wrapper[data-error] {
+  border-color: var(--color-state-error-base);
+  box-shadow: none;
+}
+
+.premui-text-input-wrapper[data-disabled] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.premui-text-input-wrapper[data-state="hover"] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-text-input-wrapper[data-state="focus"] {
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-text-input-input {
+  flex: 1 0 0;
+  min-width: 60px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-text-input-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-text-input-wrapper[data-disabled] .premui-text-input-input {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.premui-text-input-wrapper[data-disabled] .premui-text-input-input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ── Input (leading/trailing slots + action button) ── */
+
+.premui-text-input-leading,
+.premui-text-input-trailing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-text-soft);
+}
+
+.premui-text-input-wrapper[data-disabled] .premui-text-input-leading,
+.premui-text-input-wrapper[data-disabled] .premui-text-input-trailing {
+  color: var(--color-text-disabled);
+}
+
+.premui-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.premui-input-group .premui-text-input-wrapper {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-input-group:has(.premui-input-action) .premui-text-input-wrapper {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.premui-input-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--color-stroke-soft);
+  border-left: none;
+  border-top-right-radius: var(--radius-10);
+  border-bottom-right-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color-text-sub);
+}
+
+.premui-input-action[data-size="md"] { padding: var(--spacing-10, 10px); }
+.premui-input-action[data-size="sm"] { padding: var(--spacing-8); border-top-right-radius: var(--radius-8); border-bottom-right-radius: var(--radius-8); }
+.premui-input-action[data-size="xs"] { padding: var(--spacing-6); border-top-right-radius: var(--radius-8); border-bottom-right-radius: var(--radius-8); }
+
+.premui-input-action:hover:not(:disabled) {
+  background: var(--color-bg-weak);
+}
+
+.premui-input-action:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+
+/* ── TagInput ── */
+
+.premui-tag-input-wrapper {
+  align-items: flex-start;
+}
+
+.premui-tag-input-wrapper .premui-text-input-input {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+.premui-tag-input-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+/* ── CounterInput ── */
+
+.premui-counter-input-wrapper {
+  justify-content: space-between;
+}
+
+.premui-counter-input-input {
+  text-align: center;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* ── PinInput ── */
+
+.premui-pin-input {
+  display: inline-flex;
+  gap: var(--spacing-8);
+}
+
+.premui-pin-input-digit {
+  width: 48px;
+  height: 56px;
+  box-sizing: border-box;
+  padding: var(--spacing-16) var(--spacing-8);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--color-text-strong);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), border-color var(--motion-duration-fast) var(--motion-easing-default), box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-pin-input-digit:hover:not(:disabled):not(:focus) {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-pin-input-digit:focus {
+  outline: none;
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-pin-input[data-error] .premui-pin-input-digit {
+  border-color: var(--color-state-error-base);
+  box-shadow: none;
+}
+
+.premui-pin-input-digit:disabled {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ── InlineInput ── */
+
+.premui-inline-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-10, 10px);
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), border-color var(--motion-duration-fast) var(--motion-easing-default), box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-inline-input:hover:not([data-disabled]):not([data-editing]) {
+  background: var(--color-bg-weak);
+}
+
+.premui-inline-input[data-editing] {
+  background: var(--color-bg-white, #fff);
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-inline-input[data-error] {
+  background: var(--color-bg-white, #fff);
+  border-color: var(--color-state-error-base);
+  box-shadow: none;
+}
+
+.premui-inline-input[data-disabled] {
+  cursor: not-allowed;
+}
+
+.premui-inline-input-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-text-soft);
+}
+
+.premui-inline-input[data-editing] .premui-inline-input-leading {
+  color: var(--color-icon-sub);
+}
+
+.premui-inline-input[data-disabled] .premui-inline-input-leading {
+  color: var(--color-text-disabled);
+}
+
+.premui-inline-input-field {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-inline-input-field::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-inline-input[data-disabled] .premui-inline-input-field {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.premui-inline-input-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+.premui-inline-input-pencil {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-inline-input:hover .premui-inline-input-pencil,
+.premui-inline-input-pencil:focus-visible {
+  opacity: 1;
+}

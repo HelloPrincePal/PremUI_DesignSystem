@@ -1,0 +1,219 @@
+/* ============================================================
+   Color Picker [1.1] + Color Dots [1.1] + Color Sliders [1.1] + Color Spectrum [1.1]
+   Figma: nodes 4456:115795 / 3365:22464 / 4415:53671 / 4456:115425,
+   Align UI Design System 2.0.
+   Fully functional: pointer-drag Spectrum + Hue/Opacity sliders, HSV<->hex
+   conversion. Figma's Hex/RGB/HSB format-switcher dropdown is simplified
+   to a static hex input (no format switching) to keep scope reasonable.
+   ============================================================ */
+
+/* ── Color Dots ── */
+
+.premui-color-dot {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premui-color-dot-swatch {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-dot-color);
+  transition: transform var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-color-dot:not(:disabled):hover .premui-color-dot-swatch,
+.premui-color-dot[data-state="hover"] .premui-color-dot-swatch {
+  transform: scale(1.1);
+}
+
+.premui-color-dot[data-state="selected"] .premui-color-dot-swatch {
+  box-shadow: 0 0 0 2px var(--color-bg-white, #fff), 0 0 0 3.5px var(--color-dot-color);
+}
+
+.premui-color-dot:disabled,
+.premui-color-dot[data-state="disabled"] {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premui-color-dot:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+  border-radius: var(--radius-full);
+}
+
+/* ── Color Sliders (Hue / Opacity) ── */
+
+.premui-color-slider {
+  position: relative;
+  width: 100%;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.premui-color-slider-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: var(--radius-full);
+}
+
+.premui-color-slider[data-type="hue"] .premui-color-slider-track {
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+}
+
+.premui-color-slider[data-type="opacity"] .premui-color-slider-track {
+  background-image:
+    linear-gradient(to right, transparent, var(--color-slider-color)),
+    repeating-conic-gradient(#e5e5e5 0% 25%, #fff 0% 50%);
+  background-size: 100% 100%, 10px 10px;
+}
+
+.premui-color-slider-thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-component-toggle-switch);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.premui-color-slider:focus-visible {
+  outline: none;
+}
+
+.premui-color-slider:focus-visible .premui-color-slider-thumb {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ── Color Spectrum ── */
+
+.premui-color-spectrum {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-8);
+  cursor: crosshair;
+  touch-action: none;
+  background-color: hsl(var(--spectrum-hue) 100% 50%);
+  background-image: linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, transparent);
+}
+
+.premui-color-spectrum-thumb {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: var(--shadow-component-toggle-switch);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.premui-color-spectrum:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: 2px;
+}
+
+/* ── Color Picker (composite) ── */
+
+.premui-color-picker {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-regular-medium);
+  overflow: hidden;
+}
+
+.premui-color-picker-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-color-picker-input-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  overflow: hidden;
+}
+
+.premui-color-picker-input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-6);
+  border-right: 1px solid var(--color-stroke-soft);
+  font-size: 20px;
+  color: var(--color-text-sub);
+}
+
+.premui-color-picker-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  border-right: 1px solid var(--color-stroke-soft);
+  padding: var(--spacing-6) var(--spacing-10);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  background: none;
+}
+
+.premui-color-picker-input:focus {
+  outline: none;
+}
+
+.premui-color-picker-opacity-display {
+  padding: var(--spacing-6) var(--spacing-10);
+  font-size: 14px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+.premui-color-picker-recommended {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+}
+
+.premui-color-picker-recommended-label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-color-picker-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}

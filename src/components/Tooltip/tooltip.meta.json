@@ -1,0 +1,28 @@
+{
+  "name": "Tooltip",
+  "description": "Floating hint card. 3 sizes (2X-Small/X-Small are plain single-line text; Large adds an icon + title/description + dismiss), 8 placements (top/bottom x left/center/right, plus side left/right), and an optional dark mode.",
+  "category": "overlay",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=2604-269",
+  "sourceNote": "Figma hardcoded 48 variants (8 placements x 3 sizes x 2 dark-mode states), each with its own raster 'Tail' asset. Reused the CSS rotated-square tail technique already established in Popover instead of importing 18 raster assets — same border-omit-per-edge approach, extended with a dark-mode background swap and a size-driven corner offset (8px/12px/16px for sm/md/lg, matching the Figma trace's pl-8/pl-12/pl-16 values). The Large size's leading icon reuses RemixIcon's `global-line` glyph and its dismiss button reuses the existing `CompactButton` (style=\"ghost\" size=\"md\"), matching Popover's precedent.",
+  "props": {
+    "Tooltip": {
+      "placement": { "type": "string", "options": ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right", "left", "right"], "default": "top-left" },
+      "size": { "type": "string", "options": ["sm", "md", "lg"], "default": "md" },
+      "darkMode": { "type": "boolean", "default": false },
+      "showTail": { "type": "boolean", "default": true },
+      "text": { "type": "string" },
+      "title": { "type": "string" },
+      "description": { "type": "string" },
+      "leading": { "type": "ReactNode" },
+      "dismissible": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-strong", "--color-text-strong", "--color-text-sub", "--color-text-white", "--color-text-soft", "--color-icon-sub", "--color-icon-white", "--color-stroke-soft"],
+    "radius": ["--radius-4", "--radius-6", "--radius-12"],
+    "shadows": ["--shadow-component-tooltip"]
+  },
+  "dependencies": ["CompactButton"]
+}

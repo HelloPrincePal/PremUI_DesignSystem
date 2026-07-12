@@ -1,0 +1,130 @@
+/* ============================================================
+   Button Group [1.1] + Button Group Items [1.1]
+   Figma: node 493:8644 (group) / 226:4669 (item), Align UI Design System 2.0
+   Sizes: sm (36px) · xs (32px) · 2xs (24px)
+   States: default · hover · active (selected) · disabled
+   ============================================================ */
+
+.premui-button-group {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  overflow: hidden;
+}
+
+.premui-button-group[data-size="2xs"] {
+  border-radius: var(--radius-6);
+}
+
+.premui-button-group[data-size="xs"],
+.premui-button-group[data-size="sm"] {
+  border-radius: var(--radius-8);
+}
+
+/* ── Item ── */
+
+.premui-button-group-item {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+  color: var(--color-text-sub);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  white-space: nowrap;
+  position: relative;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-button-group-item:not(:first-child) {
+  margin-left: -1px;
+}
+
+.premui-button-group-item:hover,
+.premui-button-group-item:focus-visible {
+  z-index: 1;
+}
+
+/* ── Sizes (typography) ── */
+
+.premui-button-group-item[data-size="sm"],
+.premui-button-group-item[data-size="xs"] {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+}
+
+.premui-button-group-item[data-size="2xs"] {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* ── Padding, per size × icon density ── */
+
+.premui-button-group-item[data-size="sm"][data-padding="none"]     { padding: var(--spacing-8) var(--spacing-16); }
+.premui-button-group-item[data-size="sm"][data-padding="one-icon"] { padding: var(--spacing-8) var(--spacing-14); gap: var(--spacing-8); }
+.premui-button-group-item[data-size="sm"][data-padding="tight"]    { padding: var(--spacing-8); gap: var(--spacing-8); }
+
+.premui-button-group-item[data-size="xs"][data-padding="none"]     { padding: var(--spacing-6) var(--spacing-14); }
+.premui-button-group-item[data-size="xs"][data-padding="one-icon"] { padding: var(--spacing-6) var(--spacing-12); gap: var(--spacing-6); }
+.premui-button-group-item[data-size="xs"][data-padding="tight"]    { padding: var(--spacing-6); gap: var(--spacing-6); }
+
+.premui-button-group-item[data-size="2xs"][data-padding="none"]     { padding: var(--spacing-4) var(--spacing-12); }
+.premui-button-group-item[data-size="2xs"][data-padding="one-icon"] { padding: var(--spacing-4) var(--spacing-10); gap: var(--spacing-4); }
+.premui-button-group-item[data-size="2xs"][data-padding="tight"]    { padding: var(--spacing-4); gap: var(--spacing-4); }
+
+/* ── Icon sizing ── */
+
+.premui-button-group-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.premui-button-group-item[data-size="sm"] .premui-button-group-item-icon,
+.premui-button-group-item[data-size="xs"] .premui-button-group-item-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.premui-button-group-item[data-size="2xs"] .premui-button-group-item-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+/* ── Hover (real :hover OR forced via the `state` prop) ── */
+
+.premui-button-group-item:not(:disabled):not([data-active="true"]):hover,
+.premui-button-group-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+/* ── Active (persistent selection, not a :active press) ── */
+
+.premui-button-group-item[data-active="true"] {
+  background: var(--color-bg-weak);
+  color: var(--color-text-strong);
+}
+
+/* ── Disabled (real :disabled OR forced via the `state` prop) ── */
+
+.premui-button-group-item:disabled,
+.premui-button-group-item[data-state="disabled"] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.premui-button-group-item:focus-visible {
+  outline: 2px solid var(--primary-base);
+  outline-offset: -2px;
+}

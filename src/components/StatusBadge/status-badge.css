@@ -1,0 +1,98 @@
+/* ============================================================
+   Status Badge [1.1]
+   Figma: Status Badge [1.1]
+   Styles:   stroke · light
+   Statuses: completed · pending · failed · information · disabled
+   Rule: stroke text is always neutral; light text is state-colored
+         (disabled is always neutral, in both styles).
+   ============================================================ */
+
+.premui-status-badge {
+  --status-badge-color: var(--color-state-success-base);
+  --status-badge-bg: var(--color-state-success-lighter);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-8) var(--spacing-4) var(--spacing-4);
+  border-radius: var(--radius-6);
+  font-family: var(--typography-label-xs-font-family);
+  font-size: var(--typography-label-xs-font-size);
+  line-height: var(--typography-label-xs-line-height);
+  font-weight: var(--typography-label-xs-font-weight);
+  letter-spacing: var(--typography-label-xs-letter-spacing);
+  white-space: nowrap;
+}
+
+.premui-status-badge[data-dot="true"] {
+  gap: var(--spacing-2);
+}
+
+/* ── Status color tokens ── */
+
+.premui-status-badge[data-status="completed"] {
+  --status-badge-color: var(--color-state-success-base);
+  --status-badge-bg: var(--color-state-success-lighter);
+}
+.premui-status-badge[data-status="pending"] {
+  --status-badge-color: var(--color-state-warning-base);
+  --status-badge-bg: var(--color-state-warning-lighter);
+}
+.premui-status-badge[data-status="failed"] {
+  --status-badge-color: var(--color-state-error-base);
+  --status-badge-bg: var(--color-state-error-lighter);
+}
+.premui-status-badge[data-status="information"] {
+  --status-badge-color: var(--color-state-information-base);
+  --status-badge-bg: var(--color-state-information-lighter);
+}
+.premui-status-badge[data-status="disabled"] {
+  --status-badge-color: var(--color-text-sub);
+  --status-badge-bg: var(--color-state-faded-lighter);
+}
+
+/* ── Styles ── */
+
+.premui-status-badge[data-style="stroke"] {
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  color: var(--color-text-sub);
+}
+
+.premui-status-badge[data-style="light"] {
+  background: var(--status-badge-bg);
+  color: var(--status-badge-color);
+}
+
+/* ── Icon / Dot (always status-colored, even in stroke style) ── */
+
+.premui-status-badge-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--status-badge-color);
+}
+
+.premui-status-badge-dot {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.premui-status-badge-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--status-badge-color);
+}
+
+.premui-status-badge-label {
+  display: inline-block;
+}

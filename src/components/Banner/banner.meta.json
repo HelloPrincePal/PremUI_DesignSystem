@@ -1,0 +1,65 @@
+{
+  "name": "Banner",
+  "description": "Full-width top-of-page announcement bar. Four styles (filled/light/lighter/stroke), five statuses (error/warning/success/information/feature), optional action link and dismiss.",
+  "category": "primitive",
+  "status": "stable",
+  "version": "1.1.0",
+  "figmaSource": "https://www.figma.com/design/xVyf2cnQTitDFjRs8a6H1i/Align-UI-%E2%9C%A6-Design-System--1.1---Copy-?node-id=224-2249",
+  "props": {
+    "status": {
+      "type": "string",
+      "options": ["error", "warning", "success", "information", "feature"],
+      "default": "information",
+      "description": "Semantic intent — drives background color and status icon"
+    },
+    "style": {
+      "type": "string",
+      "options": ["filled", "light", "lighter", "stroke"],
+      "default": "filled",
+      "description": "Visual treatment of the banner surface"
+    },
+    "title": {
+      "type": "string",
+      "default": "",
+      "description": "Main message text (required)"
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "description": "Supporting text, shown after a dot separator"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the status icon on the left"
+    },
+    "action": {
+      "type": "string",
+      "default": "",
+      "description": "Label for the trailing action link — omitted when empty"
+    },
+    "showDismiss": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the dismiss × button, pinned to the far right"
+    }
+  },
+  "tokens": {
+    "colors": [
+      "--color-state-error-base", "--color-state-error-light", "--color-state-error-lighter",
+      "--color-state-warning-base", "--color-state-warning-light", "--color-state-warning-lighter",
+      "--color-state-success-base", "--color-state-success-light", "--color-state-success-lighter",
+      "--color-state-information-base", "--color-state-information-light", "--color-state-information-lighter",
+      "--color-state-feature-base", "--color-state-feature-light", "--color-state-feature-lighter",
+      "--color-static-white", "--color-text-strong", "--color-bg-white", "--color-stroke-soft"
+    ],
+    "spacing": ["--spacing-8", "--spacing-12", "--spacing-48"],
+    "typography": ["Label/Small (14px/500/20px)", "Paragraph/Small (14px/400/20px)"]
+  },
+  "accessibility": {
+    "role": "status",
+    "keyboard": ["Tab to action link and dismiss button", "Enter/Space to activate buttons"],
+    "aria": ["aria-label='Dismiss banner' on dismiss button", "aria-hidden on decorative icon and separator"]
+  },
+  "dependencies": ["LinkButton"]
+}

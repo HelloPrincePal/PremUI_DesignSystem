@@ -20,6 +20,7 @@ const meta: Meta<typeof AvatarGroup> = {
     ],
   },
   argTypes: {
+    members: { table: { disable: true } },
     size: {
       control: 'select',
       options: [16, 20, 24, 32, 40, 48, 56, 64, 80, 128, 160],

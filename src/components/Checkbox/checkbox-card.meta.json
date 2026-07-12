@@ -1,0 +1,28 @@
+{
+  "name": "CheckboxCard",
+  "description": "Selectable bordered card with a checkbox indicator, label/sublabel/badge, optional description, and an optional leading visual. The whole card is one clickable button.",
+  "category": "form",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=261-3896",
+  "sourceNote": "Figma exposes 6 rigid 'type' variants (Basic/Left Icon/Avatar/Card Provider/Brand/Company), the last three baking in specific brand logo images (Mastercard, Spotify). Instead of hardcoding those raster assets, this component exposes a generic `leading` ReactNode slot — pass an <i> icon, <Avatar>, or an <img> as needed.",
+  "props": {
+    "checked": { "type": "boolean", "default": false },
+    "label": { "type": "ReactNode" },
+    "sublabel": { "type": "ReactNode" },
+    "description": { "type": "string" },
+    "badge": { "type": "string", "description": "Renders a light-blue Badge with this text" },
+    "leading": { "type": "ReactNode", "description": "Optional icon / Avatar / logo shown at the start of the card" },
+    "disabled": { "type": "boolean", "default": false }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--primary-base", "--color-text-strong", "--color-text-sub"],
+    "spacing": ["--spacing-14", "--spacing-16"],
+    "radius": ["--radius-12"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "accessibility": {
+    "role": "button (whole card toggles the checkbox)"
+  },
+  "dependencies": ["Checkbox", "Badge"]
+}

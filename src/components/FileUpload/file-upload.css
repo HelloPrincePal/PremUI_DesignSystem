@@ -1,0 +1,215 @@
+/* ============================================================
+   File Format Icons [1.1], File Upload Area [1.1], File Upload
+   Cards [1.1] — Figma: nodes 450:17234 (format icons, 9 colors x
+   2 sizes), 450:9413 (drag-drop area), 451:409 (progress cards),
+   Align UI Design System 2.0. Color mapping matches Badge/
+   ColorDots' state-token mapping (gray/blue/orange/red/green/
+   yellow/purple/pink/teal -> faded/information/warning/error/
+   success/away/feature/highlighted/verified).
+   ============================================================ */
+
+/* ── File Format Icon ── */
+
+.premui-file-format-icon {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.premui-file-format-icon[data-size="md"] {
+  width: 40px;
+  height: 40px;
+}
+
+.premui-file-format-icon[data-size="xs"] {
+  width: 32px;
+  height: 32px;
+}
+
+.premui-file-format-icon-page {
+  position: absolute;
+  inset: 0;
+  font-size: inherit;
+  color: var(--color-stroke-sub, #d1d1d1);
+}
+
+.premui-file-format-icon[data-size="md"] .premui-file-format-icon-page {
+  font-size: 40px;
+}
+
+.premui-file-format-icon[data-size="xs"] .premui-file-format-icon-page {
+  font-size: 32px;
+}
+
+.premui-file-format-icon-tag {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-static-white, #fff);
+  white-space: nowrap;
+}
+
+.premui-file-format-icon[data-size="md"] .premui-file-format-icon-tag {
+  bottom: 6px;
+  padding: 2px 3px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 12px;
+  letter-spacing: 0.22px;
+}
+
+.premui-file-format-icon[data-size="xs"] .premui-file-format-icon-tag {
+  bottom: 4px;
+  padding: 2px 3px;
+  border-radius: 3px;
+  font-size: 8.8px;
+  line-height: 9.6px;
+  letter-spacing: 0.176px;
+}
+
+.premui-file-format-icon[data-color="gray"] .premui-file-format-icon-tag { background: var(--color-state-faded-base); }
+.premui-file-format-icon[data-color="blue"] .premui-file-format-icon-tag { background: var(--color-state-information-base); }
+.premui-file-format-icon[data-color="red"] .premui-file-format-icon-tag { background: var(--color-state-error-base); }
+.premui-file-format-icon[data-color="orange"] .premui-file-format-icon-tag { background: var(--color-state-warning-base); }
+.premui-file-format-icon[data-color="yellow"] .premui-file-format-icon-tag { background: var(--color-state-away-base); }
+.premui-file-format-icon[data-color="green"] .premui-file-format-icon-tag { background: var(--color-state-success-base); }
+.premui-file-format-icon[data-color="purple"] .premui-file-format-icon-tag { background: var(--color-state-feature-base); }
+.premui-file-format-icon[data-color="teal"] .premui-file-format-icon-tag { background: var(--color-state-verified-base); }
+.premui-file-format-icon[data-color="pink"] .premui-file-format-icon-tag { background: var(--color-state-highlighted-base); }
+
+/* ── File Upload Area ── */
+
+.premui-file-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-32);
+  border: 1px dashed var(--color-stroke-sub, #d1d1d1);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  text-align: center;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-file-upload-area[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-file-upload-area-icon {
+  display: flex;
+  font-size: 24px;
+  color: var(--color-icon-sub);
+}
+
+.premui-file-upload-area-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.premui-file-upload-area-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-file-upload-area-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+/* ── File Upload Card ── */
+
+.premui-file-upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 16px 16px 16px 14px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-file-upload-card[data-state="error"] {
+  border-color: var(--color-state-error-base);
+}
+
+.premui-file-upload-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  width: 100%;
+}
+
+.premui-file-upload-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-file-upload-card-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-file-upload-card-description {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-sub);
+}
+
+.premui-file-upload-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  color: var(--color-text-strong);
+}
+
+.premui-file-upload-card-status[data-success] i {
+  color: var(--color-state-success-base);
+}
+
+.premui-file-upload-card-status[data-error] i {
+  color: var(--color-state-error-base);
+}
+
+.premui-file-upload-card-spinner {
+  animation: premui-file-upload-spin 1s linear infinite;
+}
+
+@keyframes premui-file-upload-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.premui-file-upload-card-progress {
+  width: 100%;
+}

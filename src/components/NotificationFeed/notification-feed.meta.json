@@ -1,0 +1,34 @@
+{
+  "name": "NotificationFeed",
+  "description": "NotificationHeader (title + Mark all as read + optional settings), NotificationTabMenu (generic underline tab bar with count badges, used for All/Inbox/Following/Archived), NotificationItem (avatar + title/timestamp/description row, 4 types: Basic/File/Button/Message, hover reveals a 'more' button), and NotificationFooter (keyboard-nav hint + Manage Notification link).",
+  "category": "data-display",
+  "status": "stable",
+  "version": "2.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=4308-1004",
+  "sourceNote": "NotificationTabMenu generalizes Figma's fixed 'quantity' variants (02/03/04 hardcoded tab counts) into a data-driven `tabs` array, so any number of tabs works, not just 2-4. NotificationItem's optional company/brand icon before the description text is a generic `companyIcon` ReactNode slot (Figma's Apex logo asset was brand-specific).",
+  "props": {
+    "NotificationHeader": {
+      "showMarkAllRead": { "type": "boolean", "default": true },
+      "showSettings": { "type": "boolean", "default": false }
+    },
+    "NotificationTabMenu": {
+      "tabs": { "type": "{ label: string, value: string, count?: number, dividerBefore?: boolean }[]" },
+      "activeValue": { "type": "string" },
+      "showFilterButton": { "type": "boolean", "default": true }
+    },
+    "NotificationItem": {
+      "type": { "type": "string", "options": ["basic", "file", "button", "message"], "default": "basic" },
+      "state": { "type": "string", "options": ["default", "hover"], "description": "Forces the trailing 'more' button visible for design QA" },
+      "showMore": { "type": "boolean", "default": true }
+    },
+    "NotificationFooter": {
+      "showManageLink": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--primary-base"],
+    "radius": ["--radius-4", "--radius-8", "--radius-10", "--radius-12"],
+    "shadows": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["LinkButton", "CompactButton", "Badge", "Avatar", "Button"]
+}

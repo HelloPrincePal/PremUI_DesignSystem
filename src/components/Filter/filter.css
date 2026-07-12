@@ -1,0 +1,200 @@
+/* ============================================================
+   Filter family — Figma: nodes 4370:6018 (Horizontal Filter,
+   Calendar/Table types), 4379:1183 (Vertical Filter Items, 3
+   states), 4379:2209 (Vertical Filter Header), 4415:863
+   (Vertical Filter Footer), Align UI Design System 2.0.
+   FilterBar composes existing Button/ButtonGroup for its
+   left-side content (consumer-supplied) rather than
+   re-implementing Figma's nested "Buttons [1.1]"/"Button Group
+   [1.1]" instances. VerticalFilterFooter reuses DrawerFooter's
+   "stretch" layout directly (identical Cancel/Continue-style
+   pairing, just relabeled Clear/Apply).
+   ============================================================ */
+
+/* ── Filter Bar ── */
+
+.premui-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.premui-filter-bar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex: 1 0 0;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.premui-filter-bar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex-shrink: 0;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.premui-filter-search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-10);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-filter-search-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-filter-search-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-filter-search-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-filter-search-shortcut {
+  flex-shrink: 0;
+  padding: 2px 6px;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+/* ── Vertical Filter Item ── */
+
+.premui-vertical-filter-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-8);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-vertical-filter-item:hover,
+.premui-vertical-filter-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-vertical-filter-item[data-state="active"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-vertical-filter-item-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-vertical-filter-item[data-state="active"] .premui-vertical-filter-item-icon {
+  color: var(--primary-base);
+}
+
+.premui-vertical-filter-item-label {
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-vertical-filter-item[data-state="active"] .premui-vertical-filter-item-label {
+  color: var(--color-text-strong);
+}
+
+.premui-vertical-filter-item-chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-vertical-filter-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ── Vertical Filter Header ── */
+
+.premui-vertical-filter-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-stroke-soft);
+  background: var(--color-bg-white, #fff);
+}
+
+.premui-vertical-filter-header-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-vertical-filter-header-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-strong);
+}
+
+.premui-vertical-filter-header-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+/* ── Vertical Filter Footer ── */
+
+.premui-vertical-filter-footer {
+  width: 100%;
+}

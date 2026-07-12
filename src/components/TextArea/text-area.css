@@ -1,0 +1,123 @@
+/* ============================================================
+   Text Area [1.1] — Figma nodes 435:5725 (field) + 435:5712
+   (character counter), Align UI Design System 2.0. Composes the
+   existing Label and HintText components rather than
+   reimplementing them.
+   ============================================================ */
+
+.premui-text-area-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.premui-text-area-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  box-shadow: var(--shadow-regular-x-small);
+  transition: background var(--motion-duration-fast) var(--motion-easing-default), border-color var(--motion-duration-fast) var(--motion-easing-default), box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-text-area-wrapper:hover:not(:focus-within):not([data-disabled]):not([data-error]) {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-text-area-wrapper:focus-within:not([data-disabled]) {
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-text-area-wrapper[data-error] {
+  border-color: var(--color-state-error-base);
+  box-shadow: none;
+}
+
+.premui-text-area-wrapper[data-disabled] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Forced states for design QA */
+.premui-text-area-wrapper[data-state="hover"] {
+  background: var(--color-bg-weak);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.premui-text-area-wrapper[data-state="focus"] {
+  border-color: var(--color-stroke-strong);
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-text-area-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 96px;
+  padding: var(--spacing-10, 10px) var(--spacing-10, 10px) 28px var(--spacing-12);
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-text-area-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-text-area-wrapper[data-disabled] .premui-text-area-input {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.premui-text-area-wrapper[data-disabled] .premui-text-area-input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.premui-text-area-counter {
+  position: absolute;
+  right: var(--spacing-10, 10px);
+  bottom: var(--spacing-10, 10px);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  pointer-events: none;
+}
+
+.premui-text-area-count {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.22px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.premui-text-area-resize-icon {
+  font-size: 12px;
+  color: var(--color-text-soft);
+}
+
+.premui-text-area-wrapper[data-error] .premui-text-area-count,
+.premui-text-area-wrapper[data-error] .premui-text-area-resize-icon {
+  color: var(--color-state-error-base);
+}
+
+.premui-text-area-wrapper[data-disabled] .premui-text-area-count,
+.premui-text-area-wrapper[data-disabled] .premui-text-area-resize-icon {
+  color: var(--color-text-disabled);
+}
