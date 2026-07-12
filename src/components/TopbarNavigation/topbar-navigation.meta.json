@@ -1,0 +1,28 @@
+{
+  "name": "TopbarNavigation",
+  "description": "The full top navigation bar — brand logo (real Placeholder asset), a horizontal main-nav item list with a real active-item state, an optional inline search field (or a compact search icon button when hidden), quick-action + notification icon buttons, an \"Others\" overflow dropdown for extra nav items, and a TopbarUserProfile chip.",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3814-25274",
+  "sourceNote": "Ported from Figma node 3814:25274 (Topbar [Navigation]). Assembled entirely from the Topbar Components family (TopbarItem, TopbarUserProfile, TopbarIconButton) plus the existing DropdownItem and PlaceholderBrand pieces, rather than re-implementing their internals. Figma's rigid `product: 'HR Management' | 'Finance & Banking'` variant enum (two hardcoded nav configurations) was collapsed into a plain `items`/`moreItems` prop pair, matching the project's established pattern of trading Figma enums for composable props (e.g. SidebarNavigation's `mainItems`). The trailing \"Others\" chevron — static/decorative in the Figma source — was made genuinely functional: it's a real overflow dropdown (fixed-position panel + click-outside-to-close, the same technique introduced for HeaderCard's workspace switcher) listing `moreItems`, not a dead-end affordance. Third component filed under 'Product Components > Navigation', alongside SidebarNavigation and the Sidebar/Topbar Components primitives it's built from.",
+  "props": {
+    "TopbarNavigation": {
+      "company": { "type": "string", "default": "Synergy" },
+      "items": { "type": "{ key: string, label: string, icon: string }[]" },
+      "moreItems": { "type": "{ key: string, label: string, icon: string }[]" },
+      "showIcons": { "type": "boolean", "default": false },
+      "activeKey": { "type": "string" },
+      "onActiveChange": { "type": "(key: string) => void" },
+      "showSearch": { "type": "boolean", "default": true },
+      "showQuickAction": { "type": "boolean", "default": true },
+      "notificationCount": { "type": "number" }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-stroke-soft", "--color-text-strong", "--color-text-soft", "--color-icon-soft"],
+    "radius": ["--radius-4", "--radius-10", "--radius-12"],
+    "shadows": ["--shadow-regular-x-small", "--shadow-regular-medium"]
+  },
+  "dependencies": ["TopbarItem", "TopbarUserProfile", "TopbarIconButton", "DropdownItem", "PlaceholderBrand"]
+}

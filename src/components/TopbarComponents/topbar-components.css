@@ -1,0 +1,176 @@
+/* ============================================================
+   Topbar Components — Align UI Design System 2.0 (Figma nodes
+   3802:24588 Topbar Item, 3814:24667 User Profile [Topbar],
+   3814:25156 Topbar Item Button). Product Components > Navigation
+   > Topbar Components.
+   ============================================================ */
+
+/* ── TopbarItem ── */
+
+.premui-topbar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  box-sizing: border-box;
+  padding: var(--spacing-8) var(--spacing-12);
+  border: none;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-topbar-item:hover:not([data-active="true"]),
+.premui-topbar-item[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-topbar-item[data-active="true"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-topbar-item-leading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+}
+
+.premui-topbar-item[data-active="true"] .premui-topbar-item-leading {
+  color: var(--primary-base);
+}
+
+.premui-topbar-item-text {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+.premui-topbar-item-label {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-topbar-item[data-active="true"] .premui-topbar-item-label {
+  color: var(--color-text-strong);
+}
+
+.premui-topbar-item-right-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+/* ── TopbarUserProfile ── */
+
+.premui-topbar-user-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  box-sizing: border-box;
+  padding: var(--spacing-4) var(--spacing-8) var(--spacing-4) var(--spacing-4);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-topbar-user-profile:hover,
+.premui-topbar-user-profile[data-state="hover"],
+.premui-topbar-user-profile[data-active="true"] {
+  border-color: transparent;
+  background: var(--color-bg-weak);
+}
+
+.premui-topbar-user-profile-text {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.premui-topbar-user-profile-name {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.premui-topbar-user-profile-name-label {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-topbar-user-profile-verified {
+  flex-shrink: 0;
+  font-size: 16px;
+  color: var(--primary-base);
+}
+
+.premui-topbar-user-profile-chevron {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+/* ── TopbarIconButton ── */
+
+.premui-topbar-icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color-icon-sub);
+  line-height: 1;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-topbar-icon-btn:hover:not([data-active="true"]),
+.premui-topbar-icon-btn[data-state="hover"] {
+  background: var(--color-bg-weak);
+}
+
+.premui-topbar-icon-btn[data-active="true"] {
+  background: var(--color-bg-weak);
+  color: var(--primary-base);
+}
+
+.premui-topbar-icon-btn:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+
+.premui-topbar-icon-btn-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-state-error-base);
+  border: 1.5px solid var(--color-bg-white, #fff);
+}

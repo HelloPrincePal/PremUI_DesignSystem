@@ -121,4 +121,8 @@ export * from './components/SidebarComponents/UserProfileCard';
 export * from './components/SidebarComponents/SidebarFooter';
 export * from './components/SidebarComponents/SidebarFeatureCard';
 export * from './components/SidebarNavigation/SidebarNavigation';
+export * from './components/TopbarComponents/TopbarItem';
+export * from './components/TopbarComponents/TopbarUserProfile';
+export * from './components/TopbarComponents/TopbarIconButton';
+export * from './components/TopbarNavigation/TopbarNavigation';
 

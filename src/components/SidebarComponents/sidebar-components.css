@@ -224,6 +224,21 @@
   color: var(--color-text-sub);
 }
 
+/* ── Workspace switcher panel (fixed-positioned, escapes the sidebar's overflow:hidden) ── */
+
+.premui-sidebar-header-card-root {
+  position: relative;
+}
+
+.premui-workspace-switcher {
+  box-sizing: border-box;
+  padding: var(--spacing-8);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-medium);
+}
+
 /* ── UserProfileCard + SidebarFooter ── */
 
 .premui-sidebar-user-card {

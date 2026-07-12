@@ -1,0 +1,39 @@
+{
+  "name": "TopbarComponents",
+  "description": "TopbarItem (horizontal nav tab — leading icon, badge/notification count, chevron, active state with a blue-recolored icon), TopbarUserProfile (compact avatar+name+verified chip with a flipping chevron), and TopbarIconButton (40px icon-only action button with an optional unread-notification dot).",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3802-24588",
+  "sourceNote": "Ported from Figma nodes 3802:24588 (Topbar Item), 3814:24667 (User Profile [Topbar]), 3814:25156 (Topbar Item Button). TopbarItem mirrors SidebarItem's leading/badge/notificationCount pattern rotated into a horizontal pill; its active state recolors the leading icon to --primary-base and the label to --color-text-strong rather than showing an accent bar (per the fetched Active-state variable trace, which had no accent-bar token). TopbarIconButton's Active state also recolors to --primary-base, confirmed via get_variable_defs since its Figma node exported as a flattened raster with no decomposed layer code. First component family filed under 'Product Components > Navigation > Topbar Components'.",
+  "props": {
+    "TopbarItem": {
+      "label": { "type": "string", "default": "Dashboard" },
+      "icon": { "type": "string", "default": "layout-grid-line" },
+      "showIcon": { "type": "boolean", "default": true },
+      "badge": { "type": "string" },
+      "notificationCount": { "type": "number | string" },
+      "showRightIcon": { "type": "boolean", "default": false },
+      "active": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active"] }
+    },
+    "TopbarUserProfile": {
+      "name": { "type": "string", "default": "Sophia" },
+      "verified": { "type": "boolean", "default": false },
+      "showName": { "type": "boolean", "default": true },
+      "active": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active"] }
+    },
+    "TopbarIconButton": {
+      "icon": { "type": "string", "default": "layout-grid-line" },
+      "active": { "type": "boolean", "default": false },
+      "dot": { "type": "boolean", "default": false },
+      "state": { "type": "string", "options": ["default", "hover", "active"] }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--color-icon-sub", "--color-icon-soft", "--primary-base", "--color-state-error-base"],
+    "radius": ["--radius-8", "--radius-10", "--radius-full"]
+  },
+  "dependencies": ["Badge", "Avatar"]
+}

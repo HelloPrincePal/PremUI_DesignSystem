@@ -66,7 +66,9 @@
       "name": "Banner",
       "type": "ui:component",
       "description": "Full-width top-of-page announcement bar. 4 styles x 5 statuses, action link and dismiss.",
-      "dependencies": ["LinkButton"],
+      "dependencies": [
+        "LinkButton"
+      ],
       "files": [
         "src/components/Banner/Banner.tsx",
         "src/components/Banner/banner.css"
@@ -82,7 +84,9 @@
       "name": "Breadcrumb",
       "type": "ui:component",
       "description": "Navigation trail of BreadcrumbItem links joined by a divider (arrow/slash/dot); last item is the current page.",
-      "dependencies": ["BreadcrumbItem"],
+      "dependencies": [
+        "BreadcrumbItem"
+      ],
       "files": [
         "src/components/Breadcrumb/Breadcrumb.tsx",
         "src/components/Breadcrumb/BreadcrumbItem.tsx",
@@ -207,7 +211,9 @@
       "name": "ButtonGroup",
       "type": "ui:component",
       "description": "Segmented control composed of ButtonGroupItem segments with collapsed shared borders. 3 sizes, one active (selected) segment.",
-      "dependencies": ["ButtonGroupItem"],
+      "dependencies": [
+        "ButtonGroupItem"
+      ],
       "files": [
         "src/components/ButtonGroup/ButtonGroup.tsx",
         "src/components/ButtonGroup/ButtonGroupItem.tsx",
@@ -227,7 +233,10 @@
       "name": "Checkbox",
       "type": "ui:component",
       "description": "Checkbox, CheckboxLabel, and CheckboxCard. Base control (2 sizes), a labeled composition with optional badge/description/link, and a selectable bordered card with a leading-visual slot.",
-      "dependencies": ["Badge", "LinkButton"],
+      "dependencies": [
+        "Badge",
+        "LinkButton"
+      ],
       "files": [
         "src/components/Checkbox/Checkbox.tsx",
         "src/components/Checkbox/CheckboxLabel.tsx",
@@ -247,7 +256,11 @@
       "name": "ColorPicker",
       "type": "ui:component",
       "description": "Fully functional color picker: ColorSpectrum (2D drag), ColorSliders (hue/opacity drag), ColorDots (10 preset swatches), and hex input. HSV<->hex math in colorUtils.ts.",
-      "dependencies": ["ColorSpectrum", "ColorSliders", "ColorDots"],
+      "dependencies": [
+        "ColorSpectrum",
+        "ColorSliders",
+        "ColorDots"
+      ],
       "files": [
         "src/components/ColorPicker/ColorPicker.tsx",
         "src/components/ColorPicker/ColorSpectrum.tsx",
@@ -270,7 +283,10 @@
       "name": "ContentDivider",
       "type": "ui:component",
       "description": "Section-separator with 9 variants (line, spaced line, labeled line, standalone label, solid label bar, and 4 button/button-group + line combos). Composes FancyButton and ButtonGroup.",
-      "dependencies": ["FancyButton", "ButtonGroup"],
+      "dependencies": [
+        "FancyButton",
+        "ButtonGroup"
+      ],
       "files": [
         "src/components/ContentDivider/ContentDivider.tsx",
         "src/components/ContentDivider/content-divider.css"
@@ -286,7 +302,11 @@
       "name": "CommandMenu",
       "type": "ui:component",
       "description": "Command palette: CommandMenuSearchInput, CommandMenuItem rows, CommandMenuFooter. CommandMenu composes all three into a bordered card.",
-      "dependencies": ["CompactButton", "Badge", "LinkButton"],
+      "dependencies": [
+        "CompactButton",
+        "Badge",
+        "LinkButton"
+      ],
       "files": [
         "src/components/CommandMenu/CommandMenu.tsx",
         "src/components/CommandMenu/CommandMenuSearchInput.tsx",
@@ -307,7 +327,10 @@
       "name": "DatePicker",
       "type": "ui:component",
       "description": "Fully functional date/range pickers: DatePicker (single month + footer), DateRangePicker (two months + preset sidebar + range selection). Built on DayLabel, DayCell, DateSelector, PeriodRangeItem, and dateUtils.ts.",
-      "dependencies": ["CompactButton", "Button"],
+      "dependencies": [
+        "CompactButton",
+        "Button"
+      ],
       "files": [
         "src/components/DatePicker/DatePicker.tsx",
         "src/components/DatePicker/DateRangePicker.tsx",
@@ -332,7 +355,11 @@
       "name": "Switch",
       "type": "ui:component",
       "description": "Switch (base toggle, 32x20 track, state prop for Default/Hover/Disabled), SwitchLabel (labeled composition), SwitchCard (selectable bordered card), and IntegrationSwitch (brand/integration row with title/badge/description, optional Manage button, Horizontal/Vertical x Card/List layouts).",
-      "dependencies": ["Badge", "LinkButton", "Button"],
+      "dependencies": [
+        "Badge",
+        "LinkButton",
+        "Button"
+      ],
       "files": [
         "src/components/Switch/Switch.tsx",
         "src/components/Switch/SwitchLabel.tsx",
@@ -357,7 +384,14 @@
       "name": "Drawer",
       "type": "ui:component",
       "description": "DrawerHeader (Basic/Left-Icon x Small/Large, title+description, dismiss, count badge, bottom divider) and DrawerFooter (Stretch/Basic/Checkbox/Toggle/Stepper/Link Button, each pairing Cancel+Continue actions). Includes StepperDots.",
-      "dependencies": ["CompactButton", "LinkButton", "Badge", "Button", "CheckboxLabel", "Switch"],
+      "dependencies": [
+        "CompactButton",
+        "LinkButton",
+        "Badge",
+        "Button",
+        "CheckboxLabel",
+        "Switch"
+      ],
       "files": [
         "src/components/Drawer/DrawerHeader.tsx",
         "src/components/Drawer/DrawerFooter.tsx",
@@ -379,7 +413,13 @@
       "name": "Dropdown",
       "type": "ui:component",
       "description": "DropdownItem (generic leading slot, 4 states default/hover/selected/disabled, 2 sizes sm-36/lg-56, optional checkbox/badge/shortcut/toggle/button/rightIcon slots) and DropdownMiscItem (search input, 'Add Workspace' button row, caption footer row).",
-      "dependencies": ["Badge", "Checkbox", "Switch", "Button", "CompactButton"],
+      "dependencies": [
+        "Badge",
+        "Checkbox",
+        "Switch",
+        "Button",
+        "CompactButton"
+      ],
       "files": [
         "src/components/Dropdown/DropdownItem.tsx",
         "src/components/Dropdown/DropdownMiscItem.tsx",
@@ -399,7 +439,13 @@
       "name": "FileUpload",
       "type": "ui:component",
       "description": "FileFormatIcon (colored file-type icon+tag, 9 colors x 2 sizes), FileUploadArea (drag-drop dashed zone with real drag/drop + file-input wiring), FileUploadCard (progress card with uploading/success/error states, dismiss/retry, reuses ProgressBar), and ImageUpload (Avatar/Company upload widget, Vertical/Horizontal alignment, Empty/Uploaded states).",
-      "dependencies": ["Button", "CompactButton", "LinkButton", "Avatar", "ProgressBar"],
+      "dependencies": [
+        "Button",
+        "CompactButton",
+        "LinkButton",
+        "Avatar",
+        "ProgressBar"
+      ],
       "files": [
         "src/components/FileUpload/FileFormatIcon.tsx",
         "src/components/FileUpload/FileUploadArea.tsx",
@@ -424,7 +470,13 @@
       "name": "Filter",
       "type": "ui:component",
       "description": "FilterBar (horizontal toolbar, consumer-composed left slot + search/filter/settings/sort-by), VerticalFilterItem (sidebar filter row, default/hover/active/disabled), VerticalFilterHeader (panel header + Clear link), VerticalFilterFooter (Clear/Apply, reuses DrawerFooter's stretch layout).",
-      "dependencies": ["Button", "ButtonGroup", "LinkButton", "DrawerFooter", "SegmentedControl"],
+      "dependencies": [
+        "Button",
+        "ButtonGroup",
+        "LinkButton",
+        "DrawerFooter",
+        "SegmentedControl"
+      ],
       "files": [
         "src/components/Filter/FilterBar.tsx",
         "src/components/Filter/VerticalFilterItem.tsx",
@@ -447,7 +499,7 @@
     {
       "name": "SegmentedControl",
       "type": "ui:component",
-      "description": "Pill tab switcher — equal-width segments in a weak-bg track, active segment raised via white background + shadow. Supports label-only, icon+label, and icon-only segments, plus a per-item disabled state.",
+      "description": "Pill tab switcher \u2014 equal-width segments in a weak-bg track, active segment raised via white background + shadow. Supports label-only, icon+label, and icon-only segments, plus a per-item disabled state.",
       "dependencies": [],
       "files": [
         "src/components/SegmentedControl/SegmentedControl.tsx",
@@ -538,7 +590,13 @@
       "name": "ContentItem",
       "type": "ui:component",
       "description": "ContentLabel (unbordered list row, md/lg sizes, optional NEW badge and Switch toggle) and ContentCard (bordered card variant with a dismiss button). Both use a generic leading-visual slot.",
-      "dependencies": ["Badge", "Switch", "CompactButton", "KeyIcon", "Avatar"],
+      "dependencies": [
+        "Badge",
+        "Switch",
+        "CompactButton",
+        "KeyIcon",
+        "Avatar"
+      ],
       "files": [
         "src/components/ContentItem/ContentLabel.tsx",
         "src/components/ContentItem/ContentCard.tsx",
@@ -557,7 +615,15 @@
       "name": "Modal",
       "type": "ui:component",
       "description": "Modal (functional open/onClose root with Escape/overlay-click-to-close and body-scroll lock), ModalOverlay, ModalHeader (6 types x 2 sizes), ModalFooter (7 types), and StatusModal (composed alert dialog).",
-      "dependencies": ["KeyIcon", "CompactButton", "Button", "CheckboxLabel", "Switch", "LinkButton", "StepperDots"],
+      "dependencies": [
+        "KeyIcon",
+        "CompactButton",
+        "Button",
+        "CheckboxLabel",
+        "Switch",
+        "LinkButton",
+        "StepperDots"
+      ],
       "files": [
         "src/components/Modal/Modal.tsx",
         "src/components/Modal/ModalOverlay.tsx",
@@ -581,7 +647,13 @@
       "name": "NotificationFeed",
       "type": "ui:component",
       "description": "NotificationHeader (title + Mark all as read), NotificationTabMenu (data-driven underline tab bar with count badges), NotificationItem (avatar row, Basic/File/Button/Message types, hover-reveal 'more' button), and NotificationFooter (keyboard-nav hint + Manage Notification link).",
-      "dependencies": ["LinkButton", "CompactButton", "Badge", "Avatar", "Button"],
+      "dependencies": [
+        "LinkButton",
+        "CompactButton",
+        "Badge",
+        "Avatar",
+        "Button"
+      ],
       "files": [
         "src/components/NotificationFeed/NotificationHeader.tsx",
         "src/components/NotificationFeed/NotificationTabMenu.tsx",
@@ -625,7 +697,9 @@
       "name": "ProgressBar",
       "type": "ui:component",
       "description": "ProgressBar (linear bar, real continuous 0-100% fill, 4 colors), ProgressBarLabel (title+percentage+bar+description with an optional Upgrade link, On Top/On Right layouts), and CircularProgressBar (SVG ring computed via stroke-dashoffset, 5 sizes, center label at size >= 56). Originally built inside FileUpload/, moved to its own folder and generalized when requested standalone.",
-      "dependencies": ["LinkButton"],
+      "dependencies": [
+        "LinkButton"
+      ],
       "files": [
         "src/components/ProgressBar/ProgressBar.tsx",
         "src/components/ProgressBar/ProgressBarLabel.tsx",
@@ -647,7 +721,12 @@
       "name": "Popover",
       "type": "ui:component",
       "description": "Popover (floating card with icon/title/description/dismiss header, CSS-triangle tail, 12 placement variants) and PopoverFooter (Stretch/Stepper/Text Stepper action rows).",
-      "dependencies": ["KeyIcon", "CompactButton", "Button", "StepperDots"],
+      "dependencies": [
+        "KeyIcon",
+        "CompactButton",
+        "Button",
+        "StepperDots"
+      ],
       "files": [
         "src/components/Popover/Popover.tsx",
         "src/components/Popover/PopoverFooter.tsx",
@@ -666,7 +745,10 @@
       "name": "Radio",
       "type": "ui:component",
       "description": "Radio (base control), RadioLabel (labeled composition with optional badge/sublabel/description/link), and RadioCard (selectable bordered card with a generic leading-visual slot). Mirrors the Checkbox/CheckboxLabel/CheckboxCard architecture.",
-      "dependencies": ["Badge", "LinkButton"],
+      "dependencies": [
+        "Badge",
+        "LinkButton"
+      ],
       "files": [
         "src/components/Radio/Radio.tsx",
         "src/components/Radio/RadioLabel.tsx",
@@ -689,7 +771,9 @@
       "name": "Rating",
       "type": "ui:component",
       "description": "RatingIcon (star/heart glyph, empty/half/full), Rating (aggregate read-only display), RatingCell (big selectable icon button), RatingBar (interactive 1-5 segmented selector: Emoji/Number/Star/Heart), and RatingBarArea (RatingBar + feedback textarea).",
-      "dependencies": ["LinkButton"],
+      "dependencies": [
+        "LinkButton"
+      ],
       "files": [
         "src/components/Rating/RatingIcon.tsx",
         "src/components/Rating/Rating.tsx",
@@ -753,7 +837,9 @@
       "name": "Tooltip",
       "type": "ui:component",
       "description": "Floating hint card. 3 sizes (2X-Small/X-Small text-only, Large adds icon + title/description + dismiss), 8 placements, optional dark mode.",
-      "dependencies": ["CompactButton"],
+      "dependencies": [
+        "CompactButton"
+      ],
       "files": [
         "src/components/Tooltip/Tooltip.tsx",
         "src/components/Tooltip/tooltip.css"
@@ -777,7 +863,7 @@
     {
       "name": "TimePicker",
       "type": "ui:component",
-      "description": "TimePickerItem (selectable time-slot list row, optional second time group + directional check-mark), TimePickerDuration (small duration pill), and TimePickerStatus (status pill with a colored dot — Available/Busy/In-meeting/Offline).",
+      "description": "TimePickerItem (selectable time-slot list row, optional second time group + directional check-mark), TimePickerDuration (small duration pill), and TimePickerStatus (status pill with a colored dot \u2014 Available/Busy/In-meeting/Offline).",
       "dependencies": [],
       "files": [
         "src/components/TimePicker/TimePickerItem.tsx",
@@ -808,7 +894,10 @@
       "name": "TextArea",
       "type": "ui:component",
       "description": "Genuinely functional multi-line text field with a real live character counter, native vertical resize, and Default/Hover/Focus/Filled/Disabled/Error states. Composes the existing Label and HintText components.",
-      "dependencies": ["Label", "HintText"],
+      "dependencies": [
+        "Label",
+        "HintText"
+      ],
       "files": [
         "src/components/TextArea/TextArea.tsx",
         "src/components/TextArea/text-area.css"
@@ -854,8 +943,10 @@
     {
       "name": "Table",
       "type": "ui:component",
-      "description": "Genuinely functional data table — real column sorting (asc/desc/none) and real row/select-all checkbox selection, rendered as semantic table markup. TableCellContent provides the leading-visual + title/description cell layout; SortingIcon is the header sort-direction indicator.",
-      "dependencies": ["Checkbox"],
+      "description": "Genuinely functional data table \u2014 real column sorting (asc/desc/none) and real row/select-all checkbox selection, rendered as semantic table markup. TableCellContent provides the leading-visual + title/description cell layout; SortingIcon is the header sort-direction indicator.",
+      "dependencies": [
+        "Checkbox"
+      ],
       "files": [
         "src/components/Table/Table.tsx",
         "src/components/Table/TableCellContent.tsx",
@@ -876,7 +967,12 @@
       "name": "TextInput",
       "type": "ui:component",
       "description": "Input (core single-line field with generic leading/trailing slots, real password show/hide, real clear button, separated action button), TagInput (real tag list), CounterInput (real +/- stepper), PinInput (real multi-box OTP entry), InlineInput (borderless-until-editing field). Figma's 12 rigid Input 'types' collapsed into Input's generic slots.",
-      "dependencies": ["Label", "HintText", "CompactButton", "Tag"],
+      "dependencies": [
+        "Label",
+        "HintText",
+        "CompactButton",
+        "Tag"
+      ],
       "files": [
         "src/components/TextInput/Input.tsx",
         "src/components/TextInput/TagInput.tsx",
@@ -907,7 +1003,15 @@
       "name": "SidebarComponents",
       "type": "ui:component",
       "description": "Product Components > Navigation > Sidebar Components. SidebarItem (nav row with collapsed rail mode + active accent bar), HeaderCard + SidebarHeader (workspace switcher card), UserProfileCard + SidebarFooter (signed-in user card), and SidebarFeatureCard (6 promo/widget types x 4 styles).",
-      "dependencies": ["Badge", "ChartLegendDot", "KeyIcon", "CompactButton", "Avatar", "ProgressBar", "LinkButton"],
+      "dependencies": [
+        "Badge",
+        "ChartLegendDot",
+        "KeyIcon",
+        "CompactButton",
+        "Avatar",
+        "ProgressBar",
+        "LinkButton"
+      ],
       "files": [
         "src/components/SidebarComponents/SidebarItem.tsx",
         "src/components/SidebarComponents/HeaderCard.tsx",
@@ -942,8 +1046,13 @@
     {
       "name": "SidebarNavigation",
       "type": "ui:component",
-      "description": "Product Components > Navigation. The full sidebar navigation shell — composes SidebarHeader + a real search input + a labeled main-nav item list + a supporting item list + an optional SidebarFeatureCard + SidebarFooter. Genuine controlled/uncontrolled active-item state, real search, and a `collapsed` prop switching every child to its icon-only rail mode.",
-      "dependencies": ["SidebarHeader", "SidebarItem", "SidebarFeatureCard", "SidebarFooter"],
+      "description": "Product Components > Navigation. The full sidebar navigation shell \u2014 composes SidebarHeader + a real search input + a labeled main-nav item list + a supporting item list + an optional SidebarFeatureCard + SidebarFooter. Genuine controlled/uncontrolled active-item state, real search, and a `collapsed` prop switching every child to its icon-only rail mode.",
+      "dependencies": [
+        "SidebarHeader",
+        "SidebarItem",
+        "SidebarFeatureCard",
+        "SidebarFooter"
+      ],
       "files": [
         "src/components/SidebarNavigation/SidebarNavigation.tsx",
         "src/components/SidebarNavigation/sidebar-navigation.css"
@@ -957,6 +1066,64 @@
         "--radius-4",
         "--radius-8",
         "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "TopbarComponents",
+      "type": "ui:component",
+      "description": "Product Components > Navigation > Topbar Components. TopbarItem (horizontal nav tab with badge/notification count and an active state that recolors the icon to primary blue), TopbarUserProfile (compact avatar+name+verified chip with a flipping chevron), and TopbarIconButton (40px icon-only action button with an optional unread-notification dot).",
+      "dependencies": [
+        "Badge",
+        "Avatar"
+      ],
+      "files": [
+        "src/components/TopbarComponents/TopbarItem.tsx",
+        "src/components/TopbarComponents/TopbarUserProfile.tsx",
+        "src/components/TopbarComponents/TopbarIconButton.tsx",
+        "src/components/TopbarComponents/topbar-components.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-disabled",
+        "--color-icon-sub",
+        "--color-icon-soft",
+        "--primary-base",
+        "--color-state-error-base",
+        "--radius-8",
+        "--radius-10",
+        "--radius-full"
+      ]
+    },
+    {
+      "name": "TopbarNavigation",
+      "type": "ui:component",
+      "description": "Product Components > Navigation. The full top navigation bar \u2014 brand logo (real Placeholder asset) + a horizontal main-nav item list with a real active-item state + an optional inline search field + quick-action/notification icon buttons + a real \"Others\" overflow dropdown + a TopbarUserProfile chip.",
+      "dependencies": [
+        "TopbarItem",
+        "TopbarUserProfile",
+        "TopbarIconButton",
+        "DropdownItem",
+        "PlaceholderBrand"
+      ],
+      "files": [
+        "src/components/TopbarNavigation/TopbarNavigation.tsx",
+        "src/components/TopbarNavigation/topbar-navigation.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-soft",
+        "--color-icon-soft",
+        "--radius-4",
+        "--radius-10",
+        "--radius-12",
+        "--shadow-regular-x-small",
+        "--shadow-regular-medium"
       ]
     }
   ]

@@ -1,0 +1,102 @@
+/* ============================================================
+   Topbar Navigation [1.1] — Figma node 3814:25274, Align UI
+   Design System 2.0. Product Components > Navigation. Composes
+   TopbarItem + TopbarUserProfile + TopbarIconButton into a real
+   top nav bar with genuine controlled/uncontrolled active-item
+   state, a real search input, and a real "Others" overflow
+   dropdown (not a dead-end static chevron).
+   ============================================================ */
+
+.premui-topbar-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-20, 20px) var(--spacing-44, 44px);
+  background: var(--color-bg-white, #fff);
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+
+.premui-topbar-nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.premui-topbar-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.premui-topbar-nav-search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  box-sizing: border-box;
+  width: 232px;
+  flex-shrink: 0;
+  padding: var(--spacing-10, 10px) var(--spacing-10, 10px) var(--spacing-10, 10px) var(--spacing-12);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+}
+
+.premui-topbar-nav-search-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  color: var(--color-icon-soft);
+}
+
+.premui-topbar-nav-search-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+
+.premui-topbar-nav-search-input::placeholder {
+  color: var(--color-text-soft);
+}
+
+.premui-topbar-nav-search-shortcut {
+  flex-shrink: 0;
+  padding: var(--spacing-2) var(--spacing-6);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-4);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.premui-topbar-nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  flex-shrink: 0;
+}
+
+.premui-topbar-nav-more-panel {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-height: 320px;
+  padding: var(--spacing-8);
+  overflow-y: auto;
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-medium);
+}

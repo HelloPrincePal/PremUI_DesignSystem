@@ -9,7 +9,7 @@ const meta: Meta<typeof SidebarNavigation> = {
   parameters: { layout: 'fullscreen' },
   args: {
     showSearch: true,
-    header: { brand: 'Synergy', description: 'HR Management' },
+    header: { defaultCompany: 'Synergy' },
   },
   argTypes: {
     header: { table: { disable: true } },
@@ -47,9 +47,9 @@ export const Playground: Story = {
 export const Gallery: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '24px', height: '900px' }}>
-      <SidebarNavigation header={{ brand: 'Synergy', description: 'HR Management' }} showSearch />
-      <SidebarNavigation header={{ brand: 'Synergy', description: 'HR Management' }} featureCard={null} />
-      <SidebarNavigation header={{ brand: 'Synergy', description: 'HR Management' }} collapsed />
+      <SidebarNavigation header={{ defaultCompany: 'Synergy' }} showSearch />
+      <SidebarNavigation header={{ defaultCompany: 'Aurora' }} featureCard={null} />
+      <SidebarNavigation header={{ defaultCompany: 'Solaris' }} collapsed />
     </div>
   ),
 };
