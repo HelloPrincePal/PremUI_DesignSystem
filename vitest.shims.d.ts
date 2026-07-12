@@ -1,1 +1,2 @@
-/// <reference types="@vitest/browser-playwright" />
+/// <reference types="node" />
+/// <reference types="@vitest/browser/providers/playwright" />

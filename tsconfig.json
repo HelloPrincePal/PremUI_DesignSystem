@@ -16,11 +16,10 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": ".",
     "paths": {
       "@premui/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "vitest.config.ts", "vitest.shims.d.ts"],
   "exclude": ["node_modules", "dist", "**/*.stories.tsx", "**/*.spec.ts"]
 }
