@@ -77,3 +77,6 @@ Thumbs.db
 *.sw?
 .claude/
 .gemini/
+
+# Local session handoff docs — never pushed, stays on this machine only
+Context_handoff/
