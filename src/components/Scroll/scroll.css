@@ -16,9 +16,17 @@
   background: var(--color-bg-white, #fff);
 }
 
-.premui-scroll[data-size="md"] { width: 20px; }
-.premui-scroll[data-size="sm"] { width: 16px; }
-.premui-scroll[data-size="xs"] { width: 12px; }
+.premui-scroll[data-size="md"] {
+  width: 20px;
+}
+
+.premui-scroll[data-size="sm"] {
+  width: 16px;
+}
+
+.premui-scroll[data-size="xs"] {
+  width: 12px;
+}
 
 .premui-scroll[data-style="lighter"] {
   background: var(--color-bg-weak);
