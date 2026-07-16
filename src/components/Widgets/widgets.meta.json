@@ -1,0 +1,38 @@
+{
+  "name": "Widgets",
+  "description": "14 HR-management dashboard widgets built on a shared WidgetCard shell (header icon+title+action, inset divider, body). Each has a populated and an empty variant; empties reuse the EmptyState illustrations. Widgets: TimeOff, CurrentProject, StatusTracker, Notes, Schedule, TimeTracker, EmployeeSpotlight, DailyFeedback, WorkHourAnalysis, Courses, DailyWorkHours, TrainingAnalysis, CourseProgress, EmployeeRating.",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3851-32690",
+  "sourceNote": "Ported from Figma node 3851:32690 (Widgets [HR Management] [1.1], 28 symbols = 14 types x Empty State Off/On). To conserve Figma MCP calls this was implemented from one metadata call + one high-resolution frame screenshot (cropped/zoomed locally with PIL, no per-widget MCP calls) plus the existing component library, rather than per-symbol get_design_context. Every widget is a composition of existing primitives (SegmentedControl, ProgressBar, CircularProgressBar, Avatar, AvatarGroup, Badge, EmptyState) on a shared WidgetCard shell. Empty ('Empty State=On') variants reuse the EmptyState illustration set added alongside this work. Two shared helpers live in WidgetCard.tsx: WidgetGauge (a 180° semicircle gauge for Time Off) and BrandLogo (loads a logo from src/assets/Brand/Brand Logos/ by file name, used for Monday.com/Loom/Evernote). The header 'See All'/'Details' buttons and the Daily Feedback 'Next Question' button use header-local styles (soft-200 border + x-small shadow + sub text) matching Figma, since no existing Button variant matches that treatment.",
+  "components": [
+    "TimeOffWidget", "CurrentProjectWidget", "StatusTrackerWidget", "NotesWidget",
+    "ScheduleWidget", "TimeTrackerWidget", "EmployeeSpotlightWidget", "DailyFeedbackWidget",
+    "WorkHourAnalysisWidget", "CoursesWidget", "DailyWorkHoursWidget", "TrainingAnalysisWidget",
+    "CourseProgressWidget", "EmployeeRatingWidget", "WidgetCard", "WidgetHeaderButton", "BrandLogo"
+  ],
+  "parts": {
+    "note": "Reusable widget sub-components, each ported from its own Figma frame and composed back into the widgets above.",
+    "components": [
+      "GaugeBar (Figma 3789:9678 — Time Off semicircle gauge, 0/25/50/75/100%)",
+      "NoteItem (Figma 3872:24017 — a single note row, Default/Checked)",
+      "EmployeeSpotlightTabs (Figma 3849:31700 — Overview/Comments/Rewards panel with the blue rosette badge; decorative rosette SVGs live in src/assets/Spotlight/)",
+      "ScheduleDate (Figma 3520:2550 — day cell, Default/Hover/Selected)",
+      "DaySelection (Figma 3520:2567 — the day strip)",
+      "ScheduleCard (Figma 3521:3090 — Meetings/Events/Holiday cards)",
+      "ScheduleDetailTabs (Figma 3710:12493 — tabbed card list + per-tab empty state)",
+      "TimeTrackerDropdown (Figma 3849:32128 — project select, Default/Hover/Focus/Active)",
+      "Timer (Figma 3849:32209 — Default/Ongoing timer readout)"
+    ]
+  },
+  "commonProps": {
+    "empty": { "type": "boolean", "default": false, "note": "Switches to the Empty State=On variant" }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-bg-soft", "--color-stroke-soft", "--color-stroke-sub", "--color-text-strong", "--color-text-sub", "--color-text-soft", "--color-text-disabled", "--color-icon-sub", "--color-icon-soft", "--primary-base", "--color-static-white", "--color-state-warning-base", "--color-state-warning-lighter", "--color-state-success-base", "--color-state-error-base", "--color-state-information-base", "--color-state-information-lighter", "--color-state-away-base", "--color-state-feature-base"],
+    "radius": ["--radius-8", "--radius-10", "--radius-12", "--radius-16", "--radius-full"],
+    "shadow": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["WidgetCard", "SegmentedControl", "ProgressBar", "CircularProgressBar", "Avatar", "AvatarGroup", "Badge", "EmptyState"]
+}

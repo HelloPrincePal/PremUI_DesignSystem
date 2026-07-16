@@ -1,0 +1,46 @@
+{
+  "name": "PageHeader",
+  "description": "PageHeader (top-of-page header row — title + description, optional leading avatar/icon/brand, search + notification icon buttons, and secondary + primary action buttons) and SectionHeader (lighter in-page section header with tighter padding and search only, no notification bell).",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3829-27898",
+  "sourceNote": "Ported from Figma nodes 3829:27898 (Page Header [1.1]) and 3880:63403 (Section Header [1.1]). Figma's rigid 5-variant type enum (Basic / Avatar / Left Icon / Brand / Company) is collapsed into a single generic `leading` slot — stories reproduce each variant by dropping the existing Avatar / KeyIcon / PlaceholderBrand components into it, mirroring the SidebarNavigation/TopbarNavigation composition pattern. Both share one internal HeaderBar shell driven by a size discriminator (page = 20px vertical padding + notification bell, section = 16px + search only). The secondary/primary buttons use a header-local style rather than the shared Button because the Figma secondary treatment (1px soft-200 border, x-small shadow, sub-600 text) does not match any existing Button variant; the search/notification buttons reuse TopbarIconButton.",
+  "props": {
+    "PageHeader": {
+      "title": { "type": "string", "default": "Insert page title here" },
+      "description": { "type": "ReactNode", "default": "Insert page description here." },
+      "leading": { "type": "ReactNode" },
+      "titleAction": { "type": "ReactNode" },
+      "showSearch": { "type": "boolean", "default": true },
+      "showNotification": { "type": "boolean", "default": true },
+      "notificationDot": { "type": "boolean", "default": true },
+      "secondaryLabel": { "type": "string | null", "default": "Schedule" },
+      "secondaryIcon": { "type": "string | null", "default": "calendar-check-line" },
+      "primaryLabel": { "type": "string | null", "default": "Create Request" },
+      "primaryIcon": { "type": "string | null", "default": "add-line" },
+      "actions": { "type": "ReactNode" },
+      "divider": { "type": "boolean", "default": true }
+    },
+    "SectionHeader": {
+      "title": { "type": "string", "default": "Insert page title here" },
+      "description": { "type": "ReactNode", "default": "Insert page description here." },
+      "leading": { "type": "ReactNode" },
+      "titleAction": { "type": "ReactNode" },
+      "showSearch": { "type": "boolean", "default": true },
+      "secondaryLabel": { "type": "string | null", "default": "Export" },
+      "secondaryIcon": { "type": "string | null", "default": "share-forward-box-line" },
+      "primaryLabel": { "type": "string | null", "default": "Invite Member" },
+      "primaryIcon": { "type": "string | null", "default": "add-line" },
+      "actions": { "type": "ReactNode" },
+      "divider": { "type": "boolean", "default": true }
+    }
+  },
+  "tokens": {
+    "colors": ["--color-bg-white", "--color-bg-weak", "--color-stroke-soft", "--color-text-strong", "--color-text-sub", "--primary-base", "--primary-dark", "--color-static-white"],
+    "radius": ["--radius-10"],
+    "spacing": ["--spacing-4", "--spacing-6", "--spacing-10", "--spacing-12", "--spacing-14", "--spacing-16", "--spacing-20", "--spacing-32"],
+    "shadow": ["--shadow-regular-x-small"]
+  },
+  "dependencies": ["TopbarIconButton", "Avatar", "KeyIcon", "PlaceholderBrand"]
+}

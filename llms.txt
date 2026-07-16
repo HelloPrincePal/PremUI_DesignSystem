@@ -1,0 +1,25 @@
+# PremUI Design System
+
+> A code-first, AI-native React 19 + TypeScript component library ported from Figma (Align UI
+> Design System 2.0). 50+ components built with vanilla CSS and a 3-tier design-token system
+> (CSS custom properties). Icons: Remix Icon only. Theming: `data-theme` (light/dark) and
+> `data-theme-color` (blue/purple/orange/green). Distributed copy-in / shadcn-style (package
+> `@premui/design-system`, currently private). Use PremUI components and tokens exclusively — do
+> not mix in other UI libraries.
+
+## Start here
+
+- [AGENTS.md](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/AGENTS.md): how an AI agent should build apps with PremUI — setup, hard rules, and an example.
+- [Component manifest](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/registry/components.json): machine-readable list of every component with its files, dependencies, and CSS variables used (source of truth for what exists).
+- [README](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/README.md): full component checklist and project overview.
+- [Live Storybook](https://helloprincepal.github.io/PremUI_DesignSystem/): rendered components, props, and the "For AI Agents" + "Changelog" docs.
+
+## Rules and tokens
+
+- [Design tokens (variables.css)](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/src/styles/variables.css): all Core/Semantic/Component CSS custom properties — colors, spacing (0,2,4,6,8,10,12,16,24,32,40,48), radius, shadows, motion. Style only with these.
+- [Global stylesheet (globals.css)](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/src/styles/globals.css): import once at the app root; loads tokens + Remix Icon font.
+- [Barrel export (src/index.ts)](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/src/index.ts): every public component export.
+
+## Changelog
+
+- [CHANGELOG.md](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/CHANGELOG.md): what's new — check before assuming a component does or doesn't exist.

@@ -1,0 +1,609 @@
+/* ============================================================
+   Widgets [HR Management] — Align UI Design System 2.0
+   Figma node 3851:32690. Product Components > Widgets.
+
+   14 dashboard widgets built on one shared WidgetCard shell,
+   composed from existing primitives (SegmentedControl, ProgressBar,
+   CircularProgressBar, Avatar, Badge, StatusBadge, EmptyState…).
+   Each widget has a populated and an empty ("Empty State=On")
+   variant; the empty variants reuse the EmptyState illustrations.
+   ============================================================ */
+
+/* ── Card shell ── */
+
+.premui-widget {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-regular-x-small);
+  overflow: hidden;
+}
+
+.premui-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16) var(--spacing-20, 20px);
+  padding-bottom: 0;
+}
+
+.premui-widget-head-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-width: 0;
+}
+
+.premui-widget-head-icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-strong);
+}
+
+.premui-widget-head-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: var(--color-text-strong);
+}
+
+.premui-widget-head-action {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.premui-widget-sep {
+  height: 1px;
+  margin: var(--spacing-16) var(--spacing-20, 20px) 0;
+  background: var(--color-stroke-soft);
+}
+
+.premui-widget-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--spacing-16) var(--spacing-20, 20px) var(--spacing-20, 20px);
+}
+
+.premui-widget-body.is-flush {
+  padding: 0;
+}
+
+/* ── Small header button (See All / Details / + Add Note) ── */
+
+.premui-widget-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  box-sizing: border-box;
+  height: 28px;
+  padding: 0 var(--spacing-8);
+  border: 1px solid var(--color-stroke-soft);
+  border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff);
+  box-shadow: var(--shadow-regular-x-small);
+  color: var(--color-text-sub);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-widget-btn i {
+  font-size: 16px;
+}
+
+.premui-widget-btn:hover {
+  background: var(--color-bg-weak);
+}
+
+.premui-widget-btn[data-icon-only] {
+  width: 28px;
+  padding: 0;
+}
+
+/* ── Empty state wrapper ── */
+
+.premui-widget-empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-16);
+  text-align: center;
+  padding: var(--spacing-16) 0;
+}
+
+.premui-widget-empty-caption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-soft);
+  max-width: 240px;
+}
+
+/* ── Time Off ── */
+
+.premui-widget-gauge {
+  position: relative;
+  align-self: center;
+  margin: var(--spacing-8) 0 var(--spacing-16);
+}
+
+.premui-widget-gauge-track { stroke: var(--color-bg-weak); }
+.premui-widget-gauge-fill { stroke: var(--primary-base); }
+
+.premui-widget-gauge-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.premui-widget-gauge-value {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.64px;
+  color: var(--color-text-strong);
+}
+
+.premui-widget-gauge[data-muted] .premui-widget-gauge-value { color: var(--color-text-disabled); }
+
+.premui-widget-gauge-max {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  color: var(--color-text-sub);
+}
+
+/* Generic status dot-icon (Time Off list, etc.) */
+.premui-w-dot-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  color: var(--color-static-white);
+  font-size: 12px;
+}
+.premui-w-dot-icon[data-color="orange"] { background: var(--color-state-warning-base); }
+.premui-w-dot-icon[data-color="green"] { background: var(--color-state-success-base); }
+.premui-w-dot-icon[data-color="red"] { background: var(--color-state-error-base); }
+
+.premui-w-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) 0;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+.premui-w-row:last-child { border-bottom: none; padding-bottom: 0; }
+.premui-w-row-main { display: flex; flex-direction: column; min-width: 0; flex: 1; gap: 2px; }
+.premui-w-row-title {
+  font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.premui-w-row-title .muted { color: var(--color-text-soft); font-weight: 400; }
+.premui-w-row-sub {
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-text-sub);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.premui-w-row-trail { flex-shrink: 0; margin-left: auto; }
+
+/* Orange time pill (Status Tracker) */
+.premui-w-time-pill {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  padding: 2px var(--spacing-6);
+  border-radius: var(--radius-full);
+  background: var(--color-state-warning-lighter);
+  color: var(--color-state-warning-base);
+  font-size: 12px; font-weight: 500; line-height: 16px;
+}
+.premui-w-time-pill i { font-size: 14px; }
+
+/* ── Current Project (key-value list) ── */
+
+.premui-w-kv { display: flex; flex-direction: column; gap: var(--spacing-16); }
+.premui-w-kv-row { display: flex; flex-direction: column; gap: var(--spacing-6); }
+.premui-w-kv-label {
+  font-size: 12px; font-weight: 400; line-height: 16px;
+  color: var(--color-text-sub);
+}
+.premui-w-kv-value {
+  display: flex; align-items: center; gap: var(--spacing-8);
+  font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+.premui-w-kv-value i { font-size: 20px; color: var(--color-icon-sub); flex-shrink: 0; }
+.premui-w-kv-value .premui-w-kv-logo { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* ── Notes ── */
+
+.premui-w-note {
+  display: flex; gap: var(--spacing-10); padding: var(--spacing-12) 0;
+  border-bottom: 1px solid var(--color-stroke-soft);
+}
+.premui-w-note:last-child { border-bottom: none; padding-bottom: 0; }
+.premui-w-note-check {
+  flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px;
+  border-radius: var(--radius-full);
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--color-stroke-sub);
+  color: transparent; font-size: 20px;
+}
+.premui-w-note-check[data-done] {
+  border: none; color: var(--color-state-success-base);
+}
+.premui-w-note-body { display: flex; flex-direction: column; gap: var(--spacing-4); min-width: 0; flex: 1; }
+.premui-w-note-title {
+  font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: -0.084px;
+  color: var(--color-text-strong);
+}
+.premui-w-note-title[data-done] { color: var(--color-text-soft); text-decoration: line-through; }
+.premui-w-note-desc {
+  font-size: 13px; font-weight: 400; line-height: 18px;
+  color: var(--color-text-sub);
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+}
+.premui-w-note-meta { display: flex; align-items: center; gap: var(--spacing-8); margin-top: 2px; }
+.premui-w-note-date {
+  display: inline-flex; align-items: center; gap: var(--spacing-4); margin-left: auto;
+  font-size: 12px; color: var(--color-text-sub);
+}
+.premui-w-note-date i { font-size: 14px; }
+
+/* ── Schedule ── */
+
+.premui-w-month {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--spacing-8) 0;
+}
+.premui-w-month-label { font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-nav-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: var(--radius-8);
+  border: 1px solid var(--color-stroke-soft); background: var(--color-bg-white, #fff);
+  color: var(--color-icon-sub); font-size: 18px; cursor: pointer;
+}
+.premui-w-days { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4); margin-bottom: var(--spacing-12); }
+.premui-w-day {
+  flex: 0 0 auto; width: 48px; box-sizing: border-box;
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  padding: var(--spacing-8) var(--spacing-4); border-radius: var(--radius-8);
+  border: none; background: var(--color-bg-white, #fff); cursor: pointer; font-family: inherit;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+.premui-w-day:hover:not([data-active]),
+.premui-w-day[data-state="hover"] { background: var(--color-bg-weak); }
+.premui-w-day-name { width: 100%; text-align: center; font-size: 12px; font-weight: 400; line-height: 16px; color: var(--color-text-sub); }
+.premui-w-day-num { width: 100%; text-align: center; font-size: 16px; font-weight: 500; line-height: 24px; letter-spacing: -0.176px; color: var(--color-text-strong); }
+.premui-w-day[data-active] { background: var(--primary-base); }
+.premui-w-day[data-active] .premui-w-day-name,
+.premui-w-day[data-active] .premui-w-day-num { color: var(--color-static-white); }
+
+.premui-w-search {
+  display: flex; align-items: center; gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-10);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-8);
+  margin-bottom: var(--spacing-4);
+}
+.premui-w-search > i { font-size: 20px; color: var(--color-icon-soft); flex-shrink: 0; }
+.premui-w-search input {
+  flex: 1; min-width: 0; border: none; outline: none; background: none;
+  font-family: inherit; font-size: 14px; color: var(--color-text-strong);
+}
+.premui-w-search input::placeholder { color: var(--color-text-soft); }
+.premui-w-search-kbd {
+  flex-shrink: 0; padding: 1px 6px; border-radius: var(--radius-4);
+  border: 1px solid var(--color-stroke-soft); font-size: 11px; color: var(--color-text-soft);
+}
+.premui-w-search-filter { font-size: 20px; color: var(--color-icon-soft); flex-shrink: 0; }
+
+.premui-w-tabs {
+  display: flex; align-items: center; gap: var(--spacing-16);
+  border-bottom: 1px solid var(--color-stroke-soft);
+  margin: 0 calc(-1 * var(--spacing-20, 20px));
+  padding: 0 var(--spacing-20, 20px);
+}
+.premui-w-tab {
+  display: inline-flex; align-items: center; gap: var(--spacing-6);
+  padding: var(--spacing-8) 0 var(--spacing-12);
+  border: none; background: none; cursor: pointer; font-family: inherit;
+  font-size: 14px; font-weight: 500; color: var(--color-text-sub);
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.premui-w-tab i { font-size: 18px; }
+.premui-w-tab[data-active] { color: var(--primary-base); border-bottom-color: var(--primary-base); }
+
+.premui-w-detail-tabs { display: flex; flex-direction: column; flex: 1; }
+.premui-w-detail-list { display: flex; flex-direction: column; gap: var(--spacing-12); margin-top: var(--spacing-16); }
+
+.premui-w-meeting {
+  display: flex; flex-direction: column; gap: var(--spacing-8);
+  padding: var(--spacing-12);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-12);
+  background: var(--color-bg-white, #fff);
+}
+.premui-w-meeting-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-8); }
+.premui-w-meeting-title { font-size: 14px; font-weight: 500; line-height: 20px; color: var(--color-text-strong); }
+.premui-w-meeting-time { font-size: 12px; color: var(--color-text-sub); margin-top: 2px; }
+.premui-w-meeting-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8); }
+.premui-w-meeting-on { font-size: 12px; color: var(--color-text-sub); }
+
+/* ── Schedule Card ── */
+
+.premui-w-scard {
+  display: flex; flex-direction: column; gap: var(--spacing-14, 14px);
+  box-sizing: border-box; width: 100%;
+  padding: var(--spacing-16); border-radius: var(--radius-12);
+  background: var(--color-bg-weak);
+}
+.premui-w-scard-head { display: flex; align-items: flex-start; gap: var(--spacing-16); width: 100%; }
+.premui-w-scard-titles { display: flex; flex-direction: column; gap: var(--spacing-4); flex: 1; min-width: 0; }
+.premui-w-scard-title { font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: -0.084px; color: var(--color-text-strong); }
+.premui-w-scard-meta { font-size: 12px; font-weight: 500; line-height: 16px; letter-spacing: 0.48px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-scard-address { display: flex; align-items: center; gap: var(--spacing-8); width: 100%; }
+.premui-w-scard-pin {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  padding: var(--spacing-4); border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small);
+}
+.premui-w-scard-pin i { font-size: 20px; display: block; }
+.premui-w-scard-emoji { font-size: 14px; width: 28px; height: 28px; }
+.premui-w-scard-address-text { flex: 1; min-width: 0; font-size: 14px; letter-spacing: -0.084px; color: var(--color-text-strong); }
+.premui-w-scard-bottom { display: flex; align-items: center; gap: var(--spacing-16); width: 100%; }
+.premui-w-scard-on { flex: 1; min-width: 0; font-size: 12px; color: var(--color-text-sub); }
+.premui-w-scard-going { display: inline-flex; align-items: center; gap: var(--spacing-4); font-size: 12px; color: var(--color-text-sub); }
+.premui-w-scard-going i { font-size: 16px; }
+
+.premui-w-compact-avatars {
+  display: inline-flex; align-items: center; gap: var(--spacing-6); align-self: flex-start;
+  padding: 2px var(--spacing-8) 2px 2px; border-radius: var(--radius-full);
+  background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small);
+}
+.premui-w-compact-avatars-list { display: inline-flex; }
+.premui-w-compact-avatar { border-radius: var(--radius-full); box-shadow: 0 0 0 2px var(--color-bg-white, #fff); }
+.premui-w-compact-avatars-list .premui-w-compact-avatar + .premui-w-compact-avatar { margin-left: -6px; }
+.premui-w-compact-avatars-count { font-size: 12px; color: var(--color-text-sub); }
+
+/* ── Time Tracker ── */
+
+.premui-w-tracker-select {
+  display: flex; align-items: center; gap: var(--spacing-8);
+  box-sizing: border-box; width: 100%; text-align: left;
+  padding: var(--spacing-10) var(--spacing-12);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff); font-family: inherit;
+  font-size: 14px; font-weight: 500; color: var(--color-text-strong); cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default),
+    border-color var(--motion-duration-fast) var(--motion-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+}
+.premui-w-tracker-select img { width: 20px; height: 20px; flex-shrink: 0; }
+.premui-w-tracker-select-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.premui-w-tracker-select .caret { margin-left: auto; font-size: 20px; color: var(--color-icon-soft); flex-shrink: 0; }
+.premui-w-tracker-select:hover,
+.premui-w-tracker-select[data-state="hover"] { background: var(--color-bg-weak); }
+.premui-w-tracker-select:focus-visible,
+.premui-w-tracker-select[data-state="focus"] { outline: none; border-color: var(--primary-base); box-shadow: 0 0 0 2px var(--primary-alpha-10, rgba(51,92,255,0.1)); }
+.premui-w-tracker-select[data-state="active"] { border-color: var(--color-stroke-sub); background: var(--color-bg-weak); }
+.premui-w-tracker-timer { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); padding: var(--spacing-16) 0; }
+.premui-w-tracker-status { font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-tracker-status[data-ongoing] { color: var(--color-state-success-base); }
+.premui-w-tracker-time { font-size: 40px; font-weight: 500; letter-spacing: -0.8px; color: var(--color-text-strong); line-height: 1; }
+.premui-w-tracker-time .sec { color: var(--color-text-soft); }
+.premui-w-tracker-time[data-ongoing] { color: var(--color-text-strong); }
+.premui-w-tracker-start { display: inline-flex; align-items: center; gap: var(--spacing-4); color: var(--primary-base); font-size: 14px; font-weight: 500; background: none; border: none; cursor: pointer; font-family: inherit; }
+.premui-w-tracker-start.is-stop { color: var(--color-state-error-base); }
+.premui-w-label-sm { font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-soft); }
+.premui-w-sep-inline { height: 1px; background: var(--color-stroke-soft); margin: var(--spacing-16) 0; }
+
+/* ── Employee Spotlight ── */
+
+.premui-w-spotlight { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); text-align: center; padding-top: var(--spacing-8); }
+.premui-w-spotlight-name { font-size: 16px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-spotlight-role { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-spotlight-art { width: 140px; height: 140px; margin: var(--spacing-8) 0; }
+.premui-w-spotlight-caption { font-size: 13px; color: var(--color-text-sub); }
+
+/* ── Employee Spotlight Tabs ── */
+
+.premui-w-spotlight-tabs { display: flex; flex-direction: column; gap: var(--spacing-16); width: 100%; }
+
+.premui-w-badge {
+  position: relative;
+  width: 100%;
+  height: 156px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.premui-w-badge-star {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 136px; height: 136px; pointer-events: none;
+}
+.premui-w-badge-flag {
+  position: absolute; top: calc(50% - 4px); transform: translate(-50%, -50%);
+  width: 56px; height: 32px; pointer-events: none;
+}
+.premui-w-badge-flag.is-left { left: calc(50% - 80px); }
+.premui-w-badge-flag.is-right { left: calc(50% + 80px); }
+.premui-w-badge-center {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 96px; height: 96px; border-radius: var(--radius-full);
+  border: 4px solid #122368; background: var(--color-bg-white, #fff);
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.premui-w-badge-gift {
+  display: flex; align-items: center; justify-content: center;
+  width: 72px; height: 72px; border-radius: var(--radius-full);
+  background: var(--color-state-information-light);
+  color: #122368; font-size: 40px;
+}
+
+.premui-w-comments { display: flex; flex-direction: column; gap: var(--spacing-16); width: 100%; }
+.premui-w-comment { display: flex; align-items: center; gap: var(--spacing-12); width: 100%; }
+.premui-w-comment-body { display: flex; flex-direction: column; gap: var(--spacing-4); min-width: 0; flex: 1; }
+.premui-w-comment-name { font-size: 12px; font-weight: 400; line-height: 16px; color: var(--color-text-sub); }
+.premui-w-comment-text { font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: -0.084px; color: var(--color-text-strong); }
+.premui-w-comment-btn { display: flex; align-items: center; justify-content: center; gap: var(--spacing-4); }
+.premui-w-comment-btn i { font-size: 20px; }
+
+/* ── Daily Feedback ── */
+
+.premui-w-feedback { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-8); text-align: center; }
+.premui-w-feedback-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--radius-full);
+  background: var(--color-state-information-lighter); color: var(--color-state-information-base);
+  font-size: 13px; font-weight: 600;
+}
+.premui-w-feedback-q { font-size: 16px; font-weight: 500; line-height: 22px; color: var(--color-text-strong); }
+.premui-w-feedback-sub { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-emoji-row { display: flex; width: 100%; border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10); overflow: hidden; }
+.premui-w-emoji {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: var(--spacing-8) 0; font-size: 20px; cursor: pointer;
+  border-right: 1px solid var(--color-stroke-soft); background: var(--color-bg-white, #fff);
+}
+.premui-w-emoji:last-child { border-right: none; }
+.premui-w-emoji[data-active] { background: var(--color-bg-weak); }
+.premui-w-emoji-row { margin-top: var(--spacing-8); }
+.premui-w-textarea {
+  width: 100%; box-sizing: border-box; resize: none;
+  padding: var(--spacing-10) var(--spacing-12);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10);
+  font-family: inherit; font-size: 14px; color: var(--color-text-strong); outline: none;
+}
+.premui-w-textarea::placeholder { color: var(--color-text-soft); }
+.premui-w-textarea:focus { border-color: var(--color-stroke-sub); }
+.premui-w-fullbtn {
+  width: 100%; box-sizing: border-box; height: 40px;
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10);
+  background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small);
+  font-family: inherit; font-size: 14px; font-weight: 500; color: var(--color-text-sub);
+  cursor: pointer; transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+.premui-w-fullbtn:hover { background: var(--color-bg-weak); }
+
+/* ── Work Hour Analysis ── */
+
+.premui-w-total { display: flex; align-items: center; gap: var(--spacing-10); }
+.premui-w-total-icon {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 40px; height: 40px; border-radius: var(--radius-full);
+  background: var(--color-state-information-lighter); color: var(--color-state-information-base); font-size: 20px;
+}
+.premui-w-total-icon[data-muted] { background: var(--color-bg-weak); color: var(--color-icon-soft); }
+.premui-w-total-label { font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-total-value { font-size: 18px; font-weight: 500; letter-spacing: -0.27px; color: var(--color-text-strong); }
+.premui-w-foot-note { display: flex; align-items: center; gap: var(--spacing-4); font-size: 12px; color: var(--color-text-soft); margin-top: var(--spacing-12); }
+.premui-w-foot-note i { font-size: 14px; }
+
+/* Inline charts */
+.premui-w-chart { width: 100%; display: block; }
+.premui-w-line { fill: none; stroke: var(--primary-base); stroke-width: 2; }
+.premui-w-line[data-muted] { stroke: var(--color-stroke-sub); }
+.premui-w-bar { fill: var(--primary-base); }
+.premui-w-bar[data-alt] { fill: var(--color-state-information-light); }
+.premui-w-bar[data-muted] { fill: var(--color-bg-soft); }
+
+/* ── Daily Work Hours (stacked bar + legend) ── */
+
+.premui-w-hours-total { font-size: 16px; font-weight: 400; color: var(--color-text-sub); }
+.premui-w-hours-total b { font-weight: 600; color: var(--color-text-strong); }
+.premui-w-stack { display: flex; gap: var(--spacing-4); height: 12px; margin: var(--spacing-12) 0; }
+.premui-w-stack-seg { height: 100%; border-radius: var(--radius-full); }
+.premui-w-stack-seg[data-color="yellow"] { background: var(--color-state-away-base); }
+.premui-w-stack-seg[data-color="blue"] { background: var(--color-state-information-base); }
+.premui-w-stack-seg[data-color="purple"] { background: var(--color-state-feature-base); }
+.premui-w-stack-seg[data-muted] { background: var(--color-bg-soft); }
+.premui-w-legend { display: flex; gap: var(--spacing-16); flex-wrap: wrap; }
+.premui-w-legend-item { display: inline-flex; align-items: center; gap: var(--spacing-6); font-size: 12px; color: var(--color-text-sub); }
+.premui-w-legend-dot { width: 8px; height: 8px; border-radius: var(--radius-full); flex-shrink: 0; }
+.premui-w-legend-dot[data-color="yellow"] { background: var(--color-state-away-base); }
+.premui-w-legend-dot[data-color="blue"] { background: var(--color-state-information-base); }
+.premui-w-legend-dot[data-color="purple"] { background: var(--color-state-feature-base); }
+.premui-w-legend-item[data-muted] { color: var(--color-text-disabled); }
+.premui-w-legend-item[data-muted] .premui-w-legend-dot { background: var(--color-bg-soft); }
+
+/* ── Training Analysis / Course Progress / Employee Rating ── */
+
+.premui-w-mini-title { font-size: 20px; font-weight: 500; letter-spacing: -0.3px; color: var(--color-text-strong); }
+.premui-w-mini-sub { font-size: 13px; color: var(--color-text-sub); margin-top: 2px; }
+.premui-w-split { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-16); }
+.premui-w-attend { display: inline-flex; align-items: center; gap: var(--spacing-8); font-size: 13px; color: var(--color-text-sub); }
+
+.premui-w-progress-row { display: flex; align-items: center; gap: var(--spacing-16); }
+.premui-w-progress-copy { display: flex; flex-direction: column; gap: var(--spacing-4); min-width: 0; }
+.premui-w-progress-title { font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-progress-desc { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-link { color: var(--primary-base); font-size: 13px; font-weight: 500; text-decoration: none; cursor: pointer; }
+
+.premui-w-rating-label { font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-rating-score { display: flex; align-items: center; gap: var(--spacing-6); margin-top: var(--spacing-6); }
+.premui-w-rating-score i { color: var(--color-state-away-base); font-size: 22px; }
+.premui-w-rating-num { font-size: 22px; font-weight: 500; letter-spacing: -0.3px; color: var(--color-text-strong); }
+.premui-w-rating-overall { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-rating-field {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8);
+  margin-top: var(--spacing-16); padding: var(--spacing-10) var(--spacing-12);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10);
+  font-size: 14px; color: var(--color-text-soft);
+}
+.premui-w-rating-field i { color: var(--color-icon-soft); font-size: 18px; }
+
+/* ── Courses table ── */
+
+.premui-w-table { width: 100%; border-collapse: collapse; }
+.premui-w-table th {
+  text-align: left; padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-bg-weak);
+  font-size: 12px; font-weight: 500; color: var(--color-text-sub);
+}
+.premui-w-table th:first-child { padding-left: var(--spacing-20, 20px); }
+.premui-w-table th:last-child { padding-right: var(--spacing-20, 20px); }
+.premui-w-table td {
+  padding: var(--spacing-10) var(--spacing-12);
+  border-bottom: 1px solid var(--color-stroke-soft);
+  font-size: 13px; color: var(--color-text-strong); vertical-align: middle;
+}
+.premui-w-table td:first-child { padding-left: var(--spacing-20, 20px); }
+.premui-w-table td:last-child { padding-right: var(--spacing-20, 20px); }
+.premui-w-table tr:last-child td { border-bottom: none; }
+.premui-w-table-person { display: flex; align-items: center; gap: var(--spacing-8); }
+.premui-w-table-person-name { font-size: 13px; font-weight: 500; color: var(--color-text-strong); white-space: nowrap; }
+.premui-w-table-person-role { font-size: 12px; color: var(--color-text-sub); white-space: nowrap; }
+.premui-w-table-course { font-size: 13px; font-weight: 500; color: var(--color-text-strong); white-space: nowrap; }
+.premui-w-table-date { font-size: 12px; color: var(--color-text-sub); white-space: nowrap; }
+.premui-w-table-progress { display: flex; align-items: center; gap: var(--spacing-8); min-width: 120px; }
+.premui-w-table-progress span { font-size: 12px; color: var(--color-text-sub); width: 34px; }

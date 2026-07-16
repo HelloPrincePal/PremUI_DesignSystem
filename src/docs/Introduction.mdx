@@ -6,15 +6,22 @@ import { Meta } from '@storybook/blocks';
 
 A code-first, AI-native design system component library migrated from Figma.
 
+> **🤖 Building with an AI agent?** See **[For AI Agents](?path=/docs/for-ai-agents--docs)** — a copy‑paste prompt plus the rules an agent needs to build an app using PremUI only. New components are logged on the **[Changelog](?path=/docs/changelog--docs)** page.
+
 ## Architecture
 
 The system follows a strict **3-tier token hierarchy**:
 
-| Tier | Path | Purpose |
-|------|------|---------|
-| **Core** | `tokens/core/` | Raw primitive values (colors, spacing, radius) |
-| **Semantic** | `tokens/semantic/` | Themed, context-aware mappings (bg, text, stroke) |
-| **Component** | per-component CSS | Component-specific token consumption |
+<table>
+  <thead>
+    <tr><th>Tier</th><th>Path</th><th>Purpose</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Core</strong></td><td><code>tokens/core/</code></td><td>Raw primitive values (colors, spacing, radius)</td></tr>
+    <tr><td><strong>Semantic</strong></td><td><code>tokens/semantic/</code></td><td>Themed, context-aware mappings (bg, text, stroke)</td></tr>
+    <tr><td><strong>Component</strong></td><td>per-component CSS</td><td>Component-specific token consumption</td></tr>
+  </tbody>
+</table>
 
 > **Rule:** Components must never reference core tokens directly. Always go through semantic.
 

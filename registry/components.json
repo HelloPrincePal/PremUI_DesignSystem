@@ -1125,6 +1125,131 @@
         "--shadow-regular-x-small",
         "--shadow-regular-medium"
       ]
+    },
+    {
+      "name": "PageHeader",
+      "type": "ui:component",
+      "description": "Product Components > Page Headers. PageHeader (top-of-page header row — title + description, optional leading avatar/icon/brand via a generic slot, search + notification icon buttons, and secondary + primary action buttons) and SectionHeader (lighter in-page section header with tighter padding and search only, no notification bell). Both share one internal HeaderBar shell; the five Figma leading variants are supplied by composition rather than baked-in enums.",
+      "dependencies": [
+        "TopbarIconButton",
+        "Avatar",
+        "KeyIcon",
+        "PlaceholderBrand"
+      ],
+      "files": [
+        "src/components/PageHeader/PageHeader.tsx",
+        "src/components/PageHeader/SectionHeader.tsx",
+        "src/components/PageHeader/HeaderBar.tsx",
+        "src/components/PageHeader/page-header.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--primary-base",
+        "--primary-dark",
+        "--color-static-white",
+        "--radius-10",
+        "--spacing-4",
+        "--spacing-6",
+        "--spacing-10",
+        "--spacing-12",
+        "--spacing-14",
+        "--spacing-16",
+        "--spacing-20",
+        "--spacing-32",
+        "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "type": "ui:component",
+      "description": "Product Components > Empty States. Playful grayscale empty-state illustration shown inside a widget or panel with no content yet — renders one of 34 self-contained SVG illustrations by set + type (18 HR Management, 16 Finance & Banking), with optional title/description/action slots for the common empty-state composition (hidden by default). Illustrations come from the local src/assets/Empty States/ asset set.",
+      "dependencies": [],
+      "files": [
+        "src/components/EmptyStates/EmptyState.tsx",
+        "src/components/EmptyStates/empty-states.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-text-strong",
+        "--color-text-sub",
+        "--spacing-4",
+        "--spacing-8",
+        "--spacing-16"
+      ]
+    },
+    {
+      "name": "Widgets",
+      "type": "ui:component",
+      "description": "Product Components > Widgets. 14 HR-management dashboard widgets (Time Off, Current Project, Status Tracker, Notes, Schedule, Time Tracker, Employee Spotlight, Daily Feedback, Work Hour Analysis, Courses, Daily Work Hours, Training Analysis, Course Progress, Employee Rating) on a shared WidgetCard shell. Each has a populated and an empty variant (empties reuse the EmptyState illustrations). Composed entirely from existing primitives (SegmentedControl, ProgressBar, CircularProgressBar, Avatar, AvatarGroup, Badge, EmptyState).",
+      "dependencies": [
+        "WidgetCard",
+        "SegmentedControl",
+        "ProgressBar",
+        "CircularProgressBar",
+        "Avatar",
+        "AvatarGroup",
+        "Badge",
+        "EmptyState"
+      ],
+      "files": [
+        "src/components/Widgets/WidgetCard.tsx",
+        "src/components/Widgets/GaugeBar.tsx",
+        "src/components/Widgets/NoteItem.tsx",
+        "src/components/Widgets/EmployeeSpotlightTabs.tsx",
+        "src/components/Widgets/ScheduleDate.tsx",
+        "src/components/Widgets/DaySelection.tsx",
+        "src/components/Widgets/ScheduleCard.tsx",
+        "src/components/Widgets/ScheduleDetailTabs.tsx",
+        "src/components/Widgets/TimeTrackerDropdown.tsx",
+        "src/components/Widgets/Timer.tsx",
+        "src/components/Widgets/TimeOffWidget.tsx",
+        "src/components/Widgets/CurrentProjectWidget.tsx",
+        "src/components/Widgets/StatusTrackerWidget.tsx",
+        "src/components/Widgets/NotesWidget.tsx",
+        "src/components/Widgets/ScheduleWidget.tsx",
+        "src/components/Widgets/TimeTrackerWidget.tsx",
+        "src/components/Widgets/EmployeeSpotlightWidget.tsx",
+        "src/components/Widgets/DailyFeedbackWidget.tsx",
+        "src/components/Widgets/WorkHourAnalysisWidget.tsx",
+        "src/components/Widgets/CoursesWidget.tsx",
+        "src/components/Widgets/DailyWorkHoursWidget.tsx",
+        "src/components/Widgets/TrainingAnalysisWidget.tsx",
+        "src/components/Widgets/CourseProgressWidget.tsx",
+        "src/components/Widgets/EmployeeRatingWidget.tsx",
+        "src/components/Widgets/widgets.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-white",
+        "--color-bg-weak",
+        "--color-bg-soft",
+        "--color-stroke-soft",
+        "--color-stroke-sub",
+        "--color-text-strong",
+        "--color-text-sub",
+        "--color-text-soft",
+        "--color-text-disabled",
+        "--color-icon-sub",
+        "--color-icon-soft",
+        "--primary-base",
+        "--color-static-white",
+        "--color-state-warning-base",
+        "--color-state-warning-lighter",
+        "--color-state-success-base",
+        "--color-state-error-base",
+        "--color-state-information-base",
+        "--color-state-information-lighter",
+        "--color-state-away-base",
+        "--color-state-feature-base",
+        "--radius-8",
+        "--radius-10",
+        "--radius-12",
+        "--radius-16",
+        "--radius-full",
+        "--shadow-regular-x-small"
+      ]
     }
   ]
 }

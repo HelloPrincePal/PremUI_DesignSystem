@@ -1,0 +1,25 @@
+{
+  "name": "EmptyState",
+  "description": "Playful grayscale empty-state illustration shown inside a widget or panel with no content yet. Renders one of 34 self-contained SVG illustrations by set + type (18 HR Management, 16 Finance & Banking), with optional title/description/action slots for the common empty-state composition.",
+  "category": "product",
+  "status": "stable",
+  "version": "1.0.0",
+  "figmaSource": "https://www.figma.com/design/Qf5Bz3iHuqOKWU5ibeAmVC/Align-UI-%E2%9C%A6-Design-System--2.0-?node-id=3860-4495",
+  "sourceNote": "Ported from Figma nodes 3860:4495 (Empty States [HR Management]) and 3860:5822 (Empty States [Finance & Banking]). Each Figma type is a self-contained 148px illustration (light-gray circle + monochrome art); the SVGs were supplied locally under src/assets/Empty States/ (HR Management Widgets / Finance and Banking Widgets) rather than exported via MCP. Figma's per-widget type enum is collapsed into a runtime registry built from the glob keys — the `🧩 Type=<emoji> <Name>.svg` filename convention is parsed down to the clean `type` name. The title/description/action slots are not in the Figma illustration frames; they're optional and hidden by default, so the bare component reproduces the Figma illustration exactly while still supporting a real empty-state layout.",
+  "props": {
+    "EmptyState": {
+      "set": { "type": "string", "options": ["hr", "finance"], "default": "hr" },
+      "type": { "type": "string", "default": "(first type in set)" },
+      "size": { "type": "number", "default": 148 },
+      "title": { "type": "ReactNode" },
+      "description": { "type": "ReactNode" },
+      "action": { "type": "ReactNode" }
+    }
+  },
+  "exports": ["EmptyState", "EMPTY_STATE_TYPES"],
+  "tokens": {
+    "colors": ["--color-text-strong", "--color-text-sub"],
+    "spacing": ["--spacing-4", "--spacing-8", "--spacing-16"]
+  },
+  "dependencies": []
+}

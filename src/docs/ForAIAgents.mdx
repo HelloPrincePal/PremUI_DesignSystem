@@ -1,0 +1,150 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="For AI Agents" />
+
+# Building with PremUI using an AI Agent
+
+This page is written for **AI coding agents** (Claude Code, Cursor, Copilot, etc.) and for the
+people prompting them. It gives an agent everything it needs to build an app that uses the
+**PremUI Design System — and only PremUI**.
+
+> **Which link should I give the agent?**
+> Give it the **GitHub repo** — that's the source of truth an agent can actually read
+> (component source, prop types, design tokens, and the machine-readable
+> `registry/components.json`). Share the **live Storybook** as a *visual* companion so the agent
+> (and you) can see what each component looks like. A deployed Storybook alone is minified
+> JavaScript, so an agent can't learn the API from it — always include the repo.
+
+- **Repository (source of truth):** https://github.com/HelloPrincePal/PremUI_DesignSystem
+- **Live Storybook (visual reference):** https://helloprincepal.github.io/PremUI_DesignSystem/
+- **Machine-readable manifest:** [`registry/components.json`](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/registry/components.json)
+- **Agent guides at the repo root:** [`AGENTS.md`](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/AGENTS.md) · [`llms.txt`](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/llms.txt)
+
+---
+
+## ⭐ Copy-paste prompt
+
+Paste this into your AI agent, replace the two placeholders (Storybook URL + app description),
+and it will build using PremUI only.
+
+```text
+You are building a web app with the PremUI Design System — and ONLY this design system.
+Do NOT use any other UI library (no MUI, Chakra, Bootstrap, Ant, Radix, Tailwind UI, default
+shadcn, etc.) and do NOT hand-roll components that PremUI already provides.
+
+SOURCES
+- Repository (read this first — source of truth):
+  https://github.com/HelloPrincePal/PremUI_DesignSystem
+- Visual reference (see how each component looks + its props):
+  https://helloprincepal.github.io/PremUI_DesignSystem/
+- Component manifest (every component, its files, its dependencies):
+  registry/components.json
+- Agent guide: AGENTS.md and llms.txt at the repo root. READ THESE before writing code.
+
+SETUP
+1. Read the repo. Copy `src/components/`, `src/styles/`, and `src/assets/` into the target
+   project (React 19 + TypeScript). PremUI is vanilla CSS + React — no Tailwind, no CSS-in-JS.
+2. Import the global stylesheet ONCE at the app root:
+      import '@premui/design-system/src/styles/globals.css';
+   This loads the design tokens and the Remix Icon font.
+3. Import components from the barrel `src/index.ts`, e.g.:
+      import { Button, Badge, Modal, TopbarNavigation } from '@premui/design-system';
+   (or per-component, e.g. `import { Button } from '.../components/Button/Button'`).
+
+HARD RULES
+- Use a PremUI component for anything it covers (buttons, inputs, badges, modals, tables,
+  navigation, page headers, widgets, empty states, …). Check registry/components.json BEFORE
+  building anything custom — there are 50+ components.
+- Style ONLY with the design tokens (CSS variables in src/styles/variables.css). Never hardcode
+  hex colors, shadows, or radii. The spacing scale is exactly
+  0, 2, 4, 6, 8, 10, 12, 16, 24, 32, 40, 48; any other value uses a px fallback like
+  var(--spacing-20, 20px).
+- Icons: Remix Icon ONLY, e.g. <i className="ri-home-line" />. Verify the name exists.
+- Theming: set data-theme="light|dark" and data-theme-color="blue|purple|orange|green" on a
+  wrapping element. Never fork a component's CSS just to theme it.
+- Compose the product components (SidebarNavigation, TopbarNavigation, Widgets, PageHeader)
+  from their existing parts instead of reimplementing them.
+- If a genuinely-needed component does not exist, build it with the SAME tokens and conventions
+  and tell me — do not pull in another library.
+
+HOW TO WORK
+1. First list which PremUI components you'll use for each part of the UI.
+2. Then implement, importing from PremUI and keeping the app theme-aware (light + dark).
+3. If unsure how a component looks or what props it takes, open its story in Storybook and
+   read its `.tsx` + `.meta.json` in the repo.
+
+APP TO BUILD:
+<<< describe your app here — screens, features, and any brand accent color >>>
+```
+
+### Short version (for a quick task)
+
+```text
+Build this using ONLY the PremUI Design System
+(https://github.com/HelloPrincePal/PremUI_DesignSystem — read registry/components.json and
+AGENTS.md). Import components from the barrel, import src/styles/globals.css once, style only
+with the CSS-variable tokens, use Remix Icon only, and theme via data-theme / data-theme-color.
+Don't use any other UI library. Task: <<< ... >>>
+```
+
+---
+
+## What the agent needs to know
+
+### Consuming the system
+PremUI is currently a **private, code-first library** (`@premui/design-system`, not published to
+npm). Distribution is **copy-in**, shadcn-style:
+
+- Read [`registry/components.json`](https://github.com/HelloPrincePal/PremUI_DesignSystem/blob/main/registry/components.json)
+  — each entry lists a component's `files`, `dependencies`, and `cssVariablesUsed`.
+- Copy the listed files (plus `src/styles/` and any referenced `src/assets/`) into the target app.
+- Import components from the barrel `src/index.ts` and load `src/styles/globals.css` once.
+
+### The rules (non-negotiable)
+1. **Tokens only** — 3-tier hierarchy (Core → Semantic → Component). Components consume
+   *semantic* tokens; never hardcode values. See the **Foundations** pages (Colors, Typography,
+   Spacing, Radius, Shadows, Motion).
+2. **Remix Icon only** — `<i className="ri-...-line" />`.
+3. **Theme via data attributes** — `data-theme` (light/dark) and `data-theme-color`
+   (blue/purple/orange/green).
+4. **Compose, don't reinvent** — product components are assembled from primitives.
+
+### Component inventory (50+ components)
+Full, authoritative list is in `registry/components.json`. Grouped overview:
+
+- **Buttons:** Button, LinkButton, SocialButton, CompactButton, FancyButton, ButtonGroup
+- **Forms & inputs:** TextInput (Input/TagInput/CounterInput/PinInput/InlineInput), TextArea,
+  Checkbox, Radio, Switch, ColorPicker, DatePicker, TimePicker, FileUpload, FormHelpers,
+  SegmentedControl, Filter
+- **Data display:** Badge, StatusBadge, Tag, Table, Pagination, ProgressBar, Rating,
+  ChartLegend, Avatar, KeyIcon, PaymentIcon, ActivityFeed, ContentItem, ContentDivider
+- **Overlay & feedback:** Modal, Drawer, Popover, Tooltip, CommandMenu, Dropdown, Alert, Banner,
+  NotificationFeed, Accordion, RichEditor, Scroll, Breadcrumb
+- **Product Components** (composed): SidebarNavigation + Sidebar Components, TopbarNavigation +
+  Topbar Components, PageHeader / SectionHeader, EmptyState, and Widgets (14 HR dashboard
+  widgets + reusable parts).
+
+### A minimal example
+
+```tsx
+import '@premui/design-system/src/styles/globals.css';
+import { PageHeader, Button, Badge, TimeOffWidget } from '@premui/design-system';
+
+export default function App() {
+  return (
+    <div data-theme="light" data-theme-color="blue">
+      <PageHeader
+        title="Team Dashboard"
+        description="Everything your team is working on."
+        primaryLabel="Create Request"
+      />
+      <main style={{ display: 'flex', gap: 'var(--spacing-24)', padding: 'var(--spacing-24)' }}>
+        <TimeOffWidget />
+        <Badge color="green" style="light">On track</Badge>
+      </main>
+    </div>
+  );
+}
+```
+
+That's it — point the agent at the repo, paste the prompt, and it will build with PremUI end to end.

@@ -1,0 +1,168 @@
+/* ============================================================
+   Page Headers — Align UI Design System 2.0
+   Figma nodes 3829:27898 (Page Header [1.1]) and
+   3880:63403 (Section Header [1.1]). Product Components >
+   Page Headers.
+
+   One shared shell (`.premui-page-header`) drives both the
+   Page Header (data-size="page", 20px vertical padding, search
+   + notification icon buttons) and the Section Header
+   (data-size="section", 16px vertical padding, search only).
+   Five leading treatments (basic / avatar / left-icon / brand /
+   company) are supplied via the generic `leading` slot rather
+   than baked-in variants, mirroring the SidebarNavigation and
+   TopbarNavigation composition pattern.
+   ============================================================ */
+
+.premui-page-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-20, 20px) var(--spacing-32);
+  background: var(--color-bg-white, #fff);
+  overflow: hidden;
+}
+
+.premui-page-header[data-size="section"] {
+  padding: var(--spacing-16) var(--spacing-32);
+}
+
+/* ── Left content (leading + title/description) ── */
+
+.premui-page-header-content {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  align-items: flex-start;
+  gap: var(--spacing-14, 14px);
+}
+
+.premui-page-header-leading {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.premui-page-header-name {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.premui-page-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+  width: 100%;
+}
+
+.premui-page-header-title {
+  min-width: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.27px;
+  color: var(--color-text-strong);
+  word-break: break-word;
+}
+
+.premui-page-header-desc {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+  word-break: break-word;
+}
+
+/* ── Right-side action buttons ── */
+
+.premui-page-header-buttons {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.premui-page-header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 var(--spacing-10);
+  gap: var(--spacing-4);
+  border: none;
+  border-radius: var(--radius-10);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default),
+    border-color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.premui-page-header-btn i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.premui-page-header-btn span {
+  padding: 0 var(--spacing-4);
+}
+
+.premui-page-header-btn[data-variant="secondary"] {
+  background: var(--color-bg-white, #fff);
+  border: 1px solid var(--color-stroke-soft);
+  box-shadow: var(--shadow-regular-x-small);
+  color: var(--color-text-sub);
+}
+
+.premui-page-header-btn[data-variant="secondary"]:hover {
+  background: var(--color-bg-weak);
+}
+
+.premui-page-header-btn[data-variant="primary"] {
+  background: var(--primary-base);
+  color: var(--color-static-white);
+}
+
+.premui-page-header-btn[data-variant="primary"]:hover {
+  background: var(--primary-dark);
+}
+
+.premui-page-header-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-component-button-important-focus);
+}
+
+.premui-page-header-btn[data-variant="primary"]:focus-visible {
+  box-shadow: var(--shadow-component-button-primary-focus);
+}
+
+/* ── Bottom divider ── */
+
+.premui-page-header-divider {
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing-32);
+  right: var(--spacing-32);
+  height: 1px;
+  background: var(--color-stroke-soft);
+}

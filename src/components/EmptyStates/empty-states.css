@@ -1,0 +1,51 @@
+/* ============================================================
+   Empty States — Align UI Design System 2.0
+   Figma nodes 3860:4495 (HR Management) and 3860:5822
+   (Finance & Banking). Product Components > Empty States.
+
+   The illustration itself is a self-contained SVG (light-gray
+   circle + monochrome art) rendered by the component; the
+   title/description/action below are optional slots for the
+   common empty-state composition and are hidden by default.
+   ============================================================ */
+
+.premui-empty-state {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  text-align: center;
+}
+
+.premui-empty-state-art {
+  display: block;
+  flex-shrink: 0;
+}
+
+.premui-empty-state-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  max-width: 352px;
+}
+
+.premui-empty-state-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.176px;
+  color: var(--color-text-strong);
+}
+
+.premui-empty-state-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.084px;
+  color: var(--color-text-sub);
+}
+
+.premui-empty-state-action {
+  margin-top: var(--spacing-8);
+}

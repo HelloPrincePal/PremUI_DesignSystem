@@ -125,4 +125,8 @@ export * from './components/TopbarComponents/TopbarItem';
 export * from './components/TopbarComponents/TopbarUserProfile';
 export * from './components/TopbarComponents/TopbarIconButton';
 export * from './components/TopbarNavigation/TopbarNavigation';
+export * from './components/PageHeader/PageHeader';
+export * from './components/PageHeader/SectionHeader';
+export * from './components/EmptyStates/EmptyState';
+export * from './components/Widgets';
 

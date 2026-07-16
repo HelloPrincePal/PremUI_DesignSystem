@@ -5,6 +5,11 @@ import premuiTheme from './theme';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['Introduction', 'For AI Agents', 'Changelog', 'Foundations', 'Components', 'Product Components', '*'],
+      },
+    },
     docs: {
       theme: premuiTheme,
     },
