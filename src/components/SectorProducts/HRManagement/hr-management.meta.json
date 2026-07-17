@@ -1,0 +1,13 @@
+{
+  "name": "HRManagement",
+  "description": "Sector Products > HR Management. A folder of full HR app screens and page-specific components assembled from Product Components (HR widgets are reused from Product Components, not duplicated). Contains: HRManagementDashboard (SidebarNavigation + PageHeader + HR widgets), NavigationOnboarding (onboarding top bar with step indicator), and Calendar Page Components.",
+  "category": "sector",
+  "status": "stable",
+  "version": "1.0.0",
+  "sourceNote": "HR Management is an organizational folder under Sector Products, not a single component. Calendar Page Components ported from Figma nodes 3878:61401 (Calendar), 3877:58564 (Calendar Card), 3877:58545 (Card Positioning), 3875:40906 (Calendar Upcoming), 3873:40841 (Upcoming Status). NavigationOnboarding from 3903:28827. The Calendar renders a weekly time-grid by absolutely positioning CalendarCards by day + start/end hour; the disabled day column uses a hatched repeating-linear-gradient. The 75%/liquid and image-heavy Figma assets are approximated with tokenized SVG/CSS.",
+  "components": [
+    "HRManagementDashboard", "NavigationOnboarding",
+    "Calendar", "CalendarCard", "CalendarCell", "CalendarUpcoming", "UpcomingStatus"
+  ],
+  "dependencies": ["SidebarNavigation", "PageHeader", "Widgets", "Avatar", "Button", "CompactButton"]
+}

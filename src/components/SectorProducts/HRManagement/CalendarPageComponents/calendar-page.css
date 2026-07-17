@@ -1,0 +1,94 @@
+/* ============================================================
+   Calendar Page Components — Sector Products > HR Management
+   Figma: Calendar Upcoming (3875:40906), Upcoming Status
+   (3873:40841), Calendar Card (3877:58564), Card Positioning
+   (3877:58545), Calendar (3878:61401).
+   ============================================================ */
+
+/* ── Upcoming Status pill ── */
+.premui-cal-status {
+  display: flex; align-items: center; gap: var(--spacing-6);
+  box-sizing: border-box; padding: var(--spacing-8) var(--spacing-12) var(--spacing-8) var(--spacing-8);
+  border-radius: var(--radius-8); width: 100%;
+}
+.premui-cal-status[data-status="later"] { background: var(--color-state-faded-lighter, #f5f5f5); }
+.premui-cal-status[data-status="cancelled"] { background: var(--color-state-error-lighter, #ffebec); }
+.premui-cal-status[data-status="conflicted"] { background: var(--color-state-warning-lighter, #fff3eb); }
+.premui-cal-status[data-status="today"] { background: var(--color-state-success-lighter, #e3f7ec); }
+.premui-cal-status-icon { flex-shrink: 0; font-size: 16px; }
+.premui-cal-status[data-status="later"] .premui-cal-status-icon { color: var(--color-icon-sub); }
+.premui-cal-status[data-status="cancelled"] .premui-cal-status-icon { color: var(--color-state-error-base); }
+.premui-cal-status[data-status="conflicted"] .premui-cal-status-icon { color: var(--color-state-warning-base); }
+.premui-cal-status[data-status="today"] .premui-cal-status-icon { color: var(--color-state-success-base); }
+.premui-cal-status-label { flex: 1; min-width: 0; font-size: 12px; line-height: 16px; color: var(--color-text-sub); }
+.premui-cal-status-label[data-strong] { font-weight: 500; color: var(--color-text-strong); }
+.premui-cal-status-date { flex-shrink: 0; font-size: 12px; color: var(--color-text-sub); }
+.premui-cal-status-link { flex-shrink: 0; font-size: 12px; font-weight: 500; color: var(--color-text-sub); text-decoration: underline; cursor: pointer; }
+
+/* ── Calendar Upcoming card ── */
+.premui-cal-upcoming {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: var(--spacing-12);
+  width: 264px; padding: var(--spacing-16);
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-16);
+  background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small);
+}
+.premui-cal-upcoming-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-8); }
+.premui-cal-upcoming-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.premui-cal-upcoming-title { font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-cal-upcoming-desc { font-size: 12px; color: var(--color-text-sub); }
+.premui-cal-upcoming-expand {
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: var(--radius-full);
+  border: 1px solid var(--color-stroke-soft); background: var(--color-bg-white,#fff);
+  color: var(--color-icon-sub); font-size: 16px; cursor: pointer;
+}
+
+/* ── Calendar Card (event block) ── */
+.premui-cal-card {
+  box-sizing: border-box; display: flex; flex-direction: column; gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-10); border-radius: var(--radius-8); overflow: hidden;
+}
+.premui-cal-card.is-fill { height: 100%; }
+.premui-cal-card[data-type="meeting"] { background: var(--color-state-information-lighter, #ebf1ff); box-shadow: inset 3px 0 0 var(--color-state-information-base); }
+.premui-cal-card[data-type="event"] { background: var(--color-state-warning-lighter, #fff3eb); box-shadow: inset 3px 0 0 var(--color-state-warning-base); }
+.premui-cal-card[data-completed] { background: var(--color-bg-weak); box-shadow: inset 3px 0 0 var(--color-stroke-sub); }
+.premui-cal-card[data-size="half"] { gap: 2px; }
+.premui-cal-card[data-size="regular"] { min-height: 100px; }
+.premui-cal-card[data-size="regular-extended"] { min-height: 112px; }
+.premui-cal-card[data-size="large"] { min-height: 160px; }
+.premui-cal-card-head { display: flex; flex-direction: column; gap: 2px; }
+.premui-cal-card-title { font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: -0.084px; color: var(--color-text-strong); }
+.premui-cal-card[data-size="half"] .premui-cal-card-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.premui-cal-card[data-completed] .premui-cal-card-title { color: var(--color-text-soft); }
+.premui-cal-card-time { font-size: 12px; line-height: 16px; color: var(--color-text-sub); }
+.premui-cal-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8); margin-top: auto; }
+.premui-cal-card-meta { font-size: 12px; color: var(--color-text-sub); white-space: nowrap; }
+.premui-cal-card-venue { display: inline-flex; align-items: center; gap: var(--spacing-4); font-size: 13px; color: var(--color-text-strong); min-width: 0; }
+.premui-cal-card-venue i { flex-shrink: 0; font-size: 16px; color: var(--color-state-warning-base); }
+.premui-cal-card[data-completed] .premui-cal-card-venue i { color: var(--color-icon-soft); }
+
+/* ── Card Positioning cell ── */
+.premui-cal-cell {
+  position: relative; box-sizing: border-box; width: 200px; height: 120px;
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-8); overflow: hidden;
+}
+.premui-cal-cell[data-disabled] { background: repeating-linear-gradient(-45deg, transparent, transparent 6px, var(--color-bg-weak) 6px, var(--color-bg-weak) 12px); }
+.premui-cal-cell-slot { position: absolute; left: 4px; right: 4px; }
+.premui-cal-cell-slot[data-pos="half-top"] { top: 4px; height: calc(50% - 6px); }
+.premui-cal-cell-slot[data-pos="half-bottom"] { bottom: 4px; height: calc(50% - 6px); }
+.premui-cal-cell-slot[data-pos="regular"], .premui-cal-cell-slot[data-pos="large"] { top: 4px; bottom: 4px; }
+
+/* ── Calendar grid ── */
+.premui-cal { border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-16); overflow: hidden; background: var(--color-bg-white, #fff); font-family: Inter, system-ui, sans-serif; }
+.premui-cal-header { display: grid; grid-template-columns: 64px repeat(var(--cal-days, 5), 1fr); border-bottom: 1px solid var(--color-stroke-soft); background: var(--color-bg-weak); }
+.premui-cal-nav { display: flex; align-items: center; gap: var(--spacing-4); padding: var(--spacing-8); }
+.premui-cal-nav button { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: var(--radius-6); border: 1px solid var(--color-stroke-soft); background: var(--color-bg-white,#fff); color: var(--color-icon-sub); font-size: 16px; cursor: pointer; }
+.premui-cal-day-head { display: flex; align-items: center; justify-content: center; padding: var(--spacing-12); font-size: 12px; font-weight: 500; letter-spacing: 0.4px; text-transform: uppercase; color: var(--color-text-sub); border-left: 1px solid var(--color-stroke-soft); }
+.premui-cal-body { display: grid; grid-template-columns: 64px repeat(var(--cal-days, 5), 1fr); }
+.premui-cal-gutter { position: relative; }
+.premui-cal-hour { height: var(--cal-hour, 120px); position: relative; }
+.premui-cal-hour-label { position: absolute; top: -8px; right: var(--spacing-8); font-size: 12px; color: var(--color-text-sub); }
+.premui-cal-daycol { position: relative; border-left: 1px solid var(--color-stroke-soft); }
+.premui-cal-daycol[data-disabled] { background: repeating-linear-gradient(-45deg, transparent, transparent 7px, var(--color-bg-weak) 7px, var(--color-bg-weak) 14px); }
+.premui-cal-hourline { height: var(--cal-hour, 120px); border-bottom: 1px solid var(--color-stroke-soft); }
+.premui-cal-event { position: absolute; left: 6px; right: 6px; }

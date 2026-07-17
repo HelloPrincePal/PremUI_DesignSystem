@@ -61,7 +61,10 @@ copy-in, shadcn-style).
 - **Overlay & feedback:** Modal, Drawer, Popover, Tooltip, CommandMenu, Dropdown, Alert, Banner,
   NotificationFeed, Accordion, RichEditor, Scroll, Breadcrumb
 - **Product Components:** SidebarNavigation (+ Sidebar Components), TopbarNavigation (+ Topbar
-  Components), PageHeader / SectionHeader, EmptyState, Widgets (14 HR dashboard widgets + parts)
+  Components), PageHeader / SectionHeader, EmptyState, Widgets (HR + Finance & Banking dashboard
+  widgets + parts)
+- **Sector Products:** full industry app screens assembled from Product Components (e.g.
+  HRManagementDashboard = SidebarNavigation + PageHeader + the HR widgets)
 
 ## Example
 

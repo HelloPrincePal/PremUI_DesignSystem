@@ -607,3 +607,264 @@
 .premui-w-table-date { font-size: 12px; color: var(--color-text-sub); white-space: nowrap; }
 .premui-w-table-progress { display: flex; align-items: center; gap: var(--spacing-8); min-width: 120px; }
 .premui-w-table-progress span { font-size: 12px; color: var(--color-text-sub); width: 34px; }
+
+/* ============================================================
+   Finance & Banking widgets — Figma node 3963:7181
+   ============================================================ */
+
+/* header selects / pills */
+.premui-w-ticker, .premui-w-inline-select, .premui-w-flag-select {
+  display: inline-flex; align-items: center; gap: var(--spacing-4);
+  height: 28px; padding: 0 var(--spacing-8); box-sizing: border-box;
+  border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-8);
+  background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small);
+  color: var(--color-text-strong); font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+.premui-w-inline-select i, .premui-w-flag-select i, .premui-w-ticker i { font-size: 16px; color: var(--color-icon-soft); }
+
+/* delta pill (+/-%) */
+.premui-w-delta {
+  display: inline-flex; align-items: center; gap: 1px;
+  padding: 2px var(--spacing-6); border-radius: var(--radius-full);
+  font-size: 12px; font-weight: 500; line-height: 16px; white-space: nowrap;
+}
+.premui-w-delta i { font-size: 13px; }
+.premui-w-delta[data-dir="up"] { background: var(--color-state-success-lighter); color: var(--color-state-success-base); }
+.premui-w-delta[data-dir="down"] { background: var(--color-state-error-lighter); color: var(--color-state-error-base); }
+
+/* generic list wrapper */
+.premui-w-list { display: flex; flex-direction: column; }
+.premui-w-amt-pill { flex-shrink: 0; padding: 2px var(--spacing-8); border-radius: var(--radius-full); background: var(--color-bg-weak); font-size: 12px; font-weight: 500; color: var(--color-text-sub); }
+.premui-w-row-chevron { flex-shrink: 0; font-size: 18px; color: var(--color-icon-soft); }
+.premui-w-txn-brand { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: var(--radius-full); border: 1px solid var(--color-stroke-soft); overflow: hidden; }
+.premui-w-txn-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0; }
+.premui-w-txn-amt { font-size: 14px; font-weight: 500; color: var(--color-text-strong); white-space: nowrap; }
+.premui-w-txn-date { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-cur-change { display: inline-flex; align-items: center; gap: 1px; font-size: 12px; font-weight: 500; }
+.premui-w-cur-change[data-dir="up"] { color: var(--color-state-success-base); }
+.premui-w-cur-change[data-dir="down"] { color: var(--color-state-error-base); }
+
+/* Stock Market Tracker */
+.premui-w-stock-head { display: flex; align-items: center; gap: var(--spacing-8); }
+.premui-w-stock-value { font-size: 28px; font-weight: 500; letter-spacing: -0.56px; color: var(--color-text-strong); }
+.premui-w-stock-sub { font-size: 12px; font-weight: 500; letter-spacing: 0.36px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-stock-chart { position: relative; margin: var(--spacing-16) 0; }
+.premui-w-stock-tip { position: absolute; left: 50%; top: 26px; transform: translateX(-50%); background: var(--color-bg-strong, #171717); color: var(--color-static-white, #fff); font-size: 12px; font-weight: 500; padding: 3px var(--spacing-8); border-radius: var(--radius-6); white-space: nowrap; }
+.premui-w-ohlc { display: flex; align-items: center; justify-content: center; gap: var(--spacing-8); padding: var(--spacing-10); border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10); font-size: 13px; color: var(--color-text-sub); }
+.premui-w-ohlc b { color: var(--color-text-strong); font-weight: 600; }
+.premui-w-ohlc-dot { color: var(--color-icon-soft); }
+
+/* Total Balance / area chart */
+.premui-w-bal-head { display: flex; align-items: center; gap: var(--spacing-8); }
+.premui-w-bal-value { font-size: 28px; font-weight: 500; letter-spacing: -0.56px; color: var(--color-text-strong); }
+.premui-w-bal-value[data-muted] { color: var(--color-text-disabled); }
+.premui-w-area-chart { margin-top: var(--spacing-12); }
+.premui-w-xaxis { display: flex; justify-content: space-between; margin-top: var(--spacing-4); font-size: 11px; color: var(--color-text-soft); }
+
+/* Total Expenses */
+.premui-w-exp-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.premui-w-exp-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-full); border: 1px solid var(--color-stroke-soft); color: var(--color-icon-sub); font-size: 20px; }
+.premui-w-exp-spark { flex-shrink: 0; }
+.premui-w-exp-spark-flat { display: block; width: 160px; height: 2px; background: var(--color-stroke-soft); margin-top: 20px; }
+
+/* Major Expenses horizontal bars */
+.premui-w-hbars { display: flex; flex-direction: column; gap: var(--spacing-10); }
+.premui-w-hbar-row { display: flex; align-items: center; gap: var(--spacing-12); }
+.premui-w-hbar-label { width: 60px; flex-shrink: 0; font-size: 13px; color: var(--color-text-strong); }
+.premui-w-hbar-label[data-muted] { color: var(--color-text-disabled); }
+.premui-w-hbar-track { flex: 1; height: 14px; position: relative; }
+.premui-w-hbar-fill { display: block; height: 100%; border-radius: var(--radius-full); }
+.premui-w-hbar-empty { display: block; width: 14px; height: 100%; border-radius: var(--radius-4); background: var(--color-bg-soft); }
+.premui-w-hbar-axis { display: flex; justify-content: space-between; margin-left: 72px; font-size: 11px; color: var(--color-text-soft); }
+
+/* My Subscriptions promo */
+.premui-w-promo { display: flex; align-items: center; gap: var(--spacing-10); padding: var(--spacing-12); border-radius: var(--radius-12); background: var(--color-bg-weak); margin-bottom: var(--spacing-12); }
+.premui-w-promo-text { display: flex; flex-direction: column; gap: 2px; }
+.premui-w-promo-title { font-size: 14px; font-weight: 600; color: var(--color-text-strong); }
+.premui-w-promo-sub { font-size: 12px; color: var(--color-text-sub); }
+
+/* Spending Summary */
+.premui-w-spend-label { font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-sub); }
+.premui-w-spend-value { font-size: 24px; font-weight: 500; letter-spacing: -0.48px; color: var(--color-text-strong); }
+.premui-w-cats { display: flex; border-top: 1px solid var(--color-stroke-soft); border-bottom: 1px solid var(--color-stroke-soft); }
+.premui-w-cat { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); padding: var(--spacing-12) var(--spacing-4); border-left: 1px solid var(--color-stroke-soft); }
+.premui-w-cat[data-first] { border-left: none; }
+.premui-w-cat-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: var(--radius-full); background: var(--color-state-information-lighter); color: var(--color-state-information-base); font-size: 18px; }
+.premui-w-cat-label { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-cat-amt { font-size: 14px; font-weight: 600; color: var(--color-text-strong); }
+.premui-w-info-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-8); margin-top: var(--spacing-16); padding: var(--spacing-10) var(--spacing-12); border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-10); font-size: 13px; color: var(--color-text-sub); }
+.premui-w-info-bar i { color: var(--color-icon-soft); font-size: 16px; }
+
+/* Exchange */
+.premui-w-xchg-box { border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-12); overflow: hidden; margin-bottom: var(--spacing-16); }
+.premui-w-xchg-head { display: flex; align-items: center; padding: var(--spacing-10) var(--spacing-12); border-bottom: 1px solid var(--color-stroke-soft); }
+.premui-w-xchg-cur { flex: 1; display: inline-flex; align-items: center; gap: var(--spacing-6); font-size: 14px; font-weight: 600; color: var(--color-text-strong); }
+.premui-w-xchg-cur:last-child { justify-content: flex-end; }
+.premui-w-xchg-cur i { color: var(--color-icon-soft); font-size: 18px; }
+.premui-w-xchg-swap { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: var(--radius-full); border: 1px solid var(--color-stroke-soft); color: var(--color-icon-sub); font-size: 16px; }
+.premui-w-xchg-amt { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--spacing-16) 0 var(--spacing-12); }
+.premui-w-xchg-value { font-size: 32px; font-weight: 500; letter-spacing: -0.64px; color: var(--color-text-strong); }
+.premui-w-xchg-avail { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-xchg-rate { padding: var(--spacing-8) var(--spacing-12); background: var(--color-bg-weak); text-align: center; font-size: 13px; color: var(--color-text-sub); }
+.premui-w-xchg-rate b { color: var(--color-text-strong); }
+.premui-w-kv-line { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-8) 0; font-size: 14px; color: var(--color-text-sub); border-bottom: 1px solid var(--color-stroke-soft); }
+.premui-w-kv-line:last-of-type { border-bottom: none; }
+.premui-w-kv-line b { color: var(--color-text-strong); font-weight: 600; }
+
+/* Quick Transfer */
+.premui-w-contacts-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-8); }
+.premui-w-contacts-nav { display: inline-flex; gap: var(--spacing-4); color: var(--color-icon-soft); font-size: 18px; }
+.premui-w-contacts { display: flex; gap: var(--spacing-8); overflow: hidden; margin-bottom: var(--spacing-16); }
+.premui-w-contact-chip { display: inline-flex; align-items: center; gap: var(--spacing-6); padding: 3px var(--spacing-10) 3px 3px; border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-full); font-size: 13px; font-weight: 500; color: var(--color-text-strong); white-space: nowrap; flex-shrink: 0; }
+.premui-w-transfer-box { border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-12); overflow: hidden; }
+.premui-w-transfer-card { display: flex; align-items: center; gap: var(--spacing-8); padding: var(--spacing-10) var(--spacing-12); background: var(--color-bg-weak); font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-transfer-amt { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--spacing-16) 0 var(--spacing-8); }
+.premui-w-transfer-avail { margin: 0 var(--spacing-12) var(--spacing-12); padding: var(--spacing-8); text-align: center; background: var(--color-bg-weak); border-radius: var(--radius-8); font-size: 12px; color: var(--color-text-sub); }
+
+/* Donation Profile */
+.premui-w-donation { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); }
+.premui-w-donation-avatar { position: relative; }
+.premui-w-donation-star { position: absolute; top: 0; right: -2px; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: var(--radius-full); background: var(--color-state-success-base); color: #fff; font-size: 12px; border: 2px solid var(--color-bg-white, #fff); }
+.premui-w-donation-name { font-size: 16px; font-weight: 600; color: var(--color-text-strong); margin-top: var(--spacing-4); }
+.premui-w-donation-sub { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-donation-stats { display: flex; gap: var(--spacing-12); width: 100%; margin-top: var(--spacing-12); }
+.premui-w-donation-stat { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); padding: var(--spacing-16) var(--spacing-8); border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-12); }
+.premui-w-donation-stat-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); border: 1px solid var(--color-stroke-soft); color: var(--color-icon-sub); font-size: 18px; }
+.premui-w-donation-stat-value { font-size: 16px; font-weight: 600; color: var(--color-text-strong); }
+.premui-w-donation-stat-label { font-size: 12px; color: var(--color-text-sub); }
+
+/* Card face (My Cards) */
+.premui-w-cardface { position: relative; overflow: hidden; border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-16); padding: var(--spacing-16); box-shadow: var(--shadow-regular-x-small); background: var(--color-bg-white, #fff); }
+.premui-w-cardface-watermark { position: absolute; right: -10px; top: 8px; font-size: 120px; font-weight: 700; line-height: 1; color: var(--color-bg-weak); z-index: 0; }
+.premui-w-cardface-top { position: relative; z-index: 1; display: flex; align-items: center; gap: var(--spacing-8); }
+.premui-w-cardface-brand { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: var(--radius-8); background: var(--primary-base); color: #fff; font-size: 18px; }
+.premui-w-cardface-nfc { font-size: 20px; color: var(--color-icon-soft); }
+.premui-w-cardface-active { display: inline-flex; align-items: center; gap: var(--spacing-4); padding: 3px var(--spacing-8); border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-full); font-size: 12px; font-weight: 500; color: var(--color-text-sub); }
+.premui-w-cardface-active i { color: var(--color-state-success-base); font-size: 14px; }
+.premui-w-cardface-mc { margin-left: auto; }
+.premui-w-cardface-bottom { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: space-between; margin-top: var(--spacing-24); }
+.premui-w-cardface-label { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-cardface-balance { font-size: 28px; font-weight: 500; letter-spacing: -0.56px; color: var(--color-text-strong); }
+.premui-w-cardface-nav { display: inline-flex; gap: var(--spacing-4); }
+.premui-w-cardface-nav button { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: var(--radius-8); border: 1px solid var(--color-stroke-soft); background: var(--color-bg-white, #fff); color: var(--color-icon-sub); font-size: 18px; cursor: pointer; }
+
+/* My Cards limit row */
+.premui-w-limit-row { display: flex; align-items: center; gap: var(--spacing-12); }
+.premui-w-limit-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.premui-w-limit-label { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-limit-value { font-size: 18px; font-weight: 600; color: var(--color-text-strong); }
+.premui-w-limit-per { font-size: 12px; font-weight: 400; color: var(--color-text-sub); }
+
+/* My Cards Vertical details + actions */
+.premui-w-carddetails { display: flex; flex-direction: column; margin-top: var(--spacing-16); }
+.premui-w-card-actions { display: flex; gap: var(--spacing-8); margin-top: var(--spacing-12); }
+.premui-w-widget-pill { flex: 1; height: 32px; border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-8); background: var(--color-bg-white, #fff); box-shadow: var(--shadow-regular-x-small); font-family: inherit; font-size: 13px; font-weight: 500; color: var(--color-text-strong); cursor: pointer; }
+.premui-w-widget-pill:hover { background: var(--color-bg-weak); }
+
+/* Credit Score */
+.premui-w-score-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-12); }
+.premui-w-score-text { font-size: 16px; line-height: 22px; color: var(--color-text-strong); margin: 0; }
+.premui-w-score-text[data-muted] { color: var(--color-text-disabled); }
+.premui-w-score-text b { font-weight: 600; }
+.premui-w-score-sub { font-size: 13px; color: var(--color-text-sub); }
+.premui-w-score-text[data-muted] .premui-w-score-sub { color: var(--color-text-disabled); }
+.premui-w-score-dot { flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--radius-full); background: var(--color-state-warning-lighter); }
+.premui-w-score-bars { display: flex; gap: 3px; margin-top: var(--spacing-16); }
+.premui-w-score-bar { flex: 1; height: 24px; border-radius: 2px; background: var(--color-bg-soft); }
+.premui-w-score-bar[data-on] { background: var(--color-state-success-base); }
+
+/* Budget Overview */
+.premui-w-budget-stats { display: flex; gap: var(--spacing-16); }
+.premui-w-budget-stat { flex: 1; display: flex; align-items: center; gap: var(--spacing-10); padding-right: var(--spacing-16); border-right: 1px solid var(--color-stroke-soft); }
+.premui-w-budget-stat:last-child { border-right: none; }
+.premui-w-budget-stat-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-full); border: 1px solid var(--color-stroke-soft); color: var(--color-icon-sub); font-size: 20px; }
+.premui-w-budget-stat-value { display: flex; align-items: center; gap: var(--spacing-6); font-size: 18px; font-weight: 500; letter-spacing: -0.27px; color: var(--color-text-strong); }
+.premui-w-budget-chart { display: flex; gap: var(--spacing-12); margin-top: var(--spacing-24); height: 220px; }
+.premui-w-budget-yaxis { display: flex; flex-direction: column; justify-content: space-between; font-size: 11px; color: var(--color-text-soft); padding-bottom: 20px; }
+.premui-w-budget-bars { flex: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: var(--spacing-8); }
+.premui-w-budget-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-8); height: 100%; }
+.premui-w-budget-bar { width: 100%; max-width: 44px; flex: 1; display: flex; flex-direction: column-reverse; background: var(--color-bg-weak); border-radius: var(--radius-6) var(--radius-6) 0 0; overflow: hidden; }
+.premui-w-budget-seg[data-seg="scheduled"] { background: var(--color-state-feature-base); }
+.premui-w-budget-seg[data-seg="expenses"] { background: var(--color-state-information-light); }
+.premui-w-budget-seg[data-seg="income"] { background: var(--color-state-information-base); }
+.premui-w-budget-month { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-legend-dot[data-color="income"] { background: var(--color-state-information-base); }
+.premui-w-legend-dot[data-color="expenses"] { background: var(--color-state-information-light); }
+.premui-w-legend-dot[data-color="scheduled"] { background: var(--color-state-feature-base); }
+
+/* ── Transaction Item + Detail Tabs (Recent Transactions) ── */
+.premui-w-txn-tabs { display: flex; flex-direction: column; flex: 1; }
+.premui-w-txn-list { display: flex; flex-direction: column; }
+.premui-w-txn-item {
+  display: flex; align-items: center; gap: var(--spacing-12);
+  box-sizing: border-box; padding: var(--spacing-8); margin: 0 calc(-1 * var(--spacing-8));
+  border-radius: var(--radius-12); cursor: pointer;
+  transition: background var(--motion-duration-fast) var(--motion-easing-default);
+}
+.premui-w-txn-item:hover, .premui-w-txn-item.is-hover { background: var(--color-bg-weak); }
+
+/* ── Credit Card (My Cards) ── */
+.premui-w-cc {
+  position: relative; box-sizing: border-box; width: 100%; height: 188px; overflow: hidden;
+  border-radius: var(--radius-16); padding: var(--spacing-20, 20px);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.premui-w-cc[data-variant="virtual"] { background: var(--color-bg-white, #fff); border: 1px solid var(--color-stroke-soft); box-shadow: var(--shadow-regular-x-small); }
+.premui-w-cc[data-variant="physical"] { background: #171717; }
+.premui-w-cc-deco { position: absolute; top: -60px; right: -90px; width: 200px; height: 200px; border-radius: 40px; transform: rotate(35deg); border: 24px solid rgba(180,180,190,0.06); }
+.premui-w-cc[data-variant="physical"] .premui-w-cc-deco { border-color: rgba(255,255,255,0.05); }
+.premui-w-cc-top { position: relative; z-index: 1; display: flex; align-items: center; gap: var(--spacing-8); }
+.premui-w-cc-nfc { font-size: 20px; color: var(--color-icon-soft); transform: rotate(90deg); }
+.premui-w-cc[data-variant="physical"] .premui-w-cc-nfc { color: rgba(255,255,255,0.5); }
+.premui-w-cc-active { display: inline-flex; align-items: center; gap: var(--spacing-4); padding: 3px var(--spacing-8); border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-6); background: var(--color-bg-white,#fff); font-size: 12px; font-weight: 500; color: var(--color-text-sub); }
+.premui-w-cc-active i { color: var(--color-state-success-base); font-size: 14px; }
+.premui-w-cc-mc { margin-left: auto; }
+.premui-w-cc-bottom { position: relative; z-index: 1; display: flex; flex-direction: column; gap: var(--spacing-2); }
+.premui-w-cc-label { font-size: 14px; letter-spacing: -0.084px; color: var(--color-text-sub); }
+.premui-w-cc-value { font-size: 32px; font-weight: 500; letter-spacing: -0.5px; color: var(--color-text-strong); line-height: 1.1; }
+.premui-w-cc[data-variant="physical"] .premui-w-cc-label { color: #a3a3a3; }
+.premui-w-cc[data-variant="physical"] .premui-w-cc-value { color: #fff; font-size: 24px; }
+.premui-w-cc-nav { position: absolute; z-index: 1; right: var(--spacing-16); bottom: var(--spacing-16); display: inline-flex; border: 1px solid var(--color-stroke-soft); border-radius: var(--radius-6); overflow: hidden; background: var(--color-bg-white,#fff); }
+.premui-w-cc-nav button { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: none; border-right: 1px solid var(--color-stroke-soft); background: var(--color-bg-white,#fff); color: var(--color-icon-sub); font-size: 16px; cursor: pointer; }
+.premui-w-cc-nav button:last-child { border-right: none; }
+
+/* ── Donation Details Tab ── */
+.premui-w-dd { display: flex; flex-direction: column; gap: var(--spacing-16); width: 100%; }
+.premui-w-dd-goal-head { text-align: center; }
+.premui-w-dd-goal-title { font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-dd-goal-sub { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-dd-goal-sub b { color: var(--color-text-strong); }
+.premui-w-dd-heart { position: relative; width: 160px; height: 140px; align-self: center; margin: var(--spacing-8) 0; }
+.premui-w-dd-heart-pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 600; color: #fff; }
+.premui-w-dd-goal-foot { text-align: center; font-size: 12px; color: var(--color-text-sub); }
+.premui-w-dd-goal-foot b { color: var(--color-text-strong); }
+.premui-w-dd-stats { display: flex; gap: var(--spacing-16); width: 100%; }
+.premui-w-dd-stat { flex: 1; display: flex; align-items: flex-start; gap: var(--spacing-12); }
+.premui-w-dd-stat-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-full); font-size: 20px; }
+.premui-w-dd-stat-icon[data-c="orange"] { background: var(--color-state-warning-lighter); color: var(--color-state-warning-base); }
+.premui-w-dd-stat-icon[data-c="blue"] { background: var(--color-state-information-lighter); color: var(--color-state-information-base); }
+.premui-w-dd-stat-label { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-dd-stat-value { font-size: 14px; font-weight: 500; color: var(--color-text-strong); }
+.premui-w-dd-chart { position: relative; width: 100%; }
+.premui-w-dd-months { display: flex; margin-top: var(--spacing-4); }
+.premui-w-dd-months span { flex: 1; text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--color-text-soft); }
+
+/* ── Promotional Card (My Subscriptions) ── */
+.premui-w-promocard {
+  position: relative; box-sizing: border-box; width: 100%; height: 124px; overflow: hidden;
+  padding: var(--spacing-16); border-radius: var(--radius-12); background: var(--color-bg-weak);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.premui-w-promocard-inset { margin-bottom: var(--spacing-12); }
+.premui-w-promocard-logo { position: relative; z-index: 1; }
+.premui-w-promocard-wm { position: absolute; top: -48px; right: -34px; z-index: 0; line-height: 0; opacity: 0.9; }
+.premui-w-promocard-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: var(--spacing-4); }
+.premui-w-promocard-title { font-size: 14px; font-weight: 500; letter-spacing: -0.084px; color: var(--color-text-strong); }
+.premui-w-promocard-desc { font-size: 12px; color: var(--color-text-sub); }
+.premui-w-promocard-link { color: var(--color-text-sub); text-decoration: underline; font-weight: 500; cursor: pointer; }
+
+/* ── Contact Chip selected state (Quick Transfer) ── */
+.premui-w-contact-chip { border: none; background: var(--color-bg-white, #fff); box-shadow: 0 0 0 1px var(--color-stroke-soft); cursor: pointer; font-family: inherit; transition: box-shadow var(--motion-duration-fast) var(--motion-easing-default), background var(--motion-duration-fast) var(--motion-easing-default); }
+.premui-w-contact-chip:hover:not([data-selected]), .premui-w-contact-chip[data-state="hover"] { background: var(--color-bg-weak); }
+.premui-w-contact-chip[data-selected] { box-shadow: 0 0 0 1.5px var(--primary-base); }
+.premui-w-contact-check { font-size: 16px; color: var(--primary-base); margin-left: -2px; }

@@ -28,6 +28,41 @@ export const BrandLogo = ({ name, size = 20, className = '' }: BrandLogoProps) =
   return <img className={className} src={url} alt={name} width={size} height={size} style={{ flexShrink: 0 }} />;
 };
 
+const countryFlags = import.meta.glob('../../assets/Country Flags/*.svg', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+const flagByName: Record<string, string> = {};
+for (const [key, url] of Object.entries(countryFlags)) {
+  const name = (key.split('/').pop() ?? '').replace(/\.svg$/, '');
+  flagByName[name] = url;
+}
+
+export interface CountryFlagProps {
+  /** Country file name without extension, e.g. "United States", "European Union". */
+  name: string;
+  size?: number;
+  className?: string;
+}
+
+/** Renders a round country flag from `src/assets/Country Flags/` by file name. */
+export const CountryFlag = ({ name, size = 20, className = '' }: CountryFlagProps) => {
+  const url = flagByName[name];
+  if (!url) return null;
+  return (
+    <img
+      className={className}
+      src={url}
+      alt={name}
+      width={size}
+      height={size}
+      style={{ flexShrink: 0, borderRadius: '50%', objectFit: 'cover' }}
+    />
+  );
+};
+
 export interface WidgetCardProps {
   /** Header leading RemixIcon (no `ri-` prefix). */
   icon?: string;

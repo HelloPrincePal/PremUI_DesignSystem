@@ -1,6 +1,7 @@
 {
   "name": "Widgets",
-  "description": "14 HR-management dashboard widgets built on a shared WidgetCard shell (header icon+title+action, inset divider, body). Each has a populated and an empty variant; empties reuse the EmptyState illustrations. Widgets: TimeOff, CurrentProject, StatusTracker, Notes, Schedule, TimeTracker, EmployeeSpotlight, DailyFeedback, WorkHourAnalysis, Courses, DailyWorkHours, TrainingAnalysis, CourseProgress, EmployeeRating.",
+  "description": "Dashboard widgets on a shared WidgetCard shell (header icon+title+action, inset divider, body), each with a populated and an empty variant (empties reuse the EmptyState illustrations). HR Management (14): TimeOff, CurrentProject, StatusTracker, Notes, Schedule, TimeTracker, EmployeeSpotlight, DailyFeedback, WorkHourAnalysis, Courses, DailyWorkHours, TrainingAnalysis, CourseProgress, EmployeeRating. Finance & Banking (16): StockMarketTracker, MyCards, MyCardsVertical, SpendingSummary, Exchange, CurrencyList, RecentTransactions, MySubscriptions, QuickTransfer, DonationProfile, SavedActions, TotalBalance, TotalExpenses, MajorExpenses, CreditScore, BudgetOverview.",
+  "financeSourceNote": "Finance & Banking widgets ported from Figma node 3963:7181 (Widgets [Finance & Banking] [1.1], 32 symbols = 16 types x Empty State Off/On). Implemented from a single get_metadata call — the user provided the widget screenshots directly, so no get_screenshot/get_design_context calls were spent on visuals. Reuses the WidgetCard shell + SegmentedControl/Badge/CircularProgressBar/Avatar/EmptyState primitives. New shared helpers: AccountCard (credit-card face) and CountryFlag (round flag loaded from src/assets/Country Flags/ by name). Charts (stock line+tooltip, balance area, expense sparkline, horizontal bars, 2-segment spending gauge, credit-score segmented bar, 12-month stacked Budget Overview) are inline SVG/CSS.",
   "category": "product",
   "status": "stable",
   "version": "1.0.0",
@@ -10,7 +11,13 @@
     "TimeOffWidget", "CurrentProjectWidget", "StatusTrackerWidget", "NotesWidget",
     "ScheduleWidget", "TimeTrackerWidget", "EmployeeSpotlightWidget", "DailyFeedbackWidget",
     "WorkHourAnalysisWidget", "CoursesWidget", "DailyWorkHoursWidget", "TrainingAnalysisWidget",
-    "CourseProgressWidget", "EmployeeRatingWidget", "WidgetCard", "WidgetHeaderButton", "BrandLogo"
+    "CourseProgressWidget", "EmployeeRatingWidget", "WidgetCard", "WidgetHeaderButton", "BrandLogo", "CountryFlag",
+    "StockMarketTrackerWidget", "MyCardsWidget", "MyCardsVerticalWidget", "SpendingSummaryWidget", "ExchangeWidget",
+    "CurrencyListWidget", "RecentTransactionsWidget", "MySubscriptionsWidget", "QuickTransferWidget", "DonationProfileWidget",
+    "SavedActionsWidget", "TotalBalanceWidget", "TotalExpensesWidget", "MajorExpensesWidget", "CreditScoreWidget",
+    "BudgetOverviewWidget",
+    "TransactionItem", "TransactionDetailTabs", "CardChip", "CreditCard", "CardDetailsTab", "DonationDetailsTab",
+    "PromotionalCard", "SavedActionItem", "ContactChip", "StackedBarItem", "StackedBarChart"
   ],
   "parts": {
     "note": "Reusable widget sub-components, each ported from its own Figma frame and composed back into the widgets above.",

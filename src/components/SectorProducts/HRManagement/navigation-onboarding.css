@@ -1,0 +1,47 @@
+/* ============================================================
+   Navigation Onboarding — Sector Products > HR Management
+   Figma node 3903:28827.
+   ============================================================ */
+
+.premui-onb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-20, 20px);
+  background: var(--color-bg-white, #fff);
+  border-bottom: 1px solid var(--color-stroke-soft);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.premui-onb-logo-slot { flex-shrink: 0; }
+.premui-onb-logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: var(--radius-full);
+  background: var(--primary-base); color: #fff; font-size: 20px;
+}
+
+.premui-onb-steps {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-12);
+  min-width: 0;
+  overflow: hidden;
+}
+.premui-onb-sep { font-size: 18px; color: var(--color-icon-soft); flex-shrink: 0; }
+.premui-onb-step { display: inline-flex; align-items: center; gap: var(--spacing-8); white-space: nowrap; }
+.premui-onb-step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: var(--radius-full);
+  background: var(--color-bg-weak); color: var(--color-text-soft);
+  font-size: 12px; font-weight: 600;
+}
+.premui-onb-step-label { font-size: 14px; font-weight: 500; color: var(--color-text-soft); }
+.premui-onb-step[data-active] .premui-onb-step-num { background: var(--primary-base); color: #fff; }
+.premui-onb-step[data-active] .premui-onb-step-label { color: var(--color-text-strong); }
+
+.premui-onb-right { flex-shrink: 0; margin-left: auto; display: flex; align-items: center; gap: var(--spacing-12); }
+.premui-onb-help { font-size: 14px; color: var(--color-text-sub); }

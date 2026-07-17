@@ -129,4 +129,5 @@ export * from './components/PageHeader/PageHeader';
 export * from './components/PageHeader/SectionHeader';
 export * from './components/EmptyStates/EmptyState';
 export * from './components/Widgets';
+export * from './components/SectorProducts';
 

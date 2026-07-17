@@ -1183,7 +1183,7 @@
     {
       "name": "Widgets",
       "type": "ui:component",
-      "description": "Product Components > Widgets. 14 HR-management dashboard widgets (Time Off, Current Project, Status Tracker, Notes, Schedule, Time Tracker, Employee Spotlight, Daily Feedback, Work Hour Analysis, Courses, Daily Work Hours, Training Analysis, Course Progress, Employee Rating) on a shared WidgetCard shell. Each has a populated and an empty variant (empties reuse the EmptyState illustrations). Composed entirely from existing primitives (SegmentedControl, ProgressBar, CircularProgressBar, Avatar, AvatarGroup, Badge, EmptyState).",
+      "description": "Product Components > Widgets. Dashboard widgets on a shared WidgetCard shell, each with a populated and an empty variant (empties reuse the EmptyState illustrations). HR Management (14): Time Off, Current Project, Status Tracker, Notes, Schedule, Time Tracker, Employee Spotlight, Daily Feedback, Work Hour Analysis, Courses, Daily Work Hours, Training Analysis, Course Progress, Employee Rating. Finance & Banking (16): Stock Market Tracker, My Cards, My Cards (Vertical), Spending Summary, Exchange, Currency List, Recent Transactions, My Subscriptions, Quick Transfer, Donation Profile, Saved Actions, Total Balance, Total Expenses, Major Expenses, Credit Score, Budget Overview. Composed from existing primitives (SegmentedControl, ProgressBar, CircularProgressBar, Avatar, AvatarGroup, Badge, EmptyState) plus BrandLogo/CountryFlag/AccountCard helpers.",
       "dependencies": [
         "WidgetCard",
         "SegmentedControl",
@@ -1206,6 +1206,32 @@
         "src/components/Widgets/TimeTrackerDropdown.tsx",
         "src/components/Widgets/Timer.tsx",
         "src/components/Widgets/TimeOffWidget.tsx",
+        "src/components/Widgets/CardChip.tsx",
+        "src/components/Widgets/CreditCard.tsx",
+        "src/components/Widgets/CardDetailsTab.tsx",
+        "src/components/Widgets/DonationDetailsTab.tsx",
+        "src/components/Widgets/TransactionItem.tsx",
+        "src/components/Widgets/TransactionDetailTabs.tsx",
+        "src/components/Widgets/PromotionalCard.tsx",
+        "src/components/Widgets/SavedActionItem.tsx",
+        "src/components/Widgets/ContactChip.tsx",
+        "src/components/Widgets/StackedBarChart.tsx",
+        "src/components/Widgets/StockMarketTrackerWidget.tsx",
+        "src/components/Widgets/MyCardsWidget.tsx",
+        "src/components/Widgets/MyCardsVerticalWidget.tsx",
+        "src/components/Widgets/SpendingSummaryWidget.tsx",
+        "src/components/Widgets/ExchangeWidget.tsx",
+        "src/components/Widgets/CurrencyListWidget.tsx",
+        "src/components/Widgets/RecentTransactionsWidget.tsx",
+        "src/components/Widgets/MySubscriptionsWidget.tsx",
+        "src/components/Widgets/QuickTransferWidget.tsx",
+        "src/components/Widgets/DonationProfileWidget.tsx",
+        "src/components/Widgets/SavedActionsWidget.tsx",
+        "src/components/Widgets/TotalBalanceWidget.tsx",
+        "src/components/Widgets/TotalExpensesWidget.tsx",
+        "src/components/Widgets/MajorExpensesWidget.tsx",
+        "src/components/Widgets/CreditScoreWidget.tsx",
+        "src/components/Widgets/BudgetOverviewWidget.tsx",
         "src/components/Widgets/CurrentProjectWidget.tsx",
         "src/components/Widgets/StatusTrackerWidget.tsx",
         "src/components/Widgets/NotesWidget.tsx",
@@ -1249,6 +1275,55 @@
         "--radius-16",
         "--radius-full",
         "--shadow-regular-x-small"
+      ]
+    },
+    {
+      "name": "HRManagementDashboard",
+      "type": "ui:sector-product",
+      "description": "Sector Products > HR Management. A complete HR-management app screen assembled entirely from Product Components — SidebarNavigation + a PageHeader top bar + the 14 HR Management widgets in a responsive CSS-columns masonry. No new primitives; the top of the taxonomy above Product Components.",
+      "dependencies": [
+        "SidebarNavigation",
+        "PageHeader",
+        "Widgets"
+      ],
+      "files": [
+        "src/components/SectorProducts/HRManagement/HRManagementDashboard.tsx",
+        "src/components/SectorProducts/HRManagement/hr-management.css"
+      ],
+      "cssVariablesUsed": [
+        "--color-bg-weak",
+        "--color-stroke-soft",
+        "--spacing-24"
+      ]
+    },
+    {
+      "name": "CalendarPageComponents",
+      "type": "ui:sector-product",
+      "description": "Sector Products > HR Management > Calendar Page Components. Building blocks for an HR calendar page: Calendar (weekly time-grid with positioned event cards + disabled column), CalendarCard (Meeting/Event block, 4 sizes, completed state), CalendarCell (card positioning within a time cell + empty/disabled), CalendarUpcoming (upcoming-event summary card), and UpcomingStatus (Later/Cancelled/Conflicted/Today pill). Ported from Figma 3878:61401, 3877:58564, 3877:58545, 3875:40906, 3873:40841.",
+      "dependencies": [
+        "Avatar",
+        "AvatarGroup"
+      ],
+      "files": [
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/Calendar.tsx",
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/CalendarCard.tsx",
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/CalendarCell.tsx",
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/CalendarUpcoming.tsx",
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/UpcomingStatus.tsx",
+        "src/components/SectorProducts/HRManagement/CalendarPageComponents/calendar-page.css"
+      ]
+    },
+    {
+      "name": "NavigationOnboarding",
+      "type": "ui:sector-product",
+      "description": "Sector Products > HR Management. Onboarding flow top bar — brand logo + optional numbered step indicator (Personal → Role → Position → Password → Summary) + a 'Need help? Contact Us' cluster + close button. Ported from Figma node 3903:28827.",
+      "dependencies": [
+        "Button",
+        "CompactButton"
+      ],
+      "files": [
+        "src/components/SectorProducts/HRManagement/NavigationOnboarding.tsx",
+        "src/components/SectorProducts/HRManagement/navigation-onboarding.css"
       ]
     }
   ]

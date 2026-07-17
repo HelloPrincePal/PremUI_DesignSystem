@@ -8,6 +8,20 @@ import { ScheduleCard } from './ScheduleCard';
 import { ScheduleDetailTabs } from './ScheduleDetailTabs';
 import { TimeTrackerDropdown } from './TimeTrackerDropdown';
 import { Timer } from './Timer';
+import { TransactionItem, TxnBrand } from './TransactionItem';
+import { TransactionDetailTabs } from './TransactionDetailTabs';
+import { CardChip } from './CardChip';
+import type { CardChipColor } from './CardChip';
+import { CreditCard } from './CreditCard';
+import { CardDetailsTab } from './CardDetailsTab';
+import { DonationDetailsTab } from './DonationDetailsTab';
+import { PromotionalCard } from './PromotionalCard';
+import { SavedActionItem } from './SavedActionItem';
+import { ContactChip } from './ContactChip';
+import { StackedBarChart } from './StackedBarChart';
+import { PaymentIcon } from '../PaymentIcon/PaymentIcon';
+import { KeyIcon } from '../KeyIcon/KeyIcon';
+import { Avatar } from '../Avatars/Avatar';
 
 const meta: Meta = {
   title: 'Product Components/Widgets/Parts',
@@ -136,6 +150,125 @@ export const TimerStory: Story = {
     <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
       <div style={{ width: 320 }}><Timer type="default" /></div>
       <div style={{ width: 320 }}><Timer type="ongoing" /></div>
+    </div>
+  ),
+};
+
+/** Transaction Items [Recent Transactions] — the 4 leading types. */
+export const TransactionItems: Story = {
+  name: 'Transaction Item',
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, maxWidth: 340 }}>
+      <TransactionItem leading={<PaymentIcon type="electricity" />} title="Electricity Bill" description="3 days later" amount="-$86.00" date="Sep 21" />
+      <TransactionItem leading={<Avatar persona="James Brown" type="Illustration" size={40} />} title="James Brown" description="Sent you money" amount="$120.00" date="Sep 18" />
+      <TransactionItem leading={<TxnBrand name="Spotify" />} title="Spotify Premium" description="Monthly subscription" amount="-$9.99" date="Sep 15" />
+      <TransactionItem leading={<KeyIcon icon="tools-line" color="gray" style="stroke" size="md" />} title="Car Repairing" description="RepairMyCar Co." amount="-$640.00" date="Sep 08" />
+    </div>
+  ),
+};
+
+/** Transaction Detail Tabs — Incoming / Outgoing / Pending. */
+export const TransactionTabs: Story = {
+  name: 'Transaction Detail Tabs',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+      <div style={{ width: 320 }}><TransactionDetailTabs defaultTab="incoming" /></div>
+      <div style={{ width: 320 }}><TransactionDetailTabs defaultTab="outgoing" /></div>
+      <div style={{ width: 320 }}><TransactionDetailTabs defaultTab="pending" /></div>
+    </div>
+  ),
+};
+
+const CHIP_COLORS: CardChipColor[] = ['white', 'gray', 'purple', 'red', 'orange', 'yellow', 'blue', 'teal', 'pink', 'green'];
+
+/** Chips [My Cards] — the EMV chip in 10 colors. */
+export const Chips: Story = {
+  name: 'Card Chip',
+  render: () => (
+    <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+      {CHIP_COLORS.map((c) => <CardChip key={c} color={c} width={48} />)}
+    </div>
+  ),
+};
+
+/** Credit Cards [My Cards] — Virtual and Physical. */
+export const CreditCards: Story = {
+  name: 'Credit Card',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+      <div style={{ width: 320 }}><CreditCard variant="virtual" /></div>
+      <div style={{ width: 320 }}><CreditCard variant="physical" /></div>
+    </div>
+  ),
+};
+
+/** Card Details Tab [My Cards] — Virtual and Physical. */
+export const CardDetails: Story = {
+  name: 'Card Details Tab',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+      <div style={{ width: 320 }}><CardDetailsTab variant="virtual" /></div>
+      <div style={{ width: 320 }}><CardDetailsTab variant="physical" /></div>
+    </div>
+  ),
+};
+
+/** Donation Details Tab — Overview / Goal / Statistic. */
+export const DonationDetails: Story = {
+  name: 'Donation Details Tab',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'flex-start' }}>
+      <div style={{ width: 320 }}><DonationDetailsTab defaultTab="overview" /></div>
+      <div style={{ width: 320 }}><DonationDetailsTab defaultTab="goal" /></div>
+      <div style={{ width: 320 }}><DonationDetailsTab defaultTab="statistic" /></div>
+    </div>
+  ),
+};
+
+const PROMO_BRANDS = ['Apple Music', 'Spotify', 'Grove Shark', 'Youtube Music', 'Netflix', 'Microsoft Office', 'Creative Cloud', 'Twitch', 'Mailchimp'];
+
+/** Promotional Cards [My Subscriptions] — all 9 brand variants. */
+export const PromotionalCards: Story = {
+  name: 'Promotional Card',
+  render: () => (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 320px)', gap: 16 }}>
+      {PROMO_BRANDS.map((b) => <PromotionalCard key={b} brand={b} />)}
+    </div>
+  ),
+};
+
+/** Saved Actions Items [Saved Actions]. */
+export const SavedActionItems: Story = {
+  name: 'Saved Action Item',
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, maxWidth: 340 }}>
+      <SavedActionItem leading={<KeyIcon icon="home-5-fill" color="green" style="lighter" size="md" />} title="Rent Payment" subtitle="Monthly rent payment." amount="$940.00" />
+      <SavedActionItem leading={<Avatar persona="James Brown" type="Illustration" size={40} />} title="Send to James" subtitle="Personal transfer." amount="$120.00" />
+    </div>
+  ),
+};
+
+/** My Contacts [Quick Transfer] — Default / Selected. */
+export const ContactChips: Story = {
+  name: 'Contact Chip',
+  render: () => (
+    <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+      <ContactChip name="Natalia" avatar={<Avatar persona="Natalia Nowak" type="Solid BG" size={24} />} />
+      <ContactChip name="James" avatar={<Avatar persona="James Brown" type="Illustration" size={24} />} selected />
+    </div>
+  ),
+};
+
+/** Stacked Bar Chart [Budget Overview] — 12 / 7 / 6 / 4-bar variants. */
+export const StackedBarCharts: Story = {
+  name: 'Stacked Bar Chart',
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 32, maxWidth: 700 }}>
+      <StackedBarChart bars={12} />
+      <StackedBarChart bars={7} />
+      <StackedBarChart bars={6} />
+      <StackedBarChart bars={4} />
     </div>
   ),
 };

@@ -7,7 +7,7 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Introduction', 'For AI Agents', 'Changelog', 'Foundations', 'Components', 'Product Components', '*'],
+        order: ['Introduction', 'For AI Agents', 'Changelog', 'Foundations', 'Components', 'Product Components', 'Sector Products', '*'],
       },
     },
     docs: {
